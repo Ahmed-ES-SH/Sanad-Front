@@ -1,0 +1,1577 @@
+{
+  "layoutMeta": {
+    "title": "سند - حلول تقنية مبتكرة",
+    "description": "تقدم شركة سند خدمات تقنية متقدمة وحلول تطوير مبتكرة لتمكين عملك في العالم الرقمي. من البرمجيات المخصصة إلى التحول الرقمي – نحن هنا لدعمك."
+  },
+
+  "aboutMeta": {
+    "title": "من نحن - سند",
+    "description": "تعرّف على Sanad، الشركة الرائدة في تقديم الحلول التقنية المبتكرة. اكتشف رسالتنا ورؤيتنا وكيف نساعد الشركات على النمو من خلال التكنولوجيا."
+  },
+
+  "servicesMeta": {
+    "title": "خدماتنا - سند",
+    "description": "استكشف مجموعة الخدمات التقنية المبتكرة والمخصصة التي تقدمها سند. من تطوير البرمجيات حسب الطلب إلى التحول الرقمي الكامل – نحن نجعل أفكارك واقعًا."
+  },
+
+  "portfolioMeta": {
+    "title": "أعمالنا - سند",
+    "description": "استعرض أعمال سند ومجموعة من الحلول الرقمية المبتكرة. تعرّف على كيف ساعدنا الشركات على النمو من خلال التصميم والتطوير والتقنية المؤثرة."
+  },
+
+  "blogMeta": {
+    "title": "المدونة - مقالات ورؤى سند",
+    "description": "اطّلع على أحدث المقالات والرؤى والتحديثات من سند. تابع آخر مستجدات التقنية والابتكار الرقمي واستراتيجيات نمو الأعمال."
+  },
+
+  "contactMeta": {
+    "title": "اتصل بنا - سند",
+    "description": "تواصل مع سند للاستفسارات أو الاستشارات أو الدعم. نحن هنا لمساعدتك في تحقيق رؤيتك الرقمية."
+  },
+
+  "notificationsMeta": {
+    "title": "الإشعارات - سند",
+    "description": "عرض وإدارة إشعاراتك"
+  },
+
+  "signInMeta": {
+    "title": "تسجيل الدخول - سند",
+    "description": "سجّل الدخول إلى حسابك في سند لإدارة مشاريعك، ومتابعة التقدم، والتواصل مع فريق الخبراء لدينا."
+  },
+
+  "signUpMeta": {
+    "title": "إنشاء حساب - Sanad",
+    "description": "انضم إلى Sanad اليوم وتمتع بالوصول إلى حلول تقنية مبتكرة. أنشئ حسابك وابدأ رحلتك الرقمية معنا."
+  },
+
+  "verifyEmailMeta": {
+    "title": "تأكيد البريد الإلكتروني - سند",
+    "description": "قم بتأكيد عنوان بريدك الإلكتروني لإكمال تسجيل حسابك."
+  },
+
+  "cartMeta": {
+    "title": "ملف طلبك - سند",
+    "description": "راجع ملف طلب مشروعك وتابع للموافقة."
+  },
+
+  "hero": {
+    "title1": "تمكين رحلتك",
+    "solutions": "نحو التحول",
+    "forYour": "الرقمي",
+    "success": "بحلول مبتكرة",
+    "description": "في سند، نجمع بين الرؤية والتنفيذ من خلال خدمات تقنية مخصصة. من البرمجيات المبتكرة إلى التسويق الرقمي الاستراتيجي — نحن شريكك الموثوق لتحقيق النمو.",
+    "join": "ابدأ رحلتك الآن",
+    "trust_our_expertise": "ثق بخبرتنا",
+    "clients": "العملاء",
+    "digital_transformation": "مستقبل التحول الرقمي"
+  },
+
+  "mobileSidebar": {
+    "closeMenu": "إغلاق القائمة",
+    "tagline": "رحلتك الرقمية تبدأ هنا"
+  },
+
+  "aboutSection": {
+    "sectionTitleSmall": "عن سند",
+    "sectionTitleLarge": "شريكك الموثوق في رحلة الابتكار",
+    "description": "سند هي وكالة سعودية رائدة تكرس جهودها لتمكين العلامات التجارية من خلال حلول تقنية متطورة وتسويق رقمي قائم على البيانات. نحن لا نقدم خدمات فحسب؛ بل نبني استراتيجيات متكاملة تضمن وصولك لجمهورك المستهدف بدقة وجودة عالية، مع التزامنا بالتطوير المستمر.",
+    "buttonText": "اكتشف قصتنا"
+  },
+
+  "companyValuesSection": {
+    "title": "قيم الشركة",
+    "description": "في شركة مدى العربية للدعاية والإعلان، نؤمن بأن القيم التي تتبناها أي شركة هي السبيل الوحيد لنجاحها ولترسيخ جودة خدماتها. ولهذا اخترنا أن تكون قيمنا هي ثقة عملائنا، والدافع والهدف الذي نضعه نصب أعيننا ونسير نحوه بثبات."
+  },
+
+  "portfolioSection": {
+    "title": "أعمالنا",
+    "description": "تم تنفيذها بمهارة واهتمام لمساعدة عملائنا على تنمية أعمالهم من خلال حلول إبداعية ومبتكرة قائمة على النتائج. كل مشروع يعكس التزامنا بالجودة وفهمنا العميق لاحتياجات عملائنا الفريدة.",
+    "showMore": "المزيد",
+    "all": "الكل",
+    "noProjectsFound": "لا توجد مشاريع",
+    "noProjectsDescription": "لم نعثر على أي مشاريع تطابق المعايير المحددة. حاول تعديل فلتر البحث أو العودة إلى عرض جميع المشاريع.",
+    "viewAllProjects": "عرض جميع المشاريع",
+    "filtering": "جاري التصفية...",
+    "swipeToFilter": "اسحب للتصفية",
+    "view": "عرض"
+  },
+
+  "services": {
+    "subtitle": "خدماتنا",
+    "title": "ماذا نقدم لك؟",
+    "description": "نقدم مجموعة واسعة من خدمات التسويق الرقمي والإبداعي المصممة لمساعدة علامتك التجارية على النمو، بدءًا من التخطيط الاستراتيجي وصولًا إلى التنفيذ عبر وسائل التواصل والمواقع والحملات الميدانية.",
+    "cta": "ابدأ الآن",
+    "findSolution": "اكتشف الحل"
+  },
+
+  "blogSection": {
+    "title": "أحدث",
+    "blogs": "مقالاتنا",
+    "paragraphLine": "مرحبًا بك في قسم المدونة، حيث يلتقي العلم بالإلهام استكشف مقالات ثرية، ونصائح من خبراء، وآخر الاتجاهات في مجالنا. .",
+    "button": "عرض الكل"
+  },
+
+  "contactusSection": {
+    "contactUs": "اتصل بنا",
+    "description": "نحن هنا لمساعدتك والإجابة على أي استفسارات قد تكون لديك. تواصل معنا وسنرد عليك في أقرب وقت ممكن.",
+    "messageLabel": "الرسالة",
+    "sendMessage": "إرسال الرسالة",
+    "fullNameLabel": "الاسم",
+    "fullNamePlaceholder": "أدخل اسمك",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "phoneLabel": "رقم الهاتف",
+    "phonePlaceholder": "أدخل رقم هاتفك",
+    "messagePlaceholder": "رسالتك",
+    "imageAlt": "خلفية الاتصال",
+    "subjectLabel": "الموضوع",
+    "subjectPlaceholder": "أدخل موضوع الرسالة"
+  },
+
+  "footerLines": {
+    "heading": "احصل على أحدث الأخبار!",
+    "description": "تابع كل الأخبار والتحديثات الجديدة",
+    "subscribeButton": "اشترك",
+    "emailPlaceholder": "example@email.com",
+    "sections": {
+      "services": {
+        "title": "الخدمات",
+        "links": {
+          "oneOnOneCoaching": "تدريب فردي",
+          "companyReview": "مراجعة الشركة",
+          "hrConsulting": "استشارات الموارد البشرية"
+        }
+      },
+      "company": {
+        "title": "الشركة",
+        "links": {
+          "about": "من نحن",
+          "meetTheTeam": "تعرف على الفريق",
+          "careers": "الوظائف"
+        }
+      },
+      "helpfulLinks": {
+        "title": "روابط مفيدة",
+        "links": {
+          "contact": "اتصل بنا",
+          "faqs": "الأسئلة الشائعة",
+          "liveChat": "الدردشة المباشرة"
+        }
+      },
+      "legal": {
+        "title": "القانونية",
+        "links": {
+          "accessibility": "سهولة الوصول",
+          "refundPolicy": "سياسة الاسترجاع",
+          "termsOfService": "شروط الخدمة"
+        }
+      },
+      "downloads": {
+        "title": "التحميلات",
+        "links": {
+          "marketingCalendar": "تقويم التسويق",
+          "seoInfographics": "مخططات تحسين محركات البحث",
+          "brochure": "كتيب تعريفي"
+        }
+      }
+    },
+    "socialMedia": {
+      "facebook": "فيسبوك",
+      "instagram": "انستغرام",
+      "twitter": "تويتر",
+      "linkedIn": "لينكد إن"
+    }
+  },
+
+  "aboutPage": {
+    "smartTool": "أداتنا الذكية",
+    "hero_title": "تحكم في أموالك باستخدام ",
+    "hero_description": "استثمر بذكاء واكتشف طريقة أفضل لإدارة ثروتك بالكامل بسهولة.",
+    "about_us_title": "من نحن",
+    "about_us_description": "شركة سند العربية للدعاية والإعلان هي شركة سعودية رائدة متخصصة في تقديم خدمات التسويق الرقمي والترويج التجاري على منصات التواصل الاجتماعي وتقديم الإعلانات الطرقية والتلفزيونية والإذاعية بالتعاون مع أكبر شركات الدعاية والإعلان في المملكة من خلال فريق متخصص لبناء استراتيجيات تسويقية متكاملة تضمن تطوير العلاقات التجارية والوصول إلى العميل المستهدف بجودة عالية ومتابعة وإعداد تقارير تسويقية بهدف التحسين والتطوير المستمر.",
+    "creative_title": "نحن مبدعون في كل الأوقات",
+    "creative_description": "Pagedone ليست مجرد مجموعة من المكونات والإرشادات؛ إنها فلسفة. نحن نتجاوز الجماليات، ونعطي الأولوية لإمكانية الوصول، وقابلية التوسع، وسهولة الاستخدام. كل عنصر، من أدق التفاصيل إلى أضخم التصاميم، مصنوع بدقة لتعزيز الوظيفة ورفع مستوى رضا المستخدم.",
+    "aboutLabel": "من نحن — سند العربية",
+    "ourStory": "قصتنا",
+    "ourPhilosophy": "فلسفتنا",
+    "commitment": "التزام",
+    "support": "دعم"
+  },
+
+  "companyStats": {
+    "title": "إحصائيات الشركة",
+    "description": "أرقام تتحدث عن نجاحنا وثقة عملائنا"
+  },
+
+  "contactAbout": {
+    "title": "هل أنت مستعد لتحويل أعمالك؟",
+    "description": "دعنا نناقش كيف يمكن لسند مساعدتك في تحقيق أهدافك التقنية. تواصل معنا للحصول على استشارة مجانية وعرض مخصص.",
+    "getFreeQuote": "احصل على عرض مجاني",
+    "scheduleCall": "حدد موعد مكالمة"
+  },
+
+  "testimonialsSection": {
+    "title": "آراء عملائنا",
+    "description": "ما يقوله عملاؤنا عن تجربتهم معنا"
+  },
+
+  "servicesPage": {
+    "title1": "خدماتنا",
+    "title2": "ماذا نقدم؟",
+    "description": "تشمل خدمات الإعلان مجموعة من الاستراتيجيات والحلول المصممة للترويج للمنتجات أو العلامات التجارية من خلال قنوات متنوعة مثل الوسائط الرقمية والمطبوعة والمسموعة. تهدف هذه الخدمات إلى تعزيز ظهور العلامة التجارية، وجذب الجمهور المستهدف، وزيادة المبيعات من خلال إنشاء رسائل جذابة وحملات إبداعية مخصصة لأسواق محددة."
+  },
+
+  "pricing": {
+    "title": "خطة الأسعار",
+    "subtitle": "خططنا التسعيرية",
+    "monthly": "شهريًا",
+    "yearly": "سنويًا",
+    "popular": "الأكثر شيوعًا",
+    "per": "لكل",
+    "features": "الميزات",
+    "month": "شهر",
+    "year": "سنة"
+  },
+
+  "howWeWork": {
+    "sectionTitle": "كيف نعمل",
+    "sectionSubtitle": "كيف نقدم الابتكار والتميّز"
+  },
+
+  "portfolioPage": {
+    "filter": "تصفية بالقسم",
+    "projectsTitle": "",
+    "projectsTitleHighlight": "أعمالنا",
+    "projectsDescription": "استكشف أحدث مشاريعنا التقنية وابتكاراتنا",
+    "failedToLoad": "فشل في تحميل المشاريع",
+    "all": "الكل",
+    "ctaHeading": "مستعد لتكون قصّة نجاحنا القادمة؟",
+    "ctaDescription": "دعنا نبني شيئًا رائعًا معًا. أخبرنا عن مشروعك وسنتواصل معك خلال 24 ساعة.",
+    "ctaButton": "ابدأ مشروعك",
+    "other": "أخرى",
+    "allProjectsShown": "عرضت جميع المشاريع",
+    "heroTitle": "أعمالنا",
+    "heroDescription": "مشاريع تتحدث عن نفسها — نُفذت بخبرة واحتراف",
+    "projectsDelivered": "مشروع مُنجز",
+    "featuredProject": "مشروع مميز",
+    "viewProject": "عرض المشروع",
+    "goToProject": "الانتقال للمشروع",
+    "of": "من",
+    "noProjectsInCategory": "لا توجد مشاريع في هذا التصنيف",
+    "viewAllProjects": "عرض جميع المشاريع"
+  },
+
+  "servicesSlider": {
+    "title": "اكتشف خدماتنا",
+    "description": "نقدّم مجموعة متنوعة من الخدمات لمساعدتك على تحقيق أهدافك بكفاءة واحترافية، بدءًا من استراتيجيات التسويق وحتى تصميم المواقع."
+  },
+
+  "contactPage": {
+    "faqTitle": "الأسئلة الشائعة",
+    "faqDescription": "اعثر على إجابات للأسئلة الشائعة حول خدماتنا، وعملنا، وأسعارنا. لم تجد ما تبحث عنه؟ لا تتردد في التواصل معنا مباشرة.",
+    "contactTitle": "تواصل معنا",
+    "contactDescription": "هل أنت مستعد لبدء مشروعك القادم؟ يسعدنا أن نستمع إليك. أرسل لنا رسالة وسنرد عليك في أقرب وقت ممكن.",
+    "contactHelperText": "نحن هنا لمساعدتك والإجابة على أي أسئلة قد تكون لديك.",
+    "sending": "جاري الإرسال...",
+    "sendMessage": "أرسل الرسالة",
+    "messageSend": "أرسلت الرسالة!",
+    "thanksMessage": "شكرًا لتواصلك معنا. سنرد عليك خلال 24 ساعة.",
+    "formTitle": "أرسل لنا رسالة",
+    "formDescription": "املأ النموذج أدناه وسنعود إليك في أقرب وقت ممكن.",
+    "nameLabel": "الاسم الكامل",
+    "namePlaceholder": "أدخل اسمك الكامل",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "subjectLabel": "الموضوع",
+    "subjectPlaceholder": "ما موضوع رسالتك؟",
+    "messageLabel": "الرسالة",
+    "messagePlaceholder": "أخبرنا المزيد عن مشروعك أو استفسارك..."
+  },
+
+  "validationMessages": {
+    "nameRequired": "الاسم مطلوب",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "الرجاء إدخال بريد إلكتروني صحيح",
+    "subjectRequired": "الموضوع مطلوب",
+    "messageRequired": "الرسالة مطلوبة",
+    "messageTooShort": "يجب أن تكون الرسالة على الأقل 10 أحرف"
+  },
+
+  "blogPage": {
+    "categoriesTitle": "جميع التصنيفات",
+    "latestPostsTitle": "أحدث المقالات",
+    "popularTagsTitle": "العلامات الشائعة",
+    "showing": "عرض",
+    "Results": "نتيجة",
+    "sortBy": {
+      "recent": "الفرز حسب: الأحدث",
+      "popular": "الفرز حسب: الأكثر شعبية",
+      "oldest": "الفرز حسب: الأقدم"
+    },
+    "ideasThatInspire": "أفكار تلهمك",
+    "loadingText": "تحميل المقالات..."
+  },
+
+  "noArticles": {
+    "title": "لم يتم العثور على مقالات",
+    "message": "عذرًا، لم نتمكن من العثور على أي مقالات مطابقة لمعاييرك. يرجى تعديل الفلاتر أو المحاولة لاحقًا."
+  },
+
+  "ProjectPage": {
+    "technologiesUsed": "التقنيات المستخدمة",
+    "viewProject": "عرض المشروع",
+    "sourceCode": "الكود المصدري",
+    "allProjects": "جميع المشاريع",
+    "exploreProjects": "استكشف مجموعة متنوعة من المشاريع التي تم تطويرها بأحدث التقنيات",
+    "otherProjects": "مشاريع أخرى",
+    "client": "العميل",
+    "duration": "المدة",
+    "year": "السنة",
+    "challenge": "التحدي",
+    "solution": "حلنا",
+    "results": "النتائج الرئيسية",
+    "process": "العملية",
+    "tools": "الأدوات والتقنيات",
+    "gallery": "معرض المشروع",
+    "liveProject": "عرض المشروع مباشرة",
+    "nextProject": "المشروع التالي",
+    "previousProject": "المشروع السابق",
+    "getQuote": "احصل على عرض سعر",
+    "backToPortfolio": "العودة للمشاريع",
+    "category": "التصنيف",
+    "techUsed": "التقنيات",
+    "technologies": "تقنية",
+    "overview": "نظرة عامة",
+    "ctaTitle": "هل تريد مشروعاً مشابهاً؟",
+    "ctaHeading": "دعنا نبني شيئاً رائعاً معاً",
+    "ctaDescription": "تواصل معنا لمناقشة مشروعك القادم ونحن سنجعله حقيقة.",
+    "startProject": "ابدأ مشروعك",
+    "viewMore": "استعرض المزيد",
+    "other": "أخرى",
+    "close": "إغلاق",
+    "next": "التالي",
+    "previous": "السابق",
+    "viewImage": "عرض الصورة",
+    "imageLabel": "صورة",
+    "thumbnail": "صورة مصغرة",
+    "projectNotFound": {
+      "title": "المشروع غير موجود",
+      "message": "عذرًا، لم نتمكن من العثور على المشروع الذي تبحث عنه. قد يكون قد تم إزالته أو ربما الرابط غير صحيح."
+    }
+  },
+
+  "servicePage": {
+    "benefits": "الفوائد",
+    "features": "الميزات",
+    "targetAudience": "الجمهور المستهدف",
+    "otherServices": "خدمات أخرى",
+    "orderService": "طلب الخدمة",
+    "contactbtn": "تواصل معنا",
+    "ourProcess": "منهجيتنا",
+    "processDescription": "منهجية مثبتة تقدم نتائج متسقة",
+    "frequentlyAsked": "الأسئلة الشائعة",
+    "faqDescription": "كل ما تحتاج معرفته عن هذه الخدمة",
+    "choosePackage": "اختر باقتك",
+    "packageDescription": "اختر الخطة التي تناسب احتياجاتك وميزانيتك",
+    "getStarted": "ابدأ الآن",
+    "popular": "الأكثر شعبية",
+    "serviceStats": "إحصائيات الخدمة",
+    "relatedServices": "خدمات ذات صلة",
+    "exploreMore": "استكشف المزيد من خدماتنا",
+    "backToServices": "العودة للخدمات",
+    "whyChooseUs": "لماذا تختارنا",
+    "step": "الخطوة"
+  },
+
+  "verifyCode": {
+    "verifyEmailTitle": "تأكيد البريد الإلكتروني",
+    "verifyEmailDescription": "لإكمال عملية إنشاء الحساب، يجب إدخال الرمز الذي تم إرساله إلى عنوان البريد الإلكتروني الذي استخدمته للتسجيل.",
+    "deactivationWarning": "هل أنت متأكد من أنه سيتم تعطيل حسابك؟",
+    "okButton": "حسنًا",
+    "cancelButton": "إلغاء",
+    "missingToken": "رابط التحقق غير صالح أو منتهي الصلاحية. يرجى طلب رابط جديد.",
+    "verifyingTitle": "جاري التحقق من البريد الإلكتروني",
+    "verifyingDesc": "يرجى الانتظار بينما نتحقق من عنوان بريدك الإلكتروني...",
+    "successTitle": "تم التحقق من البريد الإلكتروني!",
+    "successDesc": "تم التحقق من بريدك الإلكتروني بنجاح. يمكنك الآن الوصول إلى جميع ميزات منصتنا.",
+    "errorTitle": "فشل التحقق",
+    "errorDesc": "حدث خطأ أثناء عملية التحقق. قد يكون الرابط منتهي الصلاحية أو غير صالح.",
+    "goToSignIn": "الذهاب لتسجيل الدخول",
+    "backToSignup": "العودة لإنشاء حساب"
+  },
+  "userMenu": {
+    "profile": "الملف الشخصي",
+    "dashboard": "لوحة التحكم",
+    "payments": "المدفوعات",
+    "orders": "الطلبات",
+    "notifications": "الإشعارات",
+    "notificationSettings": "إعدادات الإشعارات",
+    "logout": "تسجيل الخروج",
+    "loggingOut": "جاري تسجيل الخروج..."
+  },
+
+  "notifications": {
+    "title": "الإشعارات",
+    "empty": "لا توجد إشعارات",
+    "emptyDescription": "أنت على اطلاع! سنخطرك عند وصول أي شيء جديد.",
+    "emptyUnread": "ممتاز! ليس لديك إشعارات غير مقروءة.",
+    "unread": "إشعار غير مقروء",
+    "unreadPlural": "إشعارات غير مقروءة",
+    "allCaughtUp": "أنت على اطلاع!",
+    "markAllRead": "تحديد الكل كمقروء",
+    "loadMore": "تحميل المزيد من الإشعارات",
+    "showing": "عرض",
+    "of": "من",
+    "new": "جديد",
+    "justNow": "الآن",
+    "viewDetails": "عرض التفاصيل",
+    "read": "مقروء",
+    "delete": "حذف",
+    "filterAll": "الكل",
+    "filterUnread": "غير مقروء",
+    "typesAll": "جميع الأنواع",
+    "typesOrders": "الطلبات",
+    "typesPaymentSuccess": "دفع ناجح",
+    "typesPaymentFailed": "دفع فاشل",
+    "typesSystem": "النظام",
+    "typesBroadcast": "إعلانات",
+    "preferences": {
+      "title": "تفضيلات الإشعارات",
+      "subtitle": "تخصيص كيفية ومتى تتلقى الإشعارات",
+      "types": "أنواع الإشعارات",
+      "typesDescription": "اختر أنواع الإشعارات التي تريد تلقيها",
+      "delivery": "طرق التسليم",
+      "deliveryDescription": "اختر كيف تريد تلقي الإشعارات",
+      "orderUpdates": "تحديثات الطلبات",
+      "orderUpdatesDesc": "إشعارات حول تغييرات حالة طلبك وتحديثاته",
+      "paymentNotifications": "إشعارات الدفع",
+      "paymentNotificationsDesc": "إشعارات حول عمليات الدفع الناجحة أو الفاشلة",
+      "systemNotifications": "إشعارات النظام",
+      "systemNotificationsDesc": "تحديثات النظام المهمة، إشعارات الصيانة، والإعلانات",
+      "pushNotifications": "الإشعارات الفورية",
+      "pushNotificationsDesc": "استلام إشعارات فورية في المتصفح",
+      "emailNotifications": "إشعارات البريد الإلكتروني",
+      "emailNotificationsDesc": "استلام ملخصات الإشعارات عبر البريد الإلكتروني",
+      "saveChanges": "حفظ التغييرات",
+      "unsavedChanges": "لديك تغييرات غير محفوظة",
+      "allSaved": "تم حفظ جميع التغييرات",
+      "savedSuccess": "تم حفظ التفضيلات بنجاح",
+      "saveError": "فشل حفظ التفضيلات. يرجى المحاولة مرة أخرى."
+    }
+  },
+
+  "signUpPage": {
+    "createAccount": "إنشاء حساب",
+    "alreadyHave": "هل لديك حساب بالفعل؟",
+    "SignIn": "تسجيل الدخول",
+    "or": "أو",
+    "title": "إنشاء حساب",
+    "subtitle": "انضم إلينا اليوم وابدأ الآن",
+    "formTitle": "أنشئ حسابك",
+    "formSubtitle": "ابدأ رحلتك مع سند",
+    "fullName": "الاسم الكامل",
+    "fullNamePlaceholder": "أحمد الراشد",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "ahmed@company.com",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "أنشئ كلمة مرور قوية",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+    "submit": "إنشاء حساب",
+    "orContinueWith": "أو تابع باستخدام",
+    "signIn": "تسجيل الدخول",
+    "passwordLength": "8 أحرف على الأقل",
+    "passwordLowercase": "حرف صغير",
+    "passwordUppercase": "حرف كبير",
+    "passwordNumber": "رقم",
+    "weak": "ضعيفة",
+    "fair": "مقبولة",
+    "good": "جيدة",
+    "strong": "قوية",
+    "passwordsMatch": "كلمات المرور متطابقة",
+    "google": "جوجل",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "accountCreatedSuccess": "تم إنشاء الحساب بنجاح!",
+    "somethingWentWrong": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "googleSignInComingSoon": "تسجيل الدخول بحساب جوجل قريبًا"
+  },
+
+  "signInPage": {
+    "title": "مرحبًا بعودتك",
+    "subtitle": "سجّل الدخول للمتابعة",
+    "signIn": "تسجيل الدخول",
+    "noAccount": "ليس لديك حساب؟",
+    "createAccount": "أنشئ حسابًا",
+    "or": "أو"
+  },
+
+  "formValidation": {
+    "fullNameRequired": "الاسم الكامل مطلوب",
+    "fullNameTooShort": "يجب أن يكون الاسم الكامل على الأقل حرفين",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "passwordTooShort": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "passwordWeak": "يجب أن تحتوي كلمة المرور على حرف كبير وصغير ورقم",
+    "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+    "passwordsNotMatch": "كلمتا المرور غير متطابقتين"
+  },
+
+  "DashboardPage": {
+    "Sidebar": {
+      "brandName": "سند",
+      "brandTagline": "الخدمات التقنية",
+      "overview": "نظرة عامة",
+      "users": "المستخدمون",
+      "projects": "المشاريع",
+      "services": "الخدمات",
+      "contactUs": "اتصل بنا",
+      "payments": "المدفوعات",
+      "blog": "المدونة",
+      "orders": "الطلبات",
+      "notifications": "الإشعارات",
+      "addArticle": "إضافة مقال",
+      "addProject": "إضافة مشروع",
+      "addService": "إضافة خدمة",
+      "logout": "تسجيل الخروج",
+      "help": "المساعدة",
+      "loggingOut": "جاري تسجيل الخروج..."
+    },
+    "TopNavBar": {
+      "searchPlaceholder": "ابحث في الموارد...",
+      "notifications": "الإشعارات",
+      "settings": "الإعدادات"
+    },
+    "HeroWelcome": {
+      "greeting": "صباح الخير، قائد العمليات",
+      "subtitle": "يبدو أن صحة أعمالك قوية اليوم. ارتفعت الإيرادات بنسبة 12٪ وجميع المشاريع النشطة حاليًا ضمن الجداول الزمنية المتوقعة.",
+      "newProjectBtn": "مشروع جديد",
+      "downloadReportBtn": "تحميل التقرير"
+    },
+    "KeyMetrics": {
+      "totalRevenue": "إجمالي الإيرادات",
+      "activeProjects": "المشاريع النشطة",
+      "satisfactionRate": "معدل الرضا",
+      "newLeads": "عملاء محتملون جدد",
+      "stable": "مستقر",
+      "new": "جديد"
+    },
+    "ActiveProjectsTable": {
+      "title": "المشاريع النشطة",
+      "viewAll": "عرض الكل",
+      "projectName": "اسم المشروع",
+      "client": "العميل",
+      "status": "الحالة",
+      "deadline": "الموعد النهائي",
+      "emptyTitle": "لا توجد مشاريع نشطة",
+      "emptySubtitle": "أنشئ مشروعك الأول للبدء",
+      "newProjectBtn": "+ مشروع جديد",
+      "inProgress": "قيد التنفيذ",
+      "review": "مراجعة",
+      "drafting": "مسودة"
+    },
+    "ServicePerformance": {
+      "title": "أداء الخدمة",
+      "emptyMessage": "لا توجد بيانات خدمة متاحة",
+      "architecturalDesign": "التصميم المعماري",
+      "technicalConsultation": "الاستشارة التقنية",
+      "urbanPlanning": "التخطيط الحضري"
+    },
+    "RecentActivity": {
+      "title": "النشاط الأخير",
+      "emptyMessage": "لا يوجد نشاط أخير",
+      "newProjectSigned": "تم توقيع مشروع جديد",
+      "skylineTower": "برج سكاي لاين - تم إبرام العقد",
+      "paymentReceived": "تم استلام الدفعة",
+      "invoice9012": "فاتورة #9012 - 12,400.00 دولار",
+      "projectStatusUpdated": "تم تحديث حالة المشروع",
+      "villaK92Moved": "تم نقل فيلا K-92 إلى 'قيد التنفيذ'"
+    }
+  },
+
+  "UsersPage": {
+    "title": "إدارة المستخدمين",
+    "subtitle": "إدارة الوصول إلى المنصة والأدوار وتصاريح المستخدمين عبر الأقسام.",
+    "addUserBtn": "إضافة مستخدم جديد",
+    "UserStats": {
+      "totalUsers": "إجمالي المستخدمين",
+      "activeNow": "نشط الآن",
+      "newThisMonth": "جديد هذا الشهر",
+      "realtimeTracking": "تتبع الجلسات في الوقت الفعلي",
+      "onboardingTargets": "تم تحقيق أهداف التأهيل"
+    },
+    "FilterBar": {
+      "searchPlaceholder": "ابحث بالاسم أو البريد الإلكتروني أو رقم الموظف...",
+      "allRoles": "جميع الأدوار",
+      "admin": "مدير",
+      "manager": "مشرف",
+      "client": "عميل",
+      "status": "الحالة",
+      "active": "نشط",
+      "inactive": "غير نشط"
+    },
+    "UserTable": {
+      "user": "المستخدم",
+      "role": "الدور",
+      "status": "الحالة",
+      "lastActive": "آخر نشاط",
+      "actions": "الإجراءات",
+      "showingText": "عرض 1 إلى 4 من 1,284 مستخدم",
+      "previous": "السابق",
+      "next": "التالي"
+    },
+    "PendingBanner": {
+      "message": "لديك 12 طلب موافقة مستخدم معلقة تحتاج إلى اهتمامك.",
+      "reviewLink": "مراجعة الطلبات"
+    }
+  },
+
+  "ProjectsPage": {
+    "title": "إدارة المشاريع",
+    "subtitle": "تتبع وإدارة مشاريع التحول الرقمي المستمرة.",
+    "addProjectBtn": "إضافة مشروع جديد",
+    "statusAll": "الحالة: جميع المشاريع",
+    "statusInProgress": "الحالة: قيد التنفيذ",
+    "statusReview": "الحالة: مراجعة",
+    "statusDrafting": "الحالة: مسودة",
+    "statusDelayed": "الحالة: متأخر",
+    "ProjectStats": {
+      "totalActive": "إجمالي المشاريع النشطة",
+      "inProgress": "قيد التنفيذ",
+      "completed": "مكتمل",
+      "completedSub": "(هذا الشهر)",
+      "delayed": "متأخر",
+      "urgent": "عاجل"
+    },
+    "ProjectTable": {
+      "recentProjects": "المشاريع الأخيرة",
+      "projectName": "اسم المشروع",
+      "client": "العميل",
+      "status": "الحالة",
+      "deadline": "الموعد النهائي",
+      "team": "الفريق",
+      "showingText": "عرض 5 من 42 مشروع",
+      "previous": "السابق",
+      "next": "التالي",
+      "teamMember": "عضو الفريق"
+    },
+    "ProjectWorkloadChart": {
+      "title": "تحليل عبء العمل"
+    },
+    "TeamEfficiency": {
+      "title": "كفاءة الفريق",
+      "subtitle": "راجع مقاييس أداء قادة المشاريع المعينين لهذا الربع.",
+      "onTrack": "في المسار",
+      "downloadReport": "تحميل التقرير"
+    },
+    "AddNewProject": {
+      "breadcrumb": {
+        "projects": "المشاريع",
+        "addNew": "إضافة مشروع جديد"
+      },
+      "title": "إنشاء مشروع جديد",
+      "subtitle": "املأ الحقول المطلوبة لإنشاء مشروعك. يتم حفظ المسودات تلقائياً.",
+      "saveDraft": "حفظ كمسودة",
+      "publishProject": "نشر المشروع",
+      "basicInfo": {
+        "title": "المعلومات الأساسية",
+        "projectTitle": "عنوان المشروع",
+        "titlePlaceholder": "مثال: إعادة تصميم منصة تجارة إلكترونية حديثة",
+        "titleHelp": "العنوان الواضح والوصفي يساعد المستخدمين في العثور على مشروعك بسرعة.",
+        "category": "الفئة",
+        "categoryPlaceholder": "اختر فئة",
+        "shortDesc": "الوصف المختصر",
+        "shortDescPlaceholder": "ملخص موجز لعرض القوائم (حد أقصى 150 حرف)",
+        "longDesc": "الوصف التفصيلي",
+        "longDescPlaceholder": "صف نطاق المشروع والتحديات والحلول بالتفصيل...",
+        "longDescHelp": "اختياري لكن موصى به — الأوصاف المفصلة تحسن SEO وتجذب المستخدمين."
+      },
+      "projectIdentity": {
+        "title": "هوية المشروع",
+        "coverImage": "صورة الغلاف",
+        "dropText": "اسحب صورة الغلاف هنا، أو ",
+        "browseText": "تصفح",
+        "recommendedSize": "موصى به: 1600x900 بكسل، PNG أو JPG",
+        "galleryUpload": "رفع معرض الصور",
+        "galleryPreview1": "معاينة المعرض 1",
+        "galleryPreview2": "معاينة المعرض 2",
+        "galleryHelp": "أضف حتى 8 لقطات شاشة لعرض مشروعك. PNG أو JPG، حد أقصى 5 ميجا لكل صورة."
+      },
+      "technicalDetails": {
+        "title": "التفاصيل التقنية",
+        "techStack": "التقنيات المستخدمة",
+        "techStackEmpty": "لم تتم إضافة تقنيات بعد. اكتب واحدة أدناه واضغط Enter.",
+        "addTechnology": "أضف تقنية...",
+        "liveUrl": "الرابط المباشر",
+        "repoUrl": "رابط المستودع"
+      },
+      "livePreview": {
+        "title": "معاينة مباشرة",
+        "category": "تطبيق ويب",
+        "untitled": "مشروع بدون عنوان",
+        "description": "ابدأ بكتابة المعلومات الأساسية لرؤية بطاقة مشروعك تتشكل في الوقت الفعلي...",
+        "status": "الحالة",
+        "draft": "مسودة",
+        "views": "المشاهدات",
+        "fullPreview": "معاينة كاملة"
+      },
+      "formProgress": {
+        "title": "تقدم النموذج",
+        "required": "مطلوب",
+        "completed": "مكتمل"
+      },
+      "healthPrediction": {
+        "title": "توقعات الصحة",
+        "strongLaunch": "إطلاق قوي",
+        "description": "بناءً على تقنياتك وجودة الوصف.",
+        "seoReadiness": "جاهزية SEO",
+        "seoReadinessValue": "عالية",
+        "documentation": "التوثيق",
+        "documentationValue": "قيد الانتظار"
+      },
+      "complianceChecklist": {
+        "title": "قائمة الامتثال",
+        "security": "معايير الأمان",
+        "securityDesc": "تم التحقق من بروتوكول HTTPS",
+        "accessibility": "إمكانية الوصول (a11y)",
+        "accessibilityDesc": "تم اجتياز فحص HTML الدلالي",
+        "dataSovereignty": "سيادة البيانات",
+        "dataSovereigntyDesc": "قيد التحقق من موقع الاستضافة",
+        "qaAudit": "تدقيق الجودة النهائي",
+        "qaAuditDesc": "مغلق حتى النشر"
+      }
+    }
+  },
+
+  "BlogPage": {
+    "StatsCards": {
+      "totalPosts": "إجمالي المنشورات",
+      "totalViews": "إجمالي المشاهدات",
+      "avgReadingTime": "متوسط وقت القراءة",
+      "newComments": "تعليقات جديدة"
+    },
+    "QuickActions": {
+      "createNewPost": "إنشاء منشور جديد",
+      "createNewPostDesc": "صغ تحفتك القادمة",
+      "manageCategories": "إدارة الفئات",
+      "manageCategoriesDesc": "نظم هيكل المحتوى الخاص بك",
+      "viewScheduled": "عرض المجدول",
+      "viewScheduledDesc": "تحقق من المنشورات القادمة"
+    },
+    "ChartsPlaceholder": {
+      "postPerformance": "أداء المنشورات مع مرور الوقت",
+      "engagementByCategory": "التفاعل حسب الفئة",
+      "last30Days": "آخر 30 يومًا",
+      "last90Days": "آخر 90 يومًا",
+      "total": "الإجمالي",
+      "tech": "تقنية",
+      "design": "تصميم",
+      "business": "أعمال"
+    },
+    "Filters": {
+      "searchPlaceholder": "ابحث في المقالات...",
+      "statusAll": "الحالة: الكل",
+      "published": "منشور",
+      "draft": "مسودة",
+      "scheduled": "مجدول",
+      "dateNewest": "التاريخ: الأحدث",
+      "oldest": "الأقدم",
+      "authorAll": "الكاتب: الكل",
+      "categoryAll": "الفئة: الكل",
+      "technology": "تقنية",
+      "editorial": "تحريري"
+    },
+    "ArticleGrid": {
+      "noArticlesTitle": "لا توجد مقالات بعد",
+      "noArticlesDesc": "ابدأ في بناء مكتبة المحتوى الخاصة بك. أنشئ أول منشور مدونة لمشاركة خبراتك مع العالم.",
+      "createFirstPost": "إنشاء أول منشور",
+      "deleteConfirmTitle": "حذف المقال؟",
+      "deleteConfirmDesc": "لا يمكن التراجع عن هذا الإجراء",
+      "deleteConfirmMessage": "هل أنت متأكد أنك تريد حذف",
+      "deleteConfirmWarning": "سيؤدي هذا إلى إزالة المقال وجميع محتوياته نهائيًا.",
+      "cancel": "إلغاء",
+      "deleteArticle": "حذف المقال",
+      "editArticle": "تعديل المقال",
+      "deleteArticleLabel": "حذف المقال",
+      "imageUnavailable": "الصورة غير متاحة"
+    },
+    "Pagination": {
+      "previous": "الصفحة السابقة",
+      "next": "الصفحة التالية"
+    },
+    "KeyboardShortcutsHelp": {
+      "title": "اختصارات لوحة المفاتيح",
+      "createNewPost": "إنشاء مقال جديد",
+      "focusSearch": "التركيز على البحث",
+      "showShortcuts": "عرض اختصارات لوحة المفاتيح",
+      "editSelected": "تعديل المقال المحدد",
+      "navigatePages": "التنقل بين الصفحات",
+      "pressEsc": "اضغط",
+      "toClose": "للإغلاق",
+      "esc": "Esc"
+    }
+  },
+
+  "AddArticlePage": {
+    "backToArticles": "العودة إلى المقالات",
+    "title": "إضافة مقال جديد",
+    "drafting": "جاري المسودة",
+    "saveDraft": "حفظ كمسودة",
+    "publishNow": "نشر الآن",
+    "articleDetails": "تفاصيل المقال",
+    "articleTitle": "عنوان المقال",
+    "articleTitlePlaceholder": "أدخل عنواناً جذاباً...",
+    "category": "الفئة",
+    "tags": "الوسوم",
+    "addTag": "إضافة وسم",
+    "shortExcerpt": "مقتطف قصير",
+    "excerptPlaceholder": "ملخص قصير للمشاركة على وسائل التواصل الاجتماعي ونتائج البحث...",
+    "cover": "الغلاف",
+    "replace": "استبدال",
+    "updateMedia": "تحديث الوسائط",
+    "aspectRatio": "نسبة العرض إلى الارتفاع 16:9",
+    "words": "كلمة",
+    "collaborators": "المتعاونون",
+    "inviteTeam": "دعوة فريق",
+    "versionHistory": "سجل النسخ",
+    "currentDraft": "المسودة الحالية",
+    "majorEdit": "تعديل رئيسي",
+    "initialCreation": "الإنشاء الأولي",
+    "restoreVersion": "استعادة هذه النسخة",
+    "seeFullLog": "عرض السجل الكامل",
+    "publishingSettings": "إعدادات النشر",
+    "visibility": "الظهور",
+    "public": "عام",
+    "schedule": "الجدولة",
+    "immediate": "فوري",
+    "markAsFeatured": "تمييز كمقال مختار",
+    "enableComments": "تفعيل التعليقات",
+    "active": "نشط",
+    "visibilityHelp": "المقالات العامة مرئية للجميع. المقالات الخاصة مرئية لفريقك فقط.",
+    "scheduleHelp": "اختر تاريخًا مستقبليًا لنشر هذا المقال تلقائيًا.",
+    "markAsFeaturedHelp": "المقالات المميزة تظهر في أعلى مدونتك.",
+    "enableCommentsHelp": "السماح للقراء بترك تعليقات على هذا المقال.",
+    "categories": {
+      "tech": "التكنولوجيا والابتكار",
+      "architecture": "العمارة الحضرية",
+      "economics": "الاقتصاد العالمي",
+      "heritage": "التراث الثقافي"
+    }
+  },
+
+  "ServicesPage": {
+    "title": "لوحة تحكم الخدمات",
+    "breadcrumbMain": "وحدة التحكم الرئيسية",
+    "breadcrumbServices": "لوحة تحكم الخدمات",
+    "QuickActions": {
+      "addNewService": "إضافة خدمة جديدة",
+      "addNewServiceDesc": "نشر بنية تحتية جديدة",
+      "manageCategories": "إدارة الفئات",
+      "manageCategoriesDesc": "تنظيم مجموعات الخدمات",
+      "priceManagement": "إدارة الأسعار",
+      "priceManagementDesc": "الفوترة المتدرجة وقواعد الفوترة",
+      "serviceLogs": "سجلات الخدمة",
+      "serviceLogsDesc": "تدقيق أنشطة النظام"
+    },
+    "ChartsSection": {
+      "featuredPerformance": "الأداء المميز",
+      "performanceSubtitle": "نظرة شاملة على تميز الخدمة على مستوى النظام",
+      "uptime": "وقت التشغيل",
+      "load": "الحمل",
+      "peakUptime": "ذروة وقت التشغيل",
+      "latency": "زمن الاستجابة",
+      "activeNodes": "العقد النشطة",
+      "revenueDistribution": "توزيع الإيرادات",
+      "revenueSubtitle": "مساهمة مستويات الخدمة",
+      "total": "الإجمالي",
+      "enterprise": "المؤسسات",
+      "cloudInfrastructure": "البنية التحتية السحابية",
+      "supportTiers": "مستويات الدعم"
+    },
+    "FilterBar": {
+      "searchPlaceholder": "تصفية بالاسم...",
+      "allCategories": "جميع الفئات",
+      "cloud": "سحابي",
+      "security": "أمان",
+      "support": "دعم",
+      "dataSystems": "أنظمة البيانات",
+      "statusActive": "الحالة: نشط",
+      "statusPending": "الحالة: معلق",
+      "statusMaintenance": "الحالة: صيانة",
+      "priceHighLow": "السعر: من الأعلى للأقل",
+      "priceLowHigh": "السعر: من الأقل للأعلى",
+      "applyFilters": "تطبيق الفلاتر"
+    },
+    "ServiceCards": {
+      "active": "نشط",
+      "pending": "معلق",
+      "idle": "خامل",
+      "startingAt": "يبدأ من",
+      "manage": "إدارة",
+      "cloudArchitecture": "هندسة سحابية",
+      "cyberSecurity": "أمن سيبراني",
+      "managedSupport": "دعم مُدار",
+      "dataSystems": "أنظمة بيانات"
+    }
+  },
+
+  "ContactUsPage": {
+    "QuickActions": {
+      "archiveAll": "أرشفة الكل",
+      "archiveAllDesc": "نقل المحلول إلى الأرشيف",
+      "flagUrgent": "تأشير عاجل",
+      "flagUrgentDesc": "تحديد الاستفسارات ذات الأولوية",
+      "exportCSV": "تصدير CSV",
+      "exportCSVDesc": "تحميل التقرير الشهري",
+      "setupAutoReply": "إعداد الرد التلقائي",
+      "setupAutoReplyDesc": "تكوين مساعد الذكاء الاصطناعي",
+      "replied": "تم الرد"
+    },
+    "StatsCards": {
+      "totalMessages": "إجمالي الرسائل",
+      "unread": "غير مقروءة",
+      "needsAttention": "تحتاج انتباه",
+      "avgResponseTime": "متوسط وقت الرد",
+      "satisfactionRate": "معدل الرضا",
+      "excellent": "ممتاز",
+      "replied": "تم الرد"
+    },
+    "Filters": {
+      "searchPlaceholder": "تصفية بالكلمة المفتاحية...",
+      "statusAll": "الحالة: الكل",
+      "unread": "غير مقروء",
+      "replied": "تم الرد",
+      "archived": "مؤرشف",
+      "categoryGeneral": "الفئة: عام",
+      "technicalSupport": "دعم تقني",
+      "billing": "الفوترة",
+      "partnership": "شراكة",
+      "priorityAll": "الأولوية: الكل",
+      "critical": "حرج",
+      "high": "عالي",
+      "medium": "متوسط"
+    },
+    "MessagesTable": {
+      "sender": "المرسل",
+      "subject": "الموضوع",
+      "category": "الفئة",
+      "received": "تم الاستلام",
+      "status": "الحالة",
+      "actions": "الإجراءات",
+      "showingText": "عرض 1 إلى 4 من 1,284 نتيجة",
+      "previous": "السابق",
+      "next": "التالي",
+      "unread": "غير مقروء",
+      "replied": "تم الرد",
+      "urgent": "عاجل",
+      "archived": "مؤرشف",
+      "technical": "تقني",
+      "billing": "فوترة",
+      "partner": "شريك",
+      "general": "عام"
+    }
+  },
+
+  "PaymentsPage": {
+    "PaymentsHeader": {
+      "title": "نظرة على المدفوعات",
+      "subtitle": "تتبع الأداء المالي وإدارة المعاملات",
+      "last30Days": "آخر 30 يومًا"
+    },
+    "PaymentStats": {
+      "totalRevenue": "إجمالي الإيرادات",
+      "activeSubscriptions": "الاشتراكات النشطة",
+      "netVolume": "صافي الحجم",
+      "avgTicketSize": "متوسط حجم التذكرة",
+      "stable": "مستقر"
+    },
+    "PaymentActions": {
+      "sendInvoice": "إرسال فاتورة",
+      "issueRefund": "إصدار استرداد",
+      "exportCSV": "تصدير CSV"
+    },
+    "PaymentCharts": {
+      "revenueVsTime": "الإيرادات مقابل الوقت",
+      "monthlyRevenueTrend": "اتجاه الإيرادات الشهري",
+      "revenue": "الإيرادات",
+      "forecast": "التوقعات",
+      "methodDistribution": "توزيع الطرق",
+      "total": "الإجمالي",
+      "creditCard": "بطاقة ائتمان",
+      "bankTransfer": "تحويل بنكي",
+      "crypto": "عملة رقمية"
+    },
+    "PaymentFilters": {
+      "searchPlaceholder": "ابحث في المعاملات...",
+      "statusAll": "الحالة: الكل",
+      "success": "ناجح",
+      "pending": "معلق",
+      "failed": "فاشل",
+      "methodCard": "الطريقة: بطاقة",
+      "bankTransfer": "تحويل بنكي",
+      "crypto": "عملة رقمية",
+      "currencyUSD": "العملة: دولار"
+    },
+    "TransactionTable": {
+      "invoiceId": "رقم الفاتورة",
+      "actions": "الإجراءات",
+      "recentTransactions": "المعاملات الأخيرة",
+      "liveFeed": "تغذية مباشرة لنشاط المدفوعات",
+      "viewAll": "عرض الكل",
+      "customer": "العميل",
+      "amount": "المبلغ",
+      "status": "الحالة",
+      "date": "التاريخ",
+      "method": "الطريقة",
+      "success": "ناجح",
+      "pending": "معلق",
+      "failed": "فاشل"
+    },
+    "PayoutSchedule": {
+      "title": "جدول الدفعات",
+      "nextDeposit": "الإيداع التالي",
+      "amountToTransfer": "المبلغ المراد تحويله",
+      "verificationProgress": "تقدم التحقق",
+      "payoutInfo": "يتم معالجة الدفعات كل يوم اثنين إلى تشيس بيزنس (•••• 5502).",
+      "viewPayoutHistory": "عرض سجل الدفعات"
+    },
+    "FloatingActionButton": {
+      "label": "إضافة جديد"
+    }
+  },
+
+  "UserDashboard": {
+    "Header": {
+      "searchPlaceholder": "البحث في المنصة...",
+      "notifications": "الإشعارات",
+      "help": "مساعدة",
+      "userAvatar": "صورة الملف الشخصي للمستخدم",
+      "nav": {
+        "dashboard": "لوحة التحكم",
+        "orders": "الطلبات",
+        "support": "الدعم"
+      }
+    },
+    "ProfileHeader": {
+      "avatarAlt": "صورة المستخدم الكبيرة",
+      "name": "أحمد السيد",
+      "role": "صاحب مؤسسة",
+      "description": "شريك استراتيجي في سند منذ 2021. يدير بنشاط خدمات تطوير البنية التحتية والمشتريات. يركز حالياً على مشاريع التحول الرقمي في الرياض.",
+      "location": "الرياض، المملكة العربية السعودية",
+      "joined": "انضم في أكتوبر 2021",
+      "editProfile": "تعديل الملف الشخصي",
+      "sharePortfolio": "مشاركة الملف التعريفي"
+    },
+    "EditProfileModal": {
+      "title": "تعديل الملف الشخصي",
+      "avatarLabel": "صورة الملف الشخصي",
+      "avatarPlaceholder": "أدخل رابط الصورة",
+      "avatarPreview": "معاينة",
+      "nameLabel": "الاسم الكامل",
+      "namePlaceholder": "أدخل اسمك الكامل",
+      "emailLabel": "البريد الإلكتروني",
+      "emailReadOnly": "لا يمكنك تعديل البريد الإلكتروني الموثق",
+      "passwordLabel": "كلمة المرور الجديدة",
+      "passwordPlaceholder": "أدخل كلمة المرور الجديدة",
+      "confirmPasswordLabel": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "تأكيد كلمة المرور الجديدة",
+      "cancel": "إلغاء",
+      "save": "حفظ التغييرات",
+      "saving": "جارٍ الحفظ...",
+      "validation": {
+        "nameRequired": "الاسم مطلوب",
+        "nameTooShort": "يجب أن يكون الاسم حرفان على الأقل",
+        "avatarInvalid": "يرجى إدخال رابط صالح",
+        "passwordTooShort": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
+        "passwordsNotMatch": "كلمتا المرور غير متطابقتين"
+      },
+      "success": "تم تحديث الملف الشخصي بنجاح",
+      "error": "فشل في تحديث الملف الشخصي"
+    },
+    "StatsRow": {
+      "servicesActive": "الخدمات النشطة",
+      "activeProjects": "المشاريع النشطة",
+      "totalInvestment": "إجمالي الاستثمار",
+      "supportInquiries": "استفسارات الدعم",
+      "sar": "ريال",
+      "twoThisMonth": "+2 هذا الشهر",
+      "threeOnTrack": "3 في المسار",
+      "oneUrgent": "1 عاجل",
+      "currency": "",
+      "noStats": "لا توجد بيانات بعد"
+    },
+    "QuickActions": {
+      "requestNewService": "طلب خدمة جديدة",
+      "requestNewServiceDesc": "وسّع محفظتك مع سوقنا المختار من الخدمات المتخصصة.",
+      "viewActiveContracts": "عرض العقود النشطة",
+      "viewActiveContractsDesc": "مراجعة الاتفاقيات القانونية ومستويات الخدمة والمقاييس لجميع الخدمات.",
+      "updateBilling": "تحديث الفواتير",
+      "updateBillingDesc": "إدارة البطاقات والفواتير",
+      "contactManager": "تواصل مع المدير",
+      "contactManagerDesc": "مساعدة مخصصة على مدار الساعة"
+    },
+    "ActiveDeliverables": {
+      "title": "التسليمات النشطة",
+      "viewAll": "عرض الكل",
+      "progress": "التقدم",
+      "cloudMigration": "إطار عمل الترحيل السحابي",
+      "cloudMigrationSubtitle": "خدمة البنية التحتية • المرحلة 2 من 4",
+      "onTrack": "في المسار",
+      "payrollIntegration": "تكامل الرواتب الآلي",
+      "payrollIntegrationSubtitle": "خدمة مالية • المراجعة النهائية",
+      "pendingAction": "بانتظار الإجراء",
+      "showMore": "عرض المزيد",
+      "showLess": "عرض أقل",
+      "emptyMessage": "لا توجد تسليمات نشطة بعد",
+      "emptyDescription": "ستظهر مشاريعك النشطة هنا."
+    },
+    "QuickSettings": {
+      "title": "الإعدادات السريعة",
+      "twoFactorSecurity": "المصادقة الثنائية",
+      "enabled": "مفعّل",
+      "smartAlerts": "التنبيهات الذكية",
+      "threeActiveNotifications": "3 إشعارات نشطة",
+      "regionLanguage": "المنطقة واللغة",
+      "arabicKSAs": "العربية (السعودية)",
+      "profileCompletionText": "لقد أكملت بنجاح 95% من إعداد ملفك الشخصي. إضافة رقم تعريف ضريبي ستفتح حدود معاملات أعلى.",
+      "completeProfile": "إكمال الملف الشخصي",
+      "showMore": "عرض المزيد",
+      "showLess": "عرض أقل"
+    },
+    "RecentActivity": {
+      "title": "النشاط الأخير",
+      "filter": "تصفية",
+      "download": "تحميل",
+      "colActivity": "المعاملة / النشاط",
+      "colType": "النوع",
+      "colStatus": "الحالة",
+      "colAmountDate": "المبلغ / التاريخ",
+      "saasSubscription": "اشتراك SaaS - المستوى المؤسسي",
+      "subscription": "اشتراك",
+      "paid": "مدفوع",
+      "neomMilestone": "مشروع \"توسعة نيوم\" - المرحلة 1",
+      "milestone": "مرحلة",
+      "pending": "معلق",
+      "passwordUpdate": "تحديث أمان كلمة المرور",
+      "security": "أمان",
+      "success": "ناجح",
+      "showMore": "عرض المزيد",
+      "showLess": "عرض أقل",
+      "emptyMessage": "لا يوجد نشاط بعد",
+      "emptyDescription": "سيظهر نشاطك الأخير هنا."
+    },
+    "QuickStart": {
+      "title": "ماذا تريد أن تفعل اليوم؟",
+      "description": "ابدأ بطلب خدمة جديدة أو استكشف الإجراءات السريعة أدناه.",
+      "cta": "طلب خدمة جديدة"
+    }
+  },
+  "forgotPassword": {
+    "title": "نسيت كلمة المرور؟",
+    "description": "لا تقلق، سنساعدك في استعادتها. أدخل بريدك الإلكتروني المسجل أدناه.",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "مثال: alex@example.com",
+    "sendLink": "إرسال رابط الاستعادة",
+    "backToLogin": "العودة لتسجيل الدخول",
+    "needHelp": "تحتاج مساعدة؟",
+    "contactSupport": "تواصل مع الدعم",
+    "meta": {
+      "title": "نسيت كلمة المرور - سند",
+      "description": "قم باستعادة كلمة مرور حسابك في سند بأمان وبسهولة."
+    }
+  },
+  "checkYourInbox": {
+    "title": "تحقق من بريدك الوارد",
+    "emailHint": "أرسلنا رابط تأكيد إلى {email}. افتح البريد واضغط على الرابط لتأكيد حسابك.",
+    "spamNote": "لم تجده؟ تحقق من مجلد الرسائل غير المرغوب فيها أو البريد العشوائي.",
+    "openEmailApp": "افتح تطبيق البريد",
+    "didNotReceive": "لا يزال البريد غير ظاهر؟",
+    "resendLink": "أعد إرسال الرابط",
+    "resendSuccess": "تم إرسال رابط جديد! تحقق من بريدك الوارد.",
+    "resendSending": "جارٍ الإرسال...",
+    "resendCooldown": "أعد المحاولة خلال",
+    "resendError": "فشل الإرسال. تحقق من اتصالك وحاول مرة أخرى.",
+    "backToLogin": "العودة لتسجيل الدخول",
+    "needHelp": "تحتاج مساعدة؟ تواصل مع الدعم",
+    "meta": {
+      "title": "تأكيد بريدك الإلكتروني | سند",
+      "description": "تم أرسال رابط تأكيد إلى بريدك الإلكتروني. يرجى التحقق من بريدك للمتابعة."
+    }
+  },
+  "resetPassword": {
+    "title": "إعادة تعيين كلمة المرور",
+    "subtitle": "اختر كلمة مرور قوية وآمنة لم تستخدمها من قبل لحسابك في سند.",
+    "newPassword": "كلمة المرور الجديدة",
+    "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "كرر كلمة المرور الجديدة",
+    "updatePassword": "تحديث كلمة المرور",
+    "backToLogin": "العودة لتسجيل الدخول",
+    "strength": "قوة كلمة المرور",
+    "weak": "ضعيفة",
+    "fair": "مقبولة",
+    "good": "جيدة",
+    "strong": "قوية",
+    "requirements": {
+      "minChars": "8 أحرف على الأقل",
+      "numberAndSpecial": "تضمين رقم ورمز خاص",
+      "mustMatch": "يجب أن تتطابق كلمات المرور"
+    },
+    "meta": {
+      "title": "إعادة تعيين كلمة المرور - سند",
+      "description": "اختر كلمة مرور جديدة لحسابك في سند."
+    }
+  },
+  "cart": {
+    "myCart": "ملف مشروعك",
+    "items": "عناصر",
+    "continueShopping": "متابعة التسوق",
+    "processing": "جاري التنفيذ...",
+    "subtotal": "المجموع الفرعي",
+    "technicalFee": "رسوم المنصة",
+    "technicalFeeTooltip": "تغطي أمان المنصة والدعم التقني",
+    "vat": "ضريبة القيمة المضافة (5%)",
+    "total": "إجمالي الاستثمار",
+    "includesTaxes": "شامل جميع الضرائب",
+    "paymentMethod": "طريقة الدفع",
+    "creditCard": "بطاقة ائتمان",
+    "bankTransfer": "تحويل بنكي",
+    "secureCheckout": "اعتماد والمتابعة",
+    "secureCheckoutDesc": "بت الموافقة على هذا الملف، أنت توافق على اتفاقية الخدمات الرئيسية من سند وشروط التسليم التقنية.",
+    "remove": "إزالة",
+    "saveForLater": "حفظ لاحقاً",
+    "secureCheckoutTitle": "مراجعة واعتماد",
+    "breadcrumbs": "الخدمات",
+    "promoCode": "رمز ترويجي",
+    "promoCodePlaceholder": "أدخل الرمز الترويجي",
+    "applyPromo": "تطبيق",
+    "promoApplied": "تم تطبيق الرمز!",
+    "promoInvalid": "رمز غير صالح",
+    "trustIndicators": {
+      "sectionTitle": "لماذا تثق في سند",
+      "secureCheckout": "دفع آمن",
+      "encryption": "تشفير 256-bit",
+      "verifiedPartner": "شريك موثق",
+      "standards": "معايير مهنية",
+      "support": "دعم أول على مدار الساعة",
+      "assistance": "مساعدة تقنية"
+    },
+    "premium": {
+      "title": "سند بريموم",
+      "description": "قم بالترقية الآن لتوفير 10% على تقييمات مشاريعك الثلاث القادمة.",
+      "learnMore": "اعرف المزيد"
+    },
+    "emptyCartTitle": "ملف مشروعك فارغ",
+    "emptyCartDescription": "لنبني شيئاً رائعاً. استكشف خدماتنا لبدء تشكيل تحولك الرقمي.",
+    "browseServices": "استكشف الخدمات",
+    "featuredServices": "خدمات مميزة",
+    "popularCategories": "فئات شائعة",
+    "undoRemoveMessage": "تمت إزالة العنصر",
+    "undoSaveMessage": "تم حفظ العنصر لاحقاً",
+    "undo": "تراجع",
+    "dismiss": "إغلاق",
+    "scope": "النطاق",
+    "deliverables": "المخرجات",
+    "investment": "الاستثمار",
+    "loadingBrief": "جاري تحميل موجزك...",
+    "loginRequired": "يجب عليك تسجيل الدخول لإتمام عملية الشراء. يرجى تسجيل الدخول أو إنشاء حساب.",
+    "checkoutError": "فشل في بدء عملية الدفع. يرجى المحاولة مرة أخرى.",
+    "paymentSuccess": "تم الدفع بنجاح!",
+    "paymentFailed": "فشل الدفع"
+  },
+
+  "PaymentFailedPage": {
+    "title": "فشل عملية الدفع",
+    "description": "لم نتمكن من معالجة معاملتك. يرجى مراجعة التفاصيل أدناه والمحاولة مرة أخرى أو التواصل مع مؤسستك المالية.",
+    "reasonLabel": "سبب الفشل",
+    "errorCodeLabel": "رمز الخطأ",
+    "insufficientFunds": "أموال غير كافية",
+    "amountLabel": "المبلغ",
+    "referenceLabel": "رقم المرجع",
+    "tryAgainBtn": "حاول مرة أخرى",
+    "contactSupportBtn": "تواصل مع الدعم",
+    "returnDashboard": "العودة للوحة التحكم",
+    "notCharged": "لم يتم خصم أي مبلغ من بطاقتك",
+    "securePayment": "بروتوكول دفع آمن",
+    "pciCompliant": "متوافق مع معايير PCI DSS",
+    "tryAgainHint": "إذا كان رصيدك منخفضاً، جرب طريقة دفع مختلفة",
+    "errorReference": "رمز المرجع للخطأ"
+  },
+  "UserOrders": {
+    "title": "طلباتي",
+    "description": "تتبع وإدارة ومراجعة طلبات الخدمة الحالية وسجل طلبات الخدمات التقنية.",
+    "searchPlaceholder": "البحث برقم الطلب أو الخدمة...",
+    "filters": {
+      "all": "جميع الطلبات",
+      "pending": "معلق",
+      "paid": "تم الدفع",
+      "in_progress": "قيد التنفيذ",
+      "completed": "مكتمل",
+      "cancelled": "ملغي"
+    },
+    "card": {
+      "orderId": "رقم الطلب",
+      "datePlaced": "تاريخ الطلب",
+      "amount": "المبلغ",
+      "viewDetails": "عرض التفاصيل",
+      "viewHistory": "عرض السجل"
+    },
+    "newService": {
+      "title": "طلب خدمة جديدة",
+      "description": "تصفح كتالوجنا التقني للحصول على حلول أعمال متخصصة."
+    },
+    "status": {
+      "completed": "مكتمل",
+      "inProgress": "قيد التنفيذ",
+      "pending": "معلق",
+      "paid": "تم الدفع",
+      "cancelled": "ملغي"
+    },
+    "resultsInfo": {
+      "showingAll": "{{count}} طلب",
+      "showingFiltered": "{{filtered}} من {{total}} طلب",
+      "order": "طلب",
+      "orders": "طلبات",
+      "of": "من"
+    },
+    "emptyState": {
+      "title": "لا توجد طلبات",
+      "description": "لم تقم بتقديم أي طلبات خدمة بعد. تصفح خدماتنا لبدء طلب جديد."
+    },
+    "noResultsState": {
+      "title": "لم يتم العثور على نتائج",
+      "description": "حاول تعديل معايير البحث أو التصفية."
+    },
+    "insights": {
+      "activeOrders": "طلبات نشطة",
+      "pendingReview": "قيد المراجعة",
+      "completedThisMonth": "تم إنجازها هذا الشهر"
+    },
+    "supportHub": {
+      "needAssistance": "هل تحتاج إلى مساعدة؟",
+      "supportDescription": "فريق الدعم لدينا متاح لمساعدتك في أي استفسارات تتعلق بطلباتك أو خدماتنا.",
+      "contactSupport": "تحدث مع الدعم",
+      "exploreNew": "استكشف آفاقاً جديدة",
+      "exploreDescription": "اكتشف كيف يمكننا مساعدتك في تنمية أعمالك من خلال خدماتنا التقنية المتقدمة.",
+      "browseServices": "تصفح الخدمات"
+    }
+  },
+
+  "orderTrackingMeta": {
+    "title": "تتبع الطلب - سند",
+    "description": "تتبع تقدم طلب خدمتك في الوقت الفعلي."
+  },
+
+  "orderTracking": {
+    "pageTitle": "تتبع الطلب",
+    "pageSubtitle": "تابع تقدم طلب الخدمة الخاص بك.",
+    "backToOrders": "العودة إلى الطلبات",
+    "orderDetails": "تفاصيل الطلب",
+    "activityLog": "سجل النشاط",
+    "quickActions": "إجراءات سريعة",
+    "needAssistance": "تحتاج مساعدة؟",
+    "supportDescription": "فريق الدعم الفني متاح على مدار الساعة لمساعدتك في طلبك أو أي استفسارات تقنية.",
+    "contactSupport": "تواصل مع الدعم",
+    "downloadInvoice": "تن��يل الفاتورة",
+    "serviceAgreement": "اتفاقية الخدمة",
+    "whatsNext": "ماذا يأتي بعد؟",
+    "orderId": "رقم الطلب",
+    "serviceName": "اسم الخدمة",
+    "amount": "المبلغ",
+    "datePlaced": "تاريخ الطلب",
+    "orderNotes": "ملاحظات الطلب",
+    "noNotes": "لا توجد ملاحظات",
+    "status": {
+      "pending": "معلق",
+      "paid": "تم الدفع",
+      "inProgress": "قيد التنفيذ",
+      "completed": "مكتمل",
+      "cancelled": "ملغي"
+    },
+    "loadingTitle": "جارٍ تحميل تفاصيل الطلب",
+    "errorTitle": "عذراً، حدث خطأ ما",
+    "errorDescription": "لم نتمكن من تحميل تفاصيل طلبك. يرجى المحاولة مرة أخرى أو التواصل مع الدعم إذا استمرت المشكلة.",
+    "tryAgain": "إعادة المحاولة",
+    "notFoundTitle": "الطلب غير موجود",
+    "notFoundDescription": "الطلب الذي تبحث عنه غير موجود أو ليس لديك صلاحية لعرضه.",
+    "backToDashboard": "العودة للوحة التحكم"
+  },
+
+  "payments": {
+    "tableTitle": "سجل المعاملات",
+    "searchPlaceholder": "البحث بالوصف...",
+    "filterLabel": "تصفية حسب الحالة",
+    "dateRangeLabel": "النطاق الزمني",
+    "dateFromLabel": "من",
+    "dateToLabel": "إلى",
+    "resetBtn": "إعادة تعيين",
+    "applyBtn": "تطبيق",
+    "clearFiltersLabel": "مسح",
+    "columnDate": "التاريخ",
+    "columnDescription": "الوصف",
+    "columnAmount": "المبلغ",
+    "columnStatus": "الحالة",
+    "columnAction": "إجراء",
+    "loadingText": "جارٍ تحميل المعاملات...",
+    "loadFailed": "فشل تحميل المعاملات",
+    "tryAgainLater": "يرجى المحاولة مرة أخرى",
+    "tryAgainLabel": "إعادة المحاولة",
+    "showingText": "عرض {{count}}",
+    "ofText": "من",
+    "transactionsText": "معاملات",
+    "pageText": "صفحة {{current}} من {{total}}",
+    "previousPageLabel": "الصفحة السابقة",
+    "nextPageLabel": "الصفحة التالية",
+    "noResultsMatchFilters": "لا توجد معاملات تطابق الفلاتر",
+    "noTransactionsFound": "لم يتم العثور على معاملات",
+    "clearAllFiltersLabel": "مسح جميع الفلاتر",
+    "statusPaid": "مدفوع",
+    "statusPending": "معلق",
+    "statusFailed": "فشل",
+    "retryBtn": "إعادة المحاولة",
+    "downloadInvoice": "تنزيل الفاتورة"
+  },
+
+  "dashboardNotificationsMeta": {
+    "title": "مركز الإشعارات - لوحة تحكم سند",
+    "description": "إدارة البث العام وإشعارات المستخدمين المباشرة."
+  },
+
+  "dashboardNotifications": {
+    "title": "مركز الإشعارات",
+    "subtitle": "إدارة وإرسال إشعارات عامة أو مباشرة.",
+    "tabs": {
+      "broadcast": "بث عام",
+      "direct": "رسالة مباشرة",
+      "history": "سجل الإشعارات"
+    },
+    "broadcast": {
+      "title": "اختيار الجمهور",
+      "subtitle": "اختر المستخدمين لرسالة البث هذه",
+      "clear": "مسح الاختيار",
+      "next": "التالي",
+      "modalTitle": "محتوى البث",
+      "modalSubtitle": "إرسال إلى {{count}} مستخدمين مختارين",
+      "formTitle": "عنوان البث",
+      "formMessage": "نص الرسالة",
+      "formSubmit": "إرسال البث",
+      "titlePlaceholder": "مثال: صيانة مجدولة",
+      "messagePlaceholder": "تفاصيل حول البث...",
+      "success": "تم إرسال البث بنجاح!",
+      "error": "فشل إرسال البث"
+    },
+    "direct": {
+      "title": "رسالة مباشرة",
+      "subtitle": "اختر مستخدماً لبدء إرسال إشعار",
+      "modalTitle": "إرسال إشعار",
+      "modalSubtitle": "رسالة مباشرة إلى مستخدم (ID: {{id}})",
+      "formType": "نوع الإشعار",
+      "formTitle": "العنوان",
+      "formMessage": "نص الرسالة",
+      "formSubmit": "إرسال الرسالة",
+      "titlePlaceholder": "عنوان الإشعار",
+      "messagePlaceholder": "التفاصيل...",
+      "success": "تم إرسال الإشعار بنجاح!",
+      "error": "فشل إرسال الإشعار"
+    },
+    "history": {
+      "loading": "جاري تحميل السجلات...",
+      "empty": "لا توجد إشعارات في السجل.",
+      "table": {
+        "type": "النوع",
+        "recipient": "المستلم",
+        "content": "المحتوى",
+        "date": "التاريخ",
+        "actions": "الإجراءات",
+        "broadcastRecipient": "الكل (بث عام)"
+      },
+      "delete": {
+        "title": "حذف الإشعار",
+        "description": "هل أنت متأكد من حذف هذا الإشعار؟ لا يمكن التراجع عن هذا الإجراء.",
+        "confirm": "حذف",
+        "cancel": "إلغاء",
+        "success": "تم حذف الإشعار",
+        "error": "فشل حذف الإشعار"
+      },
+      "error": "فشل تحميل السجل"
+    },
+    "validation": {
+      "titleRequired": "العنوان مطلوب",
+      "messageRequired": "الرسالة مطلوبة",
+      "userRequired": "يرجى اختيار مستخدم",
+      "usersRequired": "يرجى اختيار مستخدم واحد على الأقل"
+    },
+    "types": {
+      "SYSTEM": "تنبيه نظام",
+      "BROADCAST": "بث عام",
+      "ORDER_UPDATED": "تحديث طلب",
+      "PAYMENT_SUCCESS": "دفع ناجح",
+      "PAYMENT_FAILED": "فشل الدفع"
+    },
+    "userSelection": {
+      "searchPlaceholder": "البحث بالاسم أو البريد...",
+      "noUsers": "لم يتم العثور على مستخدمين",
+      "selectedCount": "تم اختيار {{count}} مستخدم(ين)",
+      "selectedCountMax": "تم اختيار {{count}} مستخدم(ين) (الحد الأقصى: {{max}})",
+      "table": {
+        "id": "ID",
+        "name": "الاسم",
+        "email": "البريد",
+        "role": "الدور",
+        "select": "اختيار"
+      },
+      "pagination": {
+        "showing": "عرض {{start}}-{{end}} من {{total}}"
+      }
+    }
+  },
+
+  "cart_button": {
+    "title": "عربة التسوق",
+    "empty": "عربة التسوق فارغة",
+    "remove": "إزالة",
+    "total": "الإجمالي",
+    "clear": "إفراغ العربة",
+    "checkout": "إتمام الطلب"
+  },
+
+  "articleNotFound": {
+    "title": "المقال غير موجود",
+    "description": "عذراً، لم نتمكن من العثور على المقال الذي تبحث عنه. ربما تم حذفه أو نقله إلى عنوان آخر.",
+    "backToHome": "العودة للرئيسية",
+    "searchArticles": "البحث في المقالات",
+    "suggestions": "اقتراحات سريعة",
+    "latestArticles": "أحدث المقالات",
+    "contactSupport": "تواصل مع الدعم"
+  },
+
+  "PaymentModal": {
+    "secureCheckout": "دفع آمن",
+    "paymentId": "رقم الدفعة #",
+    "successTitle": "تم الدفع بنجاح",
+    "successDescription": "تم تأكيد دفع مبلغ {amount}.",
+    "done": "تم",
+    "failedTitle": "فشل الدفع",
+    "failedDescription": "لم نتمكن من تأكيد دفعتك. يمكنك المحاولة مرة أخرى الآن.",
+    "tryAgain": "حاول مرة أخرى",
+    "authRequiredTitle": "يتطلب تسجيل الدخول",
+    "authRequiredDescription": "انتهت صلاحية جلستك أثناء التحقق من حالة الدفع.",
+    "close": "إغلاق",
+    "delayedTitle": "لا يزال الدفع قيد المعالجة",
+    "delayedDescription": "تأخر التحقق. يمكنك الاستمرار في الانتظار بأمان.",
+    "checkAgain": "تحقق مرة أخرى",
+    "processingTitle": "جاري معالجة الدفع",
+    "processingDescription": "بانتظار التأكيد الآمن من نظام الدفع لدينا...",
+    "totalAmountDue": "إجمالي المبلغ المستحق",
+    "configMissing": "إعدادات Stripe مفقودة. يرجى الاتصال بالدعم.",
+    "initializing": "جاري تهيئة الدفع الآمن...",
+    "errors": {
+      "failed": "فشل الدفع. يرجى المحاولة مرة أخرى.",
+      "sessionExpired": "انتهت صلاحية الجلسة أثناء التحقق من الدفع. يرجى تسجيل الدخول مرة أخرى.",
+      "unableToVerify": "تعذر التحقق من حالة الدفع. جاري المحاولة مرة أخرى...",
+      "verificationDelayed": "تأخر التحقق من الدفع. يمكنك الاستمرار في الانتظار أو المحاولة مرة أخرى.",
+      "notCompleted": "لم يكتمل الدفع. يرجى التحقق من وسيلة الدفع والمحاولة مرة أخرى."
+    }
+  }
+}

@@ -1,0 +1,1625 @@
+{
+  "layoutMeta": {
+    "title": "Sanad - Innovative Tech Solutions",
+    "description": "Sanad offers cutting-edge technology and development services to empower your business in the digital world. From custom software to digital transformation – we've got you covered."
+  },
+
+  "aboutMeta": {
+    "title": "About Us - Sanad",
+    "description": "Learn more about Sanad, a leading provider of innovative tech solutions. Discover our mission, vision, and how we help businesses grow through technology."
+  },
+
+  "servicesMeta": {
+    "title": "Our Services - Sanad",
+    "description": "Explore the range of innovative and tailored technology services offered by Sanad. From custom software development to full-scale digital transformation – we bring your ideas to life."
+  },
+
+  "portfolioMeta": {
+    "title": "Our Work - Sanad",
+    "description": "Discover Sanad's portfolio of innovative digital solutions. See how we've helped businesses grow through impactful design, development, and technology."
+  },
+
+  "blogMeta": {
+    "title": "Blog - Sanad Insights & Updates",
+    "description": "Read the latest insights, updates, and expert articles from Sanad. Stay informed on tech trends, digital innovation, and business growth strategies."
+  },
+
+  "contactMeta": {
+    "title": "Contact Us - Sanad",
+    "description": "Get in touch with Sanad for inquiries, consultations, or support. We're here to help you bring your digital vision to life."
+  },
+
+  "notificationsMeta": {
+    "title": "Notifications - Sanad",
+    "description": "View and manage your notifications"
+  },
+
+  "signInMeta": {
+    "title": "Sign In - Sanad",
+    "description": "Access your Sanad account to manage your projects, track progress, and stay connected with our team of experts."
+  },
+
+  "signUpMeta": {
+    "title": "Create Account - Sanad",
+    "description": "Join Sanad today and unlock access to innovative tech solutions. Create your account to get started on your digital journey."
+  },
+
+  "verifyEmailMeta": {
+    "title": "Verify Email - Sanad",
+    "description": "Verify your email address to complete your account registration."
+  },
+
+  "cartMeta": {
+    "title": "Your Brief - Sanad",
+    "description": "Review your project brief and proceed to approval."
+  },
+
+  "hero": {
+    "title1": "Empowering Your",
+    "solutions": "Digital",
+    "forYour": "Transformation",
+    "success": "Through Innovation",
+    "description": "At Sanad, we bridge the gap between vision and reality with tailored technical services. From custom software to strategic digital marketing — we are your partner in growth.",
+    "join": "Start Your Journey",
+    "trust_our_expertise": "Trust our expertise",
+    "clients": "Clients",
+    "digital_transformation": "Digital Transformation"
+  },
+
+  "mobileSidebar": {
+    "closeMenu": "Close menu",
+    "tagline": "Your digital journey starts here"
+  },
+
+  "aboutSection": {
+    "sectionTitleSmall": "About Sanad",
+    "sectionTitleLarge": "Your Trusted Partner in Growth",
+    "description": "Sanad is a premier Saudi agency dedicated to elevating brands through data-driven digital marketing and advanced technical solutions. We don't just provide services; we build integrated strategies that connect you with your target audience with precision and quality.",
+    "buttonText": "Explore Our Story"
+  },
+
+  "companyValuesSection": {
+    "title": "Company Values",
+    "description": "At Sanad Arabia Advertising and Publicity Company, we believe that the values ​​adopted by any company are the only way to its success and to establish the quality of its services. That is why we chose our values ​​to be the trust of our clients, the motivation and goal that we set before our eyes and move steadily towards."
+  },
+
+  "portfolioSection": {
+    "title": "Our Portfolio",
+    "description": "Crafted with skill and care to help our clients grow their business through creative, innovative, and results-driven solutions. Each project reflects our commitment to excellence and deep understanding of our clients' unique needs.",
+    "showMore": "Show More",
+    "all": "All",
+    "noProjectsFound": "No Projects Found",
+    "noProjectsDescription": "We couldn't find any projects matching your criteria. Try adjusting your filter or view all projects.",
+    "viewAllProjects": "View All Projects",
+    "filtering": "Filtering...",
+    "swipeToFilter": "Swipe to filter",
+    "view": "View"
+  },
+
+  "services": {
+    "subtitle": "Our Services",
+    "title": "What We’re Offering?",
+    "description": "We provide a wide range of creative and digital marketing services tailored to help your brand grow, from strategic planning to execution across social media, websites, and offline campaigns.",
+    "cta": "Get Started Today",
+    "findSolution": "Find a solution"
+  },
+
+  "blogSection": {
+    "title": "Our latest",
+    "blogs": "blogs",
+    "paragraphLine": "Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field.",
+    "button": "View All"
+  },
+
+  "contactusSection": {
+    "contactUs": "Contact us",
+    "description": "We are here to help and answer any questions you might have. Reach out to us and we'll respond as soon as we can.",
+    "messageLabel": "Message",
+    "sendMessage": "Send Message",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter your email",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "messagePlaceholder": "Your message",
+    "imageAlt": "Contact Background",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Enter subject"
+  },
+
+  "footerLines": {
+    "heading": "Get the latest news!",
+    "description": "Stay up to date with all the latest news",
+    "subscribeButton": "Subscribe",
+    "emailPlaceholder": "john@rhcp.com",
+    "sections": {
+      "services": {
+        "title": "Services",
+        "links": {
+          "oneOnOneCoaching": "1on1 Coaching",
+          "companyReview": "Company Review",
+          "hrConsulting": "HR Consulting"
+        }
+      },
+      "company": {
+        "title": "Company",
+        "links": {
+          "about": "About",
+          "meetTheTeam": "Meet the Team",
+          "careers": "Careers"
+        }
+      },
+      "helpfulLinks": {
+        "title": "Helpful Links",
+        "links": {
+          "contact": "Contact",
+          "faqs": "FAQs",
+          "liveChat": "Live Chat"
+        }
+      },
+      "legal": {
+        "title": "Legal",
+        "links": {
+          "accessibility": "Accessibility",
+          "refundPolicy": "Refund Policy",
+          "termsOfService": "Terms of Service"
+        }
+      },
+      "downloads": {
+        "title": "Downloads",
+        "links": {
+          "marketingCalendar": "Marketing Calendar",
+          "seoInfographics": "SEO Infographics",
+          "brochure": "Brochure"
+        }
+      }
+    },
+    "socialMedia": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "linkedIn": "LinkedIn"
+    }
+  },
+
+  "aboutPage": {
+    "smartTool": "Smart Tool",
+    "hero_title": "Control your Finances with our",
+    "hero_description": "Invest intelligently and discover a better way to manage your entire wealth easily.",
+    "about_us_title": "About Us",
+    "about_us_description": "Sanad Arabia Advertising and Publicity Company is a leading Saudi company specialized in providing digital marketing services and commercial promotion on social media platforms and providing road, television and radio advertising in cooperation with the largest advertising and publicity companies in the Kingdom through a dedicated team to build integrated marketing strategies that ensure the development of commercial relations and reaching your target customer with high quality and following up and preparing marketing reports with the aim of continuous improvement and development",
+    "creative_title": "We are Creative Everytime",
+    "creative_description": "Pagedone isn't just a collection of components and guidelines; it's a philosophy. We go beyond aesthetics, prioritizing accessibility, scalability, and usability. Every element, from the tiniest detail to the grandest layout, is meticulously crafted to enhance functionality and elevate user satisfaction.",
+    "aboutLabel": "ABOUT US — Sanad ARABIA",
+    "ourStory": "OUR STORY",
+    "ourPhilosophy": "OUR PHILOSOPHY",
+    "commitment": "COMMITMENT",
+    "support": "SUPPORT"
+  },
+
+  "companyStats": {
+    "title": "Company Statistics",
+    "description": "Numbers that speak of our success and our clients’ trust"
+  },
+
+  "contactAbout": {
+    "title": "Ready to Transform Your Business?",
+    "description": "Let's discuss how Sanad can help you achieve your technology goals. Get in touch for a free consultation and custom quote.",
+    "getFreeQuote": "Get Free Quote",
+    "scheduleCall": "Schedule Call"
+  },
+
+  "testimonialsSection": {
+    "title": "What Our Clients Say",
+    "description": "What our clients say about their experience with us",
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "Ahmed Mohamed",
+        "position": "CTO",
+        "company": "Advanced Tech Co.",
+        "content": "An amazing experience with the Sanad team. They developed our website with high professionalism and on time. The results exceeded our expectations.",
+        "rating": 5,
+        "avatar": "AM"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ali",
+        "position": "Project Manager",
+        "company": "Innovation Foundation",
+        "content": "Excellent customer service and continuous technical support. The application they developed for us helped significantly increase work efficiency.",
+        "rating": 5,
+        "avatar": "FA"
+      },
+      {
+        "id": 3,
+        "name": "Mohammed Hassan",
+        "position": "Head of Marketing",
+        "company": "Digital Renaissance Co.",
+        "content": "A professional and specialized team. They helped us turn our ideas into an outstanding digital reality. I highly recommend them.",
+        "rating": 5,
+        "avatar": "MH"
+      },
+      {
+        "id": 4,
+        "name": "Sara Ahmed",
+        "position": "General Manager",
+        "company": "Al-Ibdaa Group",
+        "content": "Fruitful collaboration and innovative solutions. We achieved remarkable growth in our business thanks to the technical solutions they provided.",
+        "rating": 4,
+        "avatar": "SA"
+      },
+      {
+        "id": 5,
+        "name": "Omar Khaled",
+        "position": "Company Founder",
+        "company": "Startup Tech",
+        "content": "A successful partnership from the start. They quickly understood our needs and delivered practical, effective solutions.",
+        "rating": 5,
+        "avatar": "OK"
+      }
+    ]
+  },
+
+  "servicesPage": {
+    "title1": "Our Services",
+    "title2": "What We’re Offering?",
+    "description": "Advertising services encompass a range of strategies and solutions designed to promote products or brands through various channels, including digital, print, and broadcast media. These services aim to enhance brand visibility, engage target audiences, and drive sales by crafting compelling messages and creative campaigns tailored to specific markets."
+  },
+
+  "pricing": {
+    "title": "Pricing Plan",
+    "subtitle": "Our Pricing Plan",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "popular": "Popular",
+    "per": "per",
+    "features": "FEATURES",
+    "month": "month",
+    "year": "year"
+  },
+
+  "howWeWork": {
+    "sectionTitle": "How We Work",
+    "sectionSubtitle": "How We Deliver Innovation And Excellence"
+  },
+
+  "portfolioPage": {
+    "filter": "Filter by Category",
+    "projectsTitle": "Our Projects",
+    "projectsTitleHighlight": "Portfolio",
+    "projectsDescription": "Explore our latest technology projects and innovations",
+    "failedToLoad": "Failed to load projects",
+    "all": "All",
+    "ctaHeading": "Ready to be our next success story?",
+    "ctaDescription": "Let us build something great together. Tell us about your project and we will get back to you within 24 hours.",
+    "ctaButton": "Start Your Project",
+    "other": "Other",
+    "allProjectsShown": "All projects shown",
+    "heroTitle": "Our Work",
+    "heroDescription": "Projects that speak for themselves — delivered with expertise and precision.",
+    "projectsDelivered": "projects delivered",
+    "featuredProject": "Featured Project",
+    "viewProject": "View Project",
+    "goToProject": "Go to project",
+    "of": "of",
+    "noProjectsInCategory": "No projects in this category",
+    "viewAllProjects": "View all projects"
+  },
+
+  "servicesSlider": {
+    "title": "Discover Our Services",
+    "description": "We offer a variety of services to help you achieve your goals efficiently and professionally, from marketing strategies to web design."
+  },
+
+  "contactPage": {
+    "faqTitle": "Frequently Asked Questions",
+    "faqDescription": "Find answers to common questions about our services, process, and pricing. Can't find what you're looking for? Feel free to contact us directly.",
+    "contactTitle": "Get In Touch",
+    "contactDescription": "Ready to start your next project? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "contactHelperText": "We're here to help and answer any questions you might have.",
+    "sending": "Sending...",
+    "sendMessage": "Send Message",
+    "messageSend": "Message Send !",
+    "thanksMessage": "Thank you for reaching out. We'll get back to you within 24 hours.",
+    "formTitle": "Send us a Message",
+    "formDescription": "Fill out the form below and we'll get back to you as soon as possible.",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "What's this about?",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell us more about your project or inquiry..."
+  },
+
+  "validationMessages": {
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "subjectRequired": "Subject is required",
+    "messageRequired": "Message is required",
+    "messageTooShort": "Message must be at least 10 characters long"
+  },
+
+  "blogPage": {
+    "categoriesTitle": "ALL CATEGORIES",
+    "latestPostsTitle": "LATEST POSTS",
+    "popularTagsTitle": "POPULAR TAGS",
+    "showing": "SHOWING",
+    "Results": "RESULTS",
+    "sortBy": {
+      "recent": "SORT BY: Recent",
+      "popular": "SORT BY: Popular",
+      "oldest": "SORT BY: Oldest"
+    },
+    "ideasThatInspire": "IDEAS THAT INSPIRE",
+    "loadingText": "Loading articles..."
+  },
+
+  "noArticles": {
+    "title": "No Articles Found",
+    "message": "Sorry, we couldn’t find any articles matching your criteria. Please try adjusting your filters or check back later."
+  },
+
+  "ProjectPage": {
+    "technologiesUsed": "Technologies Used",
+    "viewProject": "View Project",
+    "sourceCode": "Source Code",
+    "allProjects": "All Projects",
+    "exploreProjects": "Explore a diverse collection of projects built with cutting-edge technologies",
+    "otherProjects": "Other Projects",
+    "client": "Client",
+    "duration": "Duration",
+    "year": "Year",
+    "challenge": "The Challenge",
+    "solution": "Our Solution",
+    "results": "Key Results",
+    "process": "Process",
+    "tools": "Tools & Technologies",
+    "gallery": "Project Gallery",
+    "liveProject": "View Live Project",
+    "nextProject": "Next Project",
+    "previousProject": "Previous Project",
+    "getQuote": "Get a Quote",
+    "backToPortfolio": "Back to Portfolio",
+    "category": "Category",
+    "techUsed": "Tech Used",
+    "technologies": "technologies",
+    "overview": "Overview",
+    "ctaTitle": "Like what you see?",
+    "ctaHeading": "Let's Build Something Great Together",
+    "ctaDescription": "Reach out and let's discuss your next project. We'll make it a reality.",
+    "startProject": "Start Your Project",
+    "viewMore": "View More Work",
+    "other": "Other",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "viewImage": "View image",
+    "imageLabel": "Image",
+    "thumbnail": "Thumbnail",
+    "projectNotFound": {
+      "title": "Project Not Found",
+      "message": "Sorry, we couldn't find the project you're looking for. It may have been removed or the link might be incorrect."
+    }
+  },
+
+  "servicePage": {
+    "benefits": "Benefits",
+    "features": "Features",
+    "targetAudience": "Target Audience",
+    "otherServices": "Other Services",
+    "orderService": "Order Service",
+    "contactbtn": "Contact Us",
+    "ourProcess": "Our Process",
+    "processDescription": "A proven methodology that delivers consistent results",
+    "frequentlyAsked": "Frequently Asked Questions",
+    "faqDescription": "Everything you need to know about this service",
+    "choosePackage": "Choose Your Package",
+    "packageDescription": "Select the plan that best fits your needs and budget",
+    "getStarted": "Get Started",
+    "popular": "Most Popular",
+    "serviceStats": "Service Statistics",
+    "relatedServices": "Related Services",
+    "exploreMore": "Explore more of our services",
+    "backToServices": "Back to Services",
+    "whyChooseUs": "Why Choose Us",
+    "step": "Step"
+  },
+
+  "verifyCode": {
+    "verifyEmailTitle": "Verify Email",
+    "verifyEmailDescription": "To complete the account creation process, you must enter the code that was sent to the email address you used to register.",
+    "deactivationWarning": "Are you sure your account will be deactivated?",
+    "okButton": "ok",
+    "cancelButton": "Cancel",
+    "missingToken": "The verification link is invalid or has expired. Please request a new one.",
+    "verifyingTitle": "Verifying Email",
+    "verifyingDesc": "Please wait while we verify your email address...",
+    "successTitle": "Email Verified!",
+    "successDesc": "Your email has been successfully verified. You can now access all features of our platform.",
+    "errorTitle": "Verification Failed",
+    "errorDesc": "An error occurred during the verification process. The link may be expired or invalid.",
+    "goToSignIn": "Go to Sign In",
+    "backToSignup": "Back to Sign Up"
+  },
+  "userMenu": {
+    "profile": "Profile",
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "payments": "Payments",
+    "notifications": "Notifications",
+    "notificationSettings": "Notification Settings",
+    "logout": "Logout",
+    "loggingOut": "Logging out..."
+  },
+
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications",
+    "emptyDescription": "You're all caught up! We'll notify you when something arrives.",
+    "emptyUnread": "Great! You have no unread notifications.",
+    "unread": "unread notification",
+    "unreadPlural": "unread notifications",
+    "allCaughtUp": "All caught up!",
+    "markAllRead": "Mark all as read",
+    "loadMore": "Load more notifications",
+    "showing": "Showing",
+    "of": "of",
+    "new": "new",
+    "justNow": "Just now",
+    "viewDetails": "View details",
+    "read": "Read",
+    "delete": "Delete",
+    "filterAll": "All",
+    "filterUnread": "Unread",
+    "typesAll": "All Types",
+    "typesOrders": "Orders",
+    "typesPaymentSuccess": "Payment Success",
+    "typesPaymentFailed": "Payment Failed",
+    "typesSystem": "System",
+    "typesBroadcast": "Broadcast",
+    "preferences": {
+      "title": "Notification Preferences",
+      "subtitle": "Customize how and when you receive notifications",
+      "types": "Notification Types",
+      "typesDescription": "Choose which types of notifications you want to receive",
+      "delivery": "Delivery Methods",
+      "deliveryDescription": "Choose how you want to receive notifications",
+      "orderUpdates": "Order Updates",
+      "orderUpdatesDesc": "Notifications about your order status changes and updates",
+      "paymentNotifications": "Payment Notifications",
+      "paymentNotificationsDesc": "Notifications about successful or failed payments",
+      "systemNotifications": "System Notifications",
+      "systemNotificationsDesc": "Important system updates, maintenance notices, and announcements",
+      "pushNotifications": "Push Notifications",
+      "pushNotificationsDesc": "Receive real-time push notifications in your browser",
+      "emailNotifications": "Email Notifications",
+      "emailNotificationsDesc": "Receive notification summaries via email",
+      "saveChanges": "Save Changes",
+      "unsavedChanges": "You have unsaved changes",
+      "allSaved": "All changes saved",
+      "savedSuccess": "Preferences saved successfully",
+      "saveError": "Failed to save preferences. Please try again."
+    }
+  },
+
+  "signUpPage": {
+    "createAccount": "Create Account",
+    "alreadyHave": "Already have an account?",
+    "SignIn": " Sign in",
+    "or": "Or",
+    "title": "Create Account",
+    "subtitle": "Join us today and get started",
+    "formTitle": "Create your account",
+    "formSubtitle": "Start your journey with Sanad",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Ahmed Al-Rashid",
+    "email": "Email",
+    "emailPlaceholder": "ahmed@company.com",
+    "password": "Password",
+    "passwordPlaceholder": "Create a strong password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter your password",
+    "submit": "Create Account",
+    "orContinueWith": "or continue with",
+    "signIn": "Sign in",
+    "passwordLength": "At least 8 characters",
+    "passwordLowercase": "Lowercase letter",
+    "passwordUppercase": "Uppercase letter",
+    "passwordNumber": "Number",
+    "weak": "Weak",
+    "fair": "Fair",
+    "good": "Good",
+    "strong": "Strong",
+    "passwordsMatch": "Passwords match",
+    "google": "Google",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "accountCreatedSuccess": "Account created successfully!",
+    "somethingWentWrong": "Something went wrong. Please try again.",
+    "googleSignInComingSoon": "Google sign-in coming soon"
+  },
+
+  "signInPage": {
+    "title": "Welcome Back",
+    "subtitle": "Log in to continue your journey",
+    "signIn": "Sign In",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create one",
+    "or": "Or"
+  },
+
+  "formValidation": {
+    "fullNameRequired": "Full name is required",
+    "fullNameTooShort": "Full name must be at least 2 characters",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordRequired": "Password is required",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordWeak": "Password must contain uppercase, lowercase, and number",
+    "confirmPasswordRequired": "Please confirm your password",
+    "passwordsNotMatch": "Passwords do not match"
+  },
+
+  "DashboardPage": {
+    "Sidebar": {
+      "brandName": "Sanad",
+      "brandTagline": "Technical Services",
+      "overview": "Overview",
+      "users": "Users",
+      "projects": "Projects",
+      "services": "Services",
+      "contactUs": "Contact Us",
+      "payments": "Payments",
+      "blog": "Blog",
+      "orders": "Orders",
+      "notifications": "Notifications",
+      "addArticle": "Add Article",
+      "addProject": "Add Project",
+      "addService": "Add Service",
+      "logout": "Logout",
+      "help": "Help",
+      "loggingOut": "Logging out..."
+    },
+    "TopNavBar": {
+      "searchPlaceholder": "Search resources...",
+      "notifications": "Notifications",
+      "settings": "Settings"
+    },
+    "HeroWelcome": {
+      "greeting": "Good Morning, Operations Lead",
+      "subtitle": "Your business health is looking strong today. Revenue is up by 12% and all active projects are currently within their projected timelines.",
+      "newProjectBtn": "New Project",
+      "downloadReportBtn": "Download Report"
+    },
+    "KeyMetrics": {
+      "totalRevenue": "Total Revenue",
+      "activeProjects": "Active Projects",
+      "satisfactionRate": "Satisfaction Rate",
+      "newLeads": "New Leads",
+      "stable": "Stable",
+      "new": "New"
+    },
+    "ActiveProjectsTable": {
+      "title": "Active Projects",
+      "viewAll": "View All",
+      "projectName": "Project Name",
+      "client": "Client",
+      "status": "Status",
+      "deadline": "Deadline",
+      "emptyTitle": "No active projects",
+      "emptySubtitle": "Create your first project to get started",
+      "newProjectBtn": "+ New Project",
+      "inProgress": "In Progress",
+      "review": "Review",
+      "drafting": "Drafting"
+    },
+    "ServicePerformance": {
+      "title": "Service Performance",
+      "emptyMessage": "No service data available",
+      "architecturalDesign": "Architectural Design",
+      "technicalConsultation": "Technical Consultation",
+      "urbanPlanning": "Urban Planning"
+    },
+    "RecentActivity": {
+      "title": "Recent Activity",
+      "emptyMessage": "No recent activity",
+      "newProjectSigned": "New project signed",
+      "skylineTower": "Skyline Tower - Contract finalized",
+      "paymentReceived": "Payment received",
+      "invoice9012": "Invoice #9012 - $12,400.00",
+      "projectStatusUpdated": "Project Status Updated",
+      "villaK92Moved": "Villa K-92 moved to 'In Progress'"
+    }
+  },
+
+  "UsersPage": {
+    "title": "User Management",
+    "subtitle": "Manage platform access, roles, and user permissions across departments.",
+    "addUserBtn": "Add New User",
+    "UserStats": {
+      "totalUsers": "Total Users",
+      "activeNow": "Active Now",
+      "newThisMonth": "New This Month",
+      "realtimeTracking": "Real-time session tracking",
+      "onboardingTargets": "Onboarding targets met"
+    },
+    "FilterBar": {
+      "searchPlaceholder": "Search by name, email, or employee ID...",
+      "allRoles": "All Roles",
+      "admin": "Admin",
+      "manager": "Manager",
+      "client": "Client",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "UserTable": {
+      "user": "User",
+      "role": "Role",
+      "status": "Status",
+      "lastActive": "Last Active",
+      "actions": "Actions",
+      "showingText": "Showing 1 to 4 of 1,284 users",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "PendingBanner": {
+      "message": "You have 12 pending user approval requests that need your attention.",
+      "reviewLink": "Review requests"
+    }
+  },
+
+  "ProjectsPage": {
+    "title": "Project Management",
+    "subtitle": "Track and manage your ongoing digital transformation projects.",
+    "addProjectBtn": "Add New Project",
+    "statusAll": "Status: All Projects",
+    "statusInProgress": "Status: In Progress",
+    "statusReview": "Status: Review",
+    "statusDrafting": "Status: Drafting",
+    "statusDelayed": "Status: Delayed",
+    "ProjectStats": {
+      "totalActive": "Total Active Projects",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "completedSub": "(This Month)",
+      "delayed": "Delayed",
+      "urgent": "Urgent"
+    },
+    "ProjectTable": {
+      "recentProjects": "Recent Projects",
+      "projectName": "Project Name",
+      "client": "Client",
+      "status": "Status",
+      "deadline": "Deadline",
+      "team": "Team",
+      "showingText": "Showing 5 of 42 projects",
+      "previous": "Previous",
+      "next": "Next",
+      "teamMember": "Team member"
+    },
+    "ProjectWorkloadChart": {
+      "title": "Project Workload Analysis"
+    },
+    "TeamEfficiency": {
+      "title": "Team Efficiency",
+      "subtitle": "Review the performance metrics of assigned project leads for this quarter.",
+      "onTrack": "On Track",
+      "downloadReport": "Download Report"
+    },
+    "AddNewProject": {
+      "breadcrumb": {
+        "projects": "Projects",
+        "addNew": "Add New Project"
+      },
+      "title": "Create New Project",
+      "subtitle": "Fill in the required fields to create your project. Drafts are saved automatically.",
+      "saveDraft": "Save Draft",
+      "publishProject": "Publish Project",
+      "basicInfo": {
+        "title": "Basic Information",
+        "projectTitle": "Project Title",
+        "titlePlaceholder": "e.g. Modern E-commerce Platform Re-design",
+        "titleHelp": "A clear, descriptive title helps users find your project quickly.",
+        "category": "Category",
+        "categoryPlaceholder": "Select a category",
+        "shortDesc": "Short Description",
+        "shortDescPlaceholder": "Brief summary for list views (max 150 characters)",
+        "longDesc": "Long Description",
+        "longDescPlaceholder": "Describe the project scope, challenges, and solutions in detail...",
+        "longDescHelp": "Optional but recommended — detailed descriptions improve SEO and user engagement."
+      },
+      "projectIdentity": {
+        "title": "Project Identity",
+        "coverImage": "Cover Image",
+        "dropText": "Drop your cover image here, or ",
+        "browseText": "browse",
+        "recommendedSize": "Recommended: 1600x900px, PNG or JPG",
+        "galleryUpload": "Gallery Upload",
+        "galleryPreview1": "Gallery Preview 1",
+        "galleryPreview2": "Gallery Preview 2",
+        "galleryHelp": "Add up to 8 screenshots to showcase your project. PNG or JPG, max 5MB each."
+      },
+      "technicalDetails": {
+        "title": "Technical Details",
+        "techStack": "Tech Stack",
+        "techStackEmpty": "No technologies added yet. Type one below and press Enter.",
+        "addTechnology": "Add technology...",
+        "liveUrl": "Live URL",
+        "repoUrl": "Repository URL"
+      },
+      "livePreview": {
+        "title": "Live Preview",
+        "category": "Web Application",
+        "untitled": "Untitled Project",
+        "description": "Start typing basic info to see your project card take shape in real-time...",
+        "status": "Status",
+        "draft": "Draft",
+        "views": "Views",
+        "fullPreview": "Full Preview"
+      },
+      "formProgress": {
+        "title": "Form Progress",
+        "required": "Required",
+        "completed": "Completed"
+      },
+      "healthPrediction": {
+        "title": "Health Prediction",
+        "strongLaunch": "Strong Launch",
+        "description": "Based on your stack & description quality.",
+        "seoReadiness": "SEO Readiness",
+        "seoReadinessValue": "High",
+        "documentation": "Documentation",
+        "documentationValue": "Pending"
+      },
+      "complianceChecklist": {
+        "title": "Compliance Checklist",
+        "security": "Security Standards",
+        "securityDesc": "Verified for HTTPS protocol",
+        "accessibility": "Accessibility (a11y)",
+        "accessibilityDesc": "Semantic HTML check passed",
+        "dataSovereignty": "Data Sovereignty",
+        "dataSovereigntyDesc": "Pending host location check",
+        "qaAudit": "Final QA Audit",
+        "qaAuditDesc": "Locked until publish"
+      }
+    }
+  },
+
+  "BlogPage": {
+    "StatsCards": {
+      "totalPosts": "Total Posts",
+      "totalViews": "Total Views",
+      "avgReadingTime": "Avg. Reading Time",
+      "newComments": "New Comments",
+      "replied": "Replied"
+    },
+    "QuickActions": {
+      "createNewPost": "Create New Post",
+      "createNewPostDesc": "Draft your next masterpiece",
+      "manageCategories": "Manage Categories",
+      "manageCategoriesDesc": "Organize your content structure",
+      "viewScheduled": "View Scheduled",
+      "viewScheduledDesc": "Check your upcoming publications"
+    },
+    "ChartsPlaceholder": {
+      "postPerformance": "Post Performance over time",
+      "engagementByCategory": "Engagement by Category",
+      "last30Days": "Last 30 Days",
+      "last90Days": "Last 90 Days",
+      "total": "Total",
+      "tech": "Tech",
+      "design": "Design",
+      "business": "Business"
+    },
+    "Filters": {
+      "searchPlaceholder": "Search articles...",
+      "statusAll": "Status: All",
+      "published": "Published",
+      "draft": "Draft",
+      "scheduled": "Scheduled",
+      "dateNewest": "Date: Newest",
+      "oldest": "Oldest",
+      "authorAll": "Author: All",
+      "categoryAll": "Category: All",
+      "technology": "Technology",
+      "editorial": "Editorial"
+    },
+    "ArticleGrid": {
+      "noArticlesTitle": "No articles yet",
+      "noArticlesDesc": "Start building your content library. Create your first blog post to share your expertise with the world.",
+      "createFirstPost": "Create Your First Post",
+      "deleteConfirmTitle": "Delete Article?",
+      "deleteConfirmDesc": "This action cannot be undone",
+      "deleteConfirmMessage": "Are you sure you want to delete",
+      "deleteConfirmWarning": "This will permanently remove the article and all its content.",
+      "cancel": "Cancel",
+      "deleteArticle": "Delete Article",
+      "editArticle": "Edit article",
+      "deleteArticleLabel": "Delete article",
+      "imageUnavailable": "Image unavailable"
+    },
+    "Pagination": {
+      "previous": "Previous page",
+      "next": "Next page"
+    },
+    "KeyboardShortcutsHelp": {
+      "title": "Keyboard Shortcuts",
+      "createNewPost": "Create new post",
+      "focusSearch": "Focus search",
+      "showShortcuts": "Show keyboard shortcuts",
+      "editSelected": "Edit selected article",
+      "navigatePages": "Navigate pages",
+      "pressEsc": "Press",
+      "toClose": "to close",
+      "esc": "Esc"
+    }
+  },
+
+  "AddArticlePage": {
+    "backToArticles": "Back to Articles",
+    "title": "Add New Article",
+    "drafting": "Drafting",
+    "saveDraft": "Save Draft",
+    "publishNow": "Publish Now",
+    "articleDetails": "Article Details",
+    "articleTitle": "Article Title",
+    "articleTitlePlaceholder": "Enter a compelling headline...",
+    "category": "Category",
+    "tags": "Tags",
+    "addTag": "Add Tag",
+    "shortExcerpt": "Short Excerpt",
+    "excerptPlaceholder": "Brief summary for social sharing and search results...",
+    "cover": "Cover",
+    "replace": "Replace",
+    "updateMedia": "Update Media",
+    "aspectRatio": "Aspect Ratio 16:9",
+    "words": "Words",
+    "collaborators": "Collaborators",
+    "inviteTeam": "Invite Team",
+    "versionHistory": "Version History",
+    "currentDraft": "Current Draft",
+    "majorEdit": "Major Edit",
+    "initialCreation": "Initial Creation",
+    "restoreVersion": "Restore this version",
+    "seeFullLog": "See Full Log",
+    "publishingSettings": "Publishing Settings",
+    "visibility": "Visibility",
+    "public": "Public",
+    "schedule": "Schedule",
+    "immediate": "Immediate",
+    "markAsFeatured": "Mark as Featured",
+    "enableComments": "Enable Comments",
+    "active": "Active",
+    "visibilityHelp": "Public articles are visible to everyone. Private articles are only visible to your team.",
+    "scheduleHelp": "Pick a future date for this article to go live automatically.",
+    "markAsFeaturedHelp": "Featured articles are highlighted at the top of your blog.",
+    "enableCommentsHelp": "Allow readers to leave comments on this article.",
+    "categories": {
+      "tech": "Technology & Innovation",
+      "architecture": "Urban Architecture",
+      "economics": "Global Economics",
+      "heritage": "Cultural Heritage"
+    }
+  },
+
+  "ServicesPage": {
+    "title": "Services Dashboard",
+    "breadcrumbMain": "Main Console",
+    "breadcrumbServices": "Services Dashboard",
+    "QuickActions": {
+      "addNewService": "Add New Service",
+      "addNewServiceDesc": "Deploy new infrastructure",
+      "manageCategories": "Manage Categories",
+      "manageCategoriesDesc": "Organize service clusters",
+      "priceManagement": "Price Management",
+      "priceManagementDesc": "Tiered billing & billing rules",
+      "serviceLogs": "Service Logs",
+      "serviceLogsDesc": "Audit system activities"
+    },
+    "ChartsSection": {
+      "featuredPerformance": "Featured Performance",
+      "performanceSubtitle": "System-wide service excellence overview",
+      "uptime": "Uptime",
+      "load": "Load",
+      "peakUptime": "Peak Uptime",
+      "latency": "Latency",
+      "activeNodes": "Active Nodes",
+      "revenueDistribution": "Revenue Distribution",
+      "revenueSubtitle": "Service tier contribution",
+      "total": "TOTAL",
+      "enterprise": "Enterprise",
+      "cloudInfrastructure": "Cloud Infrastructure",
+      "supportTiers": "Support Tiers"
+    },
+    "FilterBar": {
+      "searchPlaceholder": "Filter by name...",
+      "allCategories": "All Categories",
+      "cloud": "Cloud",
+      "security": "Security",
+      "support": "Support",
+      "dataSystems": "Data Systems",
+      "statusActive": "Status: Active",
+      "statusPending": "Status: Pending",
+      "statusMaintenance": "Status: Maintenance",
+      "priceHighLow": "Price: High to Low",
+      "priceLowHigh": "Price: Low to High",
+      "applyFilters": "Apply Filters"
+    },
+    "ServiceCards": {
+      "active": "ACTIVE",
+      "pending": "PENDING",
+      "idle": "IDLE",
+      "startingAt": "Starting At",
+      "manage": "Manage",
+      "cloudArchitecture": "Cloud Architecture",
+      "cyberSecurity": "Cyber Security",
+      "managedSupport": "Managed Support",
+      "dataSystems": "Data Systems"
+    }
+  },
+
+  "ContactUsPage": {
+    "QuickActions": {
+      "archiveAll": "Archive All",
+      "archiveAllDesc": "Move resolved to archive",
+      "flagUrgent": "Flag Urgent",
+      "flagUrgentDesc": "Mark priority inquiries",
+      "exportCSV": "Export CSV",
+      "exportCSVDesc": "Download monthly report",
+      "setupAutoReply": "Setup Auto-reply",
+      "setupAutoReplyDesc": "Configure AI assistant",
+      "replied": "Replied"
+    },
+    "StatsCards": {
+      "totalMessages": "Total Messages",
+      "unread": "Unread",
+      "needsAttention": "Needs attention",
+      "avgResponseTime": "Avg. Response Time",
+      "satisfactionRate": "Satisfaction Rate",
+      "excellent": "Excellent",
+      "replied": "Replied"
+    },
+    "Filters": {
+      "searchPlaceholder": "Filter by keyword...",
+      "statusAll": "Status: All",
+      "unread": "Unread",
+      "replied": "Replied",
+      "archived": "Archived",
+      "categoryGeneral": "Category: General",
+      "technicalSupport": "Technical Support",
+      "billing": "Billing",
+      "partnership": "Partnership",
+      "priorityAll": "Priority: All",
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium"
+    },
+    "MessagesTable": {
+      "sender": "Sender",
+      "subject": "Subject",
+      "category": "Category",
+      "received": "Received",
+      "status": "Status",
+      "actions": "Actions",
+      "showingText": "Showing 1 to 4 of 1,284 results",
+      "previous": "Previous",
+      "next": "Next",
+      "unread": "Unread",
+      "replied": "Replied",
+      "urgent": "Urgent",
+      "archived": "Archived",
+      "technical": "TECHNICAL",
+      "billing": "BILLING",
+      "partner": "PARTNER",
+      "general": "GENERAL"
+    }
+  },
+
+  "PaymentsPage": {
+    "PaymentsHeader": {
+      "title": "Payments Overview",
+      "subtitle": "Track financial performance and manage transactions",
+      "last30Days": "Last 30 Days"
+    },
+    "PaymentStats": {
+      "totalRevenue": "Total Revenue",
+      "activeSubscriptions": "Active Subscriptions",
+      "netVolume": "Net Volume",
+      "avgTicketSize": "Avg Ticket Size",
+      "stable": "Stable"
+    },
+    "PaymentActions": {
+      "sendInvoice": "Send Invoice",
+      "issueRefund": "Issue Refund",
+      "exportCSV": "Export CSV"
+    },
+    "PaymentCharts": {
+      "revenueVsTime": "Revenue vs. Time",
+      "monthlyRevenueTrend": "Monthly revenue trend",
+      "revenue": "Revenue",
+      "forecast": "Forecast",
+      "methodDistribution": "Method Distribution",
+      "total": "Total",
+      "creditCard": "Credit Card",
+      "bankTransfer": "Bank Transfer",
+      "crypto": "Crypto"
+    },
+    "PaymentFilters": {
+      "searchPlaceholder": "Search transactions...",
+      "statusAll": "Status: All",
+      "success": "Success",
+      "pending": "Pending",
+      "failed": "Failed",
+      "methodCard": "Method: Card",
+      "bankTransfer": "Bank Transfer",
+      "crypto": "Crypto",
+      "currencyUSD": "Currency: USD"
+    },
+    "TransactionTable": {
+      "invoiceId": "Invoice ID",
+      "actions": "Actions",
+      "recentTransactions": "Recent Transactions",
+      "liveFeed": "Live feed of payment activity",
+      "viewAll": "View All",
+      "customer": "Customer",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "method": "Method",
+      "success": "success",
+      "pending": "pending",
+      "failed": "failed"
+    },
+    "PayoutSchedule": {
+      "title": "Payout Schedule",
+      "nextDeposit": "Next Deposit",
+      "amountToTransfer": "Amount to Transfer",
+      "verificationProgress": "Verification Progress",
+      "payoutInfo": "Payouts processed every Monday to Chase Business (•••• 5502).",
+      "viewPayoutHistory": "View Payout History"
+    },
+    "FloatingActionButton": {
+      "label": "Add new"
+    }
+  },
+
+  "UserDashboard": {
+    "Header": {
+      "searchPlaceholder": "Search platform...",
+      "notifications": "Notifications",
+      "help": "Help",
+      "userAvatar": "User profile avatar",
+      "nav": {
+        "dashboard": "Dashboard",
+        "orders": "Orders",
+        "support": "Support"
+      }
+    },
+    "ProfileHeader": {
+      "avatarAlt": "User avatar large",
+      "name": "Ahmed Al-Sayed",
+      "role": "SME Owner",
+      "description": "Strategic partner at Sanad since 2021. Actively managing infrastructure development and procurement services. Currently focused on digital transformation projects in Riyadh.",
+      "location": "Riyadh, KSA",
+      "joined": "Joined Oct 2021",
+      "editProfile": "Edit Profile",
+      "sharePortfolio": "Share Portfolio"
+    },
+    "EditProfileModal": {
+      "title": "Edit Profile",
+      "avatarLabel": "Profile Picture",
+      "avatarPlaceholder": "Enter image URL",
+      "avatarPreview": "Preview",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "emailLabel": "Email Address",
+      "emailReadOnly": "You can't edit verified Email",
+      "passwordLabel": "New Password",
+      "passwordPlaceholder": "Enter new password",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm new password",
+      "cancel": "Cancel",
+      "save": "Save Changes",
+      "saving": "Saving...",
+      "validation": {
+        "nameRequired": "Name is required",
+        "nameTooShort": "Name must be at least 2 characters",
+        "avatarInvalid": "Please enter a valid URL",
+        "passwordTooShort": "Password must be at least 6 characters",
+        "passwordsNotMatch": "Passwords do not match"
+      },
+      "success": "Profile updated successfully",
+      "error": "Failed to update profile"
+    },
+    "StatsRow": {
+      "servicesActive": "Services Active",
+      "activeProjects": "Active Projects",
+      "totalInvestment": "Total Investment",
+      "supportInquiries": "Support Inquiries",
+      "sar": "SAR",
+      "twoThisMonth": "+2 this month",
+      "threeOnTrack": "3 on track",
+      "oneUrgent": "1 urgent",
+      "currency": "",
+      "noStats": "No data yet"
+    },
+    "QuickActions": {
+      "requestNewService": "Request New Service",
+      "requestNewServiceDesc": "Expand your portfolio with our curated marketplace of specialized services.",
+      "viewActiveContracts": "View Active Contracts",
+      "viewActiveContractsDesc": "Review legal agreements, SLAs, and performance metrics for all services.",
+      "updateBilling": "Update Billing",
+      "updateBillingDesc": "Manage cards & invoices",
+      "contactManager": "Contact Manager",
+      "contactManagerDesc": "Dedicated 24/7 assistance"
+    },
+    "ActiveDeliverables": {
+      "title": "Active Deliverables",
+      "viewAll": "View All",
+      "progress": "Progress",
+      "cloudMigration": "Cloud Migration Framework",
+      "cloudMigrationSubtitle": "Infrastructure Service • Phase 2 of 4",
+      "onTrack": "On Track",
+      "payrollIntegration": "Automated Payroll Integration",
+      "payrollIntegrationSubtitle": "Financial Service • Final Review",
+      "pendingAction": "Pending Action",
+      "showMore": "Show more",
+      "showLess": "Show less",
+      "emptyMessage": "No active deliverables yet",
+      "emptyDescription": "Your active projects will appear here."
+    },
+    "QuickSettings": {
+      "title": "Quick Settings",
+      "twoFactorSecurity": "2FA Security",
+      "enabled": "Enabled",
+      "smartAlerts": "Smart Alerts",
+      "threeActiveNotifications": "3 active notifications",
+      "regionLanguage": "Region & Language",
+      "arabicKSAs": "Arabic (KSA)",
+      "profileCompletionText": "You have successfully completed 95% of your profile setup. Adding a tax identification number will unlock higher transaction limits.",
+      "completeProfile": "Complete Profile",
+      "showMore": "Show more",
+      "showLess": "Show less"
+    },
+    "RecentActivity": {
+      "title": "Recent Activity",
+      "filter": "Filter",
+      "download": "Download",
+      "colActivity": "Transaction / Activity",
+      "colType": "Type",
+      "colStatus": "Status",
+      "colAmountDate": "Amount / Date",
+      "saasSubscription": "SaaS Subscription - Enterprise Tier",
+      "subscription": "Subscription",
+      "paid": "Paid",
+      "neomMilestone": "Project \"Neom Expansion\" Milestone 1",
+      "milestone": "Milestone",
+      "pending": "Pending",
+      "passwordUpdate": "Password Security Update",
+      "security": "Security",
+      "success": "Success",
+      "showMore": "Show more",
+      "showLess": "Show less",
+      "emptyMessage": "No activity yet",
+      "emptyDescription": "Your recent activity will appear here."
+    },
+    "QuickStart": {
+      "title": "What would you like to do today?",
+      "description": "Start by requesting a new service or explore your quick actions below.",
+      "cta": "Request New Service"
+    }
+  },
+  "forgotPassword": {
+    "title": "Forgot Password?",
+    "description": "No worries, we'll help you reset it. Enter your registered email address below.",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "e.g. alex@example.com",
+    "sendLink": "Send Reset Link",
+    "backToLogin": "Back to Login",
+    "needHelp": "Need help?",
+    "contactSupport": "Contact support",
+    "meta": {
+      "title": "Forgot Password - Sanad",
+      "description": "Reset your Sanad account password safely and securely."
+    }
+  },
+  "checkYourInbox": {
+    "title": "Check your inbox",
+    "emailHint": "We sent a verification link to {email}. Open the email and click the link to confirm your account.",
+    "spamNote": "Don't see it? Check your spam or junk folder.",
+    "openEmailApp": "Open your email app",
+    "didNotReceive": "Still can't find the email?",
+    "resendLink": "Send the link again",
+    "resendSuccess": "A new link has been sent! Check your inbox.",
+    "resendSending": "Sending...",
+    "resendCooldown": "Try again in",
+    "resendError": "Failed to send. Please check your connection and try again.",
+    "backToLogin": "Back to sign in",
+    "needHelp": "Need help? Contact support",
+    "meta": {
+      "title": "Verify Your Email | Sanad",
+      "description": "A verification link has been sent to your email. Please check your inbox to continue."
+    }
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "subtitle": "Choose a strong, secure password that you haven't used before for your Sanad account.",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Repeat new password",
+    "updatePassword": "Update Password",
+    "backToLogin": "Back to Login",
+    "strength": "Strength",
+    "weak": "Weak",
+    "fair": "Fair",
+    "good": "Good",
+    "strong": "Strong",
+    "requirements": {
+      "minChars": "Minimum 8 characters",
+      "numberAndSpecial": "Include a number and special character",
+      "mustMatch": "Passwords must match"
+    },
+    "meta": {
+      "title": "Reset Password - Sanad",
+      "description": "Choose a new password for your Sanad account."
+    }
+  },
+  "cart": {
+    "myCart": "Your Brief",
+    "items": "Items",
+    "continueShopping": "Continue Shopping",
+    "processing": "Processing...",
+    "subtotal": "Subtotal",
+    "technicalFee": "Platform Fee",
+    "technicalFeeTooltip": "Covers platform security & technical support",
+    "vat": "VAT (5%)",
+    "total": "Total Investment",
+    "includesTaxes": "Includes all taxes",
+    "paymentMethod": "Payment Method",
+    "creditCard": "Credit Card",
+    "bankTransfer": "Bank Transfer",
+    "secureCheckout": "Approve & Proceed",
+    "secureCheckoutDesc": "By approving this brief, you agree to the Sanad Services Master Agreement and technical delivery terms.",
+    "remove": "Remove",
+    "saveForLater": "Save for later",
+    "secureCheckoutTitle": "Review & Approve",
+    "breadcrumbs": "Services",
+    "promoCode": "Promo Code",
+    "promoCodePlaceholder": "Enter promo code",
+    "applyPromo": "Apply",
+    "promoApplied": "Promo applied!",
+    "promoInvalid": "Invalid code",
+    "trustIndicators": {
+      "sectionTitle": "Why trust Sanad",
+      "secureCheckout": "Secure Checkout",
+      "encryption": "256-bit encryption",
+      "verifiedPartner": "Verified Partner",
+      "standards": "Professional Standards",
+      "support": "24/7 Priority Support",
+      "assistance": "Technical assistance"
+    },
+    "premium": {
+      "title": "Sanad Premium",
+      "description": "Upgrade now to save 10% on your next 3 project assessments.",
+      "learnMore": "Learn more"
+    },
+    "emptyCartTitle": "Your project brief is empty",
+    "emptyCartDescription": "Let's build something great. Explore our services to start shaping your digital transformation.",
+    "browseServices": "Explore Services",
+    "featuredServices": "Featured Services",
+    "popularCategories": "Popular Categories",
+    "undoRemoveMessage": "Item removed",
+    "undoSaveMessage": "Item saved for later",
+    "undo": "Undo",
+    "dismiss": "Dismiss",
+    "scope": "Scope",
+    "deliverables": "Deliverables",
+    "investment": "Investment",
+    "loadingBrief": "Loading your brief...",
+    "loginRequired": "You need to login to checkout. Please login or register.",
+    "checkoutError": "Failed to initialize checkout. Please try again.",
+    "paymentSuccess": "Payment successful!",
+    "paymentFailed": "Payment failed"
+  },
+
+  "PaymentFailedPage": {
+    "title": "Payment Failed",
+    "description": "We were unable to process your transaction. Please review the details below and try again or contact your financial institution.",
+    "reasonLabel": "Reason for failure",
+    "errorCodeLabel": "Error reference",
+    "insufficientFunds": "Insufficient Funds",
+    "amountLabel": "Amount",
+    "referenceLabel": "Reference ID",
+    "tryAgainBtn": "Try Again",
+    "contactSupportBtn": "Contact Support",
+    "returnDashboard": "Return to Dashboard",
+    "notCharged": "Your card was not charged",
+    "securePayment": "Secure Payment Protocol",
+    "pciCompliant": "PCI DSS Compliant",
+    "tryAgainHint": "If your balance is low, try a different payment method",
+    "errorReference": "Error reference"
+  },
+  "UserOrders": {
+    "title": "My Orders",
+    "description": "Track, manage, and review your ongoing service requests and historical technical service orders.",
+    "searchPlaceholder": "Search by Order ID or Service...",
+    "filters": {
+      "all": "All Orders",
+      "pending": "Pending",
+      "paid": "Paid",
+      "in_progress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "card": {
+      "orderId": "Order ID",
+      "datePlaced": "Date Placed",
+      "amount": "Amount",
+      "viewDetails": "View Details",
+      "viewHistory": "View History"
+    },
+    "newService": {
+      "title": "Request a New Service",
+      "description": "Browse our technical catalog for specialized business solutions."
+    },
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "pending": "Pending",
+      "paid": "Paid",
+      "cancelled": "Cancelled"
+    },
+    "resultsInfo": {
+      "showingAll": "{{count}} orders",
+      "showingFiltered": "{{filtered}} of {{total}} orders",
+      "order": "order",
+      "orders": "orders",
+      "of": "of"
+    },
+    "emptyState": {
+      "title": "No Orders Yet",
+      "description": "You haven't placed any service orders yet. Browse our services to get started."
+    },
+    "noResultsState": {
+      "title": "No Results Found",
+      "description": "Try adjusting your search or filter criteria."
+    },
+    "insights": {
+      "activeOrders": "Active Orders",
+      "pendingReview": "Pending Review",
+      "completedThisMonth": "Completed This Month"
+    },
+    "supportHub": {
+      "needAssistance": "Need Assistance?",
+      "supportDescription": "Our support team is here to help with any questions about your orders or services.",
+      "contactSupport": "Contact Support",
+      "exploreNew": "Explore New Horizons",
+      "exploreDescription": "Discover how we can help you scale your business with our advanced technical services.",
+      "browseServices": "Browse Services"
+    }
+  },
+
+  "orderTrackingMeta": {
+    "title": "Order Tracking - Sanad",
+    "description": "Track the progress of your service order in real-time."
+  },
+
+  "orderTracking": {
+    "pageTitle": "Order Tracking",
+    "pageSubtitle": "Stay updated on the progress of your service request.",
+    "backToOrders": "Back to Orders",
+    "orderDetails": "Order Details",
+    "activityLog": "Activity Log",
+    "quickActions": "Quick Actions",
+    "needAssistance": "Need Assistance?",
+    "supportDescription": "Our technical support team is available 24/7 to help with your order or any technical queries.",
+    "contactSupport": "Contact Support",
+    "downloadInvoice": "Download Invoice",
+    "serviceAgreement": "Service Agreement",
+    "whatsNext": "What's Next?",
+    "orderId": "Order ID",
+    "serviceName": "Service Name",
+    "amount": "Amount",
+    "datePlaced": "Date Placed",
+    "orderNotes": "Order Notes",
+    "noNotes": "No notes provided",
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "loadingTitle": "Loading order details",
+    "errorTitle": "Oops! Something went wrong",
+    "errorDescription": "We couldn't load your order details. Please try again or contact support if the problem persists.",
+    "tryAgain": "Try Again",
+    "notFoundTitle": "Order Not Found",
+    "notFoundDescription": "The order you're looking for doesn't exist or you don't have permission to view it.",
+    "backToDashboard": "Back to Dashboard"
+  },
+
+  "payments": {
+    "tableTitle": "Transaction History",
+    "searchPlaceholder": "Search description...",
+    "filterLabel": "Filter by status",
+    "dateRangeLabel": "Date Range",
+    "dateFromLabel": "From",
+    "dateToLabel": "To",
+    "resetBtn": "Reset",
+    "applyBtn": "Apply",
+    "clearFiltersLabel": "Clear",
+    "columnDate": "Date",
+    "columnDescription": "Description",
+    "columnAmount": "Amount",
+    "columnStatus": "Status",
+    "columnAction": "Action",
+    "loadingText": "Loading transactions...",
+    "loadFailed": "Failed to load transactions",
+    "tryAgainLater": "Please try again later",
+    "tryAgainLabel": "Try Again",
+    "showingText": "Showing {{count}}",
+    "ofText": "of",
+    "transactionsText": "transactions",
+    "pageText": "Page {{current}} of {{total}}",
+    "previousPageLabel": "Previous page",
+    "nextPageLabel": "Next page",
+    "noResultsMatchFilters": "No transactions match your filters",
+    "noTransactionsFound": "No transactions found",
+    "clearAllFiltersLabel": "Clear all filters",
+    "statusPaid": "Paid",
+    "statusPending": "Pending",
+    "statusFailed": "Failed",
+    "retryBtn": "Retry",
+    "downloadInvoice": "Download Invoice"
+  },
+
+  "dashboardNotificationsMeta": {
+    "title": "Notification Center - Sanad Dashboard",
+    "description": "Manage system broadcasts and direct user notifications."
+  },
+
+  "dashboardNotifications": {
+    "title": "Notification Center",
+    "subtitle": "Manage and send system-wide or direct notifications.",
+    "tabs": {
+      "broadcast": "Broadcast",
+      "direct": "Direct Message",
+      "history": "History Log"
+    },
+    "broadcast": {
+      "title": "Select Audience",
+      "subtitle": "Pick users for this broadcast message",
+      "clear": "Clear Selection",
+      "next": "Next",
+      "modalTitle": "Broadcast Content",
+      "modalSubtitle": "Sending to {{count}} selected users",
+      "formTitle": "Broadcast Title",
+      "formMessage": "Message Body",
+      "formSubmit": "Send Broadcast",
+      "titlePlaceholder": "e.g. Scheduled Maintenance",
+      "messagePlaceholder": "Details about the broadcast...",
+      "success": "Broadcast sent successfully!",
+      "error": "Failed to send broadcast"
+    },
+    "direct": {
+      "title": "Direct Message",
+      "subtitle": "Select a user to start sending a notification",
+      "modalTitle": "Send Notification",
+      "modalSubtitle": "Direct message to User ID: {{id}}",
+      "formType": "Notification Type",
+      "formTitle": "Title",
+      "formMessage": "Message Body",
+      "formSubmit": "Send Message",
+      "titlePlaceholder": "Notification Title",
+      "messagePlaceholder": "Details...",
+      "success": "Notification sent successfully!",
+      "error": "Failed to send notification"
+    },
+    "history": {
+      "loading": "Loading history records...",
+      "empty": "No notifications found in history.",
+      "table": {
+        "type": "Type",
+        "recipient": "Recipient",
+        "content": "Content",
+        "date": "Date",
+        "actions": "Actions",
+        "broadcastRecipient": "ALL (Broadcast)"
+      },
+      "delete": {
+        "title": "Delete notification",
+        "description": "Are you sure you want to delete this notification? This action cannot be undone.",
+        "confirm": "Delete",
+        "cancel": "Cancel",
+        "success": "Notification deleted",
+        "error": "Failed to delete notification"
+      },
+      "error": "Failed to load history"
+    },
+    "validation": {
+      "titleRequired": "Title is required",
+      "messageRequired": "Message is required",
+      "userRequired": "Please select a user",
+      "usersRequired": "Please select at least one user"
+    },
+    "types": {
+      "SYSTEM": "System Alert",
+      "BROADCAST": "Broadcast",
+      "ORDER_UPDATED": "Order Update",
+      "PAYMENT_SUCCESS": "Payment Success",
+      "PAYMENT_FAILED": "Payment Failed"
+    },
+    "userSelection": {
+      "searchPlaceholder": "Search by name or email...",
+      "noUsers": "No users found",
+      "selectedCount": "{{count}} user(s) selected",
+      "selectedCountMax": "{{count}} user(s) selected (max: {{max}})",
+      "table": {
+        "id": "ID",
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "select": "Select"
+      },
+      "pagination": {
+        "showing": "Showing {{start}}-{{end}} of {{total}}"
+      }
+    }
+  },
+
+  "cart_button": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "remove": "Remove",
+    "total": "Total",
+    "clear": "Clear Cart",
+    "checkout": "Checkout"
+  },
+
+  "articleNotFound": {
+    "title": "Article Not Found",
+    "description": "Sorry, we couldn't find the article you're looking for. It might have been removed or moved to a different address.",
+    "backToHome": "Back to Home",
+    "searchArticles": "Search Articles",
+    "suggestions": "Quick Suggestions",
+    "latestArticles": "Latest Articles",
+    "contactSupport": "Contact Support"
+  },
+
+  "PaymentModal": {
+    "secureCheckout": "Secure Checkout",
+    "paymentId": "Payment #",
+    "successTitle": "Payment Successful",
+    "successDescription": "Your payment of {amount} has been confirmed.",
+    "done": "Done",
+    "failedTitle": "Payment Failed",
+    "failedDescription": "We couldn't confirm your payment. You can retry now.",
+    "tryAgain": "Try Again",
+    "authRequiredTitle": "Sign In Required",
+    "authRequiredDescription": "Your session expired while verifying payment status.",
+    "close": "Close",
+    "delayedTitle": "Payment Still Processing",
+    "delayedDescription": "Verification is delayed. You can continue waiting safely.",
+    "checkAgain": "Check Again",
+    "processingTitle": "Payment Processing",
+    "processingDescription": "Waiting for secure confirmation from our payment system...",
+    "totalAmountDue": "Total Amount Due",
+    "configMissing": "Stripe configuration is missing. Please contact support.",
+    "initializing": "Initializing secure payment...",
+    "errors": {
+      "failed": "Payment failed. Please try again.",
+      "sessionExpired": "Session expired while verifying payment. Please sign in again.",
+      "unableToVerify": "Unable to verify payment status. Retrying...",
+      "verificationDelayed": "Payment verification is delayed. You can keep waiting or retry.",
+      "notCompleted": "Payment was not completed. Please check your method and retry."
+    }
+  }
+}
