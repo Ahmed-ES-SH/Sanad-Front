@@ -1,14 +1,4 @@
-export interface User {
-  id: number;
-  email: string;
-  name?: string;
-  avatar?: string;
-  role: "admin" | "user";
-  isEmailVerified: boolean;
-  googleId?: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { User } from "./user";
 
 export interface LoginCredentials {
   email: string;
@@ -55,3 +45,34 @@ export interface currentUserType {
   message: string;
   user?: User;
 }
+
+export interface FormErrors {
+  fullName?: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+}
+
+export interface SignUpFormType {
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export interface SignInFormType {
+  email: string;
+  password: string;
+}
+
+export type formValidationType = {
+  fullNameRequired: string;
+  fullNameTooShort: string;
+  emailRequired: string;
+  emailInvalid: string;
+  passwordRequired: string;
+  passwordTooShort: string;
+  passwordWeak: string;
+  confirmPasswordRequired: string;
+  passwordsNotMatch: string;
+};

@@ -9,14 +9,18 @@ import type { Project } from "@/app/types/project";
 
 interface Props {
   projects: Project[];
-  local: "en" | "ar";
+  locale: "en" | "ar";
   isPaused: boolean;
 }
 
 const ROTATION_INTERVAL = 8000;
 
-export default function ProjectSpotlight({ projects, local, isPaused }: Props) {
-  const isRTL = local === "ar";
+export default function ProjectSpotlight({
+  projects,
+  locale,
+  isPaused,
+}: Props) {
+  const isRTL = locale === "ar";
   const t = useTranslation("portfolioPage");
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -102,7 +106,11 @@ export default function ProjectSpotlight({ projects, local, isPaused }: Props) {
               style={{ color: "var(--surface-600)" }}
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.4,
+                delay: 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
               {active.shortDescription}
             </motion.p>
@@ -111,7 +119,7 @@ export default function ProjectSpotlight({ projects, local, isPaused }: Props) {
           {/* CTA */}
           <div className="flex items-center gap-4">
             <Link
-              href={`/${local}/project?projectId=${active.id}`}
+              href={`/${locale}/project?projectId=${active.id}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200"
               style={{
                 background: "var(--gradient-primary)",
@@ -119,21 +127,21 @@ export default function ProjectSpotlight({ projects, local, isPaused }: Props) {
                 boxShadow: "0 4px 12px rgba(249, 115, 22, 0.25)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--gradient-primary-hover)";
-                e.currentTarget.style.boxShadow = "0 8px 20px rgba(249, 115, 22, 0.35)";
+                e.currentTarget.style.background =
+                  "var(--gradient-primary-hover)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 20px rgba(249, 115, 22, 0.35)";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "var(--gradient-primary)";
-                e.currentTarget.style.boxShadow = "0 4px 12px rgba(249, 115, 22, 0.25)";
+                e.currentTarget.style.boxShadow =
+                  "0 4px 12px rgba(249, 115, 22, 0.25)";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
               {t.viewProject}
-              <FiArrowRight
-                size={14}
-                className={isRTL ? "rotate-180" : ""}
-              />
+              <FiArrowRight size={14} className={isRTL ? "rotate-180" : ""} />
             </Link>
 
             {/* Dots indicator */}
@@ -148,7 +156,9 @@ export default function ProjectSpotlight({ projects, local, isPaused }: Props) {
                       width: i === activeIndex ? "24px" : "8px",
                       height: "8px",
                       backgroundColor:
-                        i === activeIndex ? "var(--primary)" : "var(--surface-300)",
+                        i === activeIndex
+                          ? "var(--primary)"
+                          : "var(--surface-300)",
                     }}
                     aria-label={`${t.goToProject} ${i + 1}`}
                   />

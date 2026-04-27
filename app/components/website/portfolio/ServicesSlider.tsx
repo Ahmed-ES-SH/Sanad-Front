@@ -1,29 +1,40 @@
 "use client";
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import { directionMap } from "@/app/constants/constants";
-import ServiceSlideCard from "../_services/ServiceSlideCard";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { servicesData } from "@/app/constants/servicesData";
-import "swiper/css";
 
-export default function ServicesSlider() {
-  const { local } = useVariables();
-  const { servicesSlider } = getTranslations(local);
+import { directionMap } from "@/app/constants/global";
+import { useLocale } from "@/app/hooks/useLocale";
+import { useTranslation } from "@/app/hooks/useTranslation";
+
+import "swiper/css";
+import { Service } from "@/app/types/service";
+import ServiceSlideCard from "./ServiceSlideCard";
+
+interface ServicesSliderProps {
+  services: Service[];
+}
+
+export default function ServicesSlider({ services }: ServicesSliderProps) {
+  const locale = useLocale();
+  const t = useTranslation("servicesSlider");
   return (
     <>
       <div
-        dir={directionMap[local]}
+        dir={directionMap[locale]}
         className="content my-8 pt-8 border-t"
         style={{ borderColor: "var(--surface-200)" }}
       >
-        <h2 className="text-2xl font-bold" style={{ color: "var(--surface-900)" }}>
-          {servicesSlider.title}
+        <h2
+          className="text-2xl font-bold"
+          style={{ color: "var(--surface-900)" }}
+        >
+          {t.title}
         </h2>
-        <p className="mt-3 text-sm sm:text-base leading-relaxed" style={{ color: "var(--surface-500)" }}>
-          {servicesSlider.description}
+        <p
+          className="mt-3 text-sm sm:text-base leading-relaxed"
+          style={{ color: "var(--surface-500)" }}
+        >
+          {t.description}
         </p>
       </div>
       <div id="swiper">
@@ -38,11 +49,13 @@ export default function ServicesSlider() {
           modules={[Autoplay]}
           spaceBetween={30}
         >
-          {servicesData.map((service, index) => (
-            <SwiperSlide key={index}>
-              <ServiceSlideCard local={local} service={service} />
-            </SwiperSlide>
-          ))}
+          {services &&
+            services.length > 0 &&
+            services.map((service, index) => (
+              <SwiperSlide key={index}>
+                <ServiceSlideCard service={service} />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </>

@@ -1,5 +1,5 @@
 import { Service } from "../types/service";
-import { Article, Category } from "../types/blog";
+import { Article } from "../types/blog";
 import { Project } from "../types/project";
 import FetchData from "../helpers/FetchData";
 import { HOME_ENDPOINTS } from "../constants/endpoints";
@@ -10,6 +10,7 @@ import ServicesSection from "../components/website/home/ServicesSection";
 import ContactUS from "../components/website/home/ContanctUS";
 import BlogSection from "../components/website/home/_blogSection/BlogSection";
 import PortfolioSection from "../components/website/home/_portfolioSection/PortfolioSection";
+import { Category } from "../types/global";
 
 interface ApiResponse {
   services: Service[];

@@ -1,6 +1,6 @@
 // Project / Portfolio Type Definitions
 
-import { Category } from "./blog";
+import { Category, PaginationMeta } from "./global";
 
 export interface Project {
   id: string;
@@ -22,21 +22,9 @@ export interface Project {
   updatedAt: string;
 }
 
-export interface PaginationMeta {
-  page: number;
-  limit: number;
-  total: number;
-  totalPages: number;
-}
-
 export interface ProjectListResponse {
   data: Project[];
   meta: PaginationMeta;
-}
-
-// Public list response (no meta — returns simple array wrapped in data)
-export interface PublicProjectListResponse {
-  data: Project[];
 }
 
 // Form types for creating/updating projects
@@ -51,9 +39,6 @@ export interface ProjectFormData {
   liveUrl?: string;
   repoUrl?: string;
 }
-
-// API response types
-export interface ProjectResponse extends Project {}
 
 export interface PublishToggleResponse {
   id: string;

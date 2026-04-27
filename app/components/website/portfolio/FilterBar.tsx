@@ -10,16 +10,16 @@ interface Props {
   categories: Category[];
   selected: string;
   onSelect: (category: string) => void;
-  local: "en" | "ar";
+  locale: "en" | "ar";
 }
 
 export default function FilterBar({
   categories,
   selected,
   onSelect,
-  local,
+  locale,
 }: Props) {
-  const isRTL = local === "ar";
+  const isRTL = locale === "ar";
 
   return (
     <div
@@ -37,7 +37,7 @@ export default function FilterBar({
           dir={isRTL ? "rtl" : "ltr"}
         >
           {categories.map((cat) => {
-            const label = cat[local];
+            const label = cat[locale];
             const isActive = selected === label;
 
             return (

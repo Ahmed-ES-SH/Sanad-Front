@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface Props {
-  local: "en" | "ar";
+  locale: "en" | "ar";
   projectCount: number;
 }
 
@@ -12,8 +12,8 @@ const childVariant = {
   visible: { opacity: 1, y: 0 },
 };
 
-export default function PortfolioHero({ local, projectCount }: Props) {
-  const isRTL = local === "ar";
+export default function PortfolioHero({ locale, projectCount }: Props) {
+  const isRTL = locale === "ar";
   const t = useTranslation("portfolioPage");
 
   return (

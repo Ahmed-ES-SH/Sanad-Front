@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiFilter } from "react-icons/fi";
 import { FaTimes } from "react-icons/fa";
-import { useVariables } from "@/app/context/VariablesContext";
 import { Project } from "@/app/types/project";
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
+import useVariablesStore from "@/app/store/VariablesSlice";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface SidebarFilterProps {
   projects: Project[];
@@ -15,6 +16,7 @@ interface SidebarFilterProps {
   setIsSidebarOpen: (open: boolean) => void;
   isSidebarOpen: boolean;
   allLabel: string;
+  locale: "en" | "ar";
 }
 
 export default function SidebarFilter({
@@ -25,8 +27,10 @@ export default function SidebarFilter({
   setIsSidebarOpen,
   isSidebarOpen,
   allLabel,
+  locale,
 }: SidebarFilterProps) {
-  const { width, local } = useVariables();
+  const t = useTranslation("portfolioPage");
+  const { width } = useVariablesStore();
   const categories = useMemo(() => {
     const uniqueCategoryNames = new Set<string>();
     const projectCategories: Category[] = [];
@@ -72,7 +76,7 @@ export default function SidebarFilter({
           onClick={() => setIsSidebarOpen(true)}
           className="lg:hidden fixed bottom-6 right-6 z-50 p-3 rounded-xl text-white shadow-lg transition-all duration-200"
           style={{ backgroundColor: "var(--primary)" }}
-          aria-label="Open filters"
+          aria-label={t.openFilters}
         >
           <FiFilter className="size-5" />
         </button>
@@ -112,13 +116,13 @@ export default function SidebarFilter({
                       className="w-4 h-4"
                       style={{ color: "var(--primary)" }}
                     />
-                    Filters
+                    {t.filters}
                   </h3>
                   <button
                     onClick={() => setIsSidebarOpen(false)}
                     className="lg:hidden p-1 rounded-md transition-colors"
                     style={{ color: "var(--surface-400)" }}
-                    aria-label="Close filters"
+                    aria-label={t.closeFilters}
                   >
                     <FaTimes className="w-5 h-5" />
                   </button>
@@ -136,28 +140,23 @@ export default function SidebarFilter({
                       <button
                         key={category?.id}
                         onClick={() => handleCategoryChange(category.name)}
-                        className="w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 flex items-center justify-between"
-                        style={
+                        className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 flex items-center justify-between ${
                           selectedCategory === category.name
-                            ? {
-                                backgroundColor: "var(--primary)",
-                                color: "white",
-                              }
-                            : {
-                                backgroundColor: "transparent",
-                                color: "var(--surface-600)",
-                              }
-                        }
+                            ? "bg-primary text-white"
+                            : "bg-transparent text-surface-600"
+                        }`}
                         onMouseEnter={(e) => {
                           if (selectedCategory !== category.name) {
-                            (e.currentTarget as HTMLElement).style.backgroundColor =
-                              "var(--surface-100)";
+                            (
+                              e.currentTarget as HTMLElement
+                            ).style.backgroundColor = "var(--surface-100)";
                           }
                         }}
                         onMouseLeave={(e) => {
                           if (selectedCategory !== category.name) {
-                            (e.currentTarget as HTMLElement).style.backgroundColor =
-                              "transparent";
+                            (
+                              e.currentTarget as HTMLElement
+                            ).style.backgroundColor = "transparent";
                           }
                         }}
                       >

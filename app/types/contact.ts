@@ -1,5 +1,7 @@
 // Contact Message Type Definitions
 
+import { PaginationMeta } from "./global";
+
 export interface ContactMessage {
   id: string;
   fullName: string;
@@ -11,13 +13,6 @@ export interface ContactMessage {
   ipAddress: string | null;
   createdAt: string;
   updatedAt: string;
-}
-
-export interface PaginationMeta {
-  page: number;
-  limit: number;
-  total: number;
-  totalPages: number;
 }
 
 export interface ContactListResponse {

@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { Project } from "@/app/types/project";
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
 import { PORTFOLIO_ENDPOINTS } from "@/app/constants/endpoints";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import { useLocale } from "@/app/hooks/useLocale";

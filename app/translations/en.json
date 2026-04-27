@@ -305,7 +305,14 @@
     "goToProject": "Go to project",
     "of": "of",
     "noProjectsInCategory": "No projects in this category",
-    "viewAllProjects": "View all projects"
+    "viewAllProjects": "View all projects",
+    "shareThisProject": "Share this project",
+    "closeShareMenu": "Close share menu",
+    "shareProject": "Share project",
+    "copied": "Copied!",
+    "filters": "Filters",
+    "openFilters": "Open filters",
+    "closeFilters": "Close filters"
   },
 
   "servicesSlider": {
@@ -424,6 +431,24 @@
     "popular": "Most Popular",
     "serviceStats": "Service Statistics",
     "relatedServices": "Related Services",
+    "relatedDescription": "Discover more services that can help your business grow",
+    "breadcrumbServices": "Services",
+    "heroOrderService": "Order This Service",
+    "heroAllServices": "All Services",
+    "ctaHeading": "Ready to Get Started?",
+    "ctaDescription": "Add this service to your brief and take your business to the next level.",
+    "orderNow": "Order Now",
+    "adding": "Adding...",
+    "faqLabel": "FAQ",
+    "processHeading": "How We Deliver",
+    "aboutTitle": "About This Service",
+    "idealForLabel": "Ideal for:",
+    "category": {
+      "development": "Development",
+      "marketing": "Marketing",
+      "design": "Design",
+      "data-security": "Data & Security"
+    },
     "exploreMore": "Explore more of our services",
     "backToServices": "Back to Services",
     "whyChooseUs": "Why Choose Us",
@@ -905,7 +930,19 @@
       "architecture": "Urban Architecture",
       "economics": "Global Economics",
       "heritage": "Cultural Heritage"
-    }
+    },
+    "untitledMasterpiece": "Untitled Masterpiece",
+    "selectCategory": "Select Category",
+    "coverImagePlaceholder": "Enter image URL...",
+    "contentPlaceholder": "Start writing your article content here...",
+    "collaboratorsDesc": "Add collaborators to work on this article together.",
+    "versionHistoryDesc": "Track all changes to your article.",
+    "draft": "Draft",
+    "publishingNote": "Save as draft to publish later.",
+    "failedToSaveDraft": "Failed to save draft",
+    "pleaseAddExcerpt": "Please add an excerpt before publishing",
+    "pleaseAddTitle": "Please add a title before publishing",
+    "failedToPublish": "Failed to publish article"
   },
 
   "ServicesPage": {
@@ -1620,6 +1657,47 @@
       "unableToVerify": "Unable to verify payment status. Retrying...",
       "verificationDelayed": "Payment verification is delayed. You can keep waiting or retry.",
       "notCompleted": "Payment was not completed. Please check your method and retry."
+    }
+  },
+
+  "servicesNotFound": {
+    "title": "Services Not Found",
+    "description": "Sorry, we couldn't find the services you're looking for. It seems there are no services available at the moment.",
+    "suggestion": "Please check back later or contact our support team for assistance.",
+    "backToHome": "Back to Home",
+    "contactSupport": "Contact Support",
+    "illustrationAlt": "Services not found illustration"
+  },
+
+  "servicesComponents": {
+    "allServices": "All Services",
+    "serviceCategories": "Service categories",
+    "previousCategories": "Previous categories",
+    "nextCategories": "Next categories",
+    "noSolutionsFound": "No solutions found",
+    "tryDifferentCategory": "Try selecting a different category to see our services.",
+    "mostPopular": "Most Popular",
+    "getStarted": "Get Started",
+    "errorCode": "Error Code: 404",
+    "sanadServices": "Sanad Services",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "perYear": "/yr",
+    "perMonth": "/mo",
+    "uptime": "Uptime"
+  },
+
+  "auth": {
+    "forgotPassword": "Forgot Password?",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "social": {
+      "google": "Continue with Google",
+      "facebook": "Continue with Facebook"
+    },
+    "checkYourInbox": {
+      "title": "Check your inbox for a verification email.",
+      "description": "We have sent a verification email to your email address. Please check your inbox and click on the verification link to verify your email."
     }
   }
 }

@@ -1,16 +1,6 @@
 // Blog Type Definitions
 
-export interface Category {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  color: string;
-  icon: string;
-  order: number;
-  createdAt: string;
-  updatedAt: string;
-}
+import { Category, PaginationMeta } from "./global";
 
 export interface Article {
   id: string;
@@ -30,13 +20,6 @@ export interface Article {
   updatedAt: string;
 }
 
-export interface PaginationMeta {
-  page: number;
-  limit: number;
-  total: number;
-  totalPages: number;
-}
-
 export interface BlogListResponse {
   data: Article[];
   meta: PaginationMeta;
@@ -51,9 +34,6 @@ export interface ArticleFormData {
   tags?: string[];
   categoryId?: string;
 }
-
-// API response types
-export interface ArticleResponse extends Article {}
 
 export interface PublishToggleResponse {
   id: string;

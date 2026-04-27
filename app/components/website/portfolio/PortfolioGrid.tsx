@@ -1,5 +1,11 @@
 "use client";
-import React, { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+} from "react";
 import PortfolioCard from "./PortfolioCard";
 import ProjectSpotlight from "./ProjectSpotlight";
 import { useTranslation } from "@/app/hooks/useTranslation";
@@ -24,13 +30,13 @@ export default function PortfolioGrid({ projects, local }: Props) {
 
   const visibleProjects = useMemo(
     () => projects.slice(0, visibleCount),
-    [projects, visibleCount]
+    [projects, visibleCount],
   );
 
   // Find spotlight projects (featured ones)
   const spotlightProjects = useMemo(
     () => projects.filter((p) => p.isFeatured),
-    [projects]
+    [projects],
   );
 
   // Load more handler
@@ -39,7 +45,10 @@ export default function PortfolioGrid({ projects, local }: Props) {
     setIsLoading(true);
 
     requestAnimationFrame(() => {
-      const nextCount = Math.min(visibleCount + ITEMS_PER_LOAD, projects.length);
+      const nextCount = Math.min(
+        visibleCount + ITEMS_PER_LOAD,
+        projects.length,
+      );
       setVisibleCount(nextCount);
       setHasMore(nextCount < projects.length);
       setIsLoading(false);
@@ -62,7 +71,7 @@ export default function PortfolioGrid({ projects, local }: Props) {
       {
         rootMargin: "400px",
         threshold: 0,
-      }
+      },
     );
 
     observerRef.current.observe(sentinel);
@@ -74,8 +83,14 @@ export default function PortfolioGrid({ projects, local }: Props) {
 
   // Reset on project change (e.g., category filter)
   useEffect(() => {
-    setVisibleCount(Math.min(ITEMS_PER_LOAD, projects.length));
-    setHasMore(projects.length > ITEMS_PER_LOAD);
+    const handleVisibleCount = (newCount: number) => {
+      setVisibleCount(newCount);
+    };
+    const handleHasMore = (newHasMore: boolean) => {
+      setHasMore(newHasMore);
+    };
+    handleVisibleCount(Math.min(ITEMS_PER_LOAD, projects.length));
+    handleHasMore(projects.length > ITEMS_PER_LOAD);
   }, [projects.length]);
 
   return (
@@ -85,11 +100,7 @@ export default function PortfolioGrid({ projects, local }: Props) {
           const isHero = index === 0;
           return (
             <React.Fragment key={project.id}>
-              <PortfolioCard
-                project={project}
-                index={index}
-                isHero={isHero}
-              />
+              <PortfolioCard project={project} index={index} isHero={isHero} />
 
               {/* Spotlight after every 6th project */}
               {spotlightProjects.length > 0 &&
@@ -101,8 +112,12 @@ export default function PortfolioGrid({ projects, local }: Props) {
                     onMouseLeave={() => setIsSpotlightPaused(false)}
                   >
                     <ProjectSpotlight
-                      projects={spotlightProjects as unknown as Parameters<typeof ProjectSpotlight>[0]['projects']}
-                      local={local}
+                      projects={
+                        spotlightProjects as unknown as Parameters<
+                          typeof ProjectSpotlight
+                        >[0]["projects"]
+                      }
+                      locale={local}
                       isPaused={isSpotlightPaused}
                     />
                   </div>
@@ -114,7 +129,10 @@ export default function PortfolioGrid({ projects, local }: Props) {
 
       {/* Loading sentinel */}
       {hasMore && (
-        <div ref={sentinelRef} className="flex items-center justify-center py-12">
+        <div
+          ref={sentinelRef}
+          className="flex items-center justify-center py-12"
+        >
           {isLoading && (
             <div
               className="w-8 h-8 border-2 rounded-full animate-spin"

@@ -9,9 +9,9 @@ import {
   BlogListResponse,
   PublishToggleResponse,
   DeleteResponse,
-  Category,
 } from "@/app/types/blog";
 import { globalRequest } from "../helpers/globalRequest";
+import { Category } from "../types/global";
 
 /* =========================================================
    TYPES

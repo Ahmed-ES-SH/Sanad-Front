@@ -6,7 +6,6 @@ import { PORTFOLIO_ENDPOINTS } from "@/app/constants/endpoints";
 import {
   Project,
   ProjectFormData,
-  PublicProjectListResponse,
   ProjectListResponse,
   PublishToggleResponse,
   FeatureToggleResponse,
@@ -44,8 +43,8 @@ function buildQuery(
 /* Get Published Projects */
 export async function getPublishedProjects(
   params: PortfolioQueryParams = {},
-): Promise<{ data: Project[] }> {
-  const res = await globalRequest<never, PublicProjectListResponse>({
+): Promise<ProjectListResponse> {
+  const res = await globalRequest<never, ProjectListResponse>({
     endpoint: PORTFOLIO_ENDPOINTS.LIST_PUBLISHED + buildQuery(params),
 
     method: "GET",

@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Mousewheel } from "swiper/modules";
 import CategoryLoadingOverlay from "./CategoryLoadingOverlay";
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
 import { motion, AnimatePresence } from "framer-motion";
 
 import "swiper/css";

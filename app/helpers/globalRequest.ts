@@ -2,6 +2,7 @@
 "use server";
 
 import { ApiError } from "next/dist/server/api-utils";
+import { PaginationMeta } from "../types/global";
 
 /* =========================================================
    GLOBAL REQUEST
@@ -31,6 +32,7 @@ interface GlobalResponse<T = any> {
   message: string;
   data?: T;
   statusCode?: number;
+  meta?: PaginationMeta;
 }
 
 /* =========================================================

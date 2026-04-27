@@ -1,4 +1,4 @@
-import { Category } from "./blog";
+import { Category } from "./global";
 
 export interface CartItemType {
   id: string;

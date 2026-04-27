@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FiCalendar, FiTag, FiTrendingUp, FiX } from "react-icons/fi";
 import { getCategories, getArticles } from "@/app/actions/blogActions";
-import { Category, Article } from "@/app/types/blog";
+import { Article } from "@/app/types/blog";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLocale } from "@/app/hooks/useLocale";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import LocaleLink from "../../global/LocaleLink";
 import Img from "../../global/Img";
+import { Category } from "@/app/types/global";
 
 export default function BlogSidebar() {
   const locale = useLocale();

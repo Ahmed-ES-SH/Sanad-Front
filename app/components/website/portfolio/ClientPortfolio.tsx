@@ -11,13 +11,16 @@ import { useAppQuery } from "@/app/hooks/useAppQuery";
 import { PORTFOLIO_ENDPOINTS } from "@/app/constants/endpoints";
 import FilterBar from "./FilterBar";
 import { useTranslation } from "@/app/hooks/useTranslation";
+import { PaginationMeta } from "@/app/types/global";
 
 interface ClientPortfolioProps {
   initialProjects: Project[];
+  meta: PaginationMeta;
 }
 
 export default function ClientPortfolio({
   initialProjects,
+  meta,
 }: ClientPortfolioProps) {
   const locale = useLocale();
   const t = useTranslation("portfolioPage");
@@ -30,12 +33,15 @@ export default function ClientPortfolio({
   const endpoint = `${PORTFOLIO_ENDPOINTS.LIST_PUBLISHED}${queryString ? `?${queryString}` : ""}`;
 
   // useAppQuery configured to use initialData if no category is selected
-  const { data, isLoading, error } = useAppQuery<{ data: Project[] }>({
+  const { data, isLoading, error } = useAppQuery<
+    { data: Project[] },
+    { message?: string }
+  >({
     queryKey: ["portfolio-published", selectedCategory],
     endpoint,
     options: {
       initialData: selectedCategory ? undefined : { data: initialProjects },
-    }
+    },
   });
 
   const projects = data?.data || [];
@@ -77,7 +83,7 @@ export default function ClientPortfolio({
         style={{ backgroundColor: "var(--surface-50)" }}
       >
         <p className="text-lg" style={{ color: "var(--surface-500)" }}>
-          {error.message || t.failedToLoad}
+          {error?.message || t.failedToLoad}
         </p>
       </div>
     );
@@ -89,20 +95,22 @@ export default function ClientPortfolio({
       className="min-h-dvh mt-6"
       style={{ backgroundColor: "var(--surface-50)" }}
     >
-      <PortfolioHero local={locale} projectCount={projects.length} />
-      
+      <PortfolioHero locale={locale} projectCount={projects.length} />
+
       {categories.length > 0 && (
-        <FilterBar 
-          categories={categories} 
-          selected={selectedCategory || t.all} 
-          onSelect={(cat) => setSelectedCategory(cat === "All" || cat === t.all ? null : cat)} 
-          local={locale} 
+        <FilterBar
+          categories={categories}
+          selected={selectedCategory || t.all}
+          onSelect={(cat) =>
+            setSelectedCategory(cat === "All" || cat === t.all ? null : cat)
+          }
+          locale={locale}
         />
       )}
-      
+
       <PortfolioGrid projects={projects} local={locale} />
-      <StatsBar local={locale} />
-      <PortfolioCTA local={locale} />
+      <StatsBar locale={locale} />
+      <PortfolioCTA locale={locale} />
     </div>
   );
 }

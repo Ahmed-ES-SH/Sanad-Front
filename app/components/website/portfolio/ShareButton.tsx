@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiCopy, FiX } from "react-icons/fi";
 import { FaFacebook, FaTwitter, FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface ShareButtonProps {
   projectId: string;
@@ -18,6 +19,7 @@ export default function ShareButton({
 }: ShareButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const t = useTranslation("portfolioPage");
 
   const shareUrl =
     typeof window !== "undefined"
@@ -42,7 +44,7 @@ export default function ShareButton({
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(true)}
         className="bg-white/90 backdrop-blur-sm p-3 rounded-full hover:bg-white transition-colors shadow-md"
-        aria-label="Share project"
+        aria-label={t.shareProject}
       >
         <FiExternalLink className="w-5 h-5 text-gray-800" />
       </motion.button>
@@ -59,11 +61,11 @@ export default function ShareButton({
             {/* Header */}
             <div className="flex justify-between items-center mb-3">
               <h3 className="font-semibold text-gray-800">
-                Share this project
+                {t.shareThisProject}
               </h3>
               <button
                 onClick={() => setIsOpen(false)}
-                aria-label="Close share menu"
+                aria-label={t.closeShareMenu}
               >
                 <FiX className="text-gray-500 hover:text-red-500" />
               </button>
@@ -80,7 +82,7 @@ export default function ShareButton({
                 onClick={handleCopy}
                 className="text-sm text-blue-600 hover:text-blue-800 px-2"
               >
-                {copied ? "Copied!" : <FiCopy />}
+                {copied ? t.copied : <FiCopy />}
               </button>
             </div>
 

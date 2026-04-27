@@ -2,6 +2,8 @@
 // ORDER STATUS - Allowed values for order lifecycle
 // ============================================================================
 
+import { PaginationMeta } from "./global";
+
 export type OrderStatus =
   | "pending"
   | "paid"
@@ -104,22 +106,8 @@ export interface AdminOrder extends Omit<Order, "service"> {
 }
 
 // ============================================================================
-// PAGINATION META - Standard pagination response
-// ============================================================================
-
-export interface PaginationMeta {
-  page: number;
-  limit: number;
-  total: number;
-  totalPages: number;
-}
-
-// ============================================================================
 // API RESPONSES - Typed responses from backend endpoints
 // ============================================================================
-
-// Create Order Response (201 Created)
-export interface CreateOrderResponse extends Order {}
 
 // Initiate Payment Response (201 Created)
 export interface PaymentIntentResponse {
@@ -139,18 +127,6 @@ export interface AdminOrderListResponse {
   data: AdminOrder[];
   meta: PaginationMeta;
 }
-
-// Single Order Response (200 OK)
-export interface OrderDetailResponse extends Order {}
-
-// Single Admin Order Response (200 OK)
-export interface AdminOrderDetailResponse extends AdminOrder {}
-
-// Add Timeline Update Response (201 Created)
-export interface AddOrderUpdateResponse extends OrderUpdate {}
-
-// Update Order Status Response (200 OK)
-export interface UpdateOrderStatusResponse extends Omit<AdminOrder, "payment"> {}
 
 // ============================================================================
 // QUERY PARAMETERS - API request parameters

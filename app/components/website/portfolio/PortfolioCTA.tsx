@@ -6,11 +6,11 @@ import Link from "next/link";
 import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface Props {
-  local: "en" | "ar";
+  locale: "en" | "ar";
 }
 
-export default function PortfolioCTA({ local }: Props) {
-  const isRTL = local === "ar";
+export default function PortfolioCTA({ locale }: Props) {
+  const isRTL = locale === "ar";
   const t = useTranslation("portfolioPage");
 
   return (
@@ -44,7 +44,7 @@ export default function PortfolioCTA({ local }: Props) {
             {t.ctaDescription}
           </p>
           <Link
-            href={`/${local}/contact`}
+            href={`/${locale}/contact`}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-base font-semibold transition-all duration-200"
             style={{
               background: "var(--gradient-primary)",

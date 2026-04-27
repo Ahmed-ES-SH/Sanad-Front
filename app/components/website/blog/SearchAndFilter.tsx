@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { FiSearch, FiChevronDown, FiX, FiFilter } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { getCategories } from "@/app/actions/blogActions";
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
 import { useLocale } from "@/app/hooks/useLocale";
 import { useTranslation } from "@/app/hooks/useTranslation";
 

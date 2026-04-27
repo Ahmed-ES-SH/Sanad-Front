@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation";
 import { getSharedMetadata } from "@/app/helpers/getSharedMetadata";
 import { getTranslations } from "@/app/helpers/getTranslations";
 import { getProjectBySlug } from "@/app/actions/portfolioActions";
 import ClientProject from "@/app/components/website/portfolio/_projectPage/ClientProject";
+import { ProjectNotFound } from "@/app/components/website/portfolio/_projectPage/ProjectNotFound";
 
 interface PageParams {
   params: Promise<{ local: string; projectTitle: string }>;
@@ -32,15 +32,11 @@ export async function generateMetadata({ params }: PageParams) {
 }
 
 export default async function ProjectPage({ params }: PageParams) {
-  const { local, projectTitle } = await params;
-  const locale = (local === "ar" ? "ar" : "en") as "en" | "ar";
+  const { projectTitle } = await params;
 
-  let project;
-  try {
-    project = await getProjectBySlug(projectTitle);
-  } catch {
-    notFound();
-  }
+  const project = await getProjectBySlug(projectTitle);
 
-  return <ClientProject project={project} local={locale} />;
+  if (!project) return <ProjectNotFound />;
+
+  return <ClientProject project={project} />;
 }

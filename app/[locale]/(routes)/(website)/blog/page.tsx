@@ -55,7 +55,7 @@ export default async function Blog({
     <BlogPage
       initialArticles={articles}
       totalPosts={meta.total}
-      totalPages={meta.totalPages}
+      totalPages={meta.total}
       currentPage={meta.page}
     />
   );

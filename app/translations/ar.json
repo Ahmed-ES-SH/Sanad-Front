@@ -258,7 +258,14 @@
     "goToProject": "الانتقال للمشروع",
     "of": "من",
     "noProjectsInCategory": "لا توجد مشاريع في هذا التصنيف",
-    "viewAllProjects": "عرض جميع المشاريع"
+    "viewAllProjects": "عرض جميع المشاريع",
+    "shareThisProject": "مشاركة هذا المشروع",
+    "closeShareMenu": "إغلاق قائمة المشاركة",
+    "shareProject": "مشاركة المشروع",
+    "copied": "تم النسخ!",
+    "filters": "الفلاتر",
+    "openFilters": "فتح الفلاتر",
+    "closeFilters": "إغلاق الفلاتر"
   },
 
   "servicesSlider": {
@@ -377,6 +384,24 @@
     "popular": "الأكثر شعبية",
     "serviceStats": "إحصائيات الخدمة",
     "relatedServices": "خدمات ذات صلة",
+    "relatedDescription": "اكتشف المزيد من الخدمات التي يمكن أن تساعد عملك على النمو",
+    "breadcrumbServices": "الخدمات",
+    "heroOrderService": "اطلب هذه الخدمة",
+    "heroAllServices": "جميع الخدمات",
+    "ctaHeading": "هل أنت مستعد للبدء؟",
+    "ctaDescription": "أضف هذه الخدمة إلى موجزك وارتقِ بعملك إلى المستوى التالي.",
+    "orderNow": "اطلب الآن",
+    "adding": "جاري الإضافة...",
+    "faqLabel": "الأسئلة",
+    "processHeading": "كيف نقدم الخدمة",
+    "aboutTitle": "عن هذه الخدمة",
+    "idealForLabel": "مثالي لـ:",
+    "category": {
+      "development": "التطوير",
+      "marketing": "التسويق",
+      "design": "التصميم",
+      "data-security": "البيانات والأمان"
+    },
     "exploreMore": "استكشف المزيد من خدماتنا",
     "backToServices": "العودة للخدمات",
     "whyChooseUs": "لماذا تختارنا",
@@ -857,7 +882,19 @@
       "architecture": "العمارة الحضرية",
       "economics": "الاقتصاد العالمي",
       "heritage": "التراث الثقافي"
-    }
+    },
+    "untitledMasterpiece": "مسودة بدون عنوان",
+    "selectCategory": "اختر الفئة",
+    "coverImagePlaceholder": "أدخل رابط الصورة...",
+    "contentPlaceholder": "ابدأ بكتابة محتوى مقالك هنا...",
+    "collaboratorsDesc": "أضف متعاونين للعمل على هذا المقال معًا.",
+    "versionHistoryDesc": "تتبع جميع التغييرات على مقالك.",
+    "draft": "مسودة",
+    "publishingNote": "احفظ كمسودة للنشر لاحقًا.",
+    "failedToSaveDraft": "فشل في حفظ المسودة",
+    "pleaseAddExcerpt": "الرجاء إضافة مقتطف قبل النشر",
+    "pleaseAddTitle": "الرجاء إضافة عنوان قبل النشر",
+    "failedToPublish": "فشل في نشر المقال"
   },
 
   "ServicesPage": {
@@ -1572,6 +1609,47 @@
       "unableToVerify": "تعذر التحقق من حالة الدفع. جاري المحاولة مرة أخرى...",
       "verificationDelayed": "تأخر التحقق من الدفع. يمكنك الاستمرار في الانتظار أو المحاولة مرة أخرى.",
       "notCompleted": "لم يكتمل الدفع. يرجى التحقق من وسيلة الدفع والمحاولة مرة أخرى."
+    }
+  },
+
+  "servicesNotFound": {
+    "title": "الخدمات غير متوفرة",
+    "description": "عذراً، لم نتمكن من العثور على الخدمات التي تبحث عنها. يبدو أنه لا توجد خدمات متاحة في الوقت الحالي.",
+    "suggestion": "يرجى التحقق لاحقاً أو التواصل مع فريق الدعم للحصول على المساعدة.",
+    "backToHome": "العودة إلى الصفحة الرئيسية",
+    "contactSupport": "تواصل مع الدعم",
+    "illustrationAlt": "رسم توضيحي لعدم وجود خدمات"
+  },
+
+  "servicesComponents": {
+    "allServices": "جميع الخدمات",
+    "serviceCategories": "فئات الخدمات",
+    "previousCategories": "الفئات السابقة",
+    "nextCategories": "الفئات التالية",
+    "noSolutionsFound": "لم يتم العثور على حلول",
+    "tryDifferentCategory": "حاول اختيار فئة مختلفة لرؤية خدماتنا.",
+    "mostPopular": "الأكثر شعبية",
+    "getStarted": "ابدأ الآن",
+    "errorCode": "رمز الخطأ: 404",
+    "sanadServices": "خدمات سند",
+    "monthly": "شهرياً",
+    "yearly": "سنوياً",
+    "perYear": "/سنة",
+    "perMonth": "/شهر",
+    "uptime": "وقت التشغيل"
+  },
+
+  "auth": {
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "social": {
+      "google": "تابع باستخدام جوجل",
+      "facebook": "تابع باستخدام فيسبوك"
+    },
+    "checkYourInbox": {
+      "title": "تحقق من صندوق البريد الإلكتروني للحصول على رابط التحقق.",
+      "description": "أرسلنا رابط تحقق إلى بريدك الإلكتروني. يرجى صندوق البريد الإلكتروني والنقر على رابط التحقق لتأكيد حسابك."
     }
   }
 }

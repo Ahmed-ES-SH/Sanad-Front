@@ -1,13 +1,12 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
-import Link from "next/link";
-import { useVariables } from "@/app/context/VariablesContext";
-import { formatTitle } from "@/app/helpers/helpers";
 import { useTranslation } from "@/app/hooks/useTranslation";
+import { formatTitle } from "@/app/helpers/formatTitle";
 
 import type { Project } from "@/app/types/project";
+import Img from "../../global/Img";
+import LocaleLink from "../../global/LocaleLink";
 
 interface Props {
   project: Project;
@@ -16,13 +15,9 @@ interface Props {
 }
 
 export default function PortfolioCard({ project, index, isHero }: Props) {
-  const { local } = useVariables();
-  const isRTL = local === "ar";
   const t = useTranslation("portfolioPage");
 
-  const projectHref = project.slug
-    ? project.slug
-    : formatTitle(project.title);
+  const projectHref = project.slug ? project.slug : formatTitle(project.title);
 
   return (
     <motion.div
@@ -53,15 +48,11 @@ export default function PortfolioCard({ project, index, isHero }: Props) {
         e.currentTarget.style.transform = "translateY(0)";
       }}
     >
-      <Link
-        href={`/${local}/portfolio/${projectHref}`}
-        className="block"
-      >
-        {/* Image */}
+      <LocaleLink href={`/portfolio/${projectHref}`} className="block">
         <div
           className={`relative overflow-hidden ${isHero ? "aspect-4/3 md:aspect-4/5" : "aspect-16/10"}`}
         >
-          <img
+          <Img
             src={project.coverImageUrl || project.images?.[0] || ""}
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
@@ -108,7 +99,10 @@ export default function PortfolioCard({ project, index, isHero }: Props) {
               <div key={i} className="flex items-center gap-1.5">
                 <span
                   className="text-xs font-medium px-2 py-1 rounded-md"
-                  style={{ backgroundColor: "var(--surface-100)", color: "var(--surface-600)" }}
+                  style={{
+                    backgroundColor: "var(--surface-100)",
+                    color: "var(--surface-600)",
+                  }}
                 >
                   {tech}
                 </span>
@@ -116,7 +110,7 @@ export default function PortfolioCard({ project, index, isHero }: Props) {
             ))}
           </div>
         </div>
-      </Link>
+      </LocaleLink>
     </motion.div>
   );
 }

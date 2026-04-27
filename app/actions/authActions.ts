@@ -8,9 +8,9 @@ import {
   LoginCredentials,
   RegisterCredentials,
   ResetPasswordCredentials,
-  User,
 } from "@/app/types/auth";
 import { globalRequest } from "../helpers/globalRequest";
+import { User } from "../types/user";
 
 /* =========================================================
    LOGIN
