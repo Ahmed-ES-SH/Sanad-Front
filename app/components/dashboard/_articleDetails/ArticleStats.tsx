@@ -1,9 +1,9 @@
 "use client";
 
-import { Tooltip } from "@/app/_components/_dashboard/DashboardPage/Tooltip";
 import { Article } from "@/app/types/blog";
 import { motion } from "framer-motion";
-import { FiTrendingUp, FiClock, FiShare2, FiMessageSquare } from "react-icons/fi";
+import { FiTrendingUp } from "react-icons/fi";
+import { Tooltip } from "../DashboardPage/Tooltip";
 
 interface ArticleStatsProps {
   article: Article;
@@ -112,8 +112,8 @@ export function ArticleStats({ article }: ArticleStatsProps) {
                   stat.color === "emerald"
                     ? "text-emerald-600"
                     : stat.color === "orange"
-                    ? "text-primary"
-                    : "text-stone-400"
+                      ? "text-primary"
+                      : "text-stone-400"
                 }`}
               >
                 {stat.trend === "up" && (

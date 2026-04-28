@@ -1,14 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useAppQuery } from "@/lib/hooks/useAppQuery";
-import { CONTACT_ENDPOINTS } from "@/app/constants/endpoints";
-import {
-  ContactListResponse,
-  ContactQueryParams,
-  PaginationMeta,
-  ContactMessage,
-} from "@/app/types/contact";
+import { ContactListResponse, ContactQueryParams } from "@/app/types/contact";
 import { MessagesTable } from "./MessagesTable";
 import { Filters } from "./Filters";
 import { StatsCards } from "./StatsCards";
@@ -19,6 +12,8 @@ import {
   deleteContactMessage,
 } from "@/app/actions/contactActions";
 import { toast } from "sonner";
+import { CONTACT_ENDPOINTS } from "@/app/constants/endpoints";
+import { useAppQuery } from "@/app/hooks/useAppQuery";
 
 interface ContactMessagesContentProps {
   initialData: ContactListResponse;

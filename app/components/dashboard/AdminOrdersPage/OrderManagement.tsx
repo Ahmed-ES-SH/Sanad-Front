@@ -1,68 +1,69 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import {
-  useAdminOrderById,
-  useUpdateOrderStatus,
-  useAddOrderUpdate,
-} from '@/lib/hooks/orders';
-import { OrderStatus, AdminOrder } from '@/app/types/order';
+import { useEffect, useState } from "react";
+
+import { OrderStatus } from "@/app/types/order";
+import Image from "next/image";
+import { useUpdateOrderStatus } from "@/app/hooks/useUpdateOrderStatus";
+import { useAddOrderUpdate } from "@/app/hooks/useAddOrderUpdate";
+import { useAdminOrderById } from "@/app/hooks/useAdminOrderById";
 
 // Status badge configuration
-const statusConfig: Record<OrderStatus, { bg: string; text: string; label: string }> = {
+const statusConfig: Record<
+  OrderStatus,
+  { bg: string; text: string; label: string }
+> = {
   pending: {
-    bg: 'bg-yellow-100',
-    text: 'text-yellow-700',
-    label: 'Pending',
+    bg: "bg-yellow-100",
+    text: "text-yellow-700",
+    label: "Pending",
   },
   paid: {
-    bg: 'bg-blue-100',
-    text: 'text-blue-700',
-    label: 'Paid',
+    bg: "bg-blue-100",
+    text: "text-blue-700",
+    label: "Paid",
   },
   in_progress: {
-    bg: 'bg-orange-100',
-    text: 'text-orange-700',
-    label: 'In Progress',
+    bg: "bg-orange-100",
+    text: "text-orange-700",
+    label: "In Progress",
   },
   completed: {
-    bg: 'bg-green-100',
-    text: 'text-green-700',
-    label: 'Completed',
+    bg: "bg-green-100",
+    text: "text-green-700",
+    label: "Completed",
   },
   cancelled: {
-    bg: 'bg-red-100',
-    text: 'text-red-700',
-    label: 'Cancelled',
+    bg: "bg-red-100",
+    text: "text-red-700",
+    label: "Cancelled",
   },
 };
 
 const statusOptions: OrderStatus[] = [
-  'pending',
-  'paid',
-  'in_progress',
-  'completed',
-  'cancelled',
+  "pending",
+  "paid",
+  "in_progress",
+  "completed",
+  "cancelled",
 ];
 
 // Format currency
-function formatCurrency(amount: number, currency: string = 'USD'): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
+function formatCurrency(amount: number, currency: string = "USD"): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
     currency: currency.toUpperCase(),
   }).format(amount);
 }
 
 // Format date
 function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   });
 }
 
@@ -76,8 +77,8 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
   const updateStatusHook = useUpdateOrderStatus();
   const addUpdateHook = useAddOrderUpdate();
 
-  const [newStatus, setNewStatus] = useState<OrderStatus | ''>('');
-  const [updateContent, setUpdateContent] = useState('');
+  const [newStatus, setNewStatus] = useState<OrderStatus | "">("");
+  const [updateContent, setUpdateContent] = useState("");
   const [isUpdatingStatus, setIsUpdatingStatus] = useState(false);
   const [isAddingUpdate, setIsAddingUpdate] = useState(false);
 
@@ -86,8 +87,12 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
   }, [orderId, fetchOrder]);
 
   useEffect(() => {
+    const handleNewStatus = (state: OrderStatus) => {
+      setNewStatus(state);
+    };
+
     if (order) {
-      setNewStatus(order.status);
+      handleNewStatus(order.status);
     }
   }, [order]);
 
@@ -101,7 +106,7 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
     if (result.success) {
       fetchOrder(orderId);
     } else {
-      alert(result.message || 'Failed to update status');
+      alert(result.message || "Failed to update status");
     }
   };
 
@@ -113,10 +118,10 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
     setIsAddingUpdate(false);
 
     if (result.success) {
-      setUpdateContent('');
+      setUpdateContent("");
       fetchOrder(orderId);
     } else {
-      alert(result.message || 'Failed to add update');
+      alert(result.message || "Failed to add update");
     }
   };
 
@@ -131,7 +136,7 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
   if (error || !order) {
     return (
       <div className="p-6 bg-red-50 border border-red-200 rounded-xl">
-        <p className="text-red-600">{error || 'Order not found'}</p>
+        <p className="text-red-600">{error || "Order not found"}</p>
         {onBack && (
           <button
             onClick={onBack}
@@ -156,20 +161,30 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
               onClick={onBack}
               className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700 mb-2"
             >
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-4 h-4 mr-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
               Back to Orders
             </button>
           )}
-          <h1 className="text-2xl font-bold text-gray-900">
-            Order Management
-          </h1>
+          <h1 className="text-2xl font-bold text-gray-900">Order Management</h1>
           <p className="text-sm text-gray-500 mt-1">
             Order #{order.id.slice(0, 8)}
           </p>
         </div>
-        <span className={`px-3 py-1.5 rounded-full text-sm font-medium ${status.bg} ${status.text}`}>
+        <span
+          className={`px-3 py-1.5 rounded-full text-sm font-medium ${status.bg} ${status.text}`}
+        >
           {status.label}
         </span>
       </div>
@@ -181,15 +196,15 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
           <h3 className="text-sm font-medium text-gray-500 mb-3">Customer</h3>
           <div className="flex items-center gap-3">
             {order.user.avatar && (
-              <img
+              <Image
                 src={order.user.avatar}
-                alt={order.user.name || ''}
+                alt={order.user.name || ""}
                 className="w-10 h-10 rounded-full"
               />
             )}
             <div>
               <p className="font-medium text-gray-900">
-                {order.user.name || 'Unknown'}
+                {order.user.name || "Unknown"}
               </p>
               <p className="text-sm text-gray-500">{order.user.email}</p>
             </div>
@@ -225,14 +240,18 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
       {/* Notes */}
       {order.notes && (
         <div className="p-4 bg-gray-50 rounded-xl">
-          <h3 className="text-sm font-medium text-gray-500 mb-2">Customer Notes</h3>
+          <h3 className="text-sm font-medium text-gray-500 mb-2">
+            Customer Notes
+          </h3>
           <p className="text-gray-700">{order.notes}</p>
         </div>
       )}
 
       {/* Update Status */}
       <div className="p-4 bg-white rounded-xl border border-gray-200">
-        <h3 className="text-sm font-medium text-gray-500 mb-3">Update Status</h3>
+        <h3 className="text-sm font-medium text-gray-500 mb-3">
+          Update Status
+        </h3>
         <div className="flex gap-3">
           <select
             value={newStatus}
@@ -248,10 +267,12 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
           </select>
           <button
             onClick={handleStatusUpdate}
-            disabled={!newStatus || newStatus === order.status || isUpdatingStatus}
+            disabled={
+              !newStatus || newStatus === order.status || isUpdatingStatus
+            }
             className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            {isUpdatingStatus ? 'Updating...' : 'Update'}
+            {isUpdatingStatus ? "Updating..." : "Update"}
           </button>
         </div>
       </div>
@@ -278,7 +299,7 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
             disabled={!updateContent.trim() || isAddingUpdate}
             className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            {isAddingUpdate ? 'Adding...' : 'Add Update'}
+            {isAddingUpdate ? "Adding..." : "Add Update"}
           </button>
         </div>
       </div>
@@ -287,23 +308,47 @@ export function OrderManagement({ orderId, onBack }: OrderManagementProps) {
       <div className="p-4 bg-white rounded-xl border border-gray-200">
         <h3 className="text-sm font-medium text-gray-500 mb-4">Timeline</h3>
         <div className="space-y-4">
-          {order.updates.map((update, idx) => (
+          {order.updates.map((update) => (
             <div key={update.id} className="flex gap-4">
               <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
-                {update.author === 'admin' ? (
-                  <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                {update.author === "admin" ? (
+                  <svg
+                    className="w-4 h-4 text-indigo-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
                   </svg>
                 ) : (
-                  <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-4 h-4 text-indigo-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 )}
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-medium text-gray-900 capitalize">{update.author}</span>
-                  <span className="text-xs text-gray-500">{formatDate(update.createdAt)}</span>
+                  <span className="font-medium text-gray-900 capitalize">
+                    {update.author}
+                  </span>
+                  <span className="text-xs text-gray-500">
+                    {formatDate(update.createdAt)}
+                  </span>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">{update.content}</p>
               </div>

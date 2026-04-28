@@ -7,16 +7,17 @@ import ServicesComponent from "@/app/components/website/services/ServicesCompone
 import ServicesNotFound from "@/app/components/website/services/ServicesNotFound";
 import HowWeWork from "@/app/components/website/services/HowWeWork";
 import PricingPlans from "@/app/components/website/services/PricingPlans";
+import { Locale } from "@/app/types/global";
 
 interface Props {
-  params: Promise<{ local: string }>;
+  params: Promise<{ locale: Locale }>;
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { local } = await params;
-  const translations = getTranslations(local ?? "en");
+  const { locale } = await params;
+  const translations = getTranslations(locale ?? "en");
 
-  const sharedMetadata = getSharedMetadata(local ?? "en", translations);
+  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
 
   return {
     title: translations.servicesMeta.title,

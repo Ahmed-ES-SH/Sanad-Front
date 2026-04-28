@@ -2,13 +2,21 @@
 
 import { useVariables } from "@/app/context/VariablesContext";
 import { getTranslations } from "@/app/helpers/helpers";
-import { createArticle, getCategories, togglePublishStatus } from "@/app/actions/blogActions";
+import {
+  createArticle,
+  getCategories,
+  togglePublishStatus,
+} from "@/app/actions/blogActions";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Category } from "@/app/types/global";
-import { useAddArticleForm } from "@/app/helpers/_dashboard/useAddArticleForm";
-import { formatWordCount, validateArticleForPublish, createArticlePayload } from "@/app/helpers/_dashboard/articleHelpers";
+import { useAddArticleForm } from "@/app/hooks/useAddArticleForm";
+import {
+  formatWordCount,
+  validateArticleForPublish,
+  createArticlePayload,
+} from "@/app/helpers/_dashboard/articleHelpers";
 
 import ErrorMessage from "./ErrorMessage";
 import AddArticleHeader from "./AddArticleHeader";
@@ -78,8 +86,10 @@ export default function AddArticleContent() {
 
   const handlePublishNow = async () => {
     const validation = validateArticleForPublish(formData, {
-      pleaseAddExcerpt: t.pleaseAddExcerpt || "Please add an excerpt before publishing",
-      pleaseAddTitle: t.pleaseAddTitle || "Please add a title before publishing",
+      pleaseAddExcerpt:
+        t.pleaseAddExcerpt || "Please add an excerpt before publishing",
+      pleaseAddTitle:
+        t.pleaseAddTitle || "Please add a title before publishing",
     });
 
     if (!validation.isValid) {
@@ -111,7 +121,8 @@ export default function AddArticleContent() {
 
   const basicInfoTranslations = {
     articleDetails: t.articleDetails || "Article Details",
-    articleTitlePlaceholder: t.articleTitlePlaceholder || "Enter a compelling headline...",
+    articleTitlePlaceholder:
+      t.articleTitlePlaceholder || "Enter a compelling headline...",
     excerpt: t.excerpt || "Excerpt",
     excerptPlaceholder: t.excerptPlaceholder || "Enter a short summary...",
     category: t.category || "Category",
@@ -167,7 +178,9 @@ export default function AddArticleContent() {
             />
             <MediaPreviewCard
               coverImageUrl={formData.coverImageUrl}
-              coverImagePlaceholder={t.coverImagePlaceholder || "Enter image URL..."}
+              coverImagePlaceholder={
+                t.coverImagePlaceholder || "Enter image URL..."
+              }
               cover={t.cover || "Cover"}
               onInputChange={handleInputChange}
             />
@@ -177,7 +190,10 @@ export default function AddArticleContent() {
             content={formData.content}
             wordCount={wordCount}
             wordsLabel={t.words || "Words"}
-            contentPlaceholder={t.contentPlaceholder || "Start writing your article content here..."}
+            contentPlaceholder={
+              t.contentPlaceholder ||
+              "Start writing your article content here..."
+            }
             onContentChange={handleContentChange}
           />
         </motion.div>
@@ -190,19 +206,26 @@ export default function AddArticleContent() {
         >
           <CollaboratorsSidebar
             collaborators={t.collaborators || "Collaborators"}
-            collaboratorsDesc={t.collaboratorsDesc || "Add collaborators to work on this article together."}
+            collaboratorsDesc={
+              t.collaboratorsDesc ||
+              "Add collaborators to work on this article together."
+            }
           />
 
           <VersionHistorySidebar
             versionHistory={t.versionHistory || "Version History"}
-            versionHistoryDesc={t.versionHistoryDesc || "Track all changes to your article."}
+            versionHistoryDesc={
+              t.versionHistoryDesc || "Track all changes to your article."
+            }
           />
 
           <VisibilityCard
             publishingSettings={t.publishingSettings || "Publishing Settings"}
             visibility={t.visibility || "Visibility"}
             draft={t.draft || "Draft"}
-            publishingNote={t.publishingNote || "Save as draft to publish later."}
+            publishingNote={
+              t.publishingNote || "Save as draft to publish later."
+            }
           />
         </motion.div>
       </div>

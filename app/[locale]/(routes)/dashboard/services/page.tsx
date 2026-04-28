@@ -1,11 +1,9 @@
 import { Suspense } from "react";
-import ServicesContent from "@/app/_components/_dashboard/ServicesPage/ServicesContent";
 import ServicesLoading from "./loading";
 import { getAdminServices } from "@/app/actions/servicesActions";
 import { getCategories } from "@/app/actions/blogActions";
 import { ServiceQueryParams } from "@/app/types/service";
-import { PaginationMeta } from "@/app/types/blog";
-import { Service } from "@/app/types/service";
+import ServicesContent from "@/app/components/dashboard/ServicesPage/ServicesContent";
 
 interface ServicesPageProps {
   searchParams: Promise<{
@@ -16,9 +14,11 @@ interface ServicesPageProps {
   }>;
 }
 
-export default async function ServicesPage({ searchParams }: ServicesPageProps) {
+export default async function ServicesPage({
+  searchParams,
+}: ServicesPageProps) {
   const params = await searchParams;
-  
+
   // Parse pagination and sorting params from URL
   const queryParams: ServiceQueryParams = {
     page: params.page ? parseInt(params.page, 10) : 1,
@@ -38,8 +38,8 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
   return (
     <div className="min-h-screen">
       <Suspense fallback={<ServicesLoading />}>
-        <ServicesContent 
-          initialServices={initialServices} 
+        <ServicesContent
+          initialServices={initialServices}
           initialMeta={meta}
           categories={categories}
           initialQueryParams={queryParams}

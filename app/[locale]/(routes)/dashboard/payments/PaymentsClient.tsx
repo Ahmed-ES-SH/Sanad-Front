@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import { motion } from "framer-motion";
 import {
   FiFilter,
@@ -11,13 +9,11 @@ import {
   FiDollarSign,
   FiTrendingUp,
 } from "react-icons/fi";
-import TransactionTable from "@/app/_components/_dashboard/PaymentsPage/TransactionTable";
-import PaymentDetailModal from "@/app/_components/_dashboard/PaymentsPage/PaymentDetailModal";
-import type {
-  PaymentStatus,
-  PaginatedPaymentsResponse,
-} from "@/lib/types/payments";
-import { useAppQuery } from "@/lib/hooks/useAppQuery";
+import { PaginatedPaymentsResponse, PaymentStatus } from "@/app/types/payments";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { useAppQuery } from "@/app/hooks/useAppQuery";
+import TransactionTable from "@/app/components/dashboard/PaymentsPage/TransactionTable";
+import PaymentDetailModal from "@/app/components/dashboard/PaymentsPage/PaymentDetailModal";
 
 const container = {
   hidden: { opacity: 0 },
@@ -53,8 +49,7 @@ function useLocalDebounce<T>(value: T, delay: number): T {
 }
 
 export default function PaymentsClient({ initialData }: PaymentsClientProps) {
-  const { local } = useVariables();
-  const { PaymentsPage: t } = getTranslations(local);
+  const t = useTranslation("PaymentsPage");
 
   // Filter state
   const [statusFilter, setStatusFilter] = useState<PaymentStatus | "">("");

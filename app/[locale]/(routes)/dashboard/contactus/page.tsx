@@ -1,6 +1,6 @@
 import { fetchContactMessages } from "@/app/actions/contactActions";
-import { ContactMessagesContent } from "@/app/_components/_dashboard/ContactUsPage/ContactMessagesContent";
-import { ContactQueryParams } from "@/app/types/contact";
+import { ContactMessagesContent } from "@/app/components/dashboard/ContactUsPage/ContactMessagesContent";
+import { ContactListResponse, ContactQueryParams } from "@/app/types/contact";
 
 interface ContactUsPageProps {
   searchParams: Promise<{
@@ -63,7 +63,7 @@ export default async function ContactUsPage({
   return (
     <main className="pt-12 pb-12 px-8 min-h-screen bg-stone-50 text-stone-900">
       <ContactMessagesContent
-        initialData={initialData}
+        initialData={initialData as ContactListResponse}
         initialParams={initialParams}
       />
     </main>

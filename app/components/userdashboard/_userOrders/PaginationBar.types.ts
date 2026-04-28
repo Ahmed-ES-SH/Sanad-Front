@@ -1,15 +1,12 @@
+import { Locale, PaginationMeta } from "@/app/types/global";
+
 export interface PaginationBarProps {
-  meta: {
-    page: number;
-    limit: number;
-    total: number;
-    totalPages: number;
-  };
+  meta: PaginationMeta;
   hasPrevPage: boolean;
   hasNextPage: boolean;
   isRTL: boolean;
   navigateToPage: (page: number) => void;
-  local: string;
+  locale: Locale;
 }
 
 export interface PaginationLabels {

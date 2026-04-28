@@ -1,3 +1,5 @@
+import { getTranslations } from "@/app/helpers/getTranslations";
+import { Locale } from "@/app/types/global";
 import Link from "next/link";
 import {
   FaExclamationCircle,
@@ -6,19 +8,18 @@ import {
   FaLock,
   FaShieldAlt,
 } from "react-icons/fa";
-import { getTranslations } from "@/app/helpers/helpers";
 
 interface PaymentFailedPageProps {
-  params: Promise<{ local: string }>;
+  params: Promise<{ locale: Locale }>;
 }
 
 export default async function PaymentFailedPage({
   params,
 }: PaymentFailedPageProps) {
-  const { local } = await params;
-  const t = getTranslations(local);
+  const { locale } = await params;
+  const t = getTranslations(locale);
   const { PaymentFailedPage: pfp } = t;
-  const isRTL = local === "ar";
+  const isRTL = locale === "ar";
 
   return (
     <div
@@ -105,7 +106,7 @@ export default async function PaymentFailedPage({
             {/* Return to Dashboard Link */}
             <div className="mt-8">
               <Link
-                href={`/${local}`}
+                href={`/${locale}`}
                 className="text-[var(--primary,#f97316)] font-medium text-sm hover:underline inline-flex items-center justify-center gap-2"
               >
                 <FaArrowLeft className="w-4 h-4" />

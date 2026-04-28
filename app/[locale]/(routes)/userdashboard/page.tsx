@@ -1,4 +1,4 @@
-import UserDashboardPage from "@/app/_components/_website/_userDashboard/UserDashboardPage";
+import { UserDashboardPage } from "@/app/components/userdashboard/_userDashboard";
 
 export default function Page() {
   return <UserDashboardPage />;

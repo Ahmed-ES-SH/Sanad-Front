@@ -1,5 +1,5 @@
-import AddNewProject from "@/app/_components/_dashboard/ProjectsPage/AddNewProject";
 import { getCategories } from "@/app/actions/blogActions";
+import AddNewProject from "@/app/components/dashboard/ProjectsPage/AddNewProject";
 
 export default async function AddNewProjectPage() {
   const categories = await getCategories();

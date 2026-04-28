@@ -1,6 +1,5 @@
 "use client";
 
-import { Tooltip } from "@/app/_components/_dashboard/DashboardPage/Tooltip";
 import { Article } from "@/app/types/blog";
 import { motion } from "framer-motion";
 import {
@@ -9,6 +8,7 @@ import {
   FiSearch,
   FiCheckSquare,
 } from "react-icons/fi";
+import { Tooltip } from "../DashboardPage/Tooltip";
 
 const actionTooltips = {
   "Promote Post": "Share this article on social media to increase visibility",

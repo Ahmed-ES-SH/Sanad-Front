@@ -2,37 +2,33 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { FiPackage, FiClock, FiCheckCircle } from "react-icons/fi";
-import { useRouter, usePathname } from "next/navigation";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import UserDashboardHeader from "@/app/_components/_website/_userDashboard/UserDashboardHeader";
-import {
-  PageHeading,
-  OrderInsights,
-  OrderFilters,
-  ResultsInfo,
-  LoadingState,
-  EmptyState,
-  OrdersGrid,
-  NewOrderCTA,
-  SupportHub,
-  OrderCard,
-  PaginationBar,
-} from "@/app/_components/_userdashboard";
-import { useAppQuery } from "@/lib/hooks/useAppQuery";
+
 import { ORDERS_ENDPOINTS } from "@/app/constants/endpoints";
 import { OrderListResponse } from "@/app/types/order";
 import { useDebounce } from "@/app/hooks/useDebounce";
 import { UserOrdersPageProps, FILTER_KEY_TO_STATUS } from "./page.types";
 import { formatOrderId, formatDate, formatAmount } from "./OrderCard.utils";
+import { useLocale } from "@/app/hooks/useLocale";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { useAppQuery } from "@/app/hooks/useAppQuery";
+import { UserDashboardHeader } from "../_userDashboard";
+import PageHeading from "../PageHeading";
+import OrderInsights from "../OrderInsights";
+import OrderFilters from "../OrderFilters";
+import LoadingState from "../LoadingState";
+import EmptyState from "../EmptyState";
+import ResultsInfo from "../ResultsInfo";
+import OrdersGrid from "../OrdersGrid";
+import OrderCard from "./OrderCard";
+import NewOrderCTA from "../NewOrderCTA";
+import PaginationBar from "./PaginationBar";
+import SupportHub from "../SupportHub";
+import { PaginationMeta } from "@/app/types/global";
 
 export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const { local } = useVariables();
-  const translations = getTranslations(local);
-  const t = translations.UserOrders;
-  const isRTL = local === "ar";
+  const locale = useLocale();
+  const t = useTranslation("UserOrders");
+  const isRTL = locale === "ar";
 
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
@@ -41,7 +37,10 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
 
   // Reset page when filter or search changes
   useEffect(() => {
-    setPage(1);
+    function handelCurrentPage(newPage: number) {
+      setPage(newPage);
+    }
+    handelCurrentPage(1);
   }, [filter, debouncedSearch]);
 
   // Fetch data using useAppQuery
@@ -60,7 +59,7 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
         ? ({
             data,
             meta,
-          } as OrderListResponse)
+          } as unknown as OrderListResponse)
         : undefined,
       staleTime: isInitialState ? 1000 * 60 * 5 : 0,
     },
@@ -75,7 +74,7 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const hasNextPage = currentMeta.page < currentMeta.totalPages;
+  const hasNextPage = currentMeta.page < currentMeta.total;
   const hasPrevPage = currentMeta.page > 1;
 
   // Format display ID — short UUID (first 8 chars)
@@ -83,21 +82,25 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
 
   // Format date
   const formatDateFn = useCallback(
-    (dateString: string) => formatDate(dateString, local),
-    [local],
+    (dateString: string) => formatDate(dateString, locale),
+    [locale],
   );
 
   // Format amount
   const formatAmountFn = useCallback(
-    (amount: number, currency: string) => formatAmount(amount, currency, local),
-    [local],
+    (amount: number, currency: string) =>
+      formatAmount(amount, currency, locale),
+    [locale],
   );
 
   // Build results info text
   const resultsInfoText =
     currentMeta.total > 0
       ? orders.length === currentMeta.total
-        ? t.resultsInfo.showingAll.replace("{{count}}", String(currentMeta.total))
+        ? t.resultsInfo.showingAll.replace(
+            "{{count}}",
+            String(currentMeta.total),
+          )
         : t.resultsInfo.showingFiltered
             .replace("{{filtered}}", String(orders.length))
             .replace("{{total}}", String(currentMeta.total))
@@ -168,7 +171,9 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
           <EmptyState
             title={isSearching ? t.noResultsState.title : t.emptyState.title}
             description={
-              isSearching ? t.noResultsState.description : t.emptyState.description
+              isSearching
+                ? t.noResultsState.description
+                : t.emptyState.description
             }
             isSearching={isSearching}
           />
@@ -183,7 +188,6 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
               t={t}
               isRTL={isRTL}
               index={index}
-              local={local}
               formatOrderId={formatOrderIdFn}
               formatDate={formatDateFn}
               formatAmount={formatAmountFn}
@@ -199,14 +203,14 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
         </OrdersGrid>
 
         {/* Pagination */}
-        {currentMeta && currentMeta?.totalPages > 1 && (
+        {currentMeta && currentMeta?.total > 1 && (
           <PaginationBar
-            meta={currentMeta}
+            meta={currentMeta as PaginationMeta}
             hasPrevPage={hasPrevPage}
             hasNextPage={hasNextPage}
             isRTL={isRTL}
             navigateToPage={navigateToPage}
-            local={local}
+            locale={locale}
           />
         )}
 

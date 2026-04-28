@@ -5,10 +5,10 @@ import { getSharedMetadata } from "@/app/helpers/getSharedMetadata";
 import { getTranslations } from "@/app/helpers/getTranslations";
 
 export async function generateMetadata({ params }: any) {
-  const { local } = await params;
-  const translations = getTranslations(local ?? "en");
+  const { locale } = await params;
+  const translations = getTranslations(locale ?? "en");
 
-  const sharedMetadata = getSharedMetadata(local ?? "en", translations);
+  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
 
   return {
     title: translations.forgotPassword.meta.title,

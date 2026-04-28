@@ -12,7 +12,8 @@ import {
   FiAlertCircle,
 } from "react-icons/fi";
 import { createArticle, getCategories } from "@/app/actions/blogActions";
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
+import Image from "next/image";
 
 // Form data interface
 interface FormData {
@@ -58,7 +59,9 @@ export default function CreateArticlePage() {
 
   // Update form field
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -128,7 +131,9 @@ export default function CreateArticlePage() {
       });
 
       if (result.success && result.data) {
-        router.push(`/dashboard/blog/${result.data.id}?articleId=${result.data.id}`);
+        router.push(
+          `/dashboard/blog/${result.data.id}?articleId=${result.data.id}`,
+        );
       } else {
         setErrors({ general: result.message || "Failed to create article" });
       }
@@ -314,7 +319,7 @@ export default function CreateArticlePage() {
               />
               {formData.coverImageUrl && (
                 <div className="relative h-40 rounded-lg overflow-hidden">
-                  <img
+                  <Image
                     src={formData.coverImageUrl}
                     alt="Cover preview"
                     className="w-full h-full object-cover"

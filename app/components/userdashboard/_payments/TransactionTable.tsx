@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
   FiAlertCircle,
   FiRefreshCw,
@@ -9,21 +9,21 @@ import {
   FiClock,
   FiXCircle,
 } from "react-icons/fi";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { usePaymentHistory } from "@/lib/hooks/payments";
+
 import { FilterStatus } from "./TransactionTable.types";
 import FilterBar from "./FilterBar";
 import TransactionTableHeader from "./TransactionTableHeader";
 import TransactionRow from "./TransactionRow";
 import TransactionPagination from "./TransactionPagination";
 import EmptyState from "./EmptyState";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { usePaymentHistory } from "@/app/hooks/usePaymentHistory";
 import {
+  PaymentStatus,
   Transaction,
   TransactionStatus,
-  transformPaymentToTransaction,
-} from "@/app/helpers/_payments";
-import { PaymentStatus } from "@/lib/types/payments";
+} from "@/app/types/payments";
+import { transformPaymentToTransaction } from "@/app/helpers/_payments/transformPayment.helper";
 
 const STATUS_CONFIG: Record<
   TransactionStatus,
@@ -53,8 +53,7 @@ const getApiStatus = (filter: FilterStatus): string | undefined => {
 };
 
 const TransactionTable: React.FC = () => {
-  const { local } = useVariables();
-  const { payments } = getTranslations(local ?? "en");
+  const t = useTranslation("payments");
 
   // Filter state
   const [searchQuery, setSearchQuery] = useState("");
@@ -94,7 +93,10 @@ const TransactionTable: React.FC = () => {
 
   // Reset to page 1 when filters change
   useEffect(() => {
-    setCurrentPage(1);
+    function handlePage(newPage: number) {
+      setCurrentPage(newPage);
+    }
+    handlePage(1);
   }, [statusFilter, dateFrom, dateTo]);
 
   // Filter transactions client-side (for search)
@@ -164,13 +166,13 @@ const TransactionTable: React.FC = () => {
       <section className="bg-white rounded-2xl shadow-sm border border-stone-200/50 overflow-hidden">
         <div className="p-6 border-b border-stone-200/50">
           <h2 className="text-xl font-semibold text-foreground">
-            {payments.tableTitle}
+            {t.tableTitle}
           </h2>
         </div>
         <div className="p-8">
           <div className="flex items-center justify-center gap-3 text-muted-foreground">
             <FiLoader className="animate-spin text-xl" />
-            <span>{payments.loadingText}</span>
+            <span>{t.loadingText}</span>
           </div>
         </div>
       </section>
@@ -183,7 +185,7 @@ const TransactionTable: React.FC = () => {
       <section className="bg-white rounded-2xl shadow-sm border border-stone-200/50 overflow-hidden">
         <div className="p-6 border-b border-stone-200/50">
           <h2 className="text-xl font-semibold text-foreground">
-            {payments.tableTitle}
+            {t.tableTitle}
           </h2>
         </div>
         <div className="p-8">
@@ -191,10 +193,10 @@ const TransactionTable: React.FC = () => {
             <FiAlertCircle className="text-4xl text-red-500" />
             <div>
               <p className="text-sm font-medium text-foreground">
-                {payments.loadFailed}
+                {t.loadFailed}
               </p>
               <p className="text-xs text-muted-foreground mt-1">
-                {error.message || payments.tryAgainLater}
+                {error.message || t.tryAgainLater}
               </p>
             </div>
             <button
@@ -202,7 +204,7 @@ const TransactionTable: React.FC = () => {
               className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-orange-600 border border-orange-600/20 rounded-lg hover:bg-orange-50 transition-colors"
             >
               <FiRefreshCw className="text-sm" />
-              {payments.tryAgainLabel}
+              {t.tryAgainLabel}
             </button>
           </div>
         </div>

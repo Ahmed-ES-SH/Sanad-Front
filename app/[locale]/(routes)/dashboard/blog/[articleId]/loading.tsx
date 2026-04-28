@@ -1,7 +1,7 @@
-import { ArticleHeaderSkeleton } from "../../../../_components/_dashboard/_articleDetails/ArticleHeaderSkeleton";
-import { ArticleStatsSkeleton } from "../../../../_components/_dashboard/_articleDetails/ArticleStatsSkeleton";
-import { ArticleQuickActionsSkeleton } from "../../../../_components/_dashboard/_articleDetails/ArticleQuickActionsSkeleton";
-import { ArticleContentSkeleton } from "../../../../_components/_dashboard/_articleDetails/ArticleContentSkeleton";
+import { ArticleContentSkeleton } from "@/app/components/dashboard/_articleDetails/ArticleContentSkeleton";
+import { ArticleHeaderSkeleton } from "@/app/components/dashboard/_articleDetails/ArticleHeaderSkeleton";
+import { ArticleQuickActionsSkeleton } from "@/app/components/dashboard/_articleDetails/ArticleQuickActionsSkeleton";
+import { ArticleStatsSkeleton } from "@/app/components/dashboard/_articleDetails/ArticleStatsSkeleton";
 
 export default function Loading() {
   return (

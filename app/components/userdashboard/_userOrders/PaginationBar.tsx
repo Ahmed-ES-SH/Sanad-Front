@@ -1,10 +1,7 @@
 "use client";
 
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import {
-  PaginationBarProps,
-  getPaginationLabels,
-} from "./PaginationBar.types";
+import { PaginationBarProps, getPaginationLabels } from "./PaginationBar.types";
 
 const PaginationBar: React.FC<PaginationBarProps> = ({
   meta,
@@ -12,11 +9,11 @@ const PaginationBar: React.FC<PaginationBarProps> = ({
   hasNextPage,
   isRTL,
   navigateToPage,
-  local,
+  locale,
 }) => {
-  const totalPages = meta.totalPages;
+  const totalPages = meta.total;
   const currentPage = meta.page;
-  const labels = getPaginationLabels(local);
+  const labels = getPaginationLabels(locale);
 
   // Build page number buttons — always show first, last, current ± 1
   const getPageNumbers = (): (number | "...")[] => {

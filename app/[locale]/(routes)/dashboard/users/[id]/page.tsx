@@ -1,8 +1,9 @@
-import EditUserClient from "@/app/_components/_dashboard/UsersPage/EditUserClient";
-import { adminGetUser } from "@/app/actions/userActions";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
+import { adminGetUser } from "@/app/actions/userActions";
+import { Locale } from "@/app/types/global";
+import LocaleLink from "@/app/components/global/LocaleLink";
+import EditUserClient from "@/app/components/dashboard/UsersPage/EditUser/EditUserClient";
 
 // ============================================================================
 // USER PROFILE PAGE - Server component that fetches single user data
@@ -10,22 +11,16 @@ import { BsArrowLeft } from "react-icons/bs";
 // ============================================================================
 
 interface PageProps {
-  params: Promise<{ id: string; local: string }>;
+  params: Promise<{ id: string; locale: Locale }>;
 }
 
 export default async function UserProfilePage({ params }: PageProps) {
-  const { id, local } = await params;
+  const { id, locale } = await params;
 
   // ============================================================================
   // Fetch user data server-side
   // ============================================================================
-  let user;
-  try {
-    user = await adminGetUser(id);
-  } catch (error) {
-    console.error(`[UserProfilePage] Failed to fetch user ${id}:`, error);
-    notFound();
-  }
+  const user = await adminGetUser(id);
 
   if (!user) {
     notFound();
@@ -37,16 +32,16 @@ export default async function UserProfilePage({ params }: PageProps) {
         <div className="w-full">
           {/* Back link */}
           <div className="mb-6">
-            <Link
-              href={`/${local}/dashboard/users`}
+            <LocaleLink
+              href={`/dashboard/users`}
               className="text-sm font-medium text-stone-500 hover:text-orange-600 transition-colors flex items-center gap-1"
             >
               <BsArrowLeft className="w-4 h-4" />
               Back to Users
-            </Link>
+            </LocaleLink>
           </div>
 
-          <EditUserClient user={user} local={local} />
+          <EditUserClient user={user} locale={locale} />
         </div>
       </main>
     </>

@@ -1,13 +1,9 @@
+import { PaginationMeta } from "@/app/types/global";
 import type { Order } from "@/app/types/order";
 
 export interface UserOrdersPageProps {
   data: Order[];
-  meta: {
-    page: number;
-    limit: number;
-    total: number;
-    totalPages: number;
-  };
+  meta: PaginationMeta;
 }
 
 // Map API status → translation key (API uses underscores, translation keys use camelCase)

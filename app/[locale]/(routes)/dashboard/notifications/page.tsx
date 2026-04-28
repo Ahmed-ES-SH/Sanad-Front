@@ -1,14 +1,15 @@
+import NotificationsClient from "@/app/components/website/notifications/NotificationsClient";
+import { getTranslations } from "@/app/helpers/getTranslations";
+import { Locale } from "@/app/types/global";
 import { Metadata } from "next";
-import { getTranslations } from "@/app/helpers/helpers";
-import NotificationsClient from "@/app/_components/_notifications/NotificationsClient";
 
 interface Props {
-  params: Promise<{ local: string }>;
+  params: Promise<{ locale: Locale }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { local } = await params;
-  const translations = getTranslations(local);
+  const { locale } = await params;
+  const translations = getTranslations(locale);
   const t = translations.dashboardNotificationsMeta;
 
   return {

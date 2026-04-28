@@ -2,25 +2,15 @@
 
 import { motion } from "framer-motion";
 import { FiChevronRight } from "react-icons/fi";
-import LocaleLink from "@/app/_components/_global/LocaleLink";
-import type { Order } from "@/app/types/order";
 import { STATUS_API_TO_T_KEY } from "./page.types";
-import {
-  OrderCardProps,
-  ORDER_CARD_STATUS_STYLES,
-} from "./OrderCard.types";
-import {
-  formatOrderId,
-  formatDate,
-  formatAmount,
-} from "./OrderCard.utils";
+import { OrderCardProps, ORDER_CARD_STATUS_STYLES } from "./OrderCard.types";
+import LocaleLink from "../../global/LocaleLink";
 
 const OrderCard: React.FC<OrderCardProps> = ({
   order,
   t,
   isRTL,
   index,
-  local,
   formatOrderId: formatOrderIdFn,
   formatDate: formatDateFn,
   formatAmount: formatAmountFn,
@@ -57,7 +47,9 @@ const OrderCard: React.FC<OrderCardProps> = ({
         </div>
         <span
           className={`px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider whitespace-nowrap ${
-            ORDER_CARD_STATUS_STYLES[order.status as keyof typeof ORDER_CARD_STATUS_STYLES]
+            ORDER_CARD_STATUS_STYLES[
+              order.status as keyof typeof ORDER_CARD_STATUS_STYLES
+            ]
           }`}
         >
           {statusLabel}

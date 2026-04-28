@@ -1,14 +1,14 @@
-import { StatsCards } from "@/app/_components/_dashboard/BlogPage/StatsCards";
-import { QuickActions } from "@/app/_components/_dashboard/BlogPage/QuickActions";
-import { ChartsPlaceholder } from "@/app/_components/_dashboard/BlogPage/ChartsPlaceholder";
-import { Filters } from "@/app/_components/_dashboard/BlogPage/Filters";
-import { ArticleGrid } from "@/app/_components/_dashboard/BlogPage/ArticleGrid";
-import { KeyboardShortcutsHelp } from "@/app/_components/_dashboard/BlogPage/KeyboardShortcutsHelp";
 import {
   BlogQueryParams,
   getAdminArticles,
   getCategories,
 } from "@/app/actions/blogActions";
+import { ArticleGrid } from "@/app/components/dashboard/BlogPage/ArticleGrid";
+import { ChartsPlaceholder } from "@/app/components/dashboard/BlogPage/ChartsPlaceholder";
+import { Filters } from "@/app/components/dashboard/BlogPage/Filters";
+import { KeyboardShortcutsHelp } from "@/app/components/dashboard/BlogPage/KeyboardShortcutsHelp";
+import { QuickActions } from "@/app/components/dashboard/BlogPage/QuickActions";
+import { StatsCards } from "@/app/components/dashboard/BlogPage/StatsCards";
 
 interface BlogDashboardPageProps {
   searchParams: Promise<{
@@ -31,7 +31,7 @@ export default async function BlogDashboardPage({
   const { data: articles, meta } = response;
 
   const currentPage = meta?.page || 1;
-  const totalPages = meta?.totalPages || 0;
+  const totalPages = meta?.total || 0;
 
   return (
     <main className="pt-24 pb-12 px-8 min-h-screen bg-stone-50 text-stone-900">

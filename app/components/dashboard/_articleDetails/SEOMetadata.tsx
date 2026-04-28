@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { HelpIcon } from "@/app/_components/_dashboard/DashboardPage/Tooltip";
 import { Article } from "@/app/types/blog";
 import { motion } from "framer-motion";
 import { FiCheckCircle, FiSave, FiX } from "react-icons/fi";
 import { updateArticle } from "@/app/actions/blogActions";
+import { HelpIcon } from "../DashboardPage/Tooltip";
 
 interface SEOMetadataProps {
   article: Article;
@@ -14,38 +14,57 @@ interface SEOMetadataProps {
 
 export function SEOMetadata({ article }: SEOMetadataProps) {
   const router = useRouter();
-  
+
   // SEO fields
   const [focusKeyword, setFocusKeyword] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
-  
+
   // Editing state
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
-  
+
   // Initial load from article
   useEffect(() => {
+    const handleFoucs = (title: string) => {
+      setFocusKeyword(title);
+    };
+
     // Use title as default focus keyword
-    setFocusKeyword(article.title);
+    handleFoucs(article.title);
+
+    const handleDesc = (desc: string) => {
+      setMetaDescription(desc);
+    };
+
     // Use excerpt as meta description if available
-    setMetaDescription(article.excerpt || "");
+    handleDesc(article.excerpt || "");
   }, [article]);
 
   // Calculate SEO score (simplified)
   const calculateSeoScore = () => {
     let score = 0;
     const maxScore = 4;
-    
+
     // Check title length (50-300 chars is ideal)
-    if (article.title && article.title.length >= 50 && article.title.length <= 300) score++;
+    if (
+      article.title &&
+      article.title.length >= 50 &&
+      article.title.length <= 300
+    )
+      score++;
     // Check focus keyword presence
     if (focusKeyword && focusKeyword.length > 0) score++;
     // Check meta description
-    if (metaDescription && metaDescription.length >= 120 && metaDescription.length <= 320) score++;
+    if (
+      metaDescription &&
+      metaDescription.length >= 120 &&
+      metaDescription.length <= 320
+    )
+      score++;
     // Check excerpt
     if (article.excerpt && article.excerpt.length > 0) score++;
-    
+
     return Math.round((score / maxScore) * 100);
   };
 
@@ -56,11 +75,11 @@ export function SEOMetadata({ article }: SEOMetadataProps) {
     try {
       // Update excerpt if meta description is different
       const updateData: { excerpt?: string } = {};
-      
+
       if (metaDescription !== article.excerpt) {
         updateData.excerpt = metaDescription;
       }
-      
+
       if (Object.keys(updateData).length > 0) {
         const result = await updateArticle(article.id, updateData);
         if (result.success) {
@@ -212,8 +231,8 @@ export function SEOMetadata({ article }: SEOMetadataProps) {
               seoScore >= 80
                 ? "text-emerald-600"
                 : seoScore >= 60
-                ? "text-yellow-600"
-                : "text-red-600"
+                  ? "text-yellow-600"
+                  : "text-red-600"
             }`}
           >
             {seoScore}% Content

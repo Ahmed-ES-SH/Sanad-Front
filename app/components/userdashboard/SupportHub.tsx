@@ -1,9 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FiHelpCircle, FiTrendingUp, FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import LocaleLink from "@/app/_components/_global/LocaleLink";
+import {
+  FiHelpCircle,
+  FiTrendingUp,
+  FiChevronRight,
+  FiChevronLeft,
+} from "react-icons/fi";
 import type { SupportHubProps } from "./SupportHub.types";
+import LocaleLink from "../global/LocaleLink";
 
 const SupportHub: React.FC<SupportHubProps> = ({
   needAssistanceTitle,

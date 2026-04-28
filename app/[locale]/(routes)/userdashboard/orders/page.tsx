@@ -1,6 +1,6 @@
-import { UserOrdersPage } from "@/app/_components/_website/_userDashboard";
-import { getMyOrders } from "@/app/actions/ordersActions";
-import { PaginationMeta } from "@/app/types/order";
+import { getMyOrders } from "@/app/actions/orderActions";
+import { UserOrdersPage } from "@/app/components/userdashboard/_userOrders";
+import { PaginationMeta } from "@/app/types/global";
 
 export default async function UserDashboardOrders({
   searchParams,
@@ -15,12 +15,8 @@ export default async function UserDashboardOrders({
     page: 1,
     limit: 10,
     total: 0,
-    totalPages: 0
+    perPage: 10,
+    lastPage: 1,
   };
-  return (
-    <UserOrdersPage
-      data={response.data?.data || []}
-      meta={meta}
-    />
-  );
+  return <UserOrdersPage data={response.data?.data || []} meta={meta} />;
 }

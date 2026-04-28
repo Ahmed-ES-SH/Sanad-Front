@@ -1,20 +1,15 @@
-import Sidebar from "@/app/_components/_dashboard/DashboardPage/Sidebar";
-import TopNavBar from "@/app/_components/_dashboard/DashboardPage/TopNavBar";
-import { getAuthCookie } from "@/lib/session";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Sidebar from "@/app/components/dashboard/DashboardPage/Sidebar";
+import TopNavBar from "@/app/components/dashboard/DashboardPage/TopNavBar";
+import { getAuthCookie } from "@/app/helpers/session";
 import { redirect } from "next/navigation";
 
-export default async function DashboardLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ local: string }>;
-}) {
-  const { local } = await params;
+export default async function DashboardLayout({ children, params }: any) {
+  const { locale } = await params;
   const token = await getAuthCookie();
 
   if (!token) {
-    redirect(`/${local}/signin`);
+    redirect(`/${locale}/signin`);
   }
 
   return (

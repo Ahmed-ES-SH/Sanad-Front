@@ -1,4 +1,4 @@
-import { ArticleFormData } from "./useAddArticleForm";
+import { ArticleFormData } from "../../hooks/useAddArticleForm";
 
 export function formatWordCount(content: string): number {
   return content.split(/\s+/).filter(Boolean).length;
@@ -14,7 +14,7 @@ export function validateArticleForPublish(
   t: {
     pleaseAddExcerpt: string;
     pleaseAddTitle: string;
-  }
+  },
 ): ValidationResult {
   const errors: string[] = [];
 
@@ -44,7 +44,7 @@ export interface ArticlePayload {
 export function createArticlePayload(
   formData: ArticleFormData,
   tags: string[],
-  defaultTitle: string = "Untitled Draft"
+  defaultTitle: string = "Untitled Draft",
 ): ArticlePayload {
   return {
     title: formData.title || defaultTitle,

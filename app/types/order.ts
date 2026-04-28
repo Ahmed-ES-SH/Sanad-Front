@@ -177,3 +177,84 @@ export interface InitiatePaymentResult {
   paymentId: string;
   stripePaymentIntentId: string;
 }
+
+// ============================================================================
+// STATUS STEPPER - Order progress stepper configuration
+// ============================================================================
+
+export interface StatusStepperStep {
+  id: string;
+  label: string;
+  icon: string; // Icon component name from react-icons/fi
+}
+
+export interface StatusStepperConfig {
+  steps: StatusStepperStep[];
+  currentStatus: OrderStatus;
+}
+
+// ============================================================================
+// TIMELINE - Order audit trail entries
+// ============================================================================
+
+export interface TimelineEntry {
+  id: string;
+  author: string;
+  authorAvatar?: string;
+  timestamp: string;
+  content: string;
+  isSystem?: boolean;
+}
+
+// ============================================================================
+// STATUS BADGE CONFIG - Visual configuration for status badges
+// ============================================================================
+
+export interface StatusBadgeConfig {
+  label: string;
+  bgColor: string;
+  textColor: string;
+  dotColor: string;
+}
+
+// Update Order Status Response (200 OK)
+export type UpdateOrderStatusResponse = Omit<AdminOrder, "payment">;
+
+// Add Timeline Update Response (201 Created)
+export type AddOrderUpdateResponse = OrderUpdate;
+
+export interface UseCreateOrderState {
+  isLoading: boolean;
+  error: string | null;
+}
+
+// ============================================================================
+// RE-EXPORT: Hook with state management for standalone use
+// ============================================================================
+
+export interface OrderFilters {
+  page: number;
+  limit: number;
+  status?: string;
+  userId?: number;
+  serviceId?: string;
+}
+
+export interface UseAdminOrdersWithStateResult {
+  orders: AdminOrderListResponse["data"];
+  meta: PaginationMeta | null;
+  isLoading: boolean;
+  isFetching: boolean;
+  error: Error | null;
+  refetch: () => void;
+
+  // Filter state
+  filters: OrderFilters;
+  setFilters: (filters: Partial<OrderFilters>) => void;
+  setPage: (page: number) => void;
+  setLimit: (limit: number) => void;
+  setStatus: (status: string) => void;
+  setUserId: (userId: number | undefined) => void;
+  setServiceId: (serviceId: string | undefined) => void;
+  resetFilters: () => void;
+}

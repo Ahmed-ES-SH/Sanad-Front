@@ -4,11 +4,11 @@ import { useState, useEffect, useTransition } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiSave, FiInfo, FiImage, FiGrid } from "react-icons/fi";
 import { Service, ServiceFormData } from "@/app/types/service";
-import { Category } from "@/app/types/blog";
 import { updateService } from "@/app/actions/servicesActions";
 import { useRouter } from "next/navigation";
-import { useVariables } from "@/app/context/VariablesContext";
 import { toast } from "sonner";
+import { Category } from "@/app/types/global";
+import { useLocale } from "@/app/hooks/useLocale";
 
 interface EditServiceModalProps {
   isOpen: boolean;
@@ -23,10 +23,10 @@ export default function EditServiceModal({
   service,
   categories,
 }: EditServiceModalProps) {
-  const { local } = useVariables();
+  const locale = useLocale();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const isRTL = local === "ar";
+  const isRTL = locale === "ar";
 
   const [formData, setFormData] = useState<ServiceFormData>({
     title: service.title,
@@ -39,7 +39,7 @@ export default function EditServiceModal({
 
   // Sync with service data when it changes or modal opens
   useEffect(() => {
-    if (isOpen) {
+    function handleFormData(service: Service) {
       setFormData({
         title: service.title,
         shortDescription: service.shortDescription,
@@ -49,10 +49,14 @@ export default function EditServiceModal({
         categoryId: service.categoryId || "",
       });
     }
+
+    if (isOpen) handleFormData(service);
   }, [isOpen, service]);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -73,6 +77,7 @@ export default function EditServiceModal({
         }
       } catch (error) {
         toast.error("An unexpected error occurred");
+        console.log(error);
       }
     });
   };
@@ -105,8 +110,12 @@ export default function EditServiceModal({
                   <FiInfo size={20} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-stone-900 font-display">Edit Service</h3>
-                  <p className="text-xs text-stone-500 font-medium">Update service details and configuration</p>
+                  <h3 className="text-xl font-bold text-stone-900 font-display">
+                    Edit Service
+                  </h3>
+                  <p className="text-xs text-stone-500 font-medium">
+                    Update service details and configuration
+                  </p>
                 </div>
               </div>
               <button
@@ -118,16 +127,22 @@ export default function EditServiceModal({
             </div>
 
             {/* Form Body */}
-            <form onSubmit={handleSubmit} id="edit-service-form" className="flex-1 overflow-y-auto p-6 md:p-8">
+            <form
+              onSubmit={handleSubmit}
+              id="edit-service-form"
+              className="flex-1 overflow-y-auto p-6 md:p-8"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left Side: General Info */}
                 <div className="space-y-6">
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-stone-700">
                       <FiGrid className="text-primary" />
-                      <h4 className="text-sm font-bold uppercase tracking-wider">Basic Information</h4>
+                      <h4 className="text-sm font-bold uppercase tracking-wider">
+                        Basic Information
+                      </h4>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest ps-1">
                         Service Title
@@ -181,9 +196,11 @@ export default function EditServiceModal({
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-stone-700 pt-2">
                       <FiImage className="text-primary" />
-                      <h4 className="text-sm font-bold uppercase tracking-wider">Media Assets</h4>
+                      <h4 className="text-sm font-bold uppercase tracking-wider">
+                        Media Assets
+                      </h4>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 gap-4">
                       <div className="space-y-2">
                         <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest ps-1">
@@ -219,9 +236,11 @@ export default function EditServiceModal({
                 <div className="space-y-6 flex flex-col">
                   <div className="flex items-center gap-2 text-stone-700">
                     <FiInfo className="text-primary" />
-                    <h4 className="text-sm font-bold uppercase tracking-wider">Detailed Description</h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wider">
+                      Detailed Description
+                    </h4>
                   </div>
-                  
+
                   <div className="flex-1 space-y-2 min-h-[300px] flex flex-col">
                     <label className="text-[10px] font-black text-stone-400 uppercase tracking-widest ps-1">
                       Long Description (HTML Supported)
@@ -237,9 +256,13 @@ export default function EditServiceModal({
 
                   {/* Preview Box */}
                   <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10">
-                    <h5 className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Live Preview Hint</h5>
+                    <h5 className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">
+                      Live Preview Hint
+                    </h5>
                     <p className="text-[11px] text-stone-500 leading-relaxed">
-                      Changes will be reflected on the public page immediately after saving. Make sure to check the description formatting.
+                      Changes will be reflected on the public page immediately
+                      after saving. Make sure to check the description
+                      formatting.
                     </p>
                   </div>
                 </div>

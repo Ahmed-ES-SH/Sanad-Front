@@ -9,9 +9,9 @@ import {
 } from "@/app/actions/portfolioActions";
 import type { Project } from "@/app/types/project";
 import { FiChevronRight, FiAlertCircle, FiLoader } from "react-icons/fi";
-import BasicInfoSection from "@/app/_components/_dashboard/ProjectsPage/_editProject/BasicInfoSection";
-import TechnicalDetailsSection from "@/app/_components/_dashboard/ProjectsPage/_editProject/TechnicalDetailsSection";
-import MediaSection from "@/app/_components/_dashboard/ProjectsPage/_editProject/MediaSection";
+import TechnicalDetailsSection from "@/app/components/dashboard/ProjectsPage/_editProject/TechnicalDetailsSection";
+import MediaSection from "@/app/components/dashboard/ProjectsPage/_editProject/MediaSection";
+import BasicInfoSection from "@/app/components/dashboard/ProjectsPage/_editProject/BasicInfoSection";
 
 export interface FieldErrors {
   title?: string;

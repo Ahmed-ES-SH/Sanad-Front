@@ -1,8 +1,8 @@
-import PaymentsHeader from "@/app/_components/_userdashboard/_payments/PaymentsHeader";
-import KPICards from "@/app/_components/_userdashboard/_payments/KPICards";
-import PaymentMethods from "@/app/_components/_userdashboard/_payments/PaymentMethods";
-import BillingSettings from "@/app/_components/_userdashboard/_payments/BillingSettings";
-import TransactionHistory from "@/app/_components/_userdashboard/_payments/TransactionHistory";
+import { TransactionTable } from "@/app/components/userdashboard/_payments";
+import BillingSettings from "@/app/components/userdashboard/_payments/BillingSettings";
+import KPICards from "@/app/components/userdashboard/_payments/KPICards";
+import PaymentMethods from "@/app/components/userdashboard/_payments/PaymentMethods";
+import PaymentsHeader from "@/app/components/userdashboard/_payments/PaymentsHeader";
 
 export default function UserPaymentsPage() {
   return (
@@ -23,7 +23,7 @@ export default function UserPaymentsPage() {
       </div>
 
       {/* Transaction History Section */}
-      <TransactionHistory />
+      <TransactionTable />
     </main>
   );
 }

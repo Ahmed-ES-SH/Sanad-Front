@@ -1,4 +1,4 @@
-import AddUserClient from "@/app/_components/_dashboard/UsersPage/AddUserForm/AddUserClient";
+import AddUserClient from "@/app/components/dashboard/UsersPage/AddUserForm/AddUserClient";
 import Link from "next/link";
 import { BiLeftArrow } from "react-icons/bi";
 

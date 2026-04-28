@@ -2,11 +2,8 @@
 
 import React, { useMemo } from "react";
 import { AdminOrder, OrderStatus } from "@/app/types/order";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import { FiEye, FiPackage } from "react-icons/fi";
-import { useAdminOrdersWithState } from "@/lib/hooks/orders/useAdminOrders";
-import { Pagination } from "@/app/_components/_ui/Pagination";
+import Image from "next/image";
 
 // Status badge configuration
 const statusConfig: Record<
@@ -117,7 +114,7 @@ export function OrdersTable({
         render: (order: AdminOrder) => (
           <div className="flex items-center gap-2.5">
             {order.user.avatar ? (
-              <img
+              <Image
                 src={order.user.avatar}
                 alt=""
                 className="w-8 h-8 rounded-full object-cover ring-2 ring-surface-100"

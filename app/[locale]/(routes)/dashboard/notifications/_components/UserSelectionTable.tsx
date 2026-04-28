@@ -9,7 +9,8 @@ import {
   FiLoader,
 } from "react-icons/fi";
 import { User } from "@/app/types/user";
-import { useAppQuery } from "@/lib/hooks/useAppQuery";
+import Image from "next/image";
+import { useAppQuery } from "@/app/hooks/useAppQuery";
 
 interface UserSelectionTableProps {
   selectedUsers: number[];
@@ -42,7 +43,7 @@ export function UserSelectionTable({
 
   // Fetch users using useAppQuery
   // Handle both array response (all users) and paginated response {data, total}
-  const { data, isLoading, isFetching } = useAppQuery<
+  const { data, isLoading } = useAppQuery<
     User[] | { data: User[]; total: number },
     Error
   >({
@@ -96,8 +97,8 @@ export function UserSelectionTable({
   const handleSelectAll = useCallback(() => {
     if (mode === "single") return;
 
-    const allPageUserIds = users.map((u) => u.id);
-    const allSelected = allPageUserIds.every((id) =>
+    const allPageUserIds = users.map((u: User) => u.id);
+    const allSelected = allPageUserIds.every((id: number) =>
       selectedUsers.includes(id),
     );
 
@@ -109,8 +110,8 @@ export function UserSelectionTable({
       onSelectionChange(newSelection);
     } else {
       // Select all from current page (respecting maxSelections)
-      let newSelection = [...selectedUsers];
-      allPageUserIds.forEach((id) => {
+      const newSelection = [...selectedUsers];
+      allPageUserIds.forEach((id: number) => {
         if (!newSelection.includes(id)) {
           if (!maxSelections || newSelection.length < maxSelections) {
             newSelection.push(id);
@@ -124,7 +125,7 @@ export function UserSelectionTable({
   // Check if all users on current page are selected
   const allPageSelected = useMemo(() => {
     if (users.length === 0) return false;
-    return users.every((u) => selectedUsers.includes(u.id));
+    return users.every((u: User) => selectedUsers.includes(u.id));
   }, [users, selectedUsers]);
 
   // Handle pagination
@@ -220,7 +221,7 @@ export function UserSelectionTable({
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
                             {user.avatar ? (
-                              <img
+                              <Image
                                 src={user.avatar}
                                 alt=""
                                 className="w-8 h-8 rounded-full object-cover ring-2 ring-surface-100"

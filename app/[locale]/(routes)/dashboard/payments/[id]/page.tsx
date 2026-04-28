@@ -1,13 +1,13 @@
+import AuditLogs from "@/app/components/dashboard/PaymentDetailPage/AuditLogs";
+import CustomerInfoCard from "@/app/components/dashboard/PaymentDetailPage/CustomerInfoCard";
+import HeroAmount from "@/app/components/dashboard/PaymentDetailPage/HeroAmount";
+import PaymentDetailsCard from "@/app/components/dashboard/PaymentDetailPage/PaymentDetailsCard";
+import PaymentDetailsHeader from "@/app/components/dashboard/PaymentDetailPage/PaymentDetailsHeader";
+import SecondaryMetrics from "@/app/components/dashboard/PaymentDetailPage/SecondaryMetrics";
+import SecurityCheckCard from "@/app/components/dashboard/PaymentDetailPage/SecurityCheckCard";
+import StatusHistory from "@/app/components/dashboard/PaymentDetailPage/StatusHistory";
+import { PaymentDetail } from "@/app/components/dashboard/PaymentsPage/payments-types";
 import Link from "next/link";
-import PaymentDetailsHeader from "@/app/_components/_dashboard/PaymentDetailPage/PaymentDetailsHeader";
-import HeroAmount from "@/app/_components/_dashboard/PaymentDetailPage/HeroAmount";
-import SecondaryMetrics from "@/app/_components/_dashboard/PaymentDetailPage/SecondaryMetrics";
-import PaymentDetailsCard from "@/app/_components/_dashboard/PaymentDetailPage/PaymentDetailsCard";
-import StatusHistory from "@/app/_components/_dashboard/PaymentDetailPage/StatusHistory";
-import CustomerInfoCard from "@/app/_components/_dashboard/PaymentDetailPage/CustomerInfoCard";
-import SecurityCheckCard from "@/app/_components/_dashboard/PaymentDetailPage/SecurityCheckCard";
-import AuditLogs from "@/app/_components/_dashboard/PaymentDetailPage/AuditLogs";
-import { PaymentDetail } from "@/app/_components/_dashboard/PaymentsPage/payments-types";
 
 // Mock data — replace with actual API call via TanStack Query
 function getPaymentDetail(id: string): PaymentDetail {
@@ -72,8 +72,7 @@ function getPaymentDetail(id: string): PaymentDetail {
       {
         status: "initiated",
         title: "Payment Initiated",
-        description:
-          "Customer entered payment details via checkout portal.",
+        description: "Customer entered payment details via checkout portal.",
         time: "02:40 PM",
       },
     ],
@@ -100,8 +99,7 @@ function getPaymentDetail(id: string): PaymentDetail {
       {
         timestamp: "2023-10-24 14:44:12",
         level: "DEBUG",
-        message:
-          "API Request: POST /v1/charges | Source: checkout_portal_v2",
+        message: "API Request: POST /v1/charges | Source: checkout_portal_v2",
       },
     ],
   };
@@ -121,7 +119,10 @@ export default async function PaymentDetailPage({
     <div className="min-h-screen flex flex-col">
       <main className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 bg-stone-50">
         {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-sm text-stone-500" aria-label="Breadcrumb">
+        <nav
+          className="flex items-center gap-2 text-sm text-stone-500"
+          aria-label="Breadcrumb"
+        >
           <Link
             href={`/${locale}/dashboard/payments`}
             className="hover:text-orange-600 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:ring-offset-2 rounded"

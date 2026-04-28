@@ -649,6 +649,75 @@
     "PendingBanner": {
       "message": "لديك 12 طلب موافقة مستخدم معلقة تحتاج إلى اهتمامك.",
       "reviewLink": "مراجعة الطلبات"
+    },
+    "EditUser": {
+      "pageTitle": "تعديل المستخدم",
+      "pageSubtitle": "تحديث تفاصيل المستخدم أو الدور أو إعادة تعيين كلمة المرور.",
+      "basicInfo": "المعلومات الأساسية",
+      "securityRole": "الأمان والدور",
+      "form": {
+        "email": "البريد الإلكتروني",
+        "emailVerifiedNote": "(لا يمكن تغييره عند التحقق)",
+        "name": "الاسم",
+        "avatar": "الصورة الشخصية",
+        "avatarHint": "انقر لتغيير الصورة",
+        "emailVerified": "البريد الإلكتروني مُverified",
+        "newPassword": "كلمة المرور الجديدة",
+        "passwordHint": "(اتركها فارغة للاحتفاظ الحالية)",
+        "passwordPlaceholder": "6 أحرف على الأقل",
+        "role": "الدور",
+        "roleUser": "مستخدم عادي",
+        "roleUserDesc": "وصول محدود للوحة التحكم",
+        "roleAdmin": "مدير النظام",
+        "roleAdminDesc": "إمكانيات كاملة للنظام"
+      },
+      "sidebar": {
+        "userInfo": "معلومات المستخدم",
+        "userId": "معرف المستخدم",
+        "created": "تاريخ الإنشاء",
+        "updated": "آخر تحديث",
+        "googleId": "معرف Google",
+        "googleLinked": "مرتبط",
+        "googleNone": "لا يوجد"
+      },
+      "dangerZone": {
+        "title": "منطقة الخطر",
+        "description": "حذف المستخدم دائم ولا يمكن التراجع عنه.",
+        "deleteBtn": "حذف المستخدم"
+      },
+      "actions": {
+        "cancel": "إلغاء",
+        "save": "حفظ التغييرات",
+        "saving": "جاري الحفظ...",
+        "delete": "حذف المستخدم",
+        "deleting": "جاري الحذف..."
+      },
+      "modals": {
+        "avatar": {
+          "title": "تعديل الصورة الشخصية",
+          "description": "أدخل عنوان URL الجديد للصورة.",
+          "urlLabel": "عنوان الصورة",
+          "urlPlaceholder": "https://example.com/avatar.jpg",
+          "urlRequired": "العنوان مطلوب",
+          "save": "حفظ",
+          "cancel": "إلغاء"
+        },
+        "delete": {
+          "title": "حذف المستخدم",
+          "message": "هل أنت متأكد من حذف {name}؟ لا يمكن التراجع عن هذا الإجراء."
+        }
+      },
+      "validation": {
+        "passwordMin": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+        "noChanges": "لم يتم اكتشاف أي تغييرات"
+      },
+      "messages": {
+        "updateSuccess": "تم تحديث المستخدم بنجاح",
+        "updateError": "فشل في تحديث المستخدم",
+        "deleteSuccess": "تم حذف المستخدم بنجاح",
+        "deleteError": "فشل في حذف المستخدم",
+        "avatarSuccess": "تم تحديث الصورة الشخصية"
+      }
     }
   },
 
@@ -897,6 +966,39 @@
     "failedToPublish": "فشل في نشر المقال"
   },
 
+  "AddServicePage": {
+    "backToServices": "العودة إلى الخدمات",
+    "addNewService": "إضافة خدمة جديدة",
+    "status": "الحالة:",
+    "untitledService": "خدمة بدون عنوان",
+    "saveDraft": "حفظ كمسودة",
+    "publishNow": "نشر الآن",
+    "basicInformation": "المعلومات الأساسية",
+    "title": "العنوان",
+    "titlePlaceholder": "مثال: استشارات هندسية متقدمة",
+    "shortDescription": "الوصف المختصر",
+    "shortDescriptionPlaceholder": "جملة واحدة جذابة للخدمة",
+    "longDescription": "الوصف الطويل",
+    "longDescriptionPlaceholder": "وضح نطاق العمل الكامل والنتائج المتوقعة...",
+    "media": "الوسائط",
+    "iconUrl": "رابط الأيقونة",
+    "iconUrlPlaceholder": "https://example.com/icon.svg",
+    "coverImageUrl": "رابط صورة الغلاف",
+    "coverImageUrlPlaceholder": "https://example.com/cover.jpg",
+    "cover": "الغلاف",
+    "publishingSettings": "إعدادات النشر",
+    "visibility": "الظهور",
+    "draft": "مسودة",
+    "servicePreview": "معاينة الخدمة",
+    "hasCover": "لها غلاف",
+    "description": "الوصف",
+    "pleaseAddShortDescription": "الرجاء إضافة وصف مختصر قبل النشر",
+    "pleaseAddTitle": "الرجاء إضافة عنوان قبل النشر",
+    "failedToSave": "فشل في حفظ الخدمة",
+    "failedToPublish": "فشل في نشر الخدمة",
+    "publishingNote": "احفظ كمسودة للنشر لاحقًا."
+  },
+
   "ServicesPage": {
     "title": "لوحة تحكم الخدمات",
     "breadcrumbMain": "وحدة التحكم الرئيسية",
@@ -1075,6 +1177,27 @@
     },
     "FloatingActionButton": {
       "label": "إضافة جديد"
+    }
+  },
+
+  "DashOrdersPage": {
+    "title": "الطلبات",
+    "description": "تتبع طلبات الخدمات عبر جميع الفئات.",
+    "stats": {
+      "total": "إجمالي الطلبات",
+      "pending": "معلقة",
+      "revenue": "الإيرادات",
+      "avgValue": "متوسط قيمة الطلب"
+    },
+    "filters": {
+      "all": "جميع الحالات"
+    },
+    "status": {
+      "pending": "معلقة",
+      "paid": "مدفوع",
+      "in_progress": "قيد التنفيذ",
+      "completed": "مكتمل",
+      "cancelled": "ملغى"
     }
   },
 
@@ -1651,5 +1774,42 @@
       "title": "تحقق من صندوق البريد الإلكتروني للحصول على رابط التحقق.",
       "description": "أرسلنا رابط تحقق إلى بريدك الإلكتروني. يرجى صندوق البريد الإلكتروني والنقر على رابط التحقق لتأكيد حسابك."
     }
+  },
+
+  "orderDetails": {
+    "orderCase": "حالة الطلب",
+    "invoice": "الفاتورة",
+    "updateStatus": "تحديث الحالة",
+    "orderProgress": "تقدم الطلب",
+    "serviceOverview": "نظرة عامة على الخدمة",
+    "customerEntity": "كيان العميل",
+    "viewProfile": "عرض الملف الشخصي",
+    "subscriptionDetails": "تفاصيل الاشتراك",
+    "totalPayable": "المبلغ الإجمالي",
+    "transactionId": "معرف المعاملة",
+    "paymentStatus": "حالة الدفع",
+    "verified": "تم التحقق",
+    "operatorContext": "سياق المشغل",
+    "accountMetadata": "بيانات الحساب",
+    "accountManager": "مدير الحساب",
+    "securityLevel": "مستوى الأمان",
+    "contract": "العقد",
+    "logisticsContext": "سياق اللوجستيات",
+    "fulfilment": "الاستيفاء",
+    "slaDeadline": "موعد SLA",
+    "priority": "الأولوية",
+    "orderAudit": "تدقيق الطلب",
+    "events": "أحداث",
+    "postInternalUpdate": "نشر تحديث داخلي",
+    "noteForTheTeam": "ملاحظة للفريق...",
+    "updateShared": "تم مشاركة التحديث مع الفريق",
+    "unableToLoadOrder": "تعذر تحميل الطلب",
+    "unableToLoadOrderDescription": "لا يمكننا استرداد تفاصيل الطلب. قد يكون هذا بسبب مشكلة في الشبكة أو ربما تمت إزالة الطلب.",
+    "tryAgain": "حاول مرة أخرى",
+    "highResponse": "استجابة عالية",
+    "notApplicable": "غير قابل للتطبيق",
+    "annualAgreement": "اتفاقية سنوية",
+    "level3Verified": "مستوى 3 تم التحقق",
+    "markThompson": "مارك طومسون"
   }
 }

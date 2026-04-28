@@ -1,6 +1,6 @@
 import { getAdminProjects } from "@/app/actions/portfolioActions";
 import { getCategories } from "@/app/actions/blogActions";
-import ProjectsClientTable from "@/app/_components/_dashboard/ProjectsPage/ProjectsClientTable";
+import ProjectsClientTable from "@/app/components/dashboard/ProjectsPage/ProjectsClientTable";
 
 export default async function ProjectsPage() {
   const [projectsResult, categories] = await Promise.all([

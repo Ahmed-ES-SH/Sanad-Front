@@ -1,23 +1,18 @@
-import { adminGetUsers, adminGetUsersStats } from "@/app/actions/userActions";
 import { IoMdPersonAdd } from "react-icons/io";
 
-import UserStats from "@/app/_components/_dashboard/UsersPage/UserStats";
 import Link from "next/link";
-import ClientUsers from "@/app/_components/_dashboard/UsersPage/ClientUsers";
 import { UserStatsResult } from "@/app/types/user";
+import { adminGetUsers, adminGetUsersStats } from "@/app/actions/userActions";
+import UserStats from "@/app/components/dashboard/UsersPage/UserStats";
+import ClientUsers from "@/app/components/dashboard/UsersPage/ClientUsers";
 
 // ============================================================================
 // USERS PAGE - Server component that fetches all users from backend
 // Data is passed down to client components for interactivity
 // ============================================================================
 
-export default async function UsersPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
+export default async function UsersPage() {
   // Fetch users server-side for security and performance
-  const resolvedSearchParams = await searchParams;
 
   let error = null;
 

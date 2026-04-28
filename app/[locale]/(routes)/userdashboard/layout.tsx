@@ -1,6 +1,5 @@
-import TopNavBar from "@/app/_components/_dashboard/DashboardPage/TopNavBar";
-import { SideNavBar } from "@/app/_components/_services/add/SideNavBar";
-import { getAuthCookie } from "@/lib/session";
+import { getAuthCookie } from "@/app/helpers/session";
+import { Locale } from "@/app/types/global";
 import { redirect } from "next/navigation";
 
 export default async function UserDashboardLayout({
@@ -8,13 +7,13 @@ export default async function UserDashboardLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ local: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
-  const { local } = await params;
+  const { locale } = await params;
   const token = await getAuthCookie();
 
   if (!token) {
-    redirect(`/${local}/signin`);
+    redirect(`/${locale}/signin`);
   }
 
   return (

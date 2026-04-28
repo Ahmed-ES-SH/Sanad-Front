@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Article, Category } from "@/app/types/blog";
+import { Article } from "@/app/types/blog";
 import { motion } from "framer-motion";
 import { FiPlus, FiX, FiChevronDown, FiSave, FiLoader } from "react-icons/fi";
 import { updateArticle, getCategories } from "@/app/actions/blogActions";
+import { Category } from "@/app/types/global";
 
 interface CategoriesTagsProps {
   article: Article;
@@ -17,13 +18,13 @@ interface CategoryWithId extends Category {
 
 export function CategoriesTags({ article }: CategoriesTagsProps) {
   const router = useRouter();
-  
+
   // State
   const [categories, setCategories] = useState<CategoryWithId[]>([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState<string>("");
   const [tags, setTags] = useState<string[]>([]);
   const [newTag, setNewTag] = useState("");
-  
+
   // UI State
   const [isSaving, setIsSaving] = useState(false);
   const [showTagInput, setShowTagInput] = useState(false);
@@ -44,15 +45,28 @@ export function CategoriesTags({ article }: CategoriesTagsProps) {
 
   // Initialize from article
   useEffect(() => {
-    setSelectedCategoryId(article.categoryId || "");
-    setTags(article.tags || []);
+    const handleCategory = (id: string) => {
+      setSelectedCategoryId(id);
+    };
+    handleCategory(article.categoryId || "");
+
+    const handTags = (tags: string[]) => {
+      setTags(tags.map((tag) => tag.trim()));
+    };
+
+    handTags(article.tags || []);
   }, [article.categoryId, article.tags]);
 
   // Track changes
   useEffect(() => {
+    const handleChange = (state: boolean) => {
+      setHasChanges(state);
+    };
+
     const categoryChanged = selectedCategoryId !== (article.categoryId || "");
-    const tagsChanged = JSON.stringify(tags) !== JSON.stringify(article.tags || []);
-    setHasChanges(categoryChanged || tagsChanged);
+    const tagsChanged =
+      JSON.stringify(tags) !== JSON.stringify(article.tags || []);
+    handleChange(categoryChanged || tagsChanged);
   }, [selectedCategoryId, tags, article.categoryId, article.tags]);
 
   // Handle category change
@@ -78,14 +92,15 @@ export function CategoriesTags({ article }: CategoriesTagsProps) {
     setIsSaving(true);
     try {
       const updateData: { categoryId?: string; tags?: string[] } = {};
-      
+
       if (selectedCategoryId !== article.categoryId) {
-        updateData.categoryId = selectedCategoryId || null as unknown as string;
+        updateData.categoryId =
+          selectedCategoryId || (null as unknown as string);
       }
       if (JSON.stringify(tags) !== JSON.stringify(article.tags || [])) {
         updateData.tags = tags;
       }
-      
+
       if (Object.keys(updateData).length > 0) {
         const result = await updateArticle(article.id, updateData);
         if (result.success) {

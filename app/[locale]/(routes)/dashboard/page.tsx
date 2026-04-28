@@ -1,8 +1,8 @@
-import HeroWelcome from "@/app/_components/_dashboard/DashboardPage/HeroWelcome";
-import KeyMetrics from "@/app/_components/_dashboard/DashboardPage/KeyMetrics";
-import ActiveProjectsTable from "@/app/_components/_dashboard/DashboardPage/ActiveProjectsTable";
-import ServicePerformance from "@/app/_components/_dashboard/DashboardPage/ServicePerformance";
-import RecentActivity from "@/app/_components/_dashboard/DashboardPage/RecentActivity";
+import ActiveProjectsTable from "@/app/components/dashboard/DashboardPage/ActiveProjectsTable";
+import HeroWelcome from "@/app/components/dashboard/DashboardPage/HeroWelcome";
+import KeyMetrics from "@/app/components/dashboard/DashboardPage/KeyMetrics";
+import RecentActivity from "@/app/components/dashboard/DashboardPage/RecentActivity";
+import ServicePerformance from "@/app/components/dashboard/DashboardPage/ServicePerformance";
 
 export default function DashboardPage() {
   return (

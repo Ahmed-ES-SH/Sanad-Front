@@ -2,6 +2,8 @@
  * Payment Types based on the Payments Integration Plan
  */
 
+import { ReactNode } from "react";
+
 export type PaymentStatus =
   | "pending"
   | "succeeded"
@@ -61,4 +63,20 @@ export interface RefundResponseDto {
   id: string;
   status: string;
   message: string;
+}
+
+export type TransactionStatus = "paid" | "pending" | "failed";
+
+export interface Transaction {
+  id: string;
+  date: string;
+  time: string;
+  description: string;
+  subtitle: string;
+  icon: ReactNode;
+  amount: string;
+  status: TransactionStatus;
+  errorReason?: string;
+  timestamp: Date;
+  currency: string;
 }

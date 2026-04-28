@@ -5,7 +5,6 @@ export interface OrderCardProps {
   t: Record<string, unknown>;
   isRTL: boolean;
   index: number;
-  local: string;
   formatOrderId: (id: string) => string;
   formatDate: (date: string) => string;
   formatAmount: (amount: number, currency: string) => string;

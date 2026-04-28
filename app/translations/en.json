@@ -696,6 +696,75 @@
     "PendingBanner": {
       "message": "You have 12 pending user approval requests that need your attention.",
       "reviewLink": "Review requests"
+    },
+    "EditUser": {
+      "pageTitle": "Edit User",
+      "pageSubtitle": "Update user details, role, or reset password.",
+      "basicInfo": "Basic Information",
+      "securityRole": "Security & Role",
+      "form": {
+        "email": "Email",
+        "emailVerifiedNote": "(cannot change when verified)",
+        "name": "Name",
+        "avatar": "Avatar",
+        "avatarHint": "Click to change avatar",
+        "emailVerified": "Email verified",
+        "newPassword": "New Password",
+        "passwordHint": "(leave empty to keep current)",
+        "passwordPlaceholder": "Min. 6 characters",
+        "role": "Role",
+        "roleUser": "Standard User",
+        "roleUserDesc": "Limited dashboard access",
+        "roleAdmin": "Administrator",
+        "roleAdminDesc": "Full system capabilities"
+      },
+      "sidebar": {
+        "userInfo": "User Information",
+        "userId": "User ID",
+        "created": "Created",
+        "updated": "Last Updated",
+        "googleId": "Google ID",
+        "googleLinked": "Linked",
+        "googleNone": "None"
+      },
+      "dangerZone": {
+        "title": "Danger Zone",
+        "description": "Deleting a user is permanent and cannot be undone.",
+        "deleteBtn": "Delete User"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "save": "Save Changes",
+        "saving": "Saving...",
+        "delete": "Delete User",
+        "deleting": "Deleting..."
+      },
+      "modals": {
+        "avatar": {
+          "title": "Edit Avatar",
+          "description": "Enter the new image URL for the avatar.",
+          "urlLabel": "Image URL",
+          "urlPlaceholder": "https://example.com/avatar.jpg",
+          "urlRequired": "URL is required",
+          "save": "Save",
+          "cancel": "Cancel"
+        },
+        "delete": {
+          "title": "Delete User",
+          "message": "Are you sure you want to delete {name}? This action cannot be undone."
+        }
+      },
+      "validation": {
+        "passwordMin": "Password must be at least 6 characters",
+        "noChanges": "No changes detected"
+      },
+      "messages": {
+        "updateSuccess": "User updated successfully",
+        "updateError": "Failed to update user",
+        "deleteSuccess": "User deleted successfully",
+        "deleteError": "Failed to delete user",
+        "avatarSuccess": "Avatar updated"
+      }
     }
   },
 
@@ -945,6 +1014,39 @@
     "failedToPublish": "Failed to publish article"
   },
 
+  "AddServicePage": {
+    "backToServices": "Back to Services",
+    "addNewService": "Add New Service",
+    "status": "Status:",
+    "untitledService": "Untitled Service",
+    "saveDraft": "Save Draft",
+    "publishNow": "Publish Now",
+    "basicInformation": "Basic Information",
+    "title": "Title",
+    "titlePlaceholder": "e.g. Premium Structural Consulting",
+    "shortDescription": "Short Description",
+    "shortDescriptionPlaceholder": "One-sentence hook for the service",
+    "longDescription": "Long Description",
+    "longDescriptionPlaceholder": "Detail the full scope of work and deliverables...",
+    "media": "Media",
+    "iconUrl": "Icon URL",
+    "iconUrlPlaceholder": "https://example.com/icon.svg",
+    "coverImageUrl": "Cover Image URL",
+    "coverImageUrlPlaceholder": "https://example.com/cover.jpg",
+    "cover": "Cover",
+    "publishingSettings": "Publishing Settings",
+    "visibility": "Visibility",
+    "draft": "Draft",
+    "servicePreview": "Service Preview",
+    "hasCover": "Has Cover",
+    "description": "Description",
+    "pleaseAddShortDescription": "Please add a short description before publishing",
+    "pleaseAddTitle": "Please add a title before publishing",
+    "failedToSave": "Failed to save service",
+    "failedToPublish": "Failed to publish service",
+    "publishingNote": "Save as draft to publish later."
+  },
+
   "ServicesPage": {
     "title": "Services Dashboard",
     "breadcrumbMain": "Main Console",
@@ -1123,6 +1225,27 @@
     },
     "FloatingActionButton": {
       "label": "Add new"
+    }
+  },
+
+  "DashOrdersPage": {
+    "title": "Orders",
+    "description": "Track client service requests across all categories.",
+    "stats": {
+      "total": "Total Orders",
+      "pending": "Pending",
+      "revenue": "Revenue",
+      "avgValue": "Avg. Order Value"
+    },
+    "filters": {
+      "all": "All Statuses"
+    },
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "in_progress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
     }
   },
 
@@ -1699,5 +1822,42 @@
       "title": "Check your inbox for a verification email.",
       "description": "We have sent a verification email to your email address. Please check your inbox and click on the verification link to verify your email."
     }
+  },
+
+  "orderDetails": {
+    "orderCase": "Order Case",
+    "invoice": "Invoice",
+    "updateStatus": "Update Status",
+    "orderProgress": "Order Progress",
+    "serviceOverview": "Service Overview",
+    "customerEntity": "Customer Entity",
+    "viewProfile": "View Profile",
+    "subscriptionDetails": "Subscription Details",
+    "totalPayable": "Total Payable",
+    "transactionId": "Transaction ID",
+    "paymentStatus": "Payment Status",
+    "verified": "Verified",
+    "operatorContext": "Operator Context",
+    "accountMetadata": "Account Metadata",
+    "accountManager": "Account Manager",
+    "securityLevel": "Security Level",
+    "contract": "Contract",
+    "logisticsContext": "Logistics Context",
+    "fulfilment": "Fulfilment",
+    "slaDeadline": "SLA Deadline",
+    "priority": "Priority",
+    "orderAudit": "Order Audit",
+    "events": "Events",
+    "postInternalUpdate": "Post Internal Update",
+    "noteForTheTeam": "Note for the team...",
+    "updateShared": "Update shared with team",
+    "unableToLoadOrder": "Unable to Load Order",
+    "unableToLoadOrderDescription": "We couldn't retrieve the order details. This could be due to a network issue or the order may have been removed.",
+    "tryAgain": "Try Again",
+    "highResponse": "High Response",
+    "notApplicable": "Not Applicable",
+    "annualAgreement": "Annual Agreement",
+    "level3Verified": "Level 3 Verified",
+    "markThompson": "Mark Thompson"
   }
 }

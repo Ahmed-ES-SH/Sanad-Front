@@ -1,4 +1,4 @@
-import AddServiceContent from "./_components/AddServiceContent";
+import AddServiceContent from "@/app/components/dashboard/AddService/AddServiceContent";
 
 export default function NewServicePage() {
   return (

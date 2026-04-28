@@ -11,7 +11,7 @@ import TopCustomers from "./TopCustomers";
 import RelatedServices from "./RelatedServices";
 import EditServiceModal from "./EditServiceModal";
 import { Service } from "@/app/types/service";
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
 
 interface ServiceDetailsContentProps {
   service: Service;

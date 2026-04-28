@@ -1,8 +1,7 @@
 "use client";
 
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { useEffect } from "react";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 
 interface OrderTrackingErrorProps {
   error: Error & { digest?: string };
@@ -17,9 +16,7 @@ const OrderTrackingError: React.FC<OrderTrackingErrorProps> = ({
   error,
   reset,
 }) => {
-  const { local } = useVariables();
-  const t = getTranslations(local).orderTracking;
-  const isRtl = local === "ar";
+  const t = useTranslation("orderTracking");
 
   useEffect(() => {
     // Log error to monitoring service in production

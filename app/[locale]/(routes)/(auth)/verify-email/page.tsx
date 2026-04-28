@@ -1,15 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import AuthLayout from "@/app/components/auth/AuthLayout";
 import VerifyEmailContent from "@/app/components/auth/VerifyEmailContent";
 import { getTranslations } from "@/app/helpers/getTranslations";
 import { getSharedMetadata } from "@/app/helpers/getSharedMetadata";
+import { Locale } from "@/app/types/global";
 
-export async function generateMetadata({ params }: any) {
-  const { local } = await params;
-  const translations = getTranslations(local ?? "en");
+interface PageParams {
+  params: Promise<{ locale: Locale }>;
+}
 
-  const sharedMetadata = getSharedMetadata(local ?? "en", translations);
+export async function generateMetadata({ params }: PageParams) {
+  const { locale } = await params;
+  const translations = getTranslations(locale ?? "en");
+
+  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
 
   return {
     title: translations.verifyEmailMeta.title,
