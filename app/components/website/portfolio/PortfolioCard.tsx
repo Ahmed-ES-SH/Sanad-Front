@@ -1,8 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import { formatTitle } from "@/app/helpers/formatTitle";
+import { easeOut, motion } from "framer-motion";
 
 import type { Project } from "@/app/types/project";
 import Img from "../../global/Img";
@@ -11,52 +11,46 @@ import LocaleLink from "../../global/LocaleLink";
 interface Props {
   project: Project;
   index: number;
-  isHero?: boolean;
 }
 
-export default function PortfolioCard({ project, index, isHero }: Props) {
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: easeOut,
+    },
+  },
+};
+
+export default function PortfolioCard({ project, index }: Props) {
   const t = useTranslation("portfolioPage");
 
   const projectHref = project.slug ? project.slug : formatTitle(project.title);
 
+  // Use standard sizes for all cards
+  const imageSizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        duration: 0.5,
-        delay: (index % 3) * 0.1,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 ${
-        isHero ? "md:row-span-2" : ""
-      }`}
-      style={{
-        backgroundColor: "var(--surface-card-bg)",
-        borderColor: "var(--surface-card-border)",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "var(--surface-card-border-hover)";
-        e.currentTarget.style.boxShadow =
-          "0 10px 15px rgba(15, 23, 42, 0.06), 0 4px 6px rgba(15, 23, 42, 0.04)";
-        e.currentTarget.style.transform = "translateY(-4px)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "var(--surface-card-border)";
-        e.currentTarget.style.boxShadow = "none";
-        e.currentTarget.style.transform = "translateY(0)";
-      }}
+      variants={itemVariants}
+      className="group relative overflow-hidden rounded-2xl border 
+             transition-[transform,border-color,box-shadow] duration-300
+             bg-[var(--surface-card-bg)] border-[var(--surface-card-border)]
+             hover:border-[var(--surface-card-border-hover)] 
+             hover:shadow-lg hover:-translate-y-1"
     >
       <LocaleLink href={`/portfolio/${projectHref}`} className="block">
-        <div
-          className={`relative overflow-hidden ${isHero ? "aspect-4/3 md:aspect-4/5" : "aspect-16/10"}`}
-        >
+        <div className="relative overflow-hidden aspect-16/10">
           <Img
             src={project.coverImageUrl || project.images?.[0] || ""}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            loading={index < 3 ? "eager" : "lazy"}
+            className="w-full h-full object-cover"
+            loading={index < 2 ? "eager" : "lazy"}
+            priority={index < 2}
+            sizes={imageSizes}
           />
           {/* Category tag */}
           <div
@@ -93,7 +87,7 @@ export default function PortfolioCard({ project, index, isHero }: Props) {
             {project.shortDescription}
           </p>
 
-          {/* Metrics - API might not have this natively, so we render techStack as an alternative if needed, or leave it empty */}
+          {/* Metrics */}
           <div className="flex items-center gap-4">
             {project.techStack?.slice(0, 2).map((tech, i) => (
               <div key={i} className="flex items-center gap-1.5">

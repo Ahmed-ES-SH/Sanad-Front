@@ -34,7 +34,6 @@ export default function SignupFormComponent({
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
@@ -63,7 +62,9 @@ export default function SignupFormComponent({
       if (response.success) {
         toast.success(response.message);
         router.push(
-          `/${locale}/verify-email?email=${encodeURIComponent(formData.email)}`,
+          `/${locale}/signin?registered=1&email=${encodeURIComponent(
+            formData.email,
+          )}`,
         );
       } else {
         toast.error(response.message);
@@ -125,15 +126,13 @@ export default function SignupFormComponent({
         <div key={input.name}>
           {input.name === "password" ? (
             <div className="space-y-1.5">
-              <FormInput
-                {...input}
-                value={formData[input.name as keyof typeof formData]}
-                onChange={handleInputChange}
-                onFocus={() => setFocusedField(input.name)}
-                onBlur={() => setFocusedField(null)}
-                error={errors[input.name as keyof FormErrors]}
-                signUpPage={signUpPage}
-              />
+                <FormInput
+                  {...input}
+                  value={formData[input.name as keyof typeof formData]}
+                  onChange={handleInputChange}
+                  error={errors[input.name as keyof FormErrors]}
+                  signUpPage={signUpPage}
+                />
 
               {formData.password && (
                 <div className="space-y-2 pt-1">
@@ -191,8 +190,6 @@ export default function SignupFormComponent({
               {...input}
               value={formData[input.name as keyof typeof formData]}
               onChange={handleInputChange}
-              onFocus={() => setFocusedField(input.name)}
-              onBlur={() => setFocusedField(null)}
               error={errors[input.name as keyof FormErrors]}
               signUpPage={signUpPage}
             />

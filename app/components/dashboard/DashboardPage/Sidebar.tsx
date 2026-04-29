@@ -1,9 +1,7 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   FiLayout,
   FiUsers,
@@ -15,13 +13,14 @@ import {
   FiLogOut,
   FiShoppingCart,
   FiBell,
-  FiPlusCircle,
 } from "react-icons/fi";
-import { useAuth } from "@/app/context/AuthContext";
 import { IoMdClose } from "react-icons/io";
 import { motion, AnimatePresence, spring } from "framer-motion";
-import Img from "../../_global/Img";
-import LocaleLink from "../../_global/LocaleLink";
+import LocaleLink from "../../global/LocaleLink";
+import Img from "../../global/Img";
+import { useAuthStore } from "@/app/store/AuthSlice";
+import useVariablesStore from "@/app/store/VariablesSlice";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 const navItems = [
   { labelKey: "overview", href: "/dashboard", icon: FiLayout },
@@ -36,14 +35,16 @@ const navItems = [
 ];
 
 export default function Sidebar() {
-  const { local, isSidebarOpen, setIsSidebarOpen, width } = useVariables();
-  const { logout, isLoading } = useAuth();
-  const isRTL = local === "ar";
+  const router = useRouter();
+
+  const { locale, isSidebarOpen, setIsSidebarOpen, width } =
+    useVariablesStore();
+  const { logout, isLoading } = useAuthStore();
+  const isRTL = locale === "ar";
   const isMobile = width < 768;
 
   const pathname = usePathname();
-  const { DashboardPage } = getTranslations(local);
-  const t = DashboardPage.Sidebar;
+  const t = useTranslation("DashboardPage.Sidebar");
 
   const sidebarVariants = {
     open: {
@@ -94,10 +95,10 @@ export default function Sidebar() {
       {/* Navigation */}
       <nav className="flex-1 px-3 space-y-1.5 overflow-y-auto custom-scrollbar">
         {navItems.map((item) => {
-          const fullHref = `/${local}${item.href}`;
+          const fullHref = `/${locale}${item.href}`;
           const isActive =
             pathname === fullHref ||
-            (item.href === "/dashboard" && pathname === `/${local}/dashboard`);
+            (item.href === "/dashboard" && pathname === `/${locale}/dashboard`);
           const Icon = item.icon;
 
           return (
@@ -135,7 +136,7 @@ export default function Sidebar() {
       {/* Bottom Actions */}
       <div className="px-4 py-4 mt-auto border-t border-stone-200/50 bg-stone-50/50">
         <button
-          onClick={() => logout()}
+          onClick={() => logout(router)}
           disabled={isLoading}
           className="w-full cursor-pointer flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-sm font-bold text-red-600 hover:bg-red-50 group disabled:opacity-50"
         >

@@ -1,21 +1,16 @@
 "use client";
-import React from "react";
-
-interface Category {
-  en: string;
-  ar: string;
-}
+import { Category } from "@/app/types/global";
 
 interface Props {
   categories: Category[];
-  selected: string;
-  onSelect: (category: string) => void;
+  selectedId: string | null;
+  onSelect: (id: string | null) => void;
   locale: "en" | "ar";
 }
 
 export default function FilterBar({
   categories,
-  selected,
+  selectedId,
   onSelect,
   locale,
 }: Props) {
@@ -37,14 +32,14 @@ export default function FilterBar({
           dir={isRTL ? "rtl" : "ltr"}
         >
           {categories.map((cat) => {
-            const label = cat[locale];
-            const isActive = selected === label;
+            const label = cat.name;
+            const isActive = selectedId === cat.id;
 
             return (
               <button
-                key={label}
-                onClick={() => onSelect(label)}
-                className="shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                key={cat.id || "all"}
+                onClick={() => onSelect(cat.id)}
+                className="shrink-0 px-4 py-2 rounded-full text-sm font-medium"
                 style={{
                   minHeight: "44px",
                   backgroundColor: isActive ? "var(--primary)" : "transparent",

@@ -1,7 +1,7 @@
 "use client";
 
 import { FiBox, FiLayers, FiCreditCard, FiFileText } from "react-icons/fi";
-import LocalLink from "../../_global/LocalLink";
+import LocaleLink from "../../global/LocaleLink";
 
 const quickActions = [
   {
@@ -91,9 +91,9 @@ export default function QuickActions() {
 
         if (action.href) {
           return (
-            <LocalLink key={action.id} href={action.href}>
+            <LocaleLink key={action.id} href={action.href}>
               {content}
-            </LocalLink>
+            </LocaleLink>
           );
         }
 

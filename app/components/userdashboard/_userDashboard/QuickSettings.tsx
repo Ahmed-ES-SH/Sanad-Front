@@ -4,8 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 import { FiShield, FiBell, FiGlobe } from "react-icons/fi";
 import { comingSoon } from "./lib";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 //////////////////////////////////////////////////////
 ///////  Quick Settings panel with security, notifications, language
@@ -96,9 +95,7 @@ const SettingButton = ({
 );
 
 export default function QuickSettings() {
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.QuickSettings;
+  const t = useTranslation("UserDashboard.QuickSettings");
 
   const [expanded, setExpanded] = useState(false);
   const PrimaryIcon = settings[0].icon;
@@ -117,9 +114,19 @@ export default function QuickSettings() {
         >
           <SettingButton
             icon={PrimaryIcon}
-            title={t[settings[0].titleKey as keyof typeof t] || settings[0].titleKey}
-            subtitle={t[settings[0].subtitleKey as keyof typeof t] || settings[0].subtitleKey}
-            clickAction={() => comingSoon(t[settings[0].titleKey as keyof typeof t] || settings[0].titleKey)}
+            title={
+              t[settings[0].titleKey as keyof typeof t] || settings[0].titleKey
+            }
+            subtitle={
+              t[settings[0].subtitleKey as keyof typeof t] ||
+              settings[0].subtitleKey
+            }
+            clickAction={() =>
+              comingSoon(
+                t[settings[0].titleKey as keyof typeof t] ||
+                  settings[0].titleKey,
+              )
+            }
           />
         </motion.div>
 
@@ -139,9 +146,19 @@ export default function QuickSettings() {
                   <SettingButton
                     key={setting.titleKey}
                     icon={Icon}
-                    title={t[setting.titleKey as keyof typeof t] || setting.titleKey}
-                    subtitle={t[setting.subtitleKey as keyof typeof t] || setting.subtitleKey}
-                    clickAction={() => comingSoon(t[setting.titleKey as keyof typeof t] || setting.titleKey)}
+                    title={
+                      t[setting.titleKey as keyof typeof t] || setting.titleKey
+                    }
+                    subtitle={
+                      t[setting.subtitleKey as keyof typeof t] ||
+                      setting.subtitleKey
+                    }
+                    clickAction={() =>
+                      comingSoon(
+                        t[setting.titleKey as keyof typeof t] ||
+                          setting.titleKey,
+                      )
+                    }
                   />
                 );
               })}

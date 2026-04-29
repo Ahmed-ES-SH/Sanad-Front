@@ -1,8 +1,7 @@
 "use client";
 
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion } from "framer-motion";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 
 //////////////////////////////////////////////////////
 ///////  Activity item interface for the recent activity timeline
@@ -40,9 +39,7 @@ const activities: ActivityItem[] = [
 ];
 
 export default function RecentActivity() {
-  const { local } = useVariables();
-  const { DashboardPage } = getTranslations(local);
-  const t = DashboardPage.RecentActivity;
+  const t = useTranslation("DashboardPage.RecentActivity");
   const isEmpty = activities.length === 0;
 
   return (

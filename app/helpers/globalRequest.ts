@@ -3,6 +3,7 @@
 
 import { ApiError } from "next/dist/server/api-utils";
 import { PaginationMeta } from "../types/global";
+import { getServerAuthCookieHeader } from "./session";
 
 /* =========================================================
    GLOBAL REQUEST
@@ -52,15 +53,30 @@ export async function globalRequest<TBody = any, TResult = any>({
 }: GlobalRequestOptions<TBody, TResult>): Promise<GlobalResponse<TResult>> {
   try {
     const url = process.env.API_BASE_URL + endpoint;
+    const requestHeaders = new Headers(headers);
+
+    requestHeaders.set("Content-Type", "application/json");
+
+    if (typeof window === "undefined") {
+      const authCookieHeader = await getServerAuthCookieHeader();
+
+      if (authCookieHeader) {
+        const existingCookieHeader = requestHeaders.get("Cookie");
+        requestHeaders.set(
+          "Cookie",
+          existingCookieHeader
+            ? `${existingCookieHeader}; ${authCookieHeader}`
+            : authCookieHeader,
+        );
+      }
+    }
+
     const response = await fetch(url, {
       method,
       credentials: "include",
       cache,
       next,
-      headers: {
-        "Content-Type": "application/json",
-        ...headers,
-      },
+      headers: requestHeaders,
 
       body:
         method === "GET" || method === "DELETE"

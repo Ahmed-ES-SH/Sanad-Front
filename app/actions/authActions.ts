@@ -1,6 +1,7 @@
 "use server";
 
 import { AUTH_ENDPOINTS, USER_ENDPOINTS } from "@/app/constants/endpoints";
+import { deleteAuthCookie, setAuthCookie } from "@/app/helpers/session";
 
 import {
   AuthResponse,
@@ -31,21 +32,33 @@ export async function loginAction(
     defaultErrorMessage: "Login failed",
   });
 
-  if (!res.success) return res;
-
-  if (!res.data?.access_token) {
+  if (!res.success) {
     return {
       success: false,
-      message: res.data?.user
-        ? "you need to verify your email first"
-        : "Invalid credentials",
+      message: res.message,
+      statusCode: res.statusCode,
     };
   }
+
+  const accessToken = res.data?.access_token;
+
+  if (!accessToken) {
+    return {
+      success: false,
+      message: "Login succeeded but no access token was returned",
+      statusCode: res.statusCode,
+    };
+  }
+
+  await setAuthCookie(accessToken);
 
   return {
     success: true,
     message: "Login successful",
-    data: res.data,
+    data: {
+      ...res.data,
+      access_token: undefined,
+    },
   };
 }
 
@@ -61,9 +74,7 @@ export async function registerAction(
       email: string;
       password: string;
     },
-    {
-      user: User;
-    }
+    User
   >({
     endpoint: USER_ENDPOINTS.CREATE_USER,
     method: "POST",
@@ -75,13 +86,20 @@ export async function registerAction(
     defaultErrorMessage: "Registration failed",
   });
 
-  if (!res.success) return res;
+  if (!res.success) {
+    return {
+      success: false,
+      message: res.message,
+      statusCode: res.statusCode,
+    };
+  }
 
   return {
     success: true,
-    message: "Registration successful. Please verify your email.",
+    message:
+      "Registration successful. Sign in to trigger your verification email.",
     data: {
-      user: res.data!.user,
+      user: res.data!,
     },
   };
 }
@@ -96,11 +114,14 @@ export async function logoutAction(): Promise<AuthResponse> {
     defaultErrorMessage: "Logout failed",
   });
 
+  if (res.success) {
+    await deleteAuthCookie();
+  }
+
   return {
-    success: true,
-    message: res.success
-      ? "Logged out successfully"
-      : "Logged out successfully",
+    success: res.success,
+    message: res.success ? "Logged out successfully" : res.message,
+    statusCode: res.statusCode,
   };
 }
 

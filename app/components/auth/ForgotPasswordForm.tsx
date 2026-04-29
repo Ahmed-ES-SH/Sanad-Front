@@ -44,7 +44,11 @@ export default function ForgotPasswordForm() {
 
       if (response.success) {
         toast.success(response.message);
-        router.push(`/${locale}/check-your-inbox`);
+        router.push(
+          `/${locale}/check-your-inbox?reason=reset-password&email=${encodeURIComponent(
+            email,
+          )}`,
+        );
       } else {
         toast.error(response.message);
       }

@@ -4,17 +4,9 @@ import { SOCKET_CONFIG } from "@/app/constants/notifications";
 
 const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000";
 
-/**
- * Creates a Socket.IO connection for real-time notifications.
- * Works with cookie-based auth and optional token fallback.
- * @param token - Optional JWT authentication token
- * @returns Configured Socket.IO instance
- */
-export function createNotificationSocket(token?: string) {
+export function createNotificationSocket() {
   return io(API_BASE_URL, {
     withCredentials: true,
-    auth: token ? { token } : undefined,
-    query: token ? { token } : undefined,
     transports: [...SOCKET_CONFIG.TRANSPORTS],
     reconnection: SOCKET_CONFIG.RECONNECTION,
     reconnectionDelay: SOCKET_CONFIG.RECONNECTION_DELAY,

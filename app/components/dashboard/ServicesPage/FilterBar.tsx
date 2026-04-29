@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { FiSearch, FiSliders } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
 import { useDebounce } from "@/app/hooks/useDebounce";
 import { FaTimes } from "react-icons/fa";
 import { BiChevronDown } from "react-icons/bi";
@@ -42,7 +42,6 @@ export default function FilterBar({
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [sortBy, setSortBy] = useState(initialSortBy);
   const [sortOrder, setSortOrder] = useState(initialOrder);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const debouncedSearch = useDebounce(search, 500);
 
@@ -53,6 +52,7 @@ export default function FilterBar({
     const urlSortBy = searchParams.get("sortBy") || "createdAt";
     const urlOrder = searchParams.get("order") || "DESC";
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSearch(urlSearch);
     setSelectedCategory(urlCategory);
     setSortBy(urlSortBy);
@@ -65,7 +65,12 @@ export default function FilterBar({
       const params = new URLSearchParams(searchParams.toString());
 
       Object.entries(updates).forEach(([key, value]) => {
-        if (value === null || value === "" || value === "createdAt" || value === "DESC") {
+        if (
+          value === null ||
+          value === "" ||
+          value === "createdAt" ||
+          value === "DESC"
+        ) {
           params.delete(key);
         } else {
           params.set(key, value);
@@ -78,9 +83,11 @@ export default function FilterBar({
       }
 
       const queryString = params.toString();
-      router.push(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+      router.push(queryString ? `${pathname}?${queryString}` : pathname, {
+        scroll: false,
+      });
     },
-    [searchParams, router, pathname]
+    [searchParams, router, pathname],
   );
 
   // Handle debounced search update
@@ -188,7 +195,10 @@ export default function FilterBar({
               </option>
             ))}
             {sortOptions.map((option) => (
-              <option key={`${option.value}-DESC`} value={`${option.value}-DESC`}>
+              <option
+                key={`${option.value}-DESC`}
+                value={`${option.value}-DESC`}
+              >
                 {option.label} (Z-A)
               </option>
             ))}

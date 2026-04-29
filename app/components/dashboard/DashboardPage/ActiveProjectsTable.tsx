@@ -1,8 +1,7 @@
 "use client";
 
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion } from "framer-motion";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 
 //////////////////////////////////////////////////////
 ///////  Mock project data — in production this comes from API
@@ -48,9 +47,7 @@ const projects: DashboardProject[] = [
 ];
 
 export default function ActiveProjectsTable() {
-  const { local } = useVariables();
-  const { DashboardPage } = getTranslations(local);
-  const t = DashboardPage.ActiveProjectsTable;
+  const t = useTranslation("DashboardPage.ActiveProjectsTable");
   const isEmpty = projects.length === 0;
 
   return (

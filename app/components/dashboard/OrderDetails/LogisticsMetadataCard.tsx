@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { FiTruck, FiClock, FiAlertCircle } from "react-icons/fi";
 
 import { MetaItem } from "./MetaItem";
-import { getTranslations } from "@/app/lib/i18n";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface LogisticsMetadataCardProps {
   fulfilment?: string;
@@ -41,7 +41,7 @@ export function LogisticsMetadataCard({
   slaDeadline = defaultValues.slaDeadline,
   priority = defaultValues.priority,
 }: LogisticsMetadataCardProps) {
-  const t = getTranslations();
+  const t = useTranslation("orderDetails");
 
   return (
     <motion.div
@@ -50,23 +50,22 @@ export function LogisticsMetadataCard({
       animate="show"
       className="surface-card p-6"
     >
-      <motion.h3 variants={item} className="heading-sm text-surface-900 mb-4 border-b border-surface-100 pb-3">
-        {t("orderDetails.logisticsContext")}
+      <motion.h3
+        variants={item}
+        className="heading-sm text-surface-900 mb-4 border-b border-surface-100 pb-3"
+      >
+        {t.logisticsContext}
       </motion.h3>
       <motion.div variants={item} className="space-y-1">
-        <MetaItem
-          icon={<FiTruck />}
-          label={t("orderDetails.fulfilment")}
-          value={fulfilment}
-        />
+        <MetaItem icon={<FiTruck />} label={t.fulfilment} value={fulfilment} />
         <MetaItem
           icon={<FiClock />}
-          label={t("orderDetails.slaDeadline")}
+          label={t.slaDeadline}
           value={slaDeadline}
         />
         <MetaItem
           icon={<FiAlertCircle />}
-          label={t("orderDetails.priority")}
+          label={t.priority}
           value={priority}
         />
       </motion.div>

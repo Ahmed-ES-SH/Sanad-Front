@@ -1,7 +1,5 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import {
   FiCreditCard,
   FiRefreshCw,
@@ -9,11 +7,10 @@ import {
   FiTrendingUp,
 } from "react-icons/fi";
 import { PaymentStatsData } from "./payments-types";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 function PaymentStats() {
-  const { local } = useVariables();
-  const { PaymentsPage } = getTranslations(local);
-  const t = PaymentsPage.PaymentStats;
+  const t = useTranslation("PaymentsPage.PaymentStats");
 
   const stats: PaymentStatsData[] = [
     {

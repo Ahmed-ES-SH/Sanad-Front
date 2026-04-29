@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Toaster } from "sonner";
 import Footer from "../components/global/_footer/Footer";
 import Navbar from "../components/global/_navbar/Navbar";
 import ClientLayout from "../components/global/ClientLayout";
@@ -16,6 +17,7 @@ export default async function layout({ children, params }: any) {
       <body className="min-h-full flex flex-col">
         <ClientLayout>
           <Navbar />
+          <Toaster position="top-right" closeButton richColors />
           {children}
           <Footer />
         </ClientLayout>

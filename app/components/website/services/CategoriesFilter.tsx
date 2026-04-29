@@ -1,7 +1,7 @@
 "use client";
 import { Category, Locale } from "@/app/types/global";
 import { motion, AnimatePresence } from "framer-motion";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { FreeMode, Mousewheel, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
@@ -13,14 +13,14 @@ import "swiper/css/navigation";
 
 interface CategoriesFilterProps {
   activeFilter: Category | null;
-  setActiveFilter: Dispatch<SetStateAction<Category | null>>;
+  onActiveFilterChange: (category: Category | null) => void;
   categories: Category[];
   locale: Locale;
 }
 
 export default function CategoriesFilter({
   activeFilter,
-  setActiveFilter,
+  onActiveFilterChange,
   categories,
   locale,
 }: CategoriesFilterProps) {
@@ -90,7 +90,7 @@ export default function CategoriesFilter({
               <SwiperSlide key={cat.id} className="!w-auto">
                 <button
                   onClick={() =>
-                    setActiveFilter(cat.id === "all-0" ? null : cat)
+                    onActiveFilterChange(cat.id === "all-0" ? null : cat)
                   }
                   role="tab"
                   aria-selected={isActive}

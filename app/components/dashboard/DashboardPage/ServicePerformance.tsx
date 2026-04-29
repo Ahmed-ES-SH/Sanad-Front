@@ -1,8 +1,7 @@
 "use client";
 
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion } from "framer-motion";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 
 //////////////////////////////////////////////////////
 ///////  Service performance data with translation keys for i18n
@@ -20,9 +19,7 @@ const services: ServiceMetric[] = [
 ];
 
 export default function ServicePerformance() {
-  const { local } = useVariables();
-  const { DashboardPage } = getTranslations(local);
-  const t = DashboardPage.ServicePerformance;
+  const t = useTranslation("DashboardPage.ServicePerformance");
   const isEmpty = services.length === 0;
 
   return (

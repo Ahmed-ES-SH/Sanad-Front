@@ -1,61 +1,86 @@
 "use client";
 import { useState, useMemo } from "react";
+import dynamic from "next/dynamic";
 import type { Project } from "@/app/types/project";
 import { directionMap } from "@/app/constants/global";
 import { useLocale } from "@/app/hooks/useLocale";
 import PortfolioHero from "./PortfolioHero";
 import PortfolioGrid from "./PortfolioGrid";
-import StatsBar from "./StatsBar";
-import PortfolioCTA from "./PortfolioCTA";
 import { useAppQuery } from "@/app/hooks/useAppQuery";
 import { PORTFOLIO_ENDPOINTS } from "@/app/constants/endpoints";
-import FilterBar from "./FilterBar";
 import { useTranslation } from "@/app/hooks/useTranslation";
-import { PaginationMeta } from "@/app/types/global";
+import { PaginationMeta, Category } from "@/app/types/global";
+import Pagination from "./Pagination";
+
+// Lazy load heavy components
+const StatsBar = dynamic(() => import("./StatsBar"), {
+  loading: () => <div className="h-32" />,
+});
+const PortfolioCTA = dynamic(() => import("./PortfolioCTA"), {
+  loading: () => <div className="h-48" />,
+});
+const FilterBar = dynamic(() => import("./FilterBar"), {
+  ssr: false,
+  loading: () => <div className="h-16" />,
+});
 
 interface ClientPortfolioProps {
   initialProjects: Project[];
   meta: PaginationMeta;
+  categories: Category[];
 }
 
 export default function ClientPortfolio({
   initialProjects,
   meta,
+  categories: propCategories,
 }: ClientPortfolioProps) {
   const locale = useLocale();
   const t = useTranslation("portfolioPage");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Dynamic Query Key and Endpoint
   const queryParams = new URLSearchParams();
   if (selectedCategory) queryParams.set("categoryId", selectedCategory);
+  queryParams.set("page", currentPage.toString());
   const queryString = queryParams.toString();
   const endpoint = `${PORTFOLIO_ENDPOINTS.LIST_PUBLISHED}${queryString ? `?${queryString}` : ""}`;
 
-  // useAppQuery configured to use initialData if no category is selected
+  // useAppQuery configured to use initialData if no category or page change is selected
   const { data, isLoading, error } = useAppQuery<
-    { data: Project[] },
+    { data: Project[]; meta: PaginationMeta },
     { message?: string }
   >({
-    queryKey: ["portfolio-published", selectedCategory],
+    queryKey: ["portfolio-published", selectedCategory, currentPage],
     endpoint,
     options: {
-      initialData: selectedCategory ? undefined : { data: initialProjects },
+      initialData:
+        selectedCategory === null && currentPage === 1
+          ? { data: initialProjects, meta }
+          : undefined,
+      placeholderData: (previousData) => previousData,
     },
   });
 
   const projects = data?.data || [];
+  const currentMeta = data?.meta || meta;
 
-  // Extract unique categories from initial projects for the filter bar
-  const categories = useMemo(() => {
-    const cats = new Map<string, { en: string; ar: string }>();
-    initialProjects.forEach((p) => {
-      if (p.category) {
-        cats.set(p.category.name, { en: p.category.name, ar: p.category.name });
-      }
-    });
-    return Array.from(cats.values());
-  }, [initialProjects]);
+  // Prepare categories list with an "All" option
+  const categoriesList = useMemo(() => {
+    return [{ id: null, name: t.all }, ...propCategories];
+  }, [propCategories, t.all]);
+
+  const handleCategorySelect = (id: string | null) => {
+    setSelectedCategory(id);
+    setCurrentPage(1); // Reset to first page when category changes
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to grid top
+    window.scrollTo({ top: 400, behavior: "smooth" });
+  };
 
   if (isLoading && !projects.length) {
     return (
@@ -95,20 +120,28 @@ export default function ClientPortfolio({
       className="min-h-dvh mt-6"
       style={{ backgroundColor: "var(--surface-50)" }}
     >
-      <PortfolioHero locale={locale} projectCount={projects.length} />
+      <PortfolioHero
+        locale={locale}
+        projectCount={currentMeta?.total || projects.length}
+      />
 
-      {categories.length > 0 && (
+      {categoriesList.length > 1 && (
         <FilterBar
-          categories={categories}
-          selected={selectedCategory || t.all}
-          onSelect={(cat) =>
-            setSelectedCategory(cat === "All" || cat === t.all ? null : cat)
-          }
+          categories={categoriesList as Category[]}
+          selectedId={selectedCategory}
+          onSelect={handleCategorySelect}
           locale={locale}
         />
       )}
 
-      <PortfolioGrid projects={projects} local={locale} />
+      <PortfolioGrid projects={projects} />
+      {currentMeta && currentMeta.lastPage > 1 && (
+        <Pagination
+          totalPages={currentMeta.lastPage}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+      )}
       <StatsBar locale={locale} />
       <PortfolioCTA locale={locale} />
     </div>

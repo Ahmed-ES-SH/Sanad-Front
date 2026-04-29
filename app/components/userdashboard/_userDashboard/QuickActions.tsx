@@ -8,8 +8,7 @@ import {
   FiHeadphones,
 } from "react-icons/fi";
 import { comingSoon } from "./lib";
-import { getTranslations } from "@/app/helpers/helpers";
-import { useVariables } from "@/app/context/VariablesContext";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 //////////////////////////////////////////////////////
 ///////  Bento-style quick action cards
@@ -63,9 +62,7 @@ const sharedButtonStyles =
   "rounded-xl p-8 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
 export default function QuickActions() {
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.QuickActions;
+  const t = useTranslation("UserDashboard.QuickActions");
 
   return (
     <motion.section

@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Service } from "@/app/types/service";
 import { Category, PaginationMeta } from "@/app/types/global";
@@ -22,7 +23,7 @@ interface ServicesComponentProps {
 }
 
 export default function ServicesComponent({
-  services = [],
+  services: initialServices,
   categories = [],
   meta,
 }: ServicesComponentProps) {
@@ -31,7 +32,23 @@ export default function ServicesComponent({
   const t_services = useTranslation("services");
   const [activeFilter, setActiveFilter] = useState<Category | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [services, setServices] = useState<Service[]>(initialServices ?? []);
+  const [currentMeta, setCurrentMeta] = useState<PaginationMeta | undefined>(
+    meta,
+  );
   const itemsPerPage = 9;
+
+  const handleFilterChange = (category: Category | null) => {
+    setActiveFilter(category);
+    setCurrentPage(1);
+    setHasInteracted(true);
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    setHasInteracted(true);
+  };
 
   // Dynamic Query Key and Endpoint
   const queryKey = [
@@ -51,21 +68,20 @@ export default function ServicesComponent({
     useAppQuery<PublicServiceListResponse>({
       queryKey,
       endpoint,
-      options: {
-        initialData:
-          currentPage === 1 && !activeFilter
-            ? { data: services, meta: meta! }
-            : undefined,
-      },
+      enabled: hasInteracted,
     });
 
-  const currentServices = queryData?.data || services;
-  const currentMeta = queryData?.meta || meta;
+  useEffect(() => {
+    if (queryData) {
+      setServices(queryData.data);
+      setCurrentMeta(queryData.meta);
+    }
+  }, [queryData]);
 
   return (
     <section
       dir={directionMap[locale]}
-      className="py-24 bg-surface-50"
+      className="py-24 bg-surface-50 "
       id="services"
     >
       <div className="c-container">
@@ -83,39 +99,45 @@ export default function ServicesComponent({
 
           <CategoriesFilter
             activeFilter={activeFilter}
-            setActiveFilter={setActiveFilter}
+            onActiveFilterChange={handleFilterChange}
             categories={categories}
             locale={locale}
           />
         </div>
 
-        {/* Services Grid with Layout Animations */}
-        <motion.div
-          layout="position"
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-300 ${
-            isFetching ? "opacity-50 pointer-events-none" : "opacity-100"
-          }`}
-        >
-          <AnimatePresence mode="popLayout">
-            {currentServices.length > 0 ? (
-              currentServices.map((service) => (
-                <ServiceCard
-                  key={service.id}
-                  service={service}
-                  t={t_services}
-                />
-              ))
-            ) : (
-              <NoServicesFound locale={locale} />
-            )}
-          </AnimatePresence>
-        </motion.div>
+        {/* Services Grid - Removed layout animation for better INP */}
+        <div className="relative min-h-[200px]">
+          {isFetching && (
+            <div className="absolute inset-0 flex justify-center items-start pt-20 z-10">
+              <div className="w-12 h-12 border-4 border-surface-200 border-t-primary-600 rounded-full animate-spin"></div>
+            </div>
+          )}
+          <motion.div
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-300 ${
+              isFetching ? "opacity-50 pointer-events-none" : "opacity-100"
+            }`}
+          >
+            <AnimatePresence mode="popLayout">
+              {services && services?.length > 0 ? (
+                services?.map((service) => (
+                  <ServiceCard
+                    key={service.id}
+                    service={service}
+                    t={t_services}
+                  />
+                ))
+              ) : (
+                <NoServicesFound locale={locale} />
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </div>
 
         {currentMeta && currentMeta.lastPage > 1 && (
           <Pagination
             totalPages={currentMeta.lastPage}
             currentPage={currentPage}
-            onPageChange={setCurrentPage}
+            onPageChange={handlePageChange}
           />
         )}
       </div>

@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { useLocale } from "@/app/hooks/useLocale";
 import { getTranslations } from "@/app/helpers/getTranslations";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { loginAction } from "@/app/actions/authActions";
 import { AUTH_ENDPOINTS } from "@/app/constants/endpoints";
@@ -21,9 +21,12 @@ import LocaleLink from "../../global/LocaleLink";
 export default function SignInForm() {
   const locale = useLocale();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const { formValidation, signInPage } = getTranslations(locale);
   const { setUser } = useAuthStore();
+  const isRegistered = searchParams.get("registered") === "1";
+  const pendingEmail = searchParams.get("email");
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -53,7 +56,7 @@ export default function SignInForm() {
   const handleSignIn = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!validateSignInForm(formData, formValidation, setErrors)) {
+    if (validateSignInForm(formData, formValidation, setErrors)) {
       return;
     }
 
@@ -65,22 +68,22 @@ export default function SignInForm() {
         password: formData.password,
       });
 
-      console.log("Login response:", response);
-
       if (response.statusCode === 403) {
         toast.error(response.message);
-        router.push(`/${locale}/verify-email?email=${formData.email}`);
+        router.push(
+          `/${locale}/check-your-inbox?reason=verify-email&email=${encodeURIComponent(
+            formData.email,
+          )}`,
+        );
+        return;
       }
 
       if (response.statusCode === 400) {
         toast.error(response.message);
+        return;
       }
 
-      if (
-        response.success &&
-        response.data?.user &&
-        response.data?.access_token
-      ) {
+      if (response.success && response.data?.user) {
         const user = response.data.user;
         setUser(user);
         toast.success(response.message);
@@ -90,9 +93,11 @@ export default function SignInForm() {
             : `/${locale}/userdashboard`,
         );
         router.refresh();
+        return;
       }
+
+      toast.error(response.message);
     } catch (error) {
-      console.log(error);
       toast.error((error as Error)?.message || "An error occurred");
     } finally {
       setIsLoading(false);
@@ -116,6 +121,14 @@ export default function SignInForm() {
         className="w-full space-y-4"
       >
         <FormHeader title={signInPage.title} subtitle={signInPage.subtitle} />
+
+        {isRegistered && (
+          <div className="rounded-2xl border border-primary/20 bg-primary/5 px-4 py-3 text-sm text-surface-700">
+            {locale === "ar"
+              ? `تم إنشاء الحساب${pendingEmail ? ` للبريد ${pendingEmail}` : ""}. سجّل الدخول لإرسال رسالة التحقق إلى بريدك الإلكتروني.`
+              : `Your account${pendingEmail ? ` for ${pendingEmail}` : ""} was created. Sign in to trigger your verification email.`}
+          </div>
+        )}
 
         <form onSubmit={handleSignIn} className="w-full">
           <SignInFields

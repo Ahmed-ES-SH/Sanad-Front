@@ -1,14 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getAuthCookie } from "@/app/helpers/session";
-import { Locale } from "@/app/types/global";
 import { redirect } from "next/navigation";
 
-export default async function UserDashboardLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
-}) {
+export default async function UserDashboardLayout({ children, params }: any) {
   const { locale } = await params;
   const token = await getAuthCookie();
 

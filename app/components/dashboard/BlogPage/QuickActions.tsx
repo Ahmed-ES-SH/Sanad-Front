@@ -1,19 +1,20 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { HiOutlinePencilAlt, HiOutlineCollection, HiOutlineCalendar } from "react-icons/hi";
+import {
+  HiOutlinePencilAlt,
+  HiOutlineCollection,
+  HiOutlineCalendar,
+} from "react-icons/hi";
+import LocaleLink from "../../global/LocaleLink";
 
 export function QuickActions() {
-  const { local } = useVariables();
-  const { BlogPage } = getTranslations(local);
-  const t = BlogPage.QuickActions;
+  const t = useTranslation("BlogPage.QuickActions");
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-      <Link href={`/${local}/dashboard/blog/add`} className="block">
+      <LocaleLink href={`/dashboard/blog/add`} className="block">
         <motion.button
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,7 +35,7 @@ export function QuickActions() {
             <p className="text-xs text-stone-500">{t.createNewPostDesc}</p>
           </div>
         </motion.button>
-      </Link>
+      </LocaleLink>
       <motion.button
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

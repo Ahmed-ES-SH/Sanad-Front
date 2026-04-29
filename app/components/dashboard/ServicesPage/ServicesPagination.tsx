@@ -3,7 +3,7 @@
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
-import { PaginationMeta } from "@/app/types/blog";
+import { PaginationMeta } from "@/app/types/global";
 
 interface ServicesPaginationProps {
   meta?: PaginationMeta;
@@ -15,7 +15,7 @@ export function ServicesPagination({ meta }: ServicesPaginationProps) {
   const searchParams = useSearchParams();
 
   const currentPage = meta?.page || 1;
-  const totalPages = meta?.totalPages || 1;
+  const totalPages = meta?.total || 1;
 
   // Generate page numbers to display
   const getPageNumbers = () => {
@@ -99,13 +99,15 @@ export function ServicesPagination({ meta }: ServicesPaginationProps) {
           <span key={index} className="text-stone-400 px-2 text-xs">
             {page}
           </span>
-        )
+        ),
       )}
 
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
+        onClick={() =>
+          currentPage < totalPages && handlePageChange(currentPage + 1)
+        }
         disabled={currentPage === totalPages}
         className="w-10 h-10 flex items-center justify-center rounded-lg bg-stone-100 text-stone-500 hover:bg-orange-500 hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Next page"

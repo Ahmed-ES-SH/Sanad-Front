@@ -1,15 +1,19 @@
 "use client";
 
-import { useState, useCallback, useEffect, useMemo } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { User, UserFilterState, UsersPaginatedResponse } from "@/app/types/user";
+import {
+  User,
+  UserFilterState,
+  UsersPaginatedResponse,
+} from "@/app/types/user";
 import { adminDeleteUser } from "@/app/actions/userActions";
 import { toast } from "sonner";
-import { useAppQuery } from "@/lib/hooks/useAppQuery";
 
 import FilterBar from "./FilterBar";
 import UserTable from "./UserTable";
 import UserTableSkeleton from "./UserTableSkeleton";
+import { useAppQuery } from "@/app/hooks/useAppQuery";
 
 // ============================================================================
 // CLIENT USERS - Main client orchestrator component
@@ -72,7 +76,13 @@ export default function ClientUsers({
     isLoading,
     refetch,
   } = useAppQuery<UsersPaginatedResponse, Error>({
-    queryKey: ["users", filters.role, filters.status, filters.search, currentPage],
+    queryKey: [
+      "users",
+      filters.role,
+      filters.status,
+      filters.search,
+      currentPage,
+    ],
     endpoint: `/api/user?${queryParams}`,
     config: {
       method: "GET",
@@ -107,7 +117,7 @@ export default function ClientUsers({
   // Handle user deletion with confirmation
   const handleDelete = async (user: User) => {
     const confirmed = window.confirm(
-      `Are you sure you want to delete "${user.name || user.email}"? This action cannot be undone.`
+      `Are you sure you want to delete "${user.name || user.email}"? This action cannot be undone.`,
     );
 
     if (!confirmed) return;
@@ -212,17 +222,14 @@ function UserTableWithPagination({
 
   return (
     <>
-      <UserTable
-        users={users}
-        onDelete={onDelete}
-        deletingId={deletingId}
-      />
+      <UserTable users={users} onDelete={onDelete} deletingId={deletingId} />
 
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="bg-white rounded-xl shadow-sm px-6 py-4 flex items-center justify-between">
           <p className="text-xs text-stone-500 font-medium">
-            Showing {startIndex + 1}-{Math.min(startIndex + perPage, total)} of {total} users
+            Showing {startIndex + 1}-{Math.min(startIndex + perPage, total)} of{" "}
+            {total} users
           </p>
           <div className="flex items-center gap-2">
             <button
@@ -230,8 +237,18 @@ function UserTableWithPagination({
               disabled={currentPage === 1}
               className="w-8 h-8 flex items-center justify-center rounded-lg text-stone-400 hover:bg-stone-200 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
 
@@ -275,12 +292,24 @@ function UserTableWithPagination({
             )}
 
             <button
-              onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+              onClick={() =>
+                onPageChange(Math.min(totalPages, currentPage + 1))
+              }
               disabled={currentPage === totalPages}
               className="w-8 h-8 flex items-center justify-center rounded-lg text-stone-400 hover:bg-stone-200 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </div>

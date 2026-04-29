@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
 import { FiAlertCircle } from "react-icons/fi";
 
 interface BasicInfoSectionProps {
-  t: Record<string, any>;
+  t: any;
   open: boolean;
   toggleSection: (section: string) => void;
   title: string;

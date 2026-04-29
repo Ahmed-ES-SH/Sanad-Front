@@ -4,16 +4,12 @@ import { FiSearch, FiBell, FiHelpCircle } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { useAuth } from "@/app/context/AuthContext";
+import { useLocale } from "@/app/hooks/useLocale";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 export default function UserDashboardHeader() {
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.Header;
-
-  const { user } = useAuth();
+  const locale = useLocale();
+  const t = useTranslation("UserDashboard.Header");
 
   const pathname = usePathname();
 
@@ -30,11 +26,11 @@ export default function UserDashboardHeader() {
             { key: "orders", href: "/userdashboard/orders" },
             { key: "support", href: "/contact" },
           ].map((item) => {
-            const isActive = pathname === `/${local}${item.href}`;
+            const isActive = pathname === `/${locale}${item.href}`;
             return (
               <Link
                 key={item.key}
-                href={`/${local}${item.href}`}
+                href={`/${locale}${item.href}`}
                 className={`text-sm font-semibold transition-all duration-200 px-2 py-1 rounded-md ${
                   isActive
                     ? "text-primary border-b-2 border-primary rounded-none"

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Service, PaginationMeta } from "@/app/types/service";
-import { Category } from "@/app/types/blog";
-import QuickActions from "./QuickActions";
-import ChartsSection from "./ChartsSection";
-import FilterBar from "./FilterBar";
 import ServiceCards from "./ServiceCards";
+import { Service } from "@/app/types/service";
+import { Category, PaginationMeta } from "@/app/types/global";
+import FilterBar from "./FilterBar";
+import ChartsSection from "./ChartsSection";
+import QuickActions from "./QuickActions";
 import { ServicesPagination } from "./ServicesPagination";
 
 interface ServicesContentProps {
@@ -33,8 +33,10 @@ export default function ServicesContent({
   // Parse URL params
   const searchQuery = searchParams.get("search") || "";
   const categoryId = searchParams.get("categoryId") || "";
-  const sortBy = searchParams.get("sortBy") || initialQueryParams?.sortBy || "createdAt";
-  const sortOrder = searchParams.get("order") || initialQueryParams?.order || "DESC";
+  const sortBy =
+    searchParams.get("sortBy") || initialQueryParams?.sortBy || "createdAt";
+  const sortOrder =
+    searchParams.get("order") || initialQueryParams?.order || "DESC";
 
   // Local state for filters
   const [search, setSearch] = useState(searchQuery);

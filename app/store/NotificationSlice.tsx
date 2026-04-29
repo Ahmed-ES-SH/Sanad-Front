@@ -63,12 +63,6 @@ function mergeByNotificationId(
   );
 }
 
-function getClientToken() {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie.match(/(^|;)\s*sanad_auth_token=([^;]*)/);
-  return match ? decodeURIComponent(match[2]) : null;
-}
-
 /**
  * socketRef خارج الـ store حتى لا ندخل object غير serializable في كل تحديث
  */
@@ -81,6 +75,17 @@ export const useNotificationStore = create<NotificationStore>((set, get) => ({
 
   syncAuth: (isAuthenticated) => {
     set({ isAuthenticated });
+
+    if (!isAuthenticated) {
+      get().disconnectSocket();
+      set({
+        notifications: [],
+        popupNotifications: [],
+        unreadCount: 0,
+        isSocketConnected: false,
+        error: null,
+      });
+    }
   },
 
   setPreferences: (preferences) => {
@@ -227,8 +232,7 @@ export const useNotificationStore = create<NotificationStore>((set, get) => ({
     if (!isAuthenticated) return;
     if (socketRef) return;
 
-    const token = getClientToken();
-    const socket = createNotificationSocket(token || undefined);
+    const socket = createNotificationSocket();
     socketRef = socket;
 
     socket.on("connect", async () => {

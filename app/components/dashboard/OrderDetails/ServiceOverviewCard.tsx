@@ -5,13 +5,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiFileText, FiShield, FiCheckCircle, FiAlertCircle } from "react-icons/fi";
+import {
+  FiFileText,
+  FiShield,
+  FiCheckCircle,
+  FiAlertCircle,
+} from "react-icons/fi";
 
 import Img from "@/app/components/global/Img";
 import { StatusBadge } from "./StatusBadge";
-import { getTranslations } from "@/app/lib/i18n";
-
-import type { AdminOrder } from "../types/order";
+import { AdminOrder } from "@/app/types/order";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface ServiceOverviewCardProps {
   order: AdminOrder;
@@ -32,7 +36,7 @@ const item = {
 };
 
 export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
-  const t = getTranslations();
+  const t = useTranslation("orderDetails");
 
   return (
     <motion.div
@@ -47,7 +51,7 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
       >
         <h2 className="heading-md text-surface-900 flex items-center gap-3">
           <FiFileText className="text-primary" />
-          {t("orderDetails.serviceOverview")}
+          {t.serviceOverview}
         </h2>
         <StatusBadge status={order.status} />
       </motion.div>
@@ -57,7 +61,7 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
           {/* Customer Info */}
           <div>
             <label className="caption-xs text-surface-400 uppercase tracking-widest mb-4 block">
-              {t("orderDetails.customerEntity")}
+              {t.customerEntity}
             </label>
             <div className="flex items-center gap-4 p-4 rounded-xl bg-surface-50 border border-surface-100">
               <Img
@@ -69,11 +73,9 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
                 <p className="heading-sm text-surface-900 leading-tight">
                   {order.user.name}
                 </p>
-                <p className="body-sm text-surface-500">
-                  {order.user.email}
-                </p>
+                <p className="body-sm text-surface-500">{order.user.email}</p>
                 <button className="text-primary caption font-bold mt-1 hover:underline">
-                  {t("orderDetails.viewProfile")}
+                  {t.viewProfile}
                 </button>
               </div>
             </div>
@@ -82,7 +84,7 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
           {/* Service Info */}
           <div>
             <label className="caption-xs text-surface-400 uppercase tracking-widest mb-4 block">
-              {t("orderDetails.subscriptionDetails")}
+              {t.subscriptionDetails}
             </label>
             <div className="space-y-4">
               <div>
@@ -91,7 +93,7 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
                 </p>
                 <p className="body-sm text-primary font-medium flex items-center gap-1.5 mt-1">
                   <FiShield className="w-3.5 h-3.5" />
-                  {order.subscriptionType}
+                  {"subscriptionType"}
                 </p>
               </div>
             </div>
@@ -99,12 +101,13 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
         </div>
 
         {/* Financial Summary */}
-        <motion.div variants={item} className="mt-10 pt-8 border-t border-surface-100">
+        <motion.div
+          variants={item}
+          className="mt-10 pt-8 border-t border-surface-100"
+        >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-4 rounded-xl border border-surface-100 shadow-surface-sm">
-              <p className="caption text-surface-400 mb-1">
-                {t("orderDetails.totalPayable")}
-              </p>
+              <p className="caption text-surface-400 mb-1">{t.totalPayable}</p>
               <div className="flex items-baseline gap-1">
                 <span className="heading-xl text-surface-900">
                   ${order.amount}
@@ -117,7 +120,7 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
             <div className="md:col-span-2 flex flex-col justify-center space-y-3">
               <div className="flex justify-between items-center px-2">
                 <span className="body-sm text-surface-500">
-                  {t("orderDetails.transactionId")}
+                  {t.transactionId}
                 </span>
                 <span className="body-sm font-mono text-surface-900 bg-surface-100 px-2 py-0.5 rounded">
                   {order.paymentId}
@@ -125,10 +128,10 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
               </div>
               <div className="flex justify-between items-center px-2">
                 <span className="body-sm text-surface-500">
-                  {t("orderDetails.paymentStatus")}
+                  {t.paymentStatus}
                 </span>
                 <span className="body-sm font-bold text-accent-emerald flex items-center gap-1.5">
-                  <FiCheckCircle /> {t("orderDetails.verified")}
+                  <FiCheckCircle /> {t.verified}
                 </span>
               </div>
             </div>
@@ -137,13 +140,16 @@ export function ServiceOverviewCard({ order }: ServiceOverviewCardProps) {
 
         {/* Internal Context */}
         {order.notes && (
-          <motion.div variants={item} className="mt-8 p-5 rounded-xl bg-accent-amber/5 border border-accent-amber/10">
+          <motion.div
+            variants={item}
+            className="mt-8 p-5 rounded-xl bg-accent-amber/5 border border-accent-amber/10"
+          >
             <p className="caption-xs text-accent-amber font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
               <FiAlertCircle className="w-3.5 h-3.5" />
-              {t("orderDetails.operatorContext")}
+              {t.operatorContext}
             </p>
             <p className="body-sm text-surface-700 leading-relaxed italic">
-              "{order.notes}"
+              {`"${order.notes}"`}
             </p>
           </motion.div>
         )}

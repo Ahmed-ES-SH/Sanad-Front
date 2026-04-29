@@ -3,14 +3,15 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { useCreateOrder } from "@/lib/hooks/orders";
 import { Service } from "@/app/types/service";
+import Image from "next/image";
+import { useCreateOrder } from "@/app/hooks/useCreateOrder";
 
 // Get published services - this would come from a hook or server action
 async function getPublishedServices(): Promise<Service[]> {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL || "https://sanad-backend.vercel.app"}/api/services`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://sanad-backend.vercel.app"}/api/services`,
     );
     const data = await response.json();
     return data.data || [];
@@ -133,7 +134,7 @@ export function CreateOrderForm() {
             >
               <div className="flex items-center gap-3">
                 {service.iconUrl && (
-                  <img
+                  <Image
                     src={service.iconUrl}
                     alt={service.title}
                     className="w-10 h-10 rounded-lg object-cover"

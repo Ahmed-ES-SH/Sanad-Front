@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { memo } from "react";
 import { Service } from "@/app/types/service";
 import { FiArrowUpRight } from "react-icons/fi";
 import LocaleLink from "../../global/LocaleLink";
@@ -19,14 +20,13 @@ export const getServiceUrl = (service: Service) => {
   return `/services/${formatTitle(service.title)}?serviceId=${service.id}`;
 };
 
-export default function ServiceCard({ service, t }: ServiceCardProps) {
+// Memoized to prevent re-renders when parent state changes (pagination/filtering)
+const ServiceCard = memo(function ServiceCard({ service, t }: ServiceCardProps) {
   return (
     <motion.div
       key={service.id}
-      layout="position"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.25, ease: "circOut" }}
     >
       <LocaleLink
@@ -38,6 +38,7 @@ export default function ServiceCard({ service, t }: ServiceCardProps) {
           <Img
             src={service.coverImageUrl}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            alt={service.title}
           />
 
           {/* Floating Category Badge */}
@@ -71,4 +72,6 @@ export default function ServiceCard({ service, t }: ServiceCardProps) {
       </LocaleLink>
     </motion.div>
   );
-}
+});
+
+export default ServiceCard;

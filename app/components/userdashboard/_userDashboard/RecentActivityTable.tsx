@@ -11,8 +11,7 @@ import {
   FiInbox,
 } from "react-icons/fi";
 import { BsFillFileCheckFill } from "react-icons/bs";
-import { getTranslations } from "@/app/helpers/helpers";
-import { useVariables } from "@/app/context/VariablesContext";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 //////////////////////////////////////////////////////
 ///////  Recent activity table with transaction / activity data
@@ -65,9 +64,7 @@ const rows: ActivityRow[] = [
 const INITIAL_VISIBLE = 2;
 
 export default function RecentActivityTable() {
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.RecentActivity;
+  const t = useTranslation("UserDashboard.RecentActivity");
   const [expanded, setExpanded] = useState(false);
   const showToggle = rows.length > INITIAL_VISIBLE;
   const visibleRows = expanded ? rows : rows.slice(0, INITIAL_VISIBLE);
@@ -147,7 +144,8 @@ export default function RecentActivityTable() {
                         <Icon size={16} />
                       </div>
                       <span className="text-sm font-bold text-surface-900 truncate">
-                        {t[row.activityKey as keyof typeof t] || row.activityKey}
+                        {t[row.activityKey as keyof typeof t] ||
+                          row.activityKey}
                       </span>
                     </div>
                   </td>

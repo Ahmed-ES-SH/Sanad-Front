@@ -287,6 +287,13 @@
 
   "portfolioPage": {
     "filter": "Filter by Category",
+    "noProjectsFound": "No projects found",
+    "noProjectsTitle": "No Projects Yet",
+    "noProjectsDescription": "You haven't added any projects yet. Start by adding your first project to showcase your work.",
+    "addProjectButton": "Add Your First Project",
+    "emptyStateSubtext": "Your projects will appear here once you add them",
+    "suggestionTitle": "Start with a new project",
+    "suggestionText": "Click the button above to create your first project and show off your creativity",
     "projectsTitle": "Our Projects",
     "projectsTitleHighlight": "Portfolio",
     "projectsDescription": "Explore our latest technology projects and innovations",
@@ -480,6 +487,49 @@
     "notificationSettings": "Notification Settings",
     "logout": "Logout",
     "loggingOut": "Logging out..."
+  },
+
+  "ordersList": {
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "in_progress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "emptyTitle": "No orders yet",
+    "emptyDescription": "Start by browsing our services to create your first order.",
+    "browseServices": "Browse Services",
+    "orderPrefix": "Order #",
+    "viewDetails": "View Details",
+    "payNow": "Pay Now",
+    "paginationPage": "Page",
+    "paginationOf": "of",
+    "tryAgain": "Try again"
+  },
+
+  "orderDetail": {
+    "title": "Order Details",
+    "backToOrders": "Back to Orders",
+    "orderPrefix": "Order #",
+    "service": "Service",
+    "amount": "Amount",
+    "createdAt": "Created",
+    "notes": "Notes",
+    "timeline": {
+      "title": "Timeline",
+      "admin": "Admin",
+      "system": "System"
+    },
+    "pay": "Pay",
+    "notFound": "Order not found",
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
   },
 
   "notifications": {
@@ -797,6 +847,45 @@
       "next": "Next",
       "teamMember": "Team member"
     },
+    "ProjectsClientTable": {
+      "tableHeaders": {
+        "project": "Project",
+        "category": "Category",
+        "status": "Status",
+        "featured": "Featured",
+        "actions": "Actions"
+      },
+      "status": {
+        "published": "Published",
+        "draft": "Draft"
+      },
+      "featured": {
+        "featured": "Featured",
+        "notFeatured": "Not Featured"
+      },
+      "actions": {
+        "viewLive": "View Live Site",
+        "edit": "Edit Project",
+        "delete": "Delete Project"
+      },
+      "emptyState": "No projects found matching your criteria.",
+      "pagination": {
+        "showing": "Showing",
+        "of": "of",
+        "results": "results",
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "newProject": "New Project",
+      "deleteModal": {
+        "title": "Confirm Deletion",
+        "description": "Are you sure you want to delete the project \"{projectTitle}\"? This action cannot be undone and will permanently remove the project and its media from the system.",
+        "cancel": "Cancel",
+        "delete": "Delete Project",
+        "deleting": "Deleting..."
+      },
+      "categoryUncategorized": "Uncategorized"
+    },
     "ProjectWorkloadChart": {
       "title": "Project Workload Analysis"
     },
@@ -961,6 +1050,7 @@
     "drafting": "Drafting",
     "saveDraft": "Save Draft",
     "publishNow": "Publish Now",
+    "excerpt": "Excerpt",
     "articleDetails": "Article Details",
     "articleTitle": "Article Title",
     "articleTitlePlaceholder": "Enter a compelling headline...",
@@ -1099,7 +1189,32 @@
       "cloudArchitecture": "Cloud Architecture",
       "cyberSecurity": "Cyber Security",
       "managedSupport": "Managed Support",
-      "dataSystems": "Data Systems"
+      "dataSystems": "Data Systems",
+      "deleteDialog": {
+        "title": "Delete Service?",
+        "warning": "This action cannot be undone",
+        "message": "Are you sure you want to delete \"{{title}}\"? This will permanently remove the service.",
+        "confirm": "Delete Service",
+        "cancel": "Cancel"
+      },
+      "status": {
+        "published": "Published",
+        "draft": "Draft"
+      },
+      "actions": {
+        "manage": "Manage",
+        "publish": "Publish",
+        "unpublish": "Unpublish",
+        "delete": "Delete"
+      },
+      "category": {
+        "uncategorized": "Uncategorized"
+      },
+      "empty": {
+        "title": "No Services Found",
+        "withFilters": "Try adjusting your filters to find what you're looking for.",
+        "noItems": "No services have been created yet."
+      }
     }
   },
 
@@ -1147,12 +1262,17 @@
       "status": "Status",
       "actions": "Actions",
       "showingText": "Showing 1 to 4 of 1,284 results",
+      "showing": "SHOWING",
+      "of": "OF",
+      "messages": "MESSAGES",
       "previous": "Previous",
       "next": "Next",
       "unread": "Unread",
       "replied": "Replied",
       "urgent": "Urgent",
       "archived": "Archived",
+      "emptyState": "No messages to display",
+      "delete": "Delete",
       "technical": "TECHNICAL",
       "billing": "BILLING",
       "partner": "PARTNER",
@@ -1859,5 +1979,47 @@
     "annualAgreement": "Annual Agreement",
     "level3Verified": "Level 3 Verified",
     "markThompson": "Mark Thompson"
+  },
+
+  "OrdersPage": {
+    "table": {
+      "orderId": "Order ID",
+      "user": "User",
+      "service": "Service",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions"
+    },
+    "fallback": {
+      "na": "N/A",
+      "unknown": "Unknown"
+    },
+    "actions": {
+      "viewOrder": "View order",
+      "tryAgain": "Try Again"
+    },
+    "errors": {
+      "loadFailed": "Failed to load orders",
+      "generic": "An error occurred while fetching orders."
+    },
+    "empty": {
+      "title": "No orders found",
+      "description": "There are no orders matching your filters."
+    },
+    "pagination": {
+      "show": "Show",
+      "perPage": "per page",
+      "showing": "Showing",
+      "of": "of",
+      "results": "results"
+    },
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
   }
 }

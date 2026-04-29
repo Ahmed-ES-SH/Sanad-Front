@@ -2,12 +2,12 @@
 
 import { FiSearch, FiMenu } from "react-icons/fi";
 import { usePathname } from "next/navigation";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import LocaleLink from "../../_global/LocaleLink";
-import UserButton from "../../_global/UserButton";
 import DropdownNotifications from "./DropdownNotifications";
 import DropdownSettings from "./DropdownSettings";
+import useVariablesStore from "@/app/store/VariablesSlice";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import LocaleLink from "../../global/LocaleLink";
+import UserButton from "../../global/_navbar/UserButton";
 
 const routeLabels: Record<string, string> = {
   dashboard: "Overview",
@@ -23,15 +23,15 @@ const routeLabels: Record<string, string> = {
   contactus: "Contact Submissions",
 };
 
-function buildBreadcrumb(pathname: string, local: string) {
+function buildBreadcrumb(pathname: string, locale: string) {
   const segments = pathname.split("/").filter(Boolean);
   const crumbLabels: { label: string; href: string }[] = [];
   let href = "";
 
   for (let i = 0; i < segments.length; i++) {
     const segment = segments[i];
-    // Skip locale segment
-    if (i === 0 && segment === local) continue;
+    // Skip local segment
+    if (i === 0 && segment === locale) continue;
     href += `/${segment}`;
 
     // Check if this segment + next is a known compound route
@@ -51,14 +51,13 @@ function buildBreadcrumb(pathname: string, local: string) {
 }
 
 export default function TopNavBar() {
-  const { local, setIsSidebarOpen } = useVariables();
-  const { DashboardPage } = getTranslations(local);
-  const t = DashboardPage.TopNavBar;
+  const { locale, setIsSidebarOpen } = useVariablesStore();
+  const t = useTranslation("DashboardPage.TopNavBar");
   const pathname = usePathname();
-  const crumbs = buildBreadcrumb(pathname, local);
-  const isRTL = local === "ar";
+  const crumbs = buildBreadcrumb(pathname, locale);
+  const isRTL = locale === "ar";
 
-  if (!pathname.includes(`/${local}/dashboard`)) {
+  if (!pathname.includes(`/${locale}/dashboard`)) {
     return null;
   }
 

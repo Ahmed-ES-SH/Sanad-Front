@@ -20,7 +20,7 @@ import { PaymentModal } from "../payment/PaymentModal";
 
 export function CartPage() {
   const locale = useLocale();
-  const { isAuthenticated } = useAuthStore();
+  const { user } = useAuthStore();
   const t = useTranslation("cart");
 
   const { items, isLoading, delete: deleteItem, add, clear } = useCartStore();
@@ -49,7 +49,7 @@ export function CartPage() {
   const handleCheckout = useCallback(async () => {
     if (items.length === 0) return;
 
-    if (!isAuthenticated) {
+    if (!user) {
       toast.error(t.loginRequired);
       return;
     }
@@ -73,7 +73,7 @@ export function CartPage() {
       setIsProcessingCheckout(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items, isAuthenticated, totals.total]);
+  }, [items, user, totals.total]);
 
   const onSuccess = useCallback(() => {
     toast.success(t.paymentSuccess);

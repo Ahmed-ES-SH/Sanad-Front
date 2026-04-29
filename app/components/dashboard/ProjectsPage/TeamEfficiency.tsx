@@ -1,13 +1,10 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import { FiDownload } from "react-icons/fi";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 export default function TeamEfficiency() {
-  const { local } = useVariables();
-  const { ProjectsPage } = getTranslations(local);
-  const t = ProjectsPage.TeamEfficiency;
+  const t = useTranslation("ProjectsPage.TeamEfficiency");
 
   // Circle progress calculation
   const radius = 58;

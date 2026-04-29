@@ -2,20 +2,17 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineSearch, HiOutlineAdjustments, HiX } from "react-icons/hi";
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
 
 interface FiltersProps {
   categories?: Category[];
 }
 
 export function Filters({ categories = [] }: FiltersProps) {
-  const { local } = useVariables();
-  const { BlogPage } = getTranslations(local);
-  const t = BlogPage.Filters;
+  const t = useTranslation("BlogPage.Filters");
 
   const router = useRouter();
   const pathname = usePathname();
@@ -24,18 +21,17 @@ export function Filters({ categories = [] }: FiltersProps) {
   // Initialize state from URL params
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [categoryId, setCategoryId] = useState(
-    searchParams.get("categoryId") || ""
+    searchParams.get("categoryId") || "",
   );
   const [isPublished, setIsPublished] = useState(
-    searchParams.get("isPublished") || ""
+    searchParams.get("isPublished") || "",
   );
-  const [sortBy, setSortBy] = useState(
-    searchParams.get("sortBy") || "newest"
-  );
+  const [sortBy, setSortBy] = useState(searchParams.get("sortBy") || "newest");
   const [showMoreFilters, setShowMoreFilters] = useState(false);
 
   // Check if any filters are active
-  const hasActiveFilters = search || categoryId || isPublished || sortBy !== "newest";
+  const hasActiveFilters =
+    search || categoryId || isPublished || sortBy !== "newest";
 
   // Apply filters to URL with debounce
   const applyFilters = useCallback(() => {
@@ -241,7 +237,9 @@ export function Filters({ categories = [] }: FiltersProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700"
               >
-                Category: {categories.find((c) => c.id === categoryId)?.name || categoryId}
+                Category:{" "}
+                {categories.find((c) => c.id === categoryId)?.name ||
+                  categoryId}
                 <button
                   onClick={() => removeFilter("categoryId")}
                   className="hover:bg-purple-200 rounded-full p-0.5 transition-colors"

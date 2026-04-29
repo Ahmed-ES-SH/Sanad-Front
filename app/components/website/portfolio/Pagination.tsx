@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 interface props {
@@ -39,16 +38,11 @@ export default function Pagination({
   return (
     <>
       {totalPages > 1 && (
-        <motion.div
-          className="flex items-center justify-center gap-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
+        <div className="flex items-center justify-center gap-1">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="p-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="p-2 rounded-lg disabled:opacity-40 disabled:cursor-not-allowed"
             style={{ color: "var(--surface-500)" }}
             onMouseEnter={(e) => {
               if (currentPage !== 1) (e.currentTarget as HTMLElement).style.backgroundColor = "var(--surface-100)";
@@ -69,7 +63,7 @@ export default function Pagination({
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
-                className="w-10 h-10 rounded-lg text-sm font-medium transition-colors"
+                className="w-10 h-10 rounded-lg text-sm font-medium"
                 style={
                   currentPage === page
                     ? { backgroundColor: "var(--primary)", color: "white" }
@@ -90,7 +84,7 @@ export default function Pagination({
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="p-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="p-2 rounded-lg disabled:opacity-40 disabled:cursor-not-allowed"
             style={{ color: "var(--surface-500)" }}
             onMouseEnter={(e) => {
               if (currentPage !== totalPages) (e.currentTarget as HTMLElement).style.backgroundColor = "var(--surface-100)";
@@ -101,7 +95,7 @@ export default function Pagination({
           >
             <FiChevronRight className="w-5 h-5" />
           </button>
-        </motion.div>
+        </div>
       )}
     </>
   );

@@ -5,6 +5,8 @@ import { Project } from "@/app/types/project";
 import { Locale } from "@/app/types/global";
 import Img from "@/app/components/global/Img";
 import ProjectThumbnail from "./ProjectThumbnail";
+import LocaleLink from "../../global/LocaleLink";
+import { formatTitle } from "@/app/helpers/formatTitle";
 
 interface ProjectCardProps {
   project: Project;
@@ -83,9 +85,12 @@ export default function ProjectCard({ project, locale, t }: ProjectCardProps) {
               className={`h-px flex-1 bg-white/10 transform origin-left transition-transform duration-700 delay-200 ${isRTL ? "scale-x-0 group-hover:scale-x-100 origin-right" : "scale-x-0 group-hover:scale-x-100"}`}
             />
 
-            <span className="text-xs font-black text-white uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+            <LocaleLink
+              href={`/portfolio/${formatTitle(project.title)}`}
+              className="bg-primary text-white hover:-translate-y-1 p-2 rounded-lg  text-xs font-black text-white uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300"
+            >
               {t.view}
-            </span>
+            </LocaleLink>
           </div>
         </div>
       </div>

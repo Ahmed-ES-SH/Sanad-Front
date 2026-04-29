@@ -4,15 +4,14 @@
 
 "use client";
 
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiClock, FiSend } from "react-icons/fi";
 
 import { TimelineItem } from "./TimelineItem";
-import { getTranslations } from "@/app/lib/i18n";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { TimelineEntry } from "@/app/types/order";
 
-import type { TimelineEntry } from "../types/order";
-import type { SubmitState } from "../dashboard/OrderDetails/hooks/useOrderDetails";
+type SubmitState = "idle" | "submitting" | "submitted" | "error";
 
 interface TimelineSidebarProps {
   timeline: TimelineEntry[];
@@ -45,7 +44,7 @@ export function TimelineSidebar({
   onUpdateTextChange,
   onPostUpdate,
 }: TimelineSidebarProps) {
-  const t = getTranslations();
+  const t = useTranslation("orderDetails");
 
   return (
     <motion.div
@@ -55,12 +54,15 @@ export function TimelineSidebar({
       className="surface-card-subtle p-6 flex flex-col h-full border-2 border-surface-100"
     >
       <div className="flex items-center justify-between mb-8">
-        <motion.h2 variants={item} className="heading-md text-surface-900 flex items-center gap-2">
+        <motion.h2
+          variants={item}
+          className="heading-md text-surface-900 flex items-center gap-2"
+        >
           <FiClock className="w-5 h-5 text-surface-500" />
-          {t("orderDetails.orderAudit")}
+          {t.orderAudit}
         </motion.h2>
         <span className="caption text-surface-400 font-bold">
-          {timeline.length} {t("orderDetails.events")}
+          {timeline.length} {t.events}
         </span>
       </div>
 
@@ -74,14 +76,17 @@ export function TimelineSidebar({
       </motion.div>
 
       {/* Add Update Form */}
-      <motion.div variants={item} className="mt-12 pt-8 border-t border-surface-200">
+      <motion.div
+        variants={item}
+        className="mt-12 pt-8 border-t border-surface-200"
+      >
         <label className="block caption-xs uppercase font-bold text-surface-500 mb-3 tracking-widest">
-          {t("orderDetails.postInternalUpdate")}
+          {t.postInternalUpdate}
         </label>
         <div className="relative group">
           <textarea
             className="surface-input w-full p-4 body-sm focus:ring-2 focus:ring-primary/20 transition-all resize-none placeholder:text-surface-300 rounded-xl bg-surface-50 border-surface-200"
-            placeholder={t("orderDetails.noteForTheTeam")}
+            placeholder={t.noteForTheTeam}
             rows={3}
             value={updateText}
             onChange={(e) => onUpdateTextChange(e.target.value)}
@@ -94,9 +99,7 @@ export function TimelineSidebar({
             </span>
             <button
               onClick={onPostUpdate}
-              disabled={
-                !updateText.trim() || submitState === "submitting"
-              }
+              disabled={!updateText.trim() || submitState === "submitting"}
               className="p-2 bg-primary text-white rounded-lg shadow-primary-sm disabled:opacity-50 hover:scale-105 transition-transform"
             >
               {submitState === "submitting" ? (
@@ -114,7 +117,7 @@ export function TimelineSidebar({
               animate={{ opacity: 1, y: 0 }}
               className="caption text-accent-emerald font-bold mt-2"
             >
-              {t("orderDetails.updateShared")}
+              {t.updateShared}
             </motion.p>
           )}
         </AnimatePresence>

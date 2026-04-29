@@ -1,13 +1,9 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { FiTrendingUp, FiActivity, FiServer } from "react-icons/fi";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 export default function ChartsSection() {
-  const { local } = useVariables();
-  const { ServicesPage } = getTranslations(local);
-  const t = ServicesPage.ChartsSection;
+  const t = useTranslation("ServicesPage.ChartsSection");
 
   return (
     <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">

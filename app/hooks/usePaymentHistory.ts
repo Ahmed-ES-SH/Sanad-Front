@@ -11,10 +11,9 @@ import {
   PaginatedPaymentsResponse,
   PaymentFilterDto,
   PaymentStatus,
-} from "@/lib/types/payments";
+} from "@/app/types/payments";
 
-const BACKEND_URL =
-  process.env.NEXT_PUBLIC_BACKEND_URL || "https://sanad-backend.vercel.app";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export interface UsePaymentHistoryOptions {
   page?: number;
@@ -54,7 +53,7 @@ async function fetchPayments(
   if (filters.endDate) params.set("endDate", filters.endDate);
 
   const queryString = params.toString();
-  const url = `${BACKEND_URL}/api/admin/payments${queryString ? `?${queryString}` : ""}`;
+  const url = `${API_BASE_URL}/api/admin/payments${queryString ? `?${queryString}` : ""}`;
 
   const response = await axios.get<PaginatedPaymentsResponse>(url, {
     withCredentials: true,

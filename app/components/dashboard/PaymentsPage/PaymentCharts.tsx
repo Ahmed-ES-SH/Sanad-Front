@@ -1,12 +1,9 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 function PaymentCharts() {
-  const { local } = useVariables();
-  const { PaymentsPage } = getTranslations(local);
-  const t = PaymentsPage.PaymentCharts;
+  const t = useTranslation("PaymentsPage.PaymentCharts");
 
   return (
     <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">

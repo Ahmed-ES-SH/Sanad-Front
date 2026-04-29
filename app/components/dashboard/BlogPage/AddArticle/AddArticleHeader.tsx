@@ -9,7 +9,7 @@ interface AddArticleHeaderProps {
   saveDraft: string;
   publishNow: string;
   untitledMasterpiece: string;
-  local: string;
+  locale: string;
   isRTL: boolean;
   onSaveDraft: () => void;
   onPublishNow: () => void;
@@ -24,7 +24,7 @@ export default function AddArticleHeader({
   saveDraft,
   publishNow,
   untitledMasterpiece,
-  local,
+  locale,
   isRTL,
   onSaveDraft,
   onPublishNow,
@@ -34,7 +34,7 @@ export default function AddArticleHeader({
     <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
       <div className="space-y-2">
         <Link
-          href={`/${local}/dashboard/blog`}
+          href={`/${locale}/dashboard/blog`}
           className="flex items-center gap-2 text-primary font-bold text-sm tracking-wide hover:opacity-80 transition-all"
         >
           <FiArrowLeft className={isRTL ? "rotate-180" : ""} />

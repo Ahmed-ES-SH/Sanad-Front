@@ -2,6 +2,8 @@
 
 import { directionMap } from "@/app/constants/global";
 import { useLocale } from "@/app/hooks/useLocale";
+import { useAuthStore } from "@/app/store/AuthSlice";
+import { useNotificationStore } from "@/app/store/NotificationSlice";
 import { User } from "@/app/types/user";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
@@ -11,9 +13,16 @@ interface props {
 }
 
 export default function ClientDiv({ children, initialUser }: props) {
-  //   const { setUser } = useAuth();
   const locale = useLocale();
-  //   const { fetchNotifications } = useNotification();
+  const hydrateUser = useAuthStore((state) => state.hydrateUser);
+  const syncNotificationAuth = useNotificationStore((state) => state.syncAuth);
+  const connectSocket = useNotificationStore((state) => state.connectSocket);
+  const disconnectSocket = useNotificationStore(
+    (state) => state.disconnectSocket,
+  );
+  const refreshUnreadCount = useNotificationStore(
+    (state) => state.refreshUnreadCount,
+  );
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -29,16 +38,33 @@ export default function ClientDiv({ children, initialUser }: props) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //   useEffect(() => {
-  //     if (initialUser) {
-  //       setUser(initialUser);
-  //     }
-  //   }, [initialUser]);
+  useEffect(() => {
+    hydrateUser(initialUser);
+  }, [hydrateUser, initialUser]);
 
-  // Fetch notifications on mount
-  //   useEffect(() => {
-  //     fetchNotifications(1, 10);
-  //   }, [fetchNotifications]);
+  useEffect(() => {
+    const isAuthenticated = Boolean(initialUser);
+
+    syncNotificationAuth(isAuthenticated);
+
+    if (!isAuthenticated) {
+      disconnectSocket();
+      return;
+    }
+
+    void refreshUnreadCount();
+    connectSocket();
+
+    return () => {
+      disconnectSocket();
+    };
+  }, [
+    connectSocket,
+    disconnectSocket,
+    initialUser,
+    refreshUnreadCount,
+    syncNotificationAuth,
+  ]);
 
   const pathname = usePathname();
 

@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { HiOutlineX } from "react-icons/hi";
 
 const shortcuts = [
@@ -15,9 +14,7 @@ const shortcuts = [
 ];
 
 export function KeyboardShortcutsHelp() {
-  const { local } = useVariables();
-  const { BlogPage } = getTranslations(local);
-  const t = BlogPage.KeyboardShortcutsHelp;
+  const t = useTranslation("BlogPage.KeyboardShortcutsHelp");
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

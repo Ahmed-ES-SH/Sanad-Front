@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { FiTruck } from "react-icons/fi";
 
 import { StatusStepper } from "./StatusStepper";
-import { getTranslations } from "@/app/lib/i18n";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface OrderProgressCardProps {
   currentStatus: string;
@@ -29,7 +29,7 @@ const item = {
 };
 
 export function OrderProgressCard({ currentStatus }: OrderProgressCardProps) {
-  const t = getTranslations();
+  const t = useTranslation("orderDetails");
 
   return (
     <motion.div
@@ -38,9 +38,12 @@ export function OrderProgressCard({ currentStatus }: OrderProgressCardProps) {
       animate="show"
       className="surface-card p-6 mb-8 overflow-hidden"
     >
-      <motion.h3 variants={item} className="heading-sm text-surface-900 mb-2 flex items-center gap-2">
+      <motion.h3
+        variants={item}
+        className="heading-sm text-surface-900 mb-2 flex items-center gap-2"
+      >
         <FiTruck className="text-primary" />
-        {t("orderDetails.orderProgress")}
+        {t.orderProgress}
       </motion.h3>
       <StatusStepper currentStatus={currentStatus} />
     </motion.div>

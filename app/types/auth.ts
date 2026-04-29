@@ -19,7 +19,7 @@ export interface ResetPasswordCredentials {
 
 export interface LoginResponse {
   user: User;
-  access_token: string;
+  access_token?: string;
 }
 
 export interface ApiResponse<T = unknown> {

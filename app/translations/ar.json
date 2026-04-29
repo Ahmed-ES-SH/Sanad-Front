@@ -240,6 +240,13 @@
 
   "portfolioPage": {
     "filter": "تصفية بالقسم",
+    "noProjectsFound": "لا توجد مشاريع",
+    "noProjectsTitle": "لا توجد مشاريع بعد",
+    "noProjectsDescription": "لم تقم بإضافة أي مشاريع حتى الآن. ابدأ بإضافة مشروعك الأول لعرض أعمالك.",
+    "addProjectButton": "أضف مشروعك الأول",
+    "emptyStateSubtext": "سيتم عرض مشاريعك هنا بمجرد إضافتها",
+    "suggestionTitle": "ابدأ بمشروع جديد",
+    "suggestionText": "انقر على الزر أعلاه لإنشاء مشروعك الأول وإظهار إبداعاتك",
     "projectsTitle": "",
     "projectsTitleHighlight": "أعمالنا",
     "projectsDescription": "استكشف أحدث مشاريعنا التقنية وابتكاراتنا",
@@ -433,6 +440,49 @@
     "notificationSettings": "إعدادات الإشعارات",
     "logout": "تسجيل الخروج",
     "loggingOut": "جاري تسجيل الخروج..."
+  },
+
+  "ordersList": {
+    "status": {
+      "pending": "قيد الانتظار",
+      "paid": "مدفوع",
+      "in_progress": "قيد التنفيذ",
+      "completed": "مكتمل",
+      "cancelled": "ملغى"
+    },
+    "emptyTitle": "لا توجد طلبات بعد",
+    "emptyDescription": "ابدأ بتصفح خدماتنا لإنشاء طلبك الأول.",
+    "browseServices": "تصفح الخدمات",
+    "orderPrefix": "طلب #",
+    "viewDetails": "عرض التفاصيل",
+    "payNow": "ادفع الآن",
+    "paginationPage": "صفحة",
+    "paginationOf": "من",
+    "tryAgain": "حاول مرة أخرى"
+  },
+
+  "orderDetail": {
+    "title": "تفاصيل الطلب",
+    "backToOrders": "العودة للطلبات",
+    "orderPrefix": "طلب #",
+    "service": "الخدمة",
+    "amount": "المبلغ",
+    "createdAt": "تاريخ الإنشاء",
+    "notes": "ملاحظات",
+    "timeline": {
+      "title": "الجدول الزمني",
+      "admin": "مدير",
+      "system": "النظام"
+    },
+    "pay": "دفع",
+    "notFound": "الطلب غير موجود",
+    "status": {
+      "pending": "قيد الانتظار",
+      "paid": "مدفوع",
+      "inProgress": "قيد التنفيذ",
+      "completed": "مكتمل",
+      "cancelled": "ملغى"
+    }
   },
 
   "notifications": {
@@ -750,6 +800,45 @@
       "next": "التالي",
       "teamMember": "عضو الفريق"
     },
+    "ProjectsClientTable": {
+      "tableHeaders": {
+        "project": "المشروع",
+        "category": "الفئة",
+        "status": "الحالة",
+        "featured": "مميز",
+        "actions": "الإجراءات"
+      },
+      "status": {
+        "published": "منشور",
+        "draft": "مسودة"
+      },
+      "featured": {
+        "featured": "مميز",
+        "notFeatured": "غير مميز"
+      },
+      "actions": {
+        "viewLive": "عرض الموقع المباشر",
+        "edit": "تعديل المشروع",
+        "delete": "حذف المشروع"
+      },
+      "emptyState": "لم يتم العثور على مشاريع تطابق معاييرك.",
+      "pagination": {
+        "showing": "عرض",
+        "of": "من",
+        "results": "نتيجة",
+        "previous": "السابق",
+        "next": "التالي"
+      },
+      "newProject": "مشروع جديد",
+      "deleteModal": {
+        "title": "تأكيد الحذف",
+        "description": "هل أنت متأكد من حذف المشروع \"{projectTitle}\"؟ لا يمكن التراجع عن هذا الإجراء وسيتم إزالة المشروع ووسائطه بشكل دائم من النظام.",
+        "cancel": "إلغاء",
+        "delete": "حذف المشروع",
+        "deleting": "جاري الحذف..."
+      },
+      "categoryUncategorized": "بدون فئة"
+    },
     "ProjectWorkloadChart": {
       "title": "تحليل عبء العمل"
     },
@@ -942,6 +1031,7 @@
     "markAsFeatured": "تمييز كمقال مختار",
     "enableComments": "تفعيل التعليقات",
     "active": "نشط",
+    "excerpt": "مقتطف قصير",
     "visibilityHelp": "المقالات العامة مرئية للجميع. المقالات الخاصة مرئية لفريقك فقط.",
     "scheduleHelp": "اختر تاريخًا مستقبليًا لنشر هذا المقال تلقائيًا.",
     "markAsFeaturedHelp": "المقالات المميزة تظهر في أعلى مدونتك.",
@@ -1050,8 +1140,33 @@
       "manage": "إدارة",
       "cloudArchitecture": "هندسة سحابية",
       "cyberSecurity": "أمن سيبراني",
-      "managedSupport": "دعم مُدار",
-      "dataSystems": "أنظمة بيانات"
+      "managedSupport": "دعم سند",
+      "dataSystems": "أنظمة بيانات",
+      "deleteDialog": {
+        "title": "حذف الخدمة؟",
+        "warning": "لا يمكن التراجع عن هذا الإجراء",
+        "message": "هل أنت متأكد من حذف \"{{title}}\"؟ سيؤدي ذلك إلى إزالة الخدمة نهائيًا.",
+        "confirm": "حذف الخدمة",
+        "cancel": "إلغاء"
+      },
+      "status": {
+        "published": "منشور",
+        "draft": "مسودة"
+      },
+      "actions": {
+        "manage": "إدارة",
+        "publish": "نشر",
+        "unpublish": "إلغاء النشر",
+        "delete": "حذف"
+      },
+      "category": {
+        "uncategorized": "بدون فئة"
+      },
+      "empty": {
+        "title": "لم يتم العثور على خدمات",
+        "withFilters": "حاول تعديل الفلاتر للعثور على ما تبحث عنه.",
+        "noItems": "لم يتم إنشاء أي خدمات بعد."
+      }
     }
   },
 
@@ -1099,12 +1214,17 @@
       "status": "الحالة",
       "actions": "الإجراءات",
       "showingText": "عرض 1 إلى 4 من 1,284 نتيجة",
+      "showing": "عرض",
+      "of": "من",
+      "messages": "رسائل",
       "previous": "السابق",
       "next": "التالي",
       "unread": "غير مقروء",
       "replied": "تم الرد",
       "urgent": "عاجل",
       "archived": "مؤرشف",
+      "emptyState": "لا توجد رسائل للعرض",
+      "delete": "حذف",
       "technical": "تقني",
       "billing": "فوترة",
       "partner": "شريك",
@@ -1269,7 +1389,7 @@
       "updateBilling": "تحديث الفواتير",
       "updateBillingDesc": "إدارة البطاقات والفواتير",
       "contactManager": "تواصل مع المدير",
-      "contactManagerDesc": "مساعدة مخصصة على مدار الساعة"
+      "contactManagerDesc": "مساعدة مخصصة على سند الساعة"
     },
     "ActiveDeliverables": {
       "title": "التسليمات النشطة",
@@ -1414,7 +1534,7 @@
       "encryption": "تشفير 256-bit",
       "verifiedPartner": "شريك موثق",
       "standards": "معايير مهنية",
-      "support": "دعم أول على مدار الساعة",
+      "support": "دعم أول على سند الساعة",
       "assistance": "مساعدة تقنية"
     },
     "premium": {
@@ -1531,7 +1651,7 @@
     "activityLog": "سجل النشاط",
     "quickActions": "إجراءات سريعة",
     "needAssistance": "تحتاج مساعدة؟",
-    "supportDescription": "فريق الدعم الفني متاح على مدار الساعة لمساعدتك في طلبك أو أي استفسارات تقنية.",
+    "supportDescription": "فريق الدعم الفني متاح على سند الساعة لمساعدتك في طلبك أو أي استفسارات تقنية.",
     "contactSupport": "تواصل مع الدعم",
     "downloadInvoice": "تن��يل الفاتورة",
     "serviceAgreement": "اتفاقية الخدمة",
@@ -1811,5 +1931,47 @@
     "annualAgreement": "اتفاقية سنوية",
     "level3Verified": "مستوى 3 تم التحقق",
     "markThompson": "مارك طومسون"
+  },
+
+  "OrdersPage": {
+    "table": {
+      "orderId": "معرف الطلب",
+      "user": "المستخدم",
+      "service": "الخدمة",
+      "amount": "المبلغ",
+      "status": "الحالة",
+      "date": "التاريخ",
+      "actions": "الإجراءات"
+    },
+    "fallback": {
+      "na": "غ/م",
+      "unknown": "غير معروف"
+    },
+    "actions": {
+      "viewOrder": "عرض الطلب",
+      "tryAgain": "حاول مرة أخرى"
+    },
+    "errors": {
+      "loadFailed": "فشل تحميل الطلبات",
+      "generic": "حدث خطأ أثناء جلب الطلبات."
+    },
+    "empty": {
+      "title": "لم يتم العثور على طلبات",
+      "description": "لا توجد طلبات تطابق عوامل التصفية الخاصة بك."
+    },
+    "pagination": {
+      "show": "عرض",
+      "perPage": "للكل صفحة",
+      "showing": "يُظهر",
+      "of": "من",
+      "results": "نتيجة"
+    },
+    "status": {
+      "pending": "قيد الانتظار",
+      "paid": "مدفوع",
+      "inProgress": "قيد التنفيذ",
+      "completed": "مكتمل",
+      "cancelled": "ملغى"
+    }
   }
 }

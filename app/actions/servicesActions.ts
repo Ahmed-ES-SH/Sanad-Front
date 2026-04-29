@@ -46,13 +46,15 @@ export async function getPublishedServices(
     endpoint: SERVICES_ENDPOINTS.LIST_PUBLISHED + buildQuery(params),
     method: "GET",
     defaultErrorMessage: "Failed to fetch published services",
+    // ISR: revalidate every 5 minutes
+    next: { revalidate: 300 },
   });
 
   if (!res.success || !res.data) {
     throw new Error(res.message);
   }
 
-  return { data: res.data, meta: res.meta };
+  return res.data;
 }
 
 export async function getServiceBySlug(slug: string): Promise<Service> {

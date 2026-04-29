@@ -1,8 +1,6 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { FiFilter, FiChevronDown } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
 
 export function Filters({
   isRead,
@@ -13,9 +11,8 @@ export function Filters({
   order?: string;
   onFilterChange: (filters: Partial<ContactQueryParams>) => void;
 }) {
-  const { local } = useVariables();
-  const { ContactUsPage } = getTranslations(local);
-  const t = ContactUsPage.Filters;
+  const locale = useLocale();
+  const t = useTranslation("ContactUsPage.Filters");
 
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
@@ -43,7 +40,7 @@ export function Filters({
           >
             <option value="all">{t.statusAll}</option>
             <option value="unread">{t.unread}</option>
-            <option value="read">{local === "ar" ? "مقروءة" : "Read"}</option>
+            <option value="read">{locale === "ar" ? "مقروءة" : "Read"}</option>
           </select>
           <FiChevronDown
             className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-stone-400"
@@ -57,8 +54,10 @@ export function Filters({
             onChange={handleOrderChange}
             className="appearance-none bg-stone-50 border-0 rounded-xl px-4 py-2.5 pr-10 text-sm font-medium text-stone-600 focus:ring-2 focus:ring-orange-500/20 cursor-pointer"
           >
-            <option value="DESC">{local === "ar" ? "الأحدث" : "Newest"}</option>
-            <option value="ASC">{local === "ar" ? "الأقدم" : "Oldest"}</option>
+            <option value="DESC">
+              {locale === "ar" ? "الأحدث" : "Newest"}
+            </option>
+            <option value="ASC">{locale === "ar" ? "الأقدم" : "Oldest"}</option>
           </select>
           <FiChevronDown
             className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-stone-400"
@@ -71,3 +70,5 @@ export function Filters({
 }
 
 import { ContactQueryParams } from "@/app/types/contact";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { useLocale } from "@/app/hooks/useLocale";

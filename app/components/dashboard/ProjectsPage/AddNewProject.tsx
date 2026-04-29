@@ -2,8 +2,6 @@
 
 import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import { createProject } from "@/app/actions/portfolioActions";
 import { toast } from "sonner";
 import { FiLoader } from "react-icons/fi";
@@ -13,7 +11,8 @@ import TechnicalDetailsSection from "./_AddProject/TechnicalDetailsSection";
 import ProjectPreview from "./_AddProject/ProjectPreview";
 import FormProgress from "./_AddProject/FormProgress";
 import ErrorSummary from "./_AddProject/ErrorSummary";
-import { Category } from "@/app/types/blog";
+import { Category } from "@/app/types/global";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 //////////////////////////////////////////////////////
 ///////  FieldErrors interface for validation results
@@ -33,9 +32,7 @@ export default function AddNewProject({
 }: {
   categories: Category[];
 }) {
-  const { local } = useVariables();
-  const { ProjectsPage } = getTranslations(local);
-  const t = ProjectsPage.AddNewProject;
+  const t = useTranslation("ProjectsPage.AddNewProject");
   const router = useRouter();
 
   const [title, setTitle] = useState("");

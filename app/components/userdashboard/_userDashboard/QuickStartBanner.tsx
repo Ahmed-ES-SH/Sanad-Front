@@ -2,14 +2,11 @@
 
 import { motion } from "framer-motion";
 import { FiChevronRight } from "react-icons/fi";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import LocaleLink from "../../_global/LocaleLink";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import LocaleLink from "../../global/LocaleLink";
 
 export default function QuickStartBanner() {
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.QuickStart;
+  const t = useTranslation("UserDashboard.QuickStart");
 
   return (
     <motion.section

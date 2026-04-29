@@ -2,15 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
-import {
-  FiCloud,
-  FiDollarSign,
-  FiArrowRight,
-  FiChevronDown,
-} from "react-icons/fi";
+import { FiCloud, FiDollarSign, FiArrowRight } from "react-icons/fi";
 import { comingSoon } from "./lib";
-import { getTranslations } from "@/app/helpers/helpers";
-import { useVariables } from "@/app/context/VariablesContext";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 //////////////////////////////////////////////////////
 ///////  Active deliverables / project cards with progress bars
@@ -65,9 +59,7 @@ const cardVariants = {
 };
 
 export default function ActiveDeliverables() {
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.ActiveDeliverables;
+  const t = useTranslation("UserDashboard.ActiveDeliverables");
   const [expanded, setExpanded] = useState(false);
   const visibleProjects = expanded ? projects : [projects[0]];
   const showToggle = projects.length > 1;
@@ -124,17 +116,20 @@ export default function ActiveDeliverables() {
                   </div>
                   <div className="min-w-0">
                     <h4 className="font-bold text-surface-900 truncate">
-                      {t[project.titleKey as keyof typeof t] || project.titleKey}
+                      {t[project.titleKey as keyof typeof t] ||
+                        project.titleKey}
                     </h4>
                     <p className="text-xs text-surface-400 truncate">
-                      {t[project.subtitleKey as keyof typeof t] || project.subtitleKey}
+                      {t[project.subtitleKey as keyof typeof t] ||
+                        project.subtitleKey}
                     </p>
                   </div>
                 </div>
                 <span
                   className={`${project.statusBg} ${project.statusTextColor} px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase shrink-0`}
                 >
-                  {t[project.statusTextKey as keyof typeof t] || project.statusTextKey}
+                  {t[project.statusTextKey as keyof typeof t] ||
+                    project.statusTextKey}
                 </span>
               </div>
               <div className="space-y-2">

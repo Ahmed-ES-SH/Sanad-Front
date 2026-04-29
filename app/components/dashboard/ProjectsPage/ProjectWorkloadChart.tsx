@@ -1,12 +1,9 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 export default function ProjectWorkloadChart() {
-  const { local } = useVariables();
-  const { ProjectsPage } = getTranslations(local);
-  const t = ProjectsPage.ProjectWorkloadChart;
+  const t = useTranslation("ProjectsPage.ProjectWorkloadChart");
 
   const days = [
     { day: "Mon", height: "40%" },

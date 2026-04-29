@@ -5,9 +5,8 @@
 "use client";
 
 import Img from "@/app/components/global/Img";
+import { TimelineEntry } from "@/app/types/order";
 import { FiClock } from "react-icons/fi";
-
-import type { TimelineEntry } from "../types/order";
 
 interface TimelineItemProps {
   entry: TimelineEntry;

@@ -75,6 +75,8 @@ export async function getCategories(): Promise<Category[]> {
     endpoint: BLOG_ENDPOINTS.CATEGORIES,
     method: "GET",
     defaultErrorMessage: "Failed to fetch categories",
+    // ISR: revalidate every 10 minutes (categories change rarely)
+    next: { revalidate: 600 },
   });
 
   if (!res.success || !res.data) {

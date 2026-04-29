@@ -2,12 +2,18 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiX, FiCheckCircle, FiAlertCircle, FiClock, FiRefreshCcw } from "react-icons/fi";
-import { useAppQuery } from "@/lib/hooks/useAppQuery";
-import { PaymentResponseDto } from "@/lib/types/payments";
+import {
+  FiX,
+  FiCheckCircle,
+  FiAlertCircle,
+  FiClock,
+  FiRefreshCcw,
+} from "react-icons/fi";
 import { PAYMENTS_ENDPOINTS } from "@/app/constants/endpoints";
 import { toast } from "sonner";
 import { refundPayment } from "@/app/actions/paymentsActions";
+import { useAppQuery } from "@/app/hooks/useAppQuery";
+import { PaymentResponseDto } from "@/app/types/payments";
 
 interface PaymentDetailModalProps {
   isOpen: boolean;
@@ -35,7 +41,12 @@ export default function PaymentDetailModal({
 }: PaymentDetailModalProps) {
   const [isRefunding, setIsRefunding] = useState(false);
 
-  const { data: payment, isLoading, error, refetch } = useAppQuery<PaymentResponseDto>({
+  const {
+    data: payment,
+    isLoading,
+    error,
+    refetch,
+  } = useAppQuery<PaymentResponseDto>({
     queryKey: ["admin-payments", paymentId],
     endpoint: PAYMENTS_ENDPOINTS.ADMIN_GET(paymentId),
     enabled: isOpen && !!paymentId,
@@ -55,8 +66,10 @@ export default function PaymentDetailModal({
       toast.success(response.message || "Payment refunded successfully");
       onRefundSuccess();
       refetch();
-    } catch (err: any) {
-      toast.error(err.message || "Something went wrong during refund.");
+    } catch (err: unknown) {
+      toast.error(
+        (err as Error)?.message || "Something went wrong during refund.",
+      );
     } finally {
       setIsRefunding(false);
     }
@@ -117,7 +130,9 @@ export default function PaymentDetailModal({
             ) : payment ? (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-stone-500">Status</span>
+                  <span className="text-sm font-medium text-stone-500">
+                    Status
+                  </span>
                   <div className="flex items-center gap-2">
                     {getStatusIcon(payment.status)}
                     <span className="text-sm font-semibold capitalize text-stone-900">
@@ -127,7 +142,9 @@ export default function PaymentDetailModal({
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-stone-500">Amount</span>
+                  <span className="text-sm font-medium text-stone-500">
+                    Amount
+                  </span>
                   <span className="text-lg font-bold text-stone-900">
                     {new Intl.NumberFormat("en-US", {
                       style: "currency",
@@ -137,7 +154,9 @@ export default function PaymentDetailModal({
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-stone-500">Date</span>
+                  <span className="text-sm font-medium text-stone-500">
+                    Date
+                  </span>
                   <span className="text-sm text-stone-900">
                     {formatDate(payment.createdAt)}
                   </span>
@@ -145,23 +164,39 @@ export default function PaymentDetailModal({
 
                 <div className="bg-stone-50 rounded-lg p-4 space-y-3 mt-4 border border-stone-100">
                   <div>
-                    <span className="block text-xs font-medium text-stone-500 mb-1">Payment ID</span>
-                    <span className="block text-sm font-mono text-stone-900 break-all">{payment.id}</span>
+                    <span className="block text-xs font-medium text-stone-500 mb-1">
+                      Payment ID
+                    </span>
+                    <span className="block text-sm font-mono text-stone-900 break-all">
+                      {payment.id}
+                    </span>
                   </div>
                   <div>
-                    <span className="block text-xs font-medium text-stone-500 mb-1">Stripe Intent ID</span>
-                    <span className="block text-sm font-mono text-stone-900 break-all">{payment.stripePaymentIntentId}</span>
+                    <span className="block text-xs font-medium text-stone-500 mb-1">
+                      Stripe Intent ID
+                    </span>
+                    <span className="block text-sm font-mono text-stone-900 break-all">
+                      {payment.stripePaymentIntentId}
+                    </span>
                   </div>
                   {payment.userId && (
                     <div>
-                      <span className="block text-xs font-medium text-stone-500 mb-1">User ID</span>
-                      <span className="block text-sm font-mono text-stone-900 break-all">{payment.userId}</span>
+                      <span className="block text-xs font-medium text-stone-500 mb-1">
+                        User ID
+                      </span>
+                      <span className="block text-sm font-mono text-stone-900 break-all">
+                        {payment.userId}
+                      </span>
                     </div>
                   )}
                   {payment.description && (
                     <div>
-                      <span className="block text-xs font-medium text-stone-500 mb-1">Description</span>
-                      <span className="block text-sm text-stone-900">{payment.description}</span>
+                      <span className="block text-xs font-medium text-stone-500 mb-1">
+                        Description
+                      </span>
+                      <span className="block text-sm text-stone-900">
+                        {payment.description}
+                      </span>
                     </div>
                   )}
                 </div>

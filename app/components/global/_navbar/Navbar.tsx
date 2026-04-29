@@ -1,4 +1,5 @@
 import NotificationBell from "../../website/notifications/NotificationBell";
+import { getCurrentUserAction } from "@/app/actions/authActions";
 import Img from "../Img";
 import LocaleLink from "../LocaleLink";
 import CartButton from "./CartButton";
@@ -9,8 +10,11 @@ import NavLinks from "./NavLinks";
 import SelectLanguage from "./SelectLanguage";
 
 export default async function Navbar() {
+  const currentUser = await getCurrentUserAction();
+  const initialUser = currentUser.success ? (currentUser.user ?? null) : null;
+
   return (
-    <ClientDiv initialUser={null}>
+    <ClientDiv initialUser={initialUser}>
       <div className="c-container h-full xl:grid flex justify-between xl:grid-cols-2 2xl:grid-cols-3 items-center">
         {/* Left: Logo */}
         <div className="flex items-center justify-between">

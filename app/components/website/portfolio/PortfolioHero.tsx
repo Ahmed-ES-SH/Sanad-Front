@@ -1,16 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
 import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface Props {
   locale: "en" | "ar";
   projectCount: number;
 }
-
-const childVariant = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
 
 export default function PortfolioHero({ locale, projectCount }: Props) {
   const isRTL = locale === "ar";
@@ -33,12 +27,7 @@ export default function PortfolioHero({ locale, projectCount }: Props) {
       <div className="c-container relative z-10 px-4 py-16 sm:py-20 md:py-24">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           {/* Left: Heading */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={childVariant}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <div>
             <h1
               className="display-xl font-display leading-[1.05]"
               style={{ color: "var(--surface-900)" }}
@@ -46,16 +35,10 @@ export default function PortfolioHero({ locale, projectCount }: Props) {
             >
               {t.heroTitle}
             </h1>
-          </motion.div>
+          </div>
 
           {/* Right: Descriptor + Badge */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={childVariant}
-            transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="md:text-end"
-          >
+          <div className="md:text-end">
             <p
               className="text-lg sm:text-xl max-w-md mb-4"
               style={{ color: "var(--surface-500)" }}
@@ -75,7 +58,7 @@ export default function PortfolioHero({ locale, projectCount }: Props) {
               />
               {projectCount} {t.projectsDelivered}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

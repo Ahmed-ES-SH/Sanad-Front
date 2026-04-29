@@ -1,7 +1,7 @@
 import React from "react";
 import { FiEye, FiUser } from "react-icons/fi";
-import { PaymentResponseDto } from "@/lib/types/payments";
 import { motion } from "framer-motion";
+import { PaymentResponseDto } from "@/app/types/payments";
 
 interface TransactionTableProps {
   payments: PaymentResponseDto[] | null;

@@ -1,7 +1,5 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import {
   createArticle,
   getCategories,
@@ -26,21 +24,20 @@ import ArticleEditor from "./ArticleEditor";
 import CollaboratorsSidebar from "./CollaboratorsSidebar";
 import VersionHistorySidebar from "./VersionHistorySidebar";
 import VisibilityCard from "./VisibilityCard";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { useLocale } from "@/app/hooks/useLocale";
 
 export default function AddArticleContent() {
-  const { local } = useVariables();
+  const locale = useLocale();
   const router = useRouter();
-  const { AddArticlePage } = getTranslations(local);
-  const t = AddArticlePage;
+  const t = useTranslation("AddArticlePage");
 
-  const isRTL = local === "ar";
+  const isRTL = locale === "ar";
 
   const {
     formData,
     tags,
     newTag,
-    setFormData,
-    setTags,
     setNewTag,
     handleInputChange,
     handleContentChange,
@@ -73,7 +70,7 @@ export default function AddArticleContent() {
       const result = await createArticle(payload);
 
       if (result.success) {
-        router.push(`/${local}/dashboard/blog`);
+        router.push(`/${locale}/dashboard/blog`);
       } else {
         setError(result.message);
       }
@@ -106,7 +103,7 @@ export default function AddArticleContent() {
 
       if (result.success && result.data) {
         await togglePublishStatus(result.data.id);
-        router.push(`/${local}/dashboard/blog`);
+        router.push(`/${locale}/dashboard/blog`);
       } else {
         setError(result.message);
       }
@@ -149,7 +146,7 @@ export default function AddArticleContent() {
         saveDraft={t.saveDraft || "Save Draft"}
         publishNow={t.publishNow || "Publish Now"}
         untitledMasterpiece={t.untitledMasterpiece || "Untitled Masterpiece"}
-        local={local}
+        locale={locale}
         isRTL={isRTL}
         onSaveDraft={handleSaveDraft}
         onPublishNow={handlePublishNow}

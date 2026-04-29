@@ -49,6 +49,8 @@ export async function getPublishedProjects(
 
     method: "GET",
 
+    next: { revalidate: 3600, tags: ["portfolio-published"] },
+
     defaultErrorMessage: "Failed to fetch projects",
   });
 

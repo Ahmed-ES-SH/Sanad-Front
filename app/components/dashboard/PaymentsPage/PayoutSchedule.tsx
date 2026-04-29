@@ -1,14 +1,10 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { FiDollarSign } from "react-icons/fi";
 
 function PayoutSchedule() {
-  const { local } = useVariables();
-  const { PaymentsPage } = getTranslations(local);
-  const t = PaymentsPage.PayoutSchedule;
-
+  const t = useTranslation("PaymentsPage.PayoutSchedule");
   return (
     <div className="bg-white rounded-xl border border-stone-200 p-5">
       <div className="flex items-center gap-2 mb-4">

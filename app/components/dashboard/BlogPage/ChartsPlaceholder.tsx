@@ -1,12 +1,9 @@
 "use client";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion } from "framer-motion";
 
 export function ChartsPlaceholder() {
-  const { local } = useVariables();
-  const { BlogPage } = getTranslations(local);
-  const t = BlogPage.ChartsPlaceholder;
+  const t = useTranslation("BlogPage.ChartsPlaceholder");
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">

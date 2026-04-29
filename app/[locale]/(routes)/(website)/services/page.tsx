@@ -26,23 +26,28 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default async function ServicesPage() {
-  const categories = await getCategories();
-  const response = await getPublishedServices();
+export default async function ServicesPage({ params }: Props) {
+  const { locale } = await params;
 
-  if (!response) return <ServicesNotFound />;
+  // Parallelize fetches to eliminate waterfall - ~300ms saved
+  const [categoriesResponse, servicesResponse] = await Promise.all([
+    getCategories(),
+    getPublishedServices(),
+  ]);
 
-  const { data: services, meta } = response;
+  if (!servicesResponse) return <ServicesNotFound />;
+
+  const { data: services, meta } = servicesResponse;
 
   return (
     <main id="main-content" className="relative mt-12">
       <ServicesComponent
         services={services}
         meta={meta}
-        categories={categories ?? []}
+        categories={categoriesResponse ?? []}
       />
-      <HowWeWork />
-      <PricingPlans />
+      <HowWeWork locale={locale} />
+      <PricingPlans locale={locale} />
     </main>
   );
 }

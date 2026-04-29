@@ -1,13 +1,10 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { FiSearch, FiFilter, FiChevronDown } from "react-icons/fi";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { FiSearch, FiFilter } from "react-icons/fi";
 
 function PaymentFilters() {
-  const { local } = useVariables();
-  const { PaymentsPage } = getTranslations(local);
-  const t = PaymentsPage.PaymentFilters;
+  const t = useTranslation("PaymentsPage.PaymentFilters");
 
   return (
     <div className="flex flex-wrap items-center gap-3">

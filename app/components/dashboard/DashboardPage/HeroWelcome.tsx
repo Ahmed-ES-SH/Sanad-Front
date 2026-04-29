@@ -1,14 +1,11 @@
 "use client";
 
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion } from "framer-motion";
 import { FiPlusCircle, FiDownload } from "react-icons/fi";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 
 export default function HeroWelcome() {
-  const { local } = useVariables();
-  const { DashboardPage } = getTranslations(local);
-  const t = DashboardPage.HeroWelcome;
+  const t = useTranslation("DashboardPage.HeroWelcome");
 
   return (
     <motion.section

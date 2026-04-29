@@ -33,7 +33,7 @@ export default function ProjectCTABanner({ t }: ProjectCTABannerProps) {
           <div className="flex flex-wrap justify-center gap-4">
             <LocaleLink
               href={`/contact`}
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-2xl text-sm font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+              className="inline-flex bg-white text-primary border border-gray-200 items-center gap-2.5 px-8 py-3.5 rounded-2xl text-sm font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
             >
               <HiOutlineLightningBolt size={16} />
               {t.startProject}

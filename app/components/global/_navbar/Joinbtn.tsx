@@ -6,12 +6,12 @@ import { useAuthStore } from "@/app/store/AuthSlice";
 import UserButton from "./UserButton";
 
 export default function Joinbtn() {
-  const { isAuthenticated } = useAuthStore();
+  const { user } = useAuthStore();
   const t = useTranslation("hero");
 
   return (
     <>
-      {!isAuthenticated && (
+      {!user && (
         <div className="hidden sm:block">
           <LocaleLink
             href={"/signup"}
@@ -22,7 +22,7 @@ export default function Joinbtn() {
         </div>
       )}
 
-      {isAuthenticated && <UserButton />}
+      {user && <UserButton />}
     </>
   );
 }

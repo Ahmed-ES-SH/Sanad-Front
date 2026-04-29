@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useCallback, useState, useEffect, useMemo } from "react";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import React, { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 import { UserFilterState } from "@/app/types/user";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 // ============================================================================
 // FILTER BAR - Search and filter controls for user list
@@ -16,9 +15,7 @@ interface FilterBarProps {
 }
 
 export default function FilterBar({ onFilterChange }: FilterBarProps) {
-  const { local } = useVariables();
-  const { UsersPage } = getTranslations(local);
-  const t = UsersPage.FilterBar;
+  const t = useTranslation("UsersPage.FilterBar");
 
   // Filter state - controlled inputs for search, role, and verification status
   const [filters, setFilters] = useState<UserFilterState>({
@@ -44,21 +41,31 @@ export default function FilterBar({ onFilterChange }: FilterBarProps) {
 
   // When debounced search changes, update filters and notify parent
   useEffect(() => {
+    const handleFilters = (newFilters: UserFilterState) => {
+      setFilters(newFilters);
+    };
+
     if (debouncedSearch !== filters.search) {
       const newFilters = { ...filters, search: debouncedSearch };
-      setFilters(newFilters);
+      handleFilters(newFilters);
       onFilterChange?.(newFilters);
     }
-  }, [debouncedSearch]);
+  }, [debouncedSearch, filters, onFilterChange]);
 
   const handleRoleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newFilters = { ...filters, role: e.target.value as UserFilterState["role"] };
+    const newFilters = {
+      ...filters,
+      role: e.target.value as UserFilterState["role"],
+    };
     setFilters(newFilters);
     onFilterChange?.(newFilters);
   };
 
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newFilters = { ...filters, status: e.target.value as UserFilterState["status"] };
+    const newFilters = {
+      ...filters,
+      status: e.target.value as UserFilterState["status"],
+    };
     setFilters(newFilters);
     onFilterChange?.(newFilters);
   };

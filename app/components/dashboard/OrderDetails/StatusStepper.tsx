@@ -4,25 +4,13 @@
 
 "use client";
 
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion } from "framer-motion";
-import {
-  FiClock,
-  FiTruck,
-  FiCheckCircle,
-} from "react-icons/fi";
-
-import { getTranslations } from "@/app/lib/i18n";
+import { FiClock, FiTruck, FiCheckCircle } from "react-icons/fi";
 
 interface StatusStepperProps {
   currentStatus: string;
 }
-
-// Icon mapping
-const iconMap = {
-  FiClock,
-  FiTruck,
-  FiCheckCircle,
-};
 
 // Animation variants
 const container = {
@@ -39,12 +27,11 @@ const item = {
 };
 
 export function StatusStepper({ currentStatus }: StatusStepperProps) {
-  const t = getTranslations();
-  
+  const t = useTranslation("orderDetails");
   const steps = [
-    { id: "pending", label: t("orderDetails.orderProgress"), icon: FiClock },
-    { id: "in_progress", label: t("orderDetails.orderProgress"), icon: FiTruck },
-    { id: "completed", label: t("orderDetails.orderProgress"), icon: FiCheckCircle },
+    { id: "pending", label: t.orderProgress, icon: FiClock },
+    { id: "in_progress", label: t.orderProgress, icon: FiTruck },
+    { id: "completed", label: t.orderProgress, icon: FiCheckCircle },
   ];
 
   const currentIndex = steps.findIndex((s) => s.id === currentStatus);
@@ -59,7 +46,7 @@ export function StatusStepper({ currentStatus }: StatusStepperProps) {
       <div className="flex items-center justify-between relative">
         {/* Background Line */}
         <div className="absolute top-1/2 left-0 w-full h-0.5 bg-surface-200 -translate-y-1/2 z-0" />
-        
+
         {/* Progress Line */}
         <motion.div
           initial={{ width: 0 }}

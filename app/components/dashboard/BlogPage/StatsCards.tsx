@@ -1,14 +1,16 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import { StatsCard } from "./StatsCard";
-import { HiOutlineDocumentText, HiOutlineEye, HiOutlineClock, HiOutlineChatAlt } from "react-icons/hi";
+import {
+  HiOutlineDocumentText,
+  HiOutlineEye,
+  HiOutlineClock,
+  HiOutlineChatAlt,
+} from "react-icons/hi";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 export function StatsCards() {
-  const { local } = useVariables();
-  const { BlogPage } = getTranslations(local);
-  const t = BlogPage.StatsCards;
+  const t = useTranslation("BlogPage.StatsCards");
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">

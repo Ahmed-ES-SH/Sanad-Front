@@ -15,6 +15,7 @@ interface props {
   onError?: () => void;
   fallback?: React.ReactNode;
   ref?: any;
+  sizes?: string;
 }
 
 export default function Img({
@@ -29,6 +30,7 @@ export default function Img({
   onError,
   fallback,
   ref,
+  sizes,
 }: props) {
   const [hasError, setHasError] = useState(false);
 
@@ -53,6 +55,7 @@ export default function Img({
       onLoad={onLoad}
       onError={handleError}
       ref={ref}
+      sizes={sizes}
     />
   );
 }

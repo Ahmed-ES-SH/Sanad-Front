@@ -65,7 +65,8 @@ export function ContactMessagesContent({
     page: params.page ?? 1,
     limit: params.limit ?? 10,
     total: 0,
-    totalPages: 0,
+    lastPage: 1,
+    perPage: 10,
   };
 
   const stats = getContactStats(messages, meta.total);

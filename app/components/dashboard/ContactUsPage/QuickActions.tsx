@@ -1,8 +1,13 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { FiArchive, FiAlertCircle, FiDownload, FiMessageSquare } from "react-icons/fi";
+import { useLocale } from "@/app/hooks/useLocale";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import {
+  FiArchive,
+  FiAlertCircle,
+  FiDownload,
+  FiMessageSquare,
+} from "react-icons/fi";
 
 const quickActions = [
   {
@@ -54,14 +59,12 @@ const colorClasses = {
 
 export function QuickActions({
   isUnreadOnly,
-  order
+  order,
 }: {
   isUnreadOnly?: boolean;
   order?: string;
 }) {
-  const { local } = useVariables();
-  const { ContactUsPage } = getTranslations(local);
-  const t = ContactUsPage.QuickActions;
+  const t = useTranslation("ContactUsPage.QuickActions");
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -80,8 +83,12 @@ export function QuickActions({
               <Icon size={24} />
             </div>
             <div>
-              <h3 className="font-bold text-stone-900">{t[action.labelKey as keyof typeof t]}</h3>
-              <p className="text-xs text-stone-500 mt-1">{t[action.descriptionKey as keyof typeof t]}</p>
+              <h3 className="font-bold text-stone-900">
+                {t[action.labelKey as keyof typeof t]}
+              </h3>
+              <p className="text-xs text-stone-500 mt-1">
+                {t[action.descriptionKey as keyof typeof t]}
+              </p>
             </div>
           </button>
         );

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -14,7 +13,6 @@ import { useSearchParams } from "next/navigation";
 import { verifyEmailAction } from "@/app/actions/authActions";
 import { toast } from "sonner";
 import { Suspense } from "react";
-import CheckYourInbox from "./CheckYourInbox";
 import LocaleLink from "../global/LocaleLink";
 import { directionMap } from "@/app/constants/global";
 import { useTranslation } from "@/app/hooks/useTranslation";
@@ -36,16 +34,13 @@ function VerifyEmailContentInner() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
-  const [status, setStatus] = useState<Status>("verifying");
-  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<Status>(token ? "verifying" : "error");
+  const [message, setMessage] = useState(
+    token ? "" : t?.missingToken || "Verification token is missing",
+  );
 
   useEffect(() => {
-    const handleStatus = (newStatus: Status, newMessage: string) => {
-      setStatus(newStatus);
-      setMessage(newMessage);
-    };
     if (!token) {
-      handleStatus("error", t?.missingToken || "Verification token is missing");
       return;
     }
 
@@ -75,8 +70,6 @@ function VerifyEmailContentInner() {
 
     if (token) verifyEmail();
   }, [token, locale]);
-
-  if (!token) return <CheckYourInbox />;
 
   return (
     <motion.div

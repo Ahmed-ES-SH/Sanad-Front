@@ -29,6 +29,7 @@ function mapBackendToStatic(backendService: Service): StaticServiceData {
       en: backendService.shortDescription,
       ar: backendService.shortDescription,
     },
+    fullImage: backendService.coverImageUrl ?? staticService.fullImage,
     description: {
       en: backendService.longDescription || "",
       ar: backendService.longDescription || "",
@@ -44,8 +45,6 @@ export default function ServiceLayout({
 }: ServiceLayoutProps) {
   const locale = useLocale();
   const t_servicePage = useTranslation("servicePage");
-  const t_ProjectPage = useTranslation("ProjectPage");
-  const t_servicesComponents = useTranslation("servicesComponents");
 
   const staticService = servicesData[0];
   const service = backendService
@@ -62,13 +61,6 @@ export default function ServiceLayout({
         stats={service.stats}
         locale={locale}
         translations={t_servicePage}
-      />
-
-      <ServiceHeader
-        title={service.title}
-        image={service.fullImage}
-        local={locale}
-        translations={t_servicesComponents}
       />
 
       <ServiceAbout
@@ -102,25 +94,6 @@ export default function ServiceLayout({
         currentCategory={service.category || "development"}
         translations={t_servicePage}
       />
-
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="c-container mx-auto px-4 py-16 md:py-24"
-      >
-        <div className="surface-card-elevated p-6 md:p-10">
-          <div className="text-center mb-10">
-            <h2 className="display-sm text-surface-900 font-display mb-3">
-              {t_ProjectPage.allProjects}
-            </h2>
-            <p className="body-lg text-surface-500 max-w-2xl mx-auto">
-              {t_ProjectPage.exploreProjects}
-            </p>
-          </div>
-        </div>
-      </motion.div>
     </div>
   );
 }

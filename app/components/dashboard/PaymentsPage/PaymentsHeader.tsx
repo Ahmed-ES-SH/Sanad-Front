@@ -1,13 +1,10 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { FiCalendar, FiChevronDown } from "react-icons/fi";
 
 function PaymentsHeader() {
-  const { local } = useVariables();
-  const { PaymentsPage } = getTranslations(local);
-  const t = PaymentsPage.PaymentsHeader;
+  const t = useTranslation("PaymentsPage.PaymentsHeader");
 
   return (
     <section className="flex flex-col md:flex-row md:items-end justify-between gap-4">

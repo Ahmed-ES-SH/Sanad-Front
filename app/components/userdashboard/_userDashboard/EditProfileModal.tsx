@@ -6,11 +6,10 @@ import { FiX, FiLock, FiEye, FiEyeOff, FiImage } from "react-icons/fi";
 import { FaCheckCircle } from "react-icons/fa";
 import Image from "next/image";
 import { updateProfileAction } from "@/app/actions/authActions";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { useAuth } from "@/app/context/AuthContext";
 import { toast } from "sonner";
 import { createPortal } from "react-dom";
+import { useAuthStore } from "@/app/store/AuthSlice";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 // ============================================================================
 // TYPES
@@ -45,10 +44,8 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
   onClose,
   onSuccess,
 }) => {
-  const { user, setUser } = useAuth();
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.EditProfileModal;
+  const { user, setUser } = useAuthStore();
+  const t = useTranslation("UserDashboard.EditProfileModal");
 
   // Form state
   const [formData, setFormData] = useState<FormData>({
@@ -65,15 +62,33 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
 
   // Initialize form with user data when modal opens
   useEffect(() => {
-    if (isOpen && user) {
+    const handleFormData = (data: FormData) => {
       setFormData({
+        name: data?.name || "",
+        avatar: data?.avatar || "",
+        password: "",
+        confirmPassword: "",
+      });
+    };
+    if (isOpen && user) {
+      handleFormData({
         name: user.name || "",
         avatar: user.avatar || "",
         password: "",
         confirmPassword: "",
       });
-      setAvatarPreview(user.avatar || null);
-      setErrors({});
+
+      const handlePreview = (state: string | null) => {
+        setAvatarPreview(state);
+      };
+
+      handlePreview(user.avatar || null);
+
+      const handleError = (data: FormErrors) => {
+        setErrors(data);
+      };
+
+      handleError({});
     }
   }, [isOpen, user]);
 

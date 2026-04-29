@@ -1,7 +1,6 @@
+import { Category } from "@/app/types/global";
 import React from "react";
-import { Category } from "@/app/types/blog";
-import { FiSearch, FiFilter, FiPlus } from "react-icons/fi";
-import Link from "next/link";
+import { FiSearch, FiFilter } from "react-icons/fi";
 
 interface ProjectsFilterBarProps {
   categories: Category[];

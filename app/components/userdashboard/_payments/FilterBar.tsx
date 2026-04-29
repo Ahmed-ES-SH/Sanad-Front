@@ -8,10 +8,9 @@ import {
   FiX,
   FiChevronDown,
 } from "react-icons/fi";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
 import { FilterBarProps, StatusOption } from "./FilterBar.types";
 import { FilterStatus } from "./TransactionTable.types";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 const STATUS_OPTIONS: StatusOption[] = [
   { value: "all", label: "All Statuses" },
@@ -33,8 +32,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
   onDateToChange,
   onClearFilters,
 }) => {
-  const { local } = useVariables();
-  const { payments } = getTranslations(local ?? "en");
+  const t = useTranslation("payments");
 
   const [showStatusDropdown, setShowStatusDropdown] = useState(false);
   const [showDateDropdown, setShowDateDropdown] = useState(false);
@@ -63,9 +61,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
 
   return (
     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-      <h2 className="text-xl font-semibold text-foreground">
-        {payments.tableTitle}
-      </h2>
+      <h2 className="text-xl font-semibold text-foreground">{t.tableTitle}</h2>
       <div className="flex flex-wrap max-lg:flex-col max-lg:items-start max-lg:w-full items-center gap-3 w-full md:w-auto">
         {/* Search */}
         <div className="relative flex-1 max-lg:w-full md:w-64">
@@ -75,11 +71,11 @@ const FilterBar: React.FC<FilterBarProps> = ({
           />
           <input
             className="w-full pl-9 pr-4 py-2 bg-stone-50 border border-stone-200/50 rounded-lg text-sm focus:ring-2 focus:ring-orange-500/20 focus:outline-none focus:border-orange-500/50 whitespace-nowrap"
-            placeholder={payments.searchPlaceholder}
+            placeholder={t.searchPlaceholder}
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            aria-label={payments.searchPlaceholder}
+            aria-label={t.searchPlaceholder}
           />
         </div>
 
@@ -97,7 +93,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
             }}
             aria-expanded={showStatusDropdown}
             aria-haspopup="listbox"
-            aria-label={payments.filterLabel}
+            aria-label={t.filterLabel}
           >
             <FiFilter className="text-sm" aria-hidden="true" />
             {getStatusLabel(statusFilter)}
@@ -145,10 +141,10 @@ const FilterBar: React.FC<FilterBarProps> = ({
               setShowStatusDropdown(false);
             }}
             aria-expanded={showDateDropdown}
-            aria-label={payments.dateRangeLabel}
+            aria-label={t.dateRangeLabel}
           >
             <FiCalendar className="text-sm" aria-hidden="true" />
-            {payments.dateRangeLabel}
+            {t.dateRangeLabel}
             <FiChevronDown className="text-xs" aria-hidden="true" />
           </button>
 
@@ -157,26 +153,26 @@ const FilterBar: React.FC<FilterBarProps> = ({
               <div className="space-y-3">
                 <div>
                   <label className="block text-xs font-medium text-muted-foreground mb-1">
-                    {payments.dateFromLabel}
+                    {t.dateFromLabel}
                   </label>
                   <input
                     type="date"
                     className="w-full px-3 py-2 border border-stone-200 rounded-lg text-sm focus:ring-2 focus:ring-orange-500/20 focus:outline-none focus:border-orange-500/50"
                     value={dateFrom}
                     onChange={(e) => onDateFromChange(e.target.value)}
-                    aria-label={payments.dateFromLabel}
+                    aria-label={t.dateFromLabel}
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-muted-foreground mb-1">
-                    {payments.dateToLabel}
+                    {t.dateToLabel}
                   </label>
                   <input
                     type="date"
                     className="w-full px-3 py-2 border border-stone-200 rounded-lg text-sm focus:ring-2 focus:ring-orange-500/20 focus:outline-none focus:border-orange-500/50"
                     value={dateTo}
                     onChange={(e) => onDateToChange(e.target.value)}
-                    aria-label={payments.dateToLabel}
+                    aria-label={t.dateToLabel}
                   />
                 </div>
                 <div className="flex gap-2 pt-1">
@@ -187,13 +183,13 @@ const FilterBar: React.FC<FilterBarProps> = ({
                       onDateToChange("");
                     }}
                   >
-                    {payments.resetBtn}
+                    {t.resetBtn}
                   </button>
                   <button
                     className="flex-1 py-2 px-3 text-sm font-semibold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500"
                     onClick={() => setShowDateDropdown(false)}
                   >
-                    {payments.applyBtn}
+                    {t.applyBtn}
                   </button>
                 </div>
               </div>
@@ -206,10 +202,10 @@ const FilterBar: React.FC<FilterBarProps> = ({
           <button
             className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-orange-600 hover:text-orange-700 hover:bg-orange-50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 whitespace-nowrap"
             onClick={onClearFilters}
-            aria-label={payments.clearFiltersLabel}
+            aria-label={t.clearFiltersLabel}
           >
             <FiX className="text-sm" aria-hidden="true" />
-            {payments.clearFiltersLabel}
+            {t.clearFiltersLabel}
           </button>
         )}
       </div>

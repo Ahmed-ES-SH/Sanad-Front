@@ -1,13 +1,10 @@
 "use client";
 
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { FiPlus } from "react-icons/fi";
 
 function FloatingActionButton() {
-  const { local } = useVariables();
-  const { PaymentsPage } = getTranslations(local);
-  const t = PaymentsPage.FloatingActionButton;
+  const t = useTranslation("PaymentsPage.FloatingActionButton");
 
   return (
     <button

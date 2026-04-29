@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { FiUserCheck, FiShield, FiFileText } from "react-icons/fi";
 
 import { MetaItem } from "./MetaItem";
-import { getTranslations } from "@/app/lib/i18n";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface AccountMetadataCardProps {
   accountManager?: string;
@@ -41,7 +41,7 @@ export function AccountMetadataCard({
   securityLevel = defaultValues.securityLevel,
   contract = defaultValues.contract,
 }: AccountMetadataCardProps) {
-  const t = getTranslations();
+  const t = useTranslation("orderDetails");
 
   return (
     <motion.div
@@ -50,25 +50,24 @@ export function AccountMetadataCard({
       animate="show"
       className="surface-card p-6"
     >
-      <motion.h3 variants={item} className="heading-sm text-surface-900 mb-4 border-b border-surface-100 pb-3">
-        {t("orderDetails.accountMetadata")}
+      <motion.h3
+        variants={item}
+        className="heading-sm text-surface-900 mb-4 border-b border-surface-100 pb-3"
+      >
+        {t.accountMetadata}
       </motion.h3>
       <motion.div variants={item} className="space-y-1">
         <MetaItem
           icon={<FiUserCheck />}
-          label={t("orderDetails.accountManager")}
+          label={t.accountManager}
           value={accountManager}
         />
         <MetaItem
           icon={<FiShield />}
-          label={t("orderDetails.securityLevel")}
+          label={t.securityLevel}
           value={securityLevel}
         />
-        <MetaItem
-          icon={<FiFileText />}
-          label={t("orderDetails.contract")}
-          value={contract}
-        />
+        <MetaItem icon={<FiFileText />} label={t.contract} value={contract} />
       </motion.div>
     </motion.div>
   );

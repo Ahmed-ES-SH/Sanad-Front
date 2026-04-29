@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslation } from "@/app/hooks/useTranslation";
 import { easeOut, motion } from "framer-motion";
 
 import {
@@ -8,8 +9,6 @@ import {
   FiBarChart2,
   FiHelpCircle,
 } from "react-icons/fi";
-import { getTranslations } from "@/app/helpers/helpers";
-import { useVariables } from "@/app/context/VariablesContext";
 
 //////////////////////////////////////////////////////
 ///////  Stat cards for the User Dashboard stats row
@@ -84,9 +83,7 @@ const cardVariants = {
 };
 
 export default function StatsRow() {
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.StatsRow;
+  const t = useTranslation("UserDashboard.StatsRow");
 
   return (
     <motion.section

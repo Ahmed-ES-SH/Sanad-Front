@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import {
   FiSettings,
-  FiLogOut,
   FiMonitor,
   FiGrid,
   FiCommand,
@@ -11,8 +10,8 @@ import {
   FiDatabase,
 } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { useLocale } from "@/app/hooks/useLocale";
 
 const settingsOptions = [
   { id: "appearance", label: "Appearance & Theme", icon: FiMonitor },
@@ -23,14 +22,14 @@ const settingsOptions = [
 ];
 
 export default function DropdownSettings() {
+  const locale = useLocale();
+
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const { local } = useVariables();
-  const { DashboardPage } = getTranslations(local);
-  const t = DashboardPage?.TopNavBar || { settings: "Settings" };
+  const t = useTranslation("DashboardPage.TopNavBar");
 
-  const isRTL = local === "ar";
+  const isRTL = locale === "ar";
 
   // Close when clicking outside
   useEffect(() => {

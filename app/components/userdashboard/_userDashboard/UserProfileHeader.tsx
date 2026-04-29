@@ -6,18 +6,15 @@ import { FiMapPin, FiCalendar } from "react-icons/fi";
 import { FaCheckCircle } from "react-icons/fa";
 import Image from "next/image";
 import { comingSoon } from "./lib";
-import { useVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/helpers/helpers";
-import { useAuth } from "@/app/context/AuthContext";
 import EditProfileModal from "./EditProfileModal";
+import { useAuthStore } from "@/app/store/AuthSlice";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 export default function UserProfileHeader() {
-  const { user } = useAuth();
+  const { user } = useAuthStore();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-  const { local } = useVariables();
-  const { UserDashboard } = getTranslations(local);
-  const t = UserDashboard.ProfileHeader;
+  const t = useTranslation("UserDashboard.ProfileHeader");
 
   return (
     <>
