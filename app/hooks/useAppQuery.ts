@@ -14,7 +14,8 @@ async function fetcher<TData>({
   endpoint: string;
   config?: RequestInit;
 }): Promise<TData> {
-  const baseURL = process.env.API_BASE_URL || "http://localhost:5000";
+  const baseURL =
+    process.env.API_BASE_URL || "https://sanad-backend.vercel.app";
 
   const response = await fetch(`${baseURL}${endpoint}`, {
     ...config,
