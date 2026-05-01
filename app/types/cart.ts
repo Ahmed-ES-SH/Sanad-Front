@@ -8,6 +8,8 @@ export interface CartItemType {
   serviceSlug: string;
   serviceIconUrl: string | null;
   serviceImageUrl?: string | null;
+  title?: string;
+  details?: string;
   quantity: number;
   unitPrice: number;
   subtotal: number;

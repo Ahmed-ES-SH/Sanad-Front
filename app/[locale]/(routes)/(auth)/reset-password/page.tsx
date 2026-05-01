@@ -8,11 +8,14 @@ export async function generateMetadata({ params }: any) {
   const { locale } = await params;
   const translations = getTranslations(locale ?? "en");
 
-  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
+  const title = translations.resetPassword.meta.title;
+  const description = translations.resetPassword.meta.description;
+
+  const sharedMetadata = getSharedMetadata(locale ?? "en", title, description);
 
   return {
-    title: translations.resetPassword.meta.title,
-    description: translations.resetPassword.meta.description,
+    title,
+    description,
     ...sharedMetadata,
   };
 }

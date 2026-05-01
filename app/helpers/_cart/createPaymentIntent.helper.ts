@@ -17,6 +17,8 @@ export interface PaymentIntentResponse {
 export const createPaymentIntent = async (
   total: number,
   items: CartItemType[],
+  userId: number,
+  serviceId: string,
 ): Promise<PaymentIntentResponse> => {
   if (!Number.isFinite(total) || total <= 0) {
     throw new Error("Cart total must be greater than 0 before payment.");
@@ -34,6 +36,8 @@ export const createPaymentIntent = async (
       amount: total,
       currency: "usd",
       description: description.substring(0, 255),
+      userId,
+      serviceId,
     });
   } catch (error) {
     if (axios.isAxiosError(error)) {

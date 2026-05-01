@@ -1513,6 +1513,7 @@
   },
   "cart": {
     "myCart": "ملف مشروعك",
+    "alreadyActiveOrder": "لديك بالفعل طلب نشط لهذا الدفع.",
     "items": "عناصر",
     "continueShopping": "متابعة التسوق",
     "processing": "جاري التنفيذ...",

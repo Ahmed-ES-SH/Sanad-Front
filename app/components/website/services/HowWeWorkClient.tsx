@@ -9,7 +9,6 @@ import {
 import { directionMap } from "@/app/constants/global";
 import { Messages } from "@/app/hooks/useTranslation";
 import { Locale } from "@/app/types/global";
-import { LocaleLink } from "../../global/LocaleLink";
 
 interface HowWeWorkClientProps {
   locale: Locale;
@@ -17,7 +16,11 @@ interface HowWeWorkClientProps {
   tComponents: Messages["servicesComponents"];
 }
 
-export function HowWeWorkClient({ locale, t, tComponents }: HowWeWorkClientProps) {
+export function HowWeWorkClient({
+  locale,
+  t,
+  tComponents,
+}: HowWeWorkClientProps) {
   const isRTL = locale === "ar";
 
   const steps = [
@@ -100,7 +103,9 @@ export function HowWeWorkClient({ locale, t, tComponents }: HowWeWorkClientProps
 
                 {/* Floating Metric */}
                 <div className="absolute top-1/2 right-4 translate-y-[-50%] p-4 bg-primary rounded-2xl shadow-button">
-                  <p className="caption text-primary-100 uppercase">{tComponents.uptime}</p>
+                  <p className="caption text-primary-100 uppercase">
+                    {tComponents.uptime}
+                  </p>
                   <p className="heading-md font-display text-white">99.9%</p>
                 </div>
 

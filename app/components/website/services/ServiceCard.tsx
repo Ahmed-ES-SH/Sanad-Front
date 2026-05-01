@@ -10,7 +10,7 @@ import { Messages } from "@/app/hooks/useTranslation";
 
 interface ServiceCardProps {
   service: Service;
-  t: Messages["services"] & Messages["servicePage"];
+  t: Messages["services"] | Messages["servicePage"];
 }
 
 export const getServiceUrl = (service: Service) => {

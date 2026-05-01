@@ -15,10 +15,13 @@ export async function generateMetadata({ params }: PageParams) {
   const { locale } = await params;
   const translations = getTranslations(locale ?? "en");
 
-  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
+  const title = translations.portfolioMeta.title;
+  const description = translations.portfolioMeta.description;
+
+  const sharedMetadata = getSharedMetadata(locale ?? "en", title, description);
 
   return {
-    title: translations.portfolioMeta?.title || "Our Portfolio — Sanad",
+    title,
     description:
       translations.portfolioMeta?.description ||
       "Explore our delivered projects across web, mobile, branding, and more.",

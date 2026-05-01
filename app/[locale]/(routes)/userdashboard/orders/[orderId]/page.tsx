@@ -32,11 +32,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const translations = getTranslations(locale ?? "en");
-  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
+
+  const title = translations.orderTrackingMeta.title;
+  const description = translations.orderTrackingMeta.description;
+
+  const sharedMetadata = getSharedMetadata(locale ?? "en", title, description);
 
   return {
-    title: translations.orderTrackingMeta.title,
-    description: translations.orderTrackingMeta.description,
+    title,
+    description,
     ...sharedMetadata,
   };
 }
@@ -148,7 +152,10 @@ const OrderTrackingPage = async ({ params }: OrderTrackingPageProps) => {
             />
 
             {/* Status Context Card */}
-            <WhatsNextCard title={t.whatsNext} description={whatsNextDescription} />
+            <WhatsNextCard
+              title={t.whatsNext}
+              description={whatsNextDescription}
+            />
           </div>
         </div>
       </div>

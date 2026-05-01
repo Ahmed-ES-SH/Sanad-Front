@@ -1561,6 +1561,7 @@
   },
   "cart": {
     "myCart": "Your Brief",
+    "alreadyActiveOrder": "You already have an active order for this payment.",
     "items": "Items",
     "continueShopping": "Continue Shopping",
     "processing": "Processing...",

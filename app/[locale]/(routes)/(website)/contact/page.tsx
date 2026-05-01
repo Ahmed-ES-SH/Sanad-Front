@@ -7,11 +7,14 @@ export async function generateMetadata({ params }: any) {
   const { locale } = await params;
   const translations = getTranslations(locale ?? "en");
 
-  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
+  const title = translations.contactMeta.title;
+  const description = translations.contactMeta.description;
+
+  const sharedMetadata = getSharedMetadata(locale ?? "en", title, description);
 
   return {
-    title: translations.contactMeta.title,
-    description: translations.contactMeta.description,
+    title,
+    description,
     ...sharedMetadata,
   };
 }

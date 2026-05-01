@@ -14,11 +14,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const translations = getTranslations(locale ?? "en");
 
-  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
+  const title = translations.aboutMeta.title;
+  const description = translations.aboutMeta.description;
+
+  const sharedMetadata = getSharedMetadata(locale ?? "en", title, description);
 
   return {
-    title: translations.aboutMeta.title,
-    description: translations.aboutMeta.description,
+    title,
+    description,
     ...sharedMetadata,
   };
 }

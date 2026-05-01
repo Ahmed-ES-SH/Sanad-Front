@@ -13,11 +13,14 @@ export async function generateMetadata({ params }: PageParams) {
   const { locale } = await params;
   const translations = getTranslations(locale ?? "en");
 
-  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
+  const title = translations.verifyEmailMeta.title;
+  const description = translations.verifyEmailMeta.description;
+
+  const sharedMetadata = getSharedMetadata(locale ?? "en", title, description);
 
   return {
-    title: translations.verifyEmailMeta.title,
-    description: translations.verifyEmailMeta.description,
+    title,
+    description,
     ...sharedMetadata,
   };
 }

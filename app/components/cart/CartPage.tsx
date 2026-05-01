@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { formatPrice } from "@/app/helpers/formatPrice";
 import { CartItem } from "./CartItem";
 import { TrustIndicators } from "./TrustIndicators";
@@ -17,13 +19,25 @@ import { useCartToast } from "@/app/hooks/useCartToast";
 import { useCartStore } from "@/app/store/CartSlice";
 import { useLocale } from "@/app/hooks/useLocale";
 import { PaymentModal } from "../payment/PaymentModal";
+import { useRouter } from "next/navigation";
+import { useNotificationStore } from "@/app/store/NotificationSlice";
 
 export function CartPage() {
   const locale = useLocale();
   const { user } = useAuthStore();
   const t = useTranslation("cart");
+  const router = useRouter();
 
-  const { items, isLoading, error, remove, add, clear, totalAmount: serverTotal } = useCartStore();
+  const {
+    items,
+    isLoading,
+    error,
+    remove,
+    add,
+    clear,
+    totalAmount: serverTotal,
+  } = useCartStore();
+  const { popupNotifications, dismissPopup } = useNotificationStore();
 
   // Checkout states
   const [isProcessingCheckout, setIsProcessingCheckout] = useState(false);
@@ -50,7 +64,10 @@ export function CartPage() {
     const calculated = calculateCartTotals(items);
     // Use the server-authoritative total for checkout — avoids divergence
     // if the backend applies discounts or corrects prices.
-    return { ...calculated, total: serverTotal > 0 ? serverTotal : calculated.total };
+    return {
+      ...calculated,
+      total: serverTotal > 0 ? serverTotal : calculated.total,
+    };
   }, [items, serverTotal]);
 
   const handleCheckout = useCallback(async () => {
@@ -66,6 +83,8 @@ export function CartPage() {
       const { clientSecret, paymentId } = await createPaymentIntent(
         totals.total,
         items,
+        user.id,
+        items[0].serviceId,
       );
       setClientSecret(clientSecret);
       setPaymentId(paymentId);
@@ -81,6 +100,37 @@ export function CartPage() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items, user, totals.total]);
+
+  // Handle real-time ORDER_CREATED event
+  useEffect(() => {
+    const orderCreatedNotif = popupNotifications.find(
+      (n) => n.type === ("ORDER_CREATED" as any),
+    );
+
+    if (orderCreatedNotif && orderCreatedNotif.data?.orderId) {
+      const { orderId, isRedirect } = orderCreatedNotif.data;
+
+      setIsProcessingCheckout(false);
+      setIsPaymentModalOpen(false);
+
+      if (isRedirect) {
+        toast.info(
+          t.alreadyActiveOrder ||
+            "You already have an active order for this payment.",
+        );
+        router.push(`/${locale}/orders/${orderId}`);
+      } else {
+        toast.success(
+          t.paymentSuccess ||
+            "Payment successful! Your order has been created.",
+        );
+        router.push(`/${locale}/orders/${orderId}?success=true`);
+      }
+
+      dismissPopup(orderCreatedNotif.id);
+      void clear();
+    }
+  }, [popupNotifications, dismissPopup, clear, router, locale, t]);
 
   const onSuccess = useCallback(() => {
     toast.success(t.paymentSuccess);
