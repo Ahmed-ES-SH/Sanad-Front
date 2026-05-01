@@ -1,16 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Article } from "@/app/types/blog";
 import { useLocale } from "@/app/hooks/useLocale";
 import { directionMap } from "@/app/constants/global";
+import { useAppQuery } from "@/app/hooks/useAppQuery";
+import { BLOG_ENDPOINTS } from "@/app/constants/endpoints";
+
 import BlogHeadPage from "./HeadPage";
 import BlogSearchAndFilter from "./SearchAndFilter";
 import BlogGrid from "./BlogGrid";
 import BlogPagination from "./BlogPagination";
 import BlogSidebar from "./BlogSidebar";
-import { useAppQuery } from "@/app/hooks/useAppQuery";
-import { BLOG_ENDPOINTS } from "@/app/constants/endpoints";
 
 interface BlogPageProps {
   initialArticles: Article[];
@@ -26,7 +27,6 @@ export default function BlogPage({
   currentPage,
 }: BlogPageProps) {
   const locale = useLocale();
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   // Read filter params from URL

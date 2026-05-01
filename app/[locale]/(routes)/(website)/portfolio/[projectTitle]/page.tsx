@@ -11,7 +11,11 @@ interface PageParams {
 export async function generateMetadata({ params }: PageParams) {
   const { local, projectTitle } = await params;
   const translations = getTranslations(local ?? "en");
-  const sharedMetadata = getSharedMetadata(local ?? "en", translations);
+  const sharedMetadata = getSharedMetadata(
+    local ?? "en",
+    translations.portfolioMeta?.title,
+    translations.portfolioMeta?.description,
+  );
 
   try {
     const project = await getProjectBySlug(projectTitle);

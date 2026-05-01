@@ -2,17 +2,12 @@ import { Category } from "./global";
 
 export interface CartItemType {
   id: string;
-  name?: string;
-  price?: number;
-  image?: string;
-  title?: string;
-  description?: string;
-  serviceImageUrl?: string;
   cartId: string;
   serviceId: string;
   serviceTitle: string;
   serviceSlug: string;
   serviceIconUrl: string | null;
+  serviceImageUrl?: string | null;
   quantity: number;
   unitPrice: number;
   subtotal: number;

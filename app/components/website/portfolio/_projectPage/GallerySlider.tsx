@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs, FreeMode } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -11,6 +12,8 @@ import { useTranslation } from "@/app/hooks/useTranslation";
 import "swiper/css";
 import "swiper/css/thumbs";
 import "swiper/css/free-mode";
+import NavButton from "./NavButton";
+import ThumbnailStrip from "./ThumbnailStrip";
 
 interface GallerySliderProps {
   images: string[];
@@ -67,9 +70,12 @@ export function GallerySlider({
         <Swiper
           modules={[Thumbs, FreeMode]}
           thumbs={{
-            swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+            swiper:
+              thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
           }}
-          onSwiper={(s) => { mainRef.current = s; }}
+          onSwiper={(s) => {
+            mainRef.current = s;
+          }}
           onSlideChange={handleSlideChange}
           loop={!single}
           spaceBetween={0}
@@ -133,102 +139,14 @@ export function GallerySlider({
       </div>
 
       {/* ── Thumbnail Strip ───────────────────────────── */}
-      {!single && (
-        <div style={{ direction: "ltr" }}>
-          <Swiper
-            modules={[FreeMode, Thumbs]}
-            onSwiper={setThumbsSwiper}
-            spaceBetween={8}
-            slidesPerView="auto"
-            freeMode
-            watchSlidesProgress
-            className="w-full"
-          >
-            {images.map((img, idx) => {
-              const isActive = activeIndex === idx;
-              return (
-                <SwiperSlide
-                  key={idx}
-                  style={{ width: "auto", height: "auto" }}
-                >
-                  <button
-                    onClick={() => slideTo(idx)}
-                    className="block relative overflow-hidden rounded-xl focus:outline-none"
-                    style={{
-                      width: "86px",
-                      height: "60px",
-                      flexShrink: 0,
-                      border: isActive
-                        ? "2.5px solid var(--primary)"
-                        : "2px solid var(--surface-200)",
-                      opacity: isActive ? 1 : 0.5,
-                      transform: isActive ? "scale(1.04)" : "scale(0.97)",
-                      transition: "all 0.2s ease",
-                      boxShadow: isActive
-                        ? "0 0 0 3px rgba(249,115,22,0.2)"
-                        : "none",
-                    }}
-                    aria-label={
-                      `${t.thumbnail} ${idx + 1}`
-                    }
-                    aria-current={isActive ? "true" : undefined}
-                  >
-                    <img
-                      src={img}
-                      alt=""
-                      aria-hidden="true"
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </div>
-      )}
+      <ThumbnailStrip
+        single={single}
+        images={images}
+        activeIndex={activeIndex}
+        setThumbsSwiper={setThumbsSwiper}
+        slideTo={slideTo}
+        t={t}
+      />
     </motion.div>
-  );
-}
-
-/* ── Reusable Nav Button ──────────────────────────── */
-function NavButton({
-  onClick,
-  side,
-  icon,
-  isRTL,
-  "aria-label": ariaLabel,
-}: {
-  onClick: () => void;
-  side: "start" | "end";
-  icon: React.ReactNode;
-  isRTL: boolean;
-  "aria-label": string;
-}) {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <button
-      onClick={onClick}
-      aria-label={ariaLabel}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={`
-        absolute ${side === "start" ? "left-4" : "right-4"} top-1/2 -translate-y-1/2 z-10
-        w-11 h-11 flex items-center justify-center rounded-full
-        opacity-0 group-hover:opacity-100
-        transition-all duration-200
-        hover:scale-110 active:scale-95
-      `}
-      style={{
-        background: hovered ? "var(--primary)" : "var(--surface-card-bg)",
-        border: hovered
-          ? "1px solid var(--primary)"
-          : "1px solid var(--surface-card-border)",
-        boxShadow: "0 4px 16px rgba(0,0,0,0.14)",
-        color: hovered ? "white" : "var(--surface-700)",
-        transition: "all 0.18s ease",
-      }}
-    >
-      {icon}
-    </button>
   );
 }

@@ -126,13 +126,13 @@ export default function SignupFormComponent({
         <div key={input.name}>
           {input.name === "password" ? (
             <div className="space-y-1.5">
-                <FormInput
-                  {...input}
-                  value={formData[input.name as keyof typeof formData]}
-                  onChange={handleInputChange}
-                  error={errors[input.name as keyof FormErrors]}
-                  signUpPage={signUpPage}
-                />
+              <FormInput
+                {...input}
+                value={formData[input.name as keyof typeof formData]}
+                onChange={handleInputChange}
+                error={errors[input.name as keyof FormErrors]}
+                signUpPage={signUpPage}
+              />
 
               {formData.password && (
                 <div className="space-y-2 pt-1">
@@ -200,7 +200,7 @@ export default function SignupFormComponent({
             formData.confirmPassword &&
             formData.password === formData.confirmPassword && (
               <p
-                className="text-xs -mt-2"
+                className="text-xs mt-2"
                 style={{ color: "var(--accent-emerald)" }}
               >
                 <FiCheck

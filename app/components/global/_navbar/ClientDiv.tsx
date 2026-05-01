@@ -4,9 +4,12 @@ import { directionMap } from "@/app/constants/global";
 import { useLocale } from "@/app/hooks/useLocale";
 import { useAuthStore } from "@/app/store/AuthSlice";
 import { useNotificationStore } from "@/app/store/NotificationSlice";
+import { useCartInit } from "@/app/hooks/useCartInit";
+import { useOAuthCartMerge } from "@/app/hooks/useOAuthCartMerge";
 import { User } from "@/app/types/user";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
+
 interface props {
   children: ReactNode;
   initialUser: User | null;
@@ -23,6 +26,11 @@ export default function ClientDiv({ children, initialUser }: props) {
   const refreshUnreadCount = useNotificationStore(
     (state) => state.refreshUnreadCount,
   );
+
+  // Initialise cart: fetch from API (auth) or hydrate from localStorage (guest)
+  useCartInit();
+  // Merge guest cart after OAuth logins (credential logins handle this in SignInForm)
+  useOAuthCartMerge();
 
   const [isScrolled, setIsScrolled] = useState(false);
 

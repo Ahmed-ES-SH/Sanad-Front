@@ -9,15 +9,7 @@ import { useRouter } from "next/navigation";
 import { Service } from "@/app/types/service";
 import { useCartStore } from "@/app/store/CartSlice";
 import { Locale } from "@/app/types/global";
-
-// Format currency
-function formatCurrency(amount: string | number): string {
-  const numAmount = typeof amount === "string" ? parseFloat(amount) : amount;
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(numAmount);
-}
+import { toast } from "sonner";
 
 interface ServiceOrderCTAProps {
   service?: Service | null;
@@ -39,25 +31,22 @@ export default function ServiceOrderCTA({
 
     setIsSubmitting(true);
     try {
-      add({
-        id: service.id,
-        cartId: "guest", // Placeholder for guest users
+      // add() calls the API for auth users, or persists to localStorage for guests
+      await add({
         serviceId: service.id,
         serviceTitle: service.title,
         serviceSlug: service.slug,
         serviceIconUrl: service.iconUrl,
         serviceImageUrl: service.coverImageUrl,
         unitPrice: Number(service.basePrice),
-        createdAt: service.createdAt,
-        updatedAt: service.updatedAt,
         type: "service",
         quantity: 1,
       });
 
-      // Navigate to cart page
+      // Navigate to cart after successful add
       router.push(`/${locale}/cart`);
-    } catch (error) {
-      console.error("Failed to add to cart:", error);
+    } catch {
+      toast.error("Failed to add service to cart. Please try again.");
       setIsSubmitting(false);
     }
   };
@@ -66,6 +55,11 @@ export default function ServiceOrderCTA({
   if (!service) {
     return null;
   }
+
+  const formattedPrice = new Intl.NumberFormat("ar-SA", {
+    style: "currency",
+    currency: "SAR",
+  }).format(Number(service.basePrice));
 
   return (
     <section id="order-section" className="relative py-16 md:py-24">
@@ -111,11 +105,11 @@ export default function ServiceOrderCTA({
             ) : (
               <FiShoppingCart className="text-xl" />
             )}
-              <span className="text-lg">
-                {isSubmitting ? translations.adding : translations.orderNow}
-              </span>
+            <span className="text-lg">
+              {isSubmitting ? translations.adding : translations.orderNow}
+            </span>
             <span className="ml-2 px-3 py-1 bg-primary/10 rounded-lg text-sm">
-              {formatCurrency(Number(service.basePrice))}
+              {formattedPrice}
             </span>
           </button>
         </motion.div>

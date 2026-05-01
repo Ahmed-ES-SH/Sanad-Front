@@ -4,7 +4,10 @@ import { getSharedMetadata } from "@/app/helpers/getSharedMetadata";
 import { Service } from "@/app/types/service";
 import { notFound } from "next/navigation";
 import { getTranslations } from "@/app/helpers/getTranslations";
-import { getServiceBySlug } from "@/app/actions/servicesActions";
+import {
+  getPublishedServices,
+  getServiceBySlug,
+} from "@/app/actions/servicesActions";
 import ServiceLayout from "@/app/components/website/services/_servicePage/ServiceLayout";
 
 interface ServicePageProps {
@@ -14,7 +17,11 @@ interface ServicePageProps {
 export async function generateMetadata({ params }: ServicePageProps) {
   const { local, serviceTitle } = await params;
   const translations = getTranslations(local ?? "en");
-  const sharedMetadata = getSharedMetadata(local ?? "en", translations);
+  const sharedMetadata = getSharedMetadata(
+    local ?? "en",
+    translations.servicesMeta.title,
+    translations.servicesMeta.description,
+  );
 
   try {
     const service = await getServiceBySlug(serviceTitle);
@@ -35,6 +42,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
 export default async function ServicePage({ params }: ServicePageProps) {
   const { serviceTitle } = await params;
   let service: Service | null = null;
+  const { data: relatedServices } = await getPublishedServices();
 
   try {
     service = await getServiceBySlug(serviceTitle);
@@ -44,7 +52,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <Suspense fallback={<Loading />}>
-      <ServiceLayout service={service} />
+      <ServiceLayout
+        service={service}
+        relatedServices={relatedServices?.slice(0, 8) ?? []}
+      />
     </Suspense>
   );
 }

@@ -1,6 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+const url = process.env.NEXT_PUBLIC_SITE_URL;
 
-export const getSharedMetadata = (locale: string, translations: any) => ({
+export const getSharedMetadata = (
+  locale: string,
+  title: string,
+  description: string,
+) => ({
   keywords: [
     "Sanad",
     "سند",
@@ -15,13 +19,13 @@ export const getSharedMetadata = (locale: string, translations: any) => ({
     "شركة تقنية",
   ],
   openGraph: {
-    title: translations.title,
-    description: translations.description,
-    url: `https://www.Sanad.tech/${locale}`, // رابط الصفحة بناءً على اللغة
+    title: title,
+    description: description,
+    url: `${url}/${locale}`, // رابط الصفحة بناءً على اللغة
     siteName: "Sanad - سند",
     images: [
       {
-        url: "https://www.Sanad.tech/images/og-image.jpg", // قم بتحديث الرابط الفعلي عند توفره
+        url: `${url}/sanad-logo.png`,
         width: 1200,
         height: 630,
         alt:
@@ -34,8 +38,8 @@ export const getSharedMetadata = (locale: string, translations: any) => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: translations.title,
-    description: translations.description,
-    image: "https://www.Sanad.tech/images/twitter-image.jpg", // قم بتحديث الرابط الفعلي عند توفره
+    title: title,
+    description: description,
+    images: [`${url}/sanad-logo.png`],
   },
 });

@@ -9,14 +9,14 @@ interface ItemsListProps {
 }
 
 export default function ItemsList({ t }: ItemsListProps) {
-  const { items, delete: deleteItem } = useCartStore();
+  const { items, remove } = useCartStore();
 
   // Use backend cart items directly
   const displayItems = items;
   const isEmpty = items.length === 0;
 
   const handleRemove = (itemId?: string, serviceId?: string) => {
-    deleteItem({ itemId, serviceId });
+    void remove({ itemId: itemId ?? "", serviceId });
   };
 
   return (

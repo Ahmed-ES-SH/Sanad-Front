@@ -11,7 +11,8 @@ export default function SignupForm() {
   const { signUpPage, formValidation } = getTranslations(locale);
 
   const signInWithGoogle = () => {
-    window.location.href = "/api/auth/google";
+    // window.location.href = `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/auth/google`;
+    window.location.href = `/api/auth/google`;
   };
 
   return (

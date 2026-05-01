@@ -2,7 +2,7 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import { formatTitle } from "@/app/helpers/formatTitle";
-import { easeOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import type { Project } from "@/app/types/project";
 import Img from "../../global/Img";
@@ -18,10 +18,6 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5,
-      ease: easeOut,
-    },
   },
 };
 
@@ -36,7 +32,9 @@ export default function PortfolioCard({ project, index }: Props) {
   return (
     <motion.div
       variants={itemVariants}
-      className="group relative overflow-hidden rounded-2xl border 
+      initial="hidden"
+      animate="visible"
+      className="group  relative overflow-hidden rounded-2xl border 
              transition-[transform,border-color,box-shadow] duration-300
              bg-[var(--surface-card-bg)] border-[var(--surface-card-border)]
              hover:border-[var(--surface-card-border-hover)] 

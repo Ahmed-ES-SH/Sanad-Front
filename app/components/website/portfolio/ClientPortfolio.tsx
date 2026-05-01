@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useCallback, useEffect } from "react";
 import dynamic from "next/dynamic";
 import type { Project } from "@/app/types/project";
 import { directionMap } from "@/app/constants/global";
@@ -10,7 +10,6 @@ import { useAppQuery } from "@/app/hooks/useAppQuery";
 import { PORTFOLIO_ENDPOINTS } from "@/app/constants/endpoints";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import { PaginationMeta, Category } from "@/app/types/global";
-import Pagination from "./Pagination";
 
 // Lazy load heavy components
 const StatsBar = dynamic(() => import("./StatsBar"), {
@@ -39,6 +38,8 @@ export default function ClientPortfolio({
   const t = useTranslation("portfolioPage");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [projects, setProjects] = useState<Project[]>(initialProjects);
+  const [currentMeta, setCurrentMeta] = useState<PaginationMeta>(meta);
 
   // Dynamic Query Key and Endpoint
   const queryParams = new URLSearchParams();
@@ -48,7 +49,7 @@ export default function ClientPortfolio({
   const endpoint = `${PORTFOLIO_ENDPOINTS.LIST_PUBLISHED}${queryString ? `?${queryString}` : ""}`;
 
   // useAppQuery configured to use initialData if no category or page change is selected
-  const { data, isLoading, error } = useAppQuery<
+  const { data, isLoading, error, isFetching } = useAppQuery<
     { data: Project[]; meta: PaginationMeta },
     { message?: string }
   >({
@@ -59,12 +60,45 @@ export default function ClientPortfolio({
         selectedCategory === null && currentPage === 1
           ? { data: initialProjects, meta }
           : undefined,
-      placeholderData: (previousData) => previousData,
     },
   });
 
-  const projects = data?.data || [];
-  const currentMeta = data?.meta || meta;
+  useEffect(() => {
+    if (data) {
+      if (currentPage === 1) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setProjects(data.data);
+      } else {
+        setProjects((prev) => {
+          const newProjects = data.data.filter(
+            (p) => !prev.some((existing) => existing.id === p.id),
+          );
+          return [...prev, ...newProjects];
+        });
+      }
+      setCurrentMeta(data.meta);
+    }
+  }, [data, currentPage]);
+
+  // Infinite Scroll Observer
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastElementRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (isFetching) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (
+          entries[0].isIntersecting &&
+          currentMeta &&
+          currentPage < currentMeta.lastPage
+        ) {
+          setCurrentPage((prev) => prev + 1);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [isFetching, currentMeta, currentPage],
+  );
 
   // Prepare categories list with an "All" option
   const categoriesList = useMemo(() => {
@@ -74,12 +108,7 @@ export default function ClientPortfolio({
   const handleCategorySelect = (id: string | null) => {
     setSelectedCategory(id);
     setCurrentPage(1); // Reset to first page when category changes
-  };
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    // Scroll to grid top
-    window.scrollTo({ top: 400, behavior: "smooth" });
+    setProjects([]);
   };
 
   if (isLoading && !projects.length) {
@@ -135,13 +164,22 @@ export default function ClientPortfolio({
       )}
 
       <PortfolioGrid projects={projects} />
-      {currentMeta && currentMeta.lastPage > 1 && (
-        <Pagination
-          totalPages={currentMeta.lastPage}
-          currentPage={currentPage}
-          handlePageChange={handlePageChange}
-        />
-      )}
+
+      {/* Infinite Scroll Sentinel */}
+      <div
+        ref={lastElementRef}
+        className="h-20 flex items-center justify-center mt-8"
+      >
+        {isFetching && currentPage > 1 && (
+          <div
+            className="w-8 h-8 border-4 rounded-full animate-spin"
+            style={{
+              borderColor: "var(--surface-200)",
+              borderTopColor: "var(--primary)",
+            }}
+          />
+        )}
+      </div>
       <StatsBar locale={locale} />
       <PortfolioCTA locale={locale} />
     </div>

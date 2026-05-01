@@ -159,6 +159,7 @@ export interface NotificationState {
   unreadCount: number;
   preferences: NotificationPreferences | null;
   isLoading: boolean;
+  hasFetchedInitial: boolean;
   isSocketConnected: boolean;
   error: string | null;
   pagination: {

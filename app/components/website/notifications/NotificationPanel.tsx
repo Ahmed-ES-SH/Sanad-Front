@@ -18,6 +18,7 @@ export default function NotificationPanel({ onClose }: NotificationPanelProps) {
     notifications,
     unreadCount,
     isLoading,
+    hasFetchedInitial,
     pagination,
     fetchNotifications,
     markAllAsRead,
@@ -26,10 +27,10 @@ export default function NotificationPanel({ onClose }: NotificationPanelProps) {
   const [isMarkingAllRead, setIsMarkingAllRead] = useState(false);
 
   useEffect(() => {
-    if (notifications.length === 0 && !isLoading) {
+    if (!hasFetchedInitial && !isLoading) {
       fetchNotifications(1, pagination.limit);
     }
-  }, [fetchNotifications, isLoading, notifications.length, pagination.limit]);
+  }, [fetchNotifications, isLoading, hasFetchedInitial, pagination.limit]);
 
   // Handle mark all as read
   const handleMarkAllAsRead = async () => {

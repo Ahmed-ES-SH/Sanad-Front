@@ -121,7 +121,7 @@ export default function PortfolioSection({
         />
 
         {/* Projects Grid Display */}
-        <motion.div layout className="relative min-h-[400px]">
+        <div className="relative min-h-[400px]">
           {isLoading ? (
             <LoadingGrid />
           ) : displayedProjects.length === 0 ? (
@@ -133,22 +133,17 @@ export default function PortfolioSection({
               transition={{ duration: 0.3 }}
               className="grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-1 grid-cols-1 gap-6 w-full"
             >
-              <AnimatePresence>
-                {displayedProjects.slice(0, 8).map((project, index) => (
-                  <motion.div
-                    key={project.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                  >
-                    <ProjectCard locale={locale} project={project} t={t} />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+              {displayedProjects.slice(0, 8).map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  locale={locale}
+                  project={project}
+                  t={t}
+                />
+              ))}
             </motion.div>
           )}
-        </motion.div>
+        </div>
 
         {/* "Show More" link to the full portfolio page */}
         {!isLoading && displayedProjects.length > 0 && (

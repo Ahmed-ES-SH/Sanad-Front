@@ -55,7 +55,7 @@ export default function SelectLanguage() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className="surface-btn-secondary max-md:rounded-full min-h-[40px] xl:px-4 px-1 text-sm"
+        className="surface-btn-secondary min-h-[40px] xl:px-4 px-1 text-sm"
       >
         <span className="w-[30px]">
           {selectedLanguage.slice(0, 2).toUpperCase()}

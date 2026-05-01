@@ -19,8 +19,8 @@ export default function CartButton() {
   const t = useTranslation("cart_button");
   const isRtl = locale === "ar";
 
-  const handleClear = () => {
-    clear();
+  const handleClear = async () => {
+    await clear();
   };
 
   // Handle outside click to close dropdown
@@ -65,7 +65,7 @@ export default function CartButton() {
 
             {/* Footer */}
             <CartButtonFooter
-              isEmpty={totalItems > 0}
+              isEmpty={totalItems === 0}
               totalAmount={totalAmount}
               handleClear={handleClear}
               setIsOpen={setIsOpen}

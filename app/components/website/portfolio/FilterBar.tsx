@@ -1,5 +1,6 @@
 "use client";
 import { Category } from "@/app/types/global";
+import { useRef, useState, useEffect } from "react";
 
 interface Props {
   categories: Category[];
@@ -15,6 +16,49 @@ export default function FilterBar({
   locale,
 }: Props) {
   const isRTL = locale === "ar";
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Only handle vertical scroll events (deltaY)
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        container.scrollLeft += isRTL ? -e.deltaY : e.deltaY;
+      }
+    };
+
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    return () => container.removeEventListener("wheel", handleWheel);
+  }, [isRTL]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Adjust scroll speed
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
 
   return (
     <div
@@ -28,8 +72,15 @@ export default function FilterBar({
     >
       <div className="c-container px-4">
         <div
-          className="flex gap-2 py-3 overflow-x-auto scrollbar-hide"
+          ref={scrollContainerRef}
+          className={`flex gap-2 py-3 overflow-x-auto scrollbar-hide ${
+            isDragging ? "cursor-grabbing" : "cursor-grab"
+          }`}
           dir={isRTL ? "rtl" : "ltr"}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
         >
           {categories.map((cat) => {
             const label = cat.name;

@@ -370,7 +370,14 @@
       "oldest": "SORT BY: Oldest"
     },
     "ideasThatInspire": "IDEAS THAT INSPIRE",
-    "loadingText": "Loading articles..."
+    "loadingText": "Loading articles...",
+    "page": "Page",
+    "searchPlaceholder": "Search articles...",
+    "categoryDropdown": "Category",
+    "allCategories": "All Categories",
+    "activeFilters": "Active filters:",
+    "searchLabel": "Search:",
+    "categoryLabel": "Category:"
   },
 
   "noArticles": {
@@ -422,6 +429,7 @@
   },
 
   "servicePage": {
+    "findSolution": "Find a solution",
     "benefits": "Benefits",
     "features": "Features",
     "targetAudience": "Target Audience",

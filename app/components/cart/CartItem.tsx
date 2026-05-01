@@ -19,10 +19,9 @@ export function CartItem({ item, onRemove, isRemoving }: CartItemProps) {
 
   // Determine type (default to service for now)
   const type = item.type || "service";
-  const title = item.serviceTitle || item.title || "";
-  const price = item.unitPrice || item.price || 0;
-  const image = item.serviceImageUrl || item.image;
-  const description = item.description || "";
+  const title = item.serviceTitle;
+  const price = item.unitPrice;
+  const image = item.serviceImageUrl ?? item.serviceIconUrl;
 
   return (
     <article
@@ -105,11 +104,6 @@ export function CartItem({ item, onRemove, isRemoving }: CartItemProps) {
                 <h3 className="text-base md:text-lg font-bold text-(--on-surface) leading-tight">
                   {title}
                 </h3>
-                {description && (
-                  <p className="text-(--on-surface-variant) text-xs md:text-sm mt-1 line-clamp-2 md:line-clamp-none">
-                    {description}
-                  </p>
-                )}
               </div>
               <div className="hidden md:block text-end shrink-0">
                 <span className="text-lg font-bold text-primary tabular-nums">

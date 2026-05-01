@@ -14,6 +14,7 @@ const NotificationsClient: React.FC = () => {
     unreadCount,
     markAllAsRead,
     isLoading,
+    hasFetchedInitial,
     pagination,
     fetchNotifications,
   } = useNotificationStore();
@@ -25,13 +26,13 @@ const NotificationsClient: React.FC = () => {
   const [isMarkingAllRead, setIsMarkingAllRead] = useState(false);
 
   useEffect(() => {
-    if (notificationsList.length === 0 && !isLoading) {
+    if (!hasFetchedInitial && !isLoading) {
       fetchNotifications(1, pagination.limit);
     }
   }, [
     fetchNotifications,
     isLoading,
-    notificationsList.length,
+    hasFetchedInitial,
     pagination.limit,
   ]);
 

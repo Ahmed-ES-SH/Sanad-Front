@@ -10,7 +10,7 @@ import { Messages } from "@/app/hooks/useTranslation";
 
 interface ServiceCardProps {
   service: Service;
-  t: Messages["services"];
+  t: Messages["services"] & Messages["servicePage"];
 }
 
 export const getServiceUrl = (service: Service) => {
@@ -21,7 +21,10 @@ export const getServiceUrl = (service: Service) => {
 };
 
 // Memoized to prevent re-renders when parent state changes (pagination/filtering)
-const ServiceCard = memo(function ServiceCard({ service, t }: ServiceCardProps) {
+const ServiceCard = memo(function ServiceCard({
+  service,
+  t,
+}: ServiceCardProps) {
   return (
     <motion.div
       key={service.id}

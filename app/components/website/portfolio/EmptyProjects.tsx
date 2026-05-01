@@ -28,7 +28,7 @@ export default function EmptyProjects({
           transition={{ delay: 0.2, duration: 0.5 }}
           className="relative z-10"
         >
-          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 flex items-center justify-center mb-6">
+          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/10 to-primary/5   flex items-center justify-center mb-6">
             <FiFolder className="w-16 h-16 text-primary" strokeWidth={1.5} />
           </div>
         </motion.div>
@@ -39,7 +39,7 @@ export default function EmptyProjects({
           transition={{ delay: 0.4, duration: 0.3 }}
           className="absolute -top-2 -right-2 z-20"
         >
-          <div className="w-8 h-8 rounded-full bg-surface-200 dark:bg-surface-700 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full bg-surface-200  flex items-center justify-center">
             <FiSearch className="w-4 h-4 text-surface-500" />
           </div>
         </motion.div>
@@ -49,7 +49,7 @@ export default function EmptyProjects({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
-        className="text-2xl font-bold text-surface-900 dark:text-white mb-2"
+        className="text-2xl font-bold text-surface-900  mb-2"
       >
         {t.noProjectsTitle || "No Projects Yet"}
       </motion.h3>
@@ -58,7 +58,7 @@ export default function EmptyProjects({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.5 }}
-        className="text-base text-surface-500 dark:text-surface-400 text-center max-w-md mb-8"
+        className="text-base text-surface-500  text-center max-w-md mb-8"
       >
         {t.noProjectsFound || "No projects found"}
       </motion.p>

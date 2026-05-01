@@ -323,7 +323,14 @@
       "oldest": "الفرز حسب: الأقدم"
     },
     "ideasThatInspire": "أفكار تلهمك",
-    "loadingText": "تحميل المقالات..."
+    "loadingText": "تحميل المقالات...",
+    "page": "صفحة",
+    "searchPlaceholder": "البحث في المقالات...",
+    "categoryDropdown": "التصنيف",
+    "allCategories": "الكل",
+    "activeFilters": "الفلاتر النشطة:",
+    "searchLabel": "بحث:",
+    "categoryLabel": "تصنيف:"
   },
 
   "noArticles": {
@@ -375,6 +382,7 @@
   },
 
   "servicePage": {
+    "findSolution": "اكتشف الحل",
     "benefits": "الفوائد",
     "features": "الميزات",
     "targetAudience": "الجمهور المستهدف",

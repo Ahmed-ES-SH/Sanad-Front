@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { loginAction } from "@/app/actions/authActions";
 import { AUTH_ENDPOINTS } from "@/app/constants/endpoints";
 import { useAuthStore } from "@/app/store/AuthSlice";
+import { useCartStore } from "@/app/store/CartSlice";
 import { FormErrors } from "@/app/types/auth";
 import { validateSignInForm } from "./validation";
 import { directionMap } from "@/app/constants/global";
@@ -25,6 +26,7 @@ export default function SignInForm() {
 
   const { formValidation, signInPage } = getTranslations(locale);
   const { setUser } = useAuthStore();
+  const { mergeGuestCart, fetchCart } = useCartStore();
   const isRegistered = searchParams.get("registered") === "1";
   const pendingEmail = searchParams.get("email");
 
@@ -87,6 +89,18 @@ export default function SignInForm() {
         const user = response.data.user;
         setUser(user);
         toast.success(response.message);
+
+        // Merge any guest cart items into the newly authenticated cart
+        const mergeResult = await mergeGuestCart();
+        if (mergeResult.failedItems.length > 0) {
+          toast.warning(
+            `${mergeResult.failedItems.length} item(s) from your cart could not be added.`,
+          );
+        }
+        // Refresh the cart from the server (merge returns updated cart, but
+        // fetchCart ensures consistency)
+        void fetchCart();
+
         router.push(
           user.role === "admin"
             ? `/${locale}/dashboard`

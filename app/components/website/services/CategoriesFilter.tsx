@@ -42,7 +42,7 @@ export default function CategoriesFilter({
   const allCategories = [allCategory, ...categories];
 
   return (
-    <div className="relative group w-full  mx-auto px-4 md:px-0 max-w-4xl">
+    <div className="relative group w-full  2xl:mx-auto px-4 md:px-0 2xl:max-w-4xl">
       <div
         className="flex items-center bg-surface-100 rounded-2xl border border-surface-200 p-1.5"
         role="tablist"
@@ -63,7 +63,10 @@ export default function CategoriesFilter({
           dir={isRTL ? "rtl" : "ltr"}
           slidesPerView={"auto"}
           freeMode={true}
-          mousewheel={{ forceToAxis: true }}
+          grabCursor={true}
+          simulateTouch={true}
+          touchEventsTarget="container"
+          mousewheel={true}
           modules={[FreeMode, Mousewheel, Navigation]}
           navigation={{
             prevEl,

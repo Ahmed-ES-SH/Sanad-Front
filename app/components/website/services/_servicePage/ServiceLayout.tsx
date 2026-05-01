@@ -3,7 +3,6 @@ import { directionMap } from "@/app/constants/global";
 import { useLocale } from "@/app/hooks/useLocale";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import { Service, StaticServiceData } from "@/app/types/service";
-import { motion } from "framer-motion";
 import { servicesData } from "@/app/constants/services";
 import {
   ServiceHero,
@@ -12,11 +11,11 @@ import {
   ServiceFAQ,
   ServiceOrderCTA,
   RelatedServices,
-  ServiceHeader,
 } from "./";
 
 interface ServiceLayoutProps {
   service?: Service | null;
+  relatedServices: Service[] | null;
 }
 
 function mapBackendToStatic(backendService: Service): StaticServiceData {
@@ -42,6 +41,7 @@ function mapBackendToStatic(backendService: Service): StaticServiceData {
 
 export default function ServiceLayout({
   service: backendService,
+  relatedServices,
 }: ServiceLayoutProps) {
   const locale = useLocale();
   const t_servicePage = useTranslation("servicePage");
@@ -90,8 +90,7 @@ export default function ServiceLayout({
       />
 
       <RelatedServices
-        currentServiceId={service.id}
-        currentCategory={service.category || "development"}
+        services={relatedServices}
         translations={t_servicePage}
       />
     </div>

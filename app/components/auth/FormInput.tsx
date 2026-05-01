@@ -1,4 +1,5 @@
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { Messages } from "@/app/hooks/useTranslation";
 
 interface FormInputProps {
   name: string;
@@ -12,10 +13,10 @@ interface FormInputProps {
   autoFocus?: boolean;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onFocus: () => void;
-  onBlur: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
   error?: string;
-  signUpPage: any;
+  signUpPage: Messages["signUpPage"];
 }
 
 export default function FormInput({

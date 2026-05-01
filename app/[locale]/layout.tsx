@@ -1,10 +1,26 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Metadata } from "next";
 import { Toaster } from "sonner";
-import Footer from "../components/global/_footer/Footer";
-import Navbar from "../components/global/_navbar/Navbar";
-import ClientLayout from "../components/global/ClientLayout";
 import { directionMap } from "../constants/global";
 import { Locale } from "../types/global";
+import { getTranslations } from "../helpers/getTranslations";
+import { getSharedMetadata } from "../helpers/getSharedMetadata";
+
+import ClientLayout from "../components/global/ClientLayout";
+import Footer from "../components/global/_footer/Footer";
+import Navbar from "../components/global/_navbar/Navbar";
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { locale } = await params;
+  const t = getTranslations(locale, "layoutMeta");
+  const sharedMetaData = getSharedMetadata(locale, t.title, t.description);
+
+  return {
+    title: t.title,
+    description: t.description,
+    ...sharedMetaData,
+  };
+}
 
 export default async function layout({ children, params }: any) {
   const { locale } = await params;

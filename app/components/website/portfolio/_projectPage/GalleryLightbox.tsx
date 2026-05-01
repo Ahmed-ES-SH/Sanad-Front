@@ -1,9 +1,23 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
-import { HiOutlineX, HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import {
+  HiOutlineX,
+  HiOutlineChevronLeft,
+  HiOutlineChevronRight,
+} from "react-icons/hi";
 import { useTranslation } from "@/app/hooks/useTranslation";
+
+interface GalleryLightboxProps {
+  images: string[];
+  index: number;
+  onClose: () => void;
+  onNav: (dir: 1 | -1) => void;
+  title: string;
+  isRTL: boolean;
+}
 
 export function GalleryLightbox({
   images,
@@ -12,14 +26,7 @@ export function GalleryLightbox({
   onNav,
   title,
   isRTL,
-}: {
-  images: string[];
-  index: number;
-  onClose: () => void;
-  onNav: (dir: 1 | -1) => void;
-  title: string;
-  isRTL: boolean;
-}) {
+}: GalleryLightboxProps) {
   const t = useTranslation("ProjectPage");
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -36,11 +43,13 @@ export function GalleryLightbox({
       // Focus trap
       if (e.key === "Tab") {
         const focusableElements = modalRef.current?.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
         if (focusableElements) {
           const firstElement = focusableElements[0] as HTMLElement;
-          const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+          const lastElement = focusableElements[
+            focusableElements.length - 1
+          ] as HTMLElement;
 
           if (e.shiftKey) {
             if (document.activeElement === firstElement) {
@@ -60,14 +69,16 @@ export function GalleryLightbox({
     return () => window.removeEventListener("keydown", handler);
   }, [isRTL, onClose, onNav]);
 
-  return (
+  if (typeof window === undefined) return null;
+
+  const content = (
     <motion.div
       ref={modalRef}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
-      className="fixed inset-0 z-[120] flex items-center justify-center p-4"
+      className="fixed inset-0 z-99999 flex items-center justify-center p-4"
       style={{ backgroundColor: "rgba(0,0,0,0.96)" }}
       onClick={onClose}
       role="dialog"
@@ -131,4 +142,6 @@ export function GalleryLightbox({
       )}
     </motion.div>
   );
+
+  return createPortal(content, document.body);
 }

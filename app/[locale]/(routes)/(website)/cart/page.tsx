@@ -7,7 +7,11 @@ export async function generateMetadata({ params }: any) {
   const { locale } = await params;
   const translations = getTranslations(locale ?? "en");
 
-  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
+  const sharedMetadata = getSharedMetadata(
+    locale ?? "en",
+    translations.cartMeta.title,
+    translations.cartMeta.description,
+  );
 
   return {
     title: translations.cartMeta.title,

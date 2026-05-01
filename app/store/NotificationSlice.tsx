@@ -35,6 +35,7 @@ const initialState: NotificationState = {
   unreadCount: 0,
   preferences: null,
   isLoading: false,
+  hasFetchedInitial: false,
   isSocketConnected: false,
   error: null,
   pagination: {
@@ -84,6 +85,7 @@ export const useNotificationStore = create<NotificationStore>((set, get) => ({
         unreadCount: 0,
         isSocketConnected: false,
         error: null,
+        hasFetchedInitial: false,
       });
     }
   },
@@ -133,6 +135,7 @@ export const useNotificationStore = create<NotificationStore>((set, get) => ({
 
         return {
           notifications,
+          hasFetchedInitial: true,
           pagination: {
             page: res.page,
             limit: res.limit,

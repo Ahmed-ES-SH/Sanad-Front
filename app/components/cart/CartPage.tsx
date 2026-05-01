@@ -23,7 +23,7 @@ export function CartPage() {
   const { user } = useAuthStore();
   const t = useTranslation("cart");
 
-  const { items, isLoading, delete: deleteItem, add, clear } = useCartStore();
+  const { items, isLoading, error, remove, add, clear, totalAmount: serverTotal } = useCartStore();
 
   // Checkout states
   const [isProcessingCheckout, setIsProcessingCheckout] = useState(false);
@@ -32,6 +32,8 @@ export function CartPage() {
   const [paymentId, setPaymentId] = useState("");
 
   // Undo toast state management
+  // removeItem signature: (itemId: string, serviceId: string) => void | Promise<void>
+  // addItem signature:    (item: CartItemType) => void | Promise<void>
   const {
     undoToast,
     isRemoving,
@@ -39,12 +41,17 @@ export function CartPage() {
     handleUndo,
     handleDismissToast,
   } = useCartToast(
-    (itemId, serviceId) => deleteItem({ itemId, serviceId }),
-    (item) => add(item),
+    (itemId, serviceId) => remove({ itemId, serviceId }),
+    (item) => add({ serviceId: item.serviceId, quantity: item.quantity }),
   );
 
-  // Calculate totals
-  const totals = useMemo(() => calculateCartTotals(items), [items]);
+  // Calculate display totals (subtotal + VAT breakdown for the summary panel)
+  const totals = useMemo(() => {
+    const calculated = calculateCartTotals(items);
+    // Use the server-authoritative total for checkout — avoids divergence
+    // if the backend applies discounts or corrects prices.
+    return { ...calculated, total: serverTotal > 0 ? serverTotal : calculated.total };
+  }, [items, serverTotal]);
 
   const handleCheckout = useCallback(async () => {
     if (items.length === 0) return;
@@ -78,7 +85,7 @@ export function CartPage() {
   const onSuccess = useCallback(() => {
     toast.success(t.paymentSuccess);
     setIsPaymentModalOpen(false);
-    clear();
+    void clear();
   }, [clear, t.paymentSuccess]);
 
   // Check if cart is empty
@@ -99,6 +106,22 @@ export function CartPage() {
 
   return (
     <>
+      {/* Error Banner */}
+      {error && (
+        <div
+          role="alert"
+          className="mb-4 flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+        >
+          <span className="flex-1">{error}</span>
+          <button
+            onClick={() => useCartStore.setState({ error: null })}
+            aria-label={t.dismiss}
+            className="shrink-0 text-red-400 hover:text-red-600 transition-colors"
+          >
+            <MdClose className="text-base" />
+          </button>
+        </div>
+      )}
       {isEmpty ? (
         <EmptyCartState />
       ) : (

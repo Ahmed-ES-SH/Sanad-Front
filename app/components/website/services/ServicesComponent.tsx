@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Service } from "@/app/types/service";
 import { Category, PaginationMeta } from "@/app/types/global";
@@ -14,7 +14,6 @@ import NoServicesFound from "./NoServicesFound";
 import { useAppQuery } from "@/app/hooks/useAppQuery";
 import { SERVICES_ENDPOINTS } from "@/app/constants/endpoints";
 import { PublicServiceListResponse } from "@/app/types/service";
-import Pagination from "@/app/components/global/Pagination";
 
 interface ServicesComponentProps {
   services?: Service[];
@@ -42,6 +41,7 @@ export default function ServicesComponent({
   const handleFilterChange = (category: Category | null) => {
     setActiveFilter(category);
     setCurrentPage(1);
+    setServices([]);
     setHasInteracted(true);
   };
 
@@ -73,10 +73,39 @@ export default function ServicesComponent({
 
   useEffect(() => {
     if (queryData) {
-      setServices(queryData.data);
+      if (currentPage === 1) {
+        setServices(queryData.data);
+      } else {
+        setServices((prev) => {
+          const newServices = queryData.data.filter(
+            (s) => !prev.some((existing) => existing.id === s.id),
+          );
+          return [...prev, ...newServices];
+        });
+      }
       setCurrentMeta(queryData.meta);
     }
-  }, [queryData]);
+  }, [queryData, currentPage]);
+
+  // Infinite Scroll Observer
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastElementRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (isFetching) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (
+          entries[0].isIntersecting &&
+          currentMeta &&
+          currentPage < currentMeta.lastPage
+        ) {
+          handlePageChange(currentPage + 1);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [isFetching, currentMeta, currentPage],
+  );
 
   return (
     <section
@@ -86,8 +115,8 @@ export default function ServicesComponent({
     >
       <div className="c-container">
         {/* Refined Header: Left Aligned for Rhythm */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-          <div className="max-w-2xl">
+        <div className="flex flex-col items-start 2xl:flex-row 2xl:items-end justify-between gap-8 mb-16">
+          <div className="2xl:max-w-2xl">
             <span className="surface-badge mb-4">{t.title1}</span>
             <h1 className="display-md font-display text-surface-900 mb-6 leading-tight">
               {t.title2}
@@ -113,33 +142,33 @@ export default function ServicesComponent({
             </div>
           )}
           <motion.div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-300 ${
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 xl:gap-4 2xl:gap-8 transition-opacity duration-300 ${
               isFetching ? "opacity-50 pointer-events-none" : "opacity-100"
             }`}
           >
             <AnimatePresence mode="popLayout">
-              {services && services?.length > 0 ? (
-                services?.map((service) => (
-                  <ServiceCard
-                    key={service.id}
-                    service={service}
-                    t={t_services}
-                  />
-                ))
-              ) : (
-                <NoServicesFound locale={locale} />
-              )}
+              {services && services?.length > 0
+                ? services?.map((service) => (
+                    <ServiceCard
+                      key={service.id}
+                      service={service}
+                      t={t_services}
+                    />
+                  ))
+                : !isFetching && <NoServicesFound locale={locale} />}
             </AnimatePresence>
           </motion.div>
-        </div>
 
-        {currentMeta && currentMeta.lastPage > 1 && (
-          <Pagination
-            totalPages={currentMeta.lastPage}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-          />
-        )}
+          {/* Infinite Scroll Sentinel */}
+          <div
+            ref={lastElementRef}
+            className="h-20 flex items-center justify-center mt-8"
+          >
+            {isFetching && currentPage > 1 && (
+              <div className="w-10 h-10 border-4 border-surface-200 border-t-primary-600 rounded-full animate-spin"></div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

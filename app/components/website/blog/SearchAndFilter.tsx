@@ -5,7 +5,6 @@ import { FiSearch, FiChevronDown, FiX, FiFilter } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { getCategories } from "@/app/actions/blogActions";
 import { Category } from "@/app/types/global";
-import { useLocale } from "@/app/hooks/useLocale";
 import { useTranslation } from "@/app/hooks/useTranslation";
 
 interface SearchAndFilterProps {
@@ -31,7 +30,6 @@ export default function BlogSearchAndFilter({
   onCategoryChange,
   selectedCategory,
 }: SearchAndFilterProps) {
-  const locale = useLocale();
   const t = useTranslation("blogPage");
   const [categories, setCategories] = useState<Category[]>([]);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -78,7 +76,7 @@ export default function BlogSearchAndFilter({
 
   return (
     <motion.div
-      className="mb-10"
+      className="relative z-40 mb-10"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -92,7 +90,7 @@ export default function BlogSearchAndFilter({
           </span>
         </div>
         <div className="hidden md:block text-sm text-surface-400 font-medium">
-          {locale === "ar" ? "صفحة واحدة" : "Page"} 1
+          {t.page} 1
         </div>
       </div>
 
@@ -108,11 +106,7 @@ export default function BlogSearchAndFilter({
               </div>
               <input
                 type="text"
-                placeholder={
-                  locale === "ar"
-                    ? "البحث في المقالات..."
-                    : "Search articles..."
-                }
+                placeholder={t.searchPlaceholder}
                 value={localSearch}
                 onChange={(e) => setLocalSearch(e.target.value)}
                 className="w-full pl-14 pr-12 py-3 bg-surface-50/80 backdrop-blur-sm border border-surface-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-surface-50 outline-none transition-all duration-300 text-surface-800 placeholder:text-surface-400 font-medium"
@@ -145,8 +139,7 @@ export default function BlogSearchAndFilter({
                 <span
                   className={`font-medium ${selectedCategory ? "text-primary-dark" : "text-surface-500"}`}
                 >
-                  {selectedCategoryName ||
-                    (locale === "ar" ? "التصنيف" : "Category")}
+                  {selectedCategoryName || t.categoryDropdown}
                 </span>
               </div>
               <motion.div
@@ -165,7 +158,7 @@ export default function BlogSearchAndFilter({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute z-50 w-full mt-2 bg-surface-card border border-surface-200 rounded-xl shadow-xl overflow-hidden"
+                  className="absolute bg-white z-50 w-full mt-2 border border-surface-200 rounded-xl shadow-xl overflow-hidden"
                 >
                   <div className="max-h-60 overflow-y-auto">
                     <button
@@ -179,7 +172,7 @@ export default function BlogSearchAndFilter({
                           : "text-surface-600"
                       }`}
                     >
-                      {locale === "ar" ? "الكل" : "All Categories"}
+                      {t.allCategories}
                     </button>
                     {categories.map((category) => (
                       <button
@@ -238,12 +231,12 @@ export default function BlogSearchAndFilter({
             className="flex items-center gap-2 mt-4 pt-4 border-t border-surface-100"
           >
             <span className="text-sm text-surface-400 font-medium">
-              {locale === "ar" ? "الفلاتر النشطة:" : "Active filters:"}
+              {t.activeFilters}
             </span>
             <div className="flex flex-wrap gap-2">
               {searchTerm && (
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary rounded-lg text-sm font-medium">
-                  {locale === "ar" ? "بحث:" : "Search:"} {searchTerm}
+                  {t.searchLabel} {searchTerm}
                   <button
                     onClick={clearSearch}
                     className="hover:text-primary-dark"
@@ -254,8 +247,7 @@ export default function BlogSearchAndFilter({
               )}
               {selectedCategory && selectedCategoryName && (
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary rounded-lg text-sm font-medium">
-                  {locale === "ar" ? "تصنيف:" : "Category:"}{" "}
-                  {selectedCategoryName}
+                  {t.categoryLabel} {selectedCategoryName}
                   <button
                     onClick={clearCategory}
                     className="hover:text-primary-dark"

@@ -13,7 +13,11 @@ import ArticleNotFound from "@/app/components/website/blog/_articlePage/ArticleN
 export async function generateMetadata({ params }: any) {
   const { locale, articleTitle } = await params;
   const translations = getTranslations(locale ?? "en");
-  const sharedMetadata = getSharedMetadata(locale ?? "en", translations);
+  const sharedMetadata = getSharedMetadata(
+    locale ?? "en",
+    translations.blogMeta.title,
+    translations.blogMeta.description,
+  );
 
   try {
     const article = await getArticleBySlug(articleTitle);
@@ -33,10 +37,12 @@ export async function generateMetadata({ params }: any) {
 
 export default async function ArticlePage({ params }: any) {
   const { articleTitle } = await params;
-  const { data: relatedArticles } = await globalRequest<{ data: Article[] }>({
+  const response = await globalRequest<{ data: Article[] }>({
     method: "GET",
     endpoint: BLOG_ENDPOINTS.LIST_PUBLISHED,
   });
+
+  const { data: relatedArticles } = response.data;
 
   const article = await getArticleBySlug(articleTitle);
 
