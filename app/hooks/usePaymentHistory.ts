@@ -53,7 +53,7 @@ async function fetchPayments(
   if (filters.endDate) params.set("endDate", filters.endDate);
 
   const queryString = params.toString();
-  const url = `${API_BASE_URL}/api/admin/payments${queryString ? `?${queryString}` : ""}`;
+  const url = `${API_BASE_URL}/api/payments${queryString ? `?${queryString}` : ""}`;
 
   const response = await axios.get<PaginatedPaymentsResponse>(url, {
     withCredentials: true,

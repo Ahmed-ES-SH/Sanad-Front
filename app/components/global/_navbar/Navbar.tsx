@@ -8,6 +8,7 @@ import Joinbtn from "./Joinbtn";
 import MobileSidebar from "./MobileSidebar";
 import NavLinks from "./NavLinks";
 import SelectLanguage from "./SelectLanguage";
+import Image from "next/image";
 
 export default async function Navbar() {
   const currentUser = await getCurrentUserAction();
@@ -19,11 +20,13 @@ export default async function Navbar() {
         {/* Left: Logo */}
         <div className="flex items-center justify-between">
           <LocaleLink href={"/"} className="relative block">
-            <Img
+            <Image
               src="/sanad-logo.png"
-              className={`object-contain transition-all duration-500 lg:w-14 w-11 scale-100 hover:scale-110 active:scale-90`}
+              className={`object-contain transition-all duration-500 xl:w-14 w-11 scale-100 hover:scale-110 active:scale-90`}
               alt="Sanad Logo"
-              loading="eager"
+              priority
+              width={200}
+              height={200}
             />
           </LocaleLink>
 

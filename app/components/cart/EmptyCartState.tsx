@@ -8,9 +8,9 @@ export function EmptyCartState() {
   const t = useTranslation("cart");
 
   return (
-    <div className="py-12">
+    <div className="py-12 min-h-[80dvh] flex items-center justify-center">
       {/* Hero message */}
-      <div className="text-center mb-12">
+      <div className="text-center flex items-center justify-center flex-col mb-12">
         <div className="w-20 h-20 mx-auto rounded-2xl bg-[var(--surface-container)] border border-[var(--outline-variant)]/30 flex items-center justify-center mb-5">
           <MdAssignmentAdd className="text-4xl text-[var(--on-surface-variant)]" />
         </div>

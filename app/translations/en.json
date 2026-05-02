@@ -467,7 +467,12 @@
     "exploreMore": "Explore more of our services",
     "backToServices": "Back to Services",
     "whyChooseUs": "Why Choose Us",
-    "step": "Step"
+    "step": "Step",
+    "serviceNotFound": {
+      "backToServices": "Back to Services",
+      "title": "Service Not Found",
+      "message": "Sorry, we couldn't find the service you're looking for. It may have been removed or the link might be incorrect."
+    }
   },
 
   "verifyCode": {
@@ -1736,6 +1741,58 @@
   },
 
   "payments": {
+    "header": {
+      "breadcrumbAccount": "Account",
+      "breadcrumbPayments": "Payments & Billing",
+      "title": "Payments & Billing",
+      "description": "Manage your subscriptions, view invoices and update payment methods.",
+      "downloadAllLabel": "Download All Invoices",
+      "downloadAllAria": "Download all invoices as PDF"
+    },
+    "kpi": {
+      "totalSpentLabel": "Total Spent",
+      "spentTrend": "+12% vs last month",
+      "currency": "SAR",
+      "nextBillingLabel": "Next Billing Date",
+      "daysLeft": "7 Days Left",
+      "automaticPayment": "Automatic payment from •••• 4242",
+      "pendingAmountLabel": "Pending Amount",
+      "allSettled": "All Settled",
+      "pendingAllSettledAria": "Pending Amount — All Settled"
+    },
+    "methods": {
+      "title": "Saved Payment Methods",
+      "manageAll": "Manage All",
+      "defaultBadge": "DEFAULT",
+      "expiryLabel": "Expiry",
+      "visa": "VISA",
+      "mc": "MC",
+      "setAsDefault": "Set as Default",
+      "setAsDefaultAria": "Set Mastercard ending in 8812 as default payment method",
+      "addNewMethod": "Add New Method",
+      "addNewMethodAria": "Add a new payment method"
+    },
+    "billing": {
+      "title": "Billing Settings",
+      "emailLabel": "Billing Email",
+      "editEmailAria": "Edit billing email",
+      "taxIdLabel": "Tax Identification",
+      "editTaxIdAria": "Edit tax identification number",
+      "addressLabel": "Invoicing Address",
+      "addressValue": "King Fahd Branch Rd, Al Rahmaniyyah, Riyadh 12341, Saudi Arabia",
+      "manageTaxBtn": "Manage Tax Info"
+    },
+    "status": {
+      "all": "All Statuses",
+      "paid": "Paid",
+      "pending": "Pending",
+      "failed": "Failed"
+    },
+    "actions": {
+      "retry": "Retry",
+      "retryAria": "Retry payment for {{description}}",
+      "downloadAria": "Download invoice for {{description}}"
+    },
     "tableTitle": "Transaction History",
     "searchPlaceholder": "Search description...",
     "filterLabel": "Filter by status",

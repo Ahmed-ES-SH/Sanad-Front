@@ -12,13 +12,6 @@ import { FilterBarProps, StatusOption } from "./FilterBar.types";
 import { FilterStatus } from "./TransactionTable.types";
 import { useTranslation } from "@/app/hooks/useTranslation";
 
-const STATUS_OPTIONS: StatusOption[] = [
-  { value: "all", label: "All Statuses" },
-  { value: "paid", label: "Paid" },
-  { value: "pending", label: "Pending" },
-  { value: "failed", label: "Failed" },
-];
-
 const FilterBar: React.FC<FilterBarProps> = ({
   searchQuery,
   statusFilter,
@@ -33,6 +26,13 @@ const FilterBar: React.FC<FilterBarProps> = ({
   onClearFilters,
 }) => {
   const t = useTranslation("payments");
+
+  const statusOptions: StatusOption[] = [
+    { value: "all", label: t.status.all },
+    { value: "paid", label: t.status.paid },
+    { value: "pending", label: t.status.pending },
+    { value: "failed", label: t.status.failed },
+  ];
 
   const [showStatusDropdown, setShowStatusDropdown] = useState(false);
   const [showDateDropdown, setShowDateDropdown] = useState(false);
@@ -55,7 +55,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
   }, [closeDropdowns]);
 
   const getStatusLabel = (value: FilterStatus): string => {
-    const option = STATUS_OPTIONS.find((opt) => opt.value === value);
+    const option = statusOptions.find((opt) => opt.value === value);
     return option?.label ?? value;
   };
 
@@ -108,7 +108,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
           {showStatusDropdown && (
             <div className="absolute right-0 top-full mt-2 w-52 bg-white border border-stone-200 rounded-xl shadow-lg z-50 overflow-hidden">
               <div className="p-2">
-                {STATUS_OPTIONS.map((option) => (
+                {statusOptions.map((option) => (
                   <button
                     key={option.value}
                     className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors whitespace-nowrap ${

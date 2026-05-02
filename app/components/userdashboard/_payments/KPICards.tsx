@@ -1,77 +1,25 @@
-import { FiTrendingUp, FiDollarSign, FiCalendar, FiCheckCircle } from "react-icons/fi";
+import { FiDollarSign, FiCalendar, FiCheckCircle } from "react-icons/fi";
+import { Messages } from "@/app/hooks/useTranslation";
+import KPICard from "./KPICard";
 
-interface KPICardProps {
-  icon: React.ReactNode;
-  iconLabel: string;
-  iconBg: string;
-  iconColor: string;
-  badgeText: string;
-  badgeVariant: "success" | "warning" | "neutral";
-  label: string;
-  value: string;
-  currency?: string;
-  footer?: React.ReactNode;
+interface KPICardsProps {
+  t: Messages["payments"];
 }
 
-function KPICard({
-  icon,
-  iconLabel,
-  iconBg,
-  iconColor,
-  badgeText,
-  badgeVariant,
-  label,
-  value,
-  currency,
-  footer,
-}: KPICardProps) {
-  const badgeClasses = {
-    success: "text-green-600 bg-green-50",
-    warning: "text-amber-600 bg-amber-50",
-    neutral: "text-green-600 bg-green-50",
-  };
-
+export default function KPICards({ t }: KPICardsProps) {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-200/50 flex flex-col justify-between">
-      <div className="flex justify-between items-start">
-        <div
-          className={`w-10 h-10 rounded-lg ${iconBg} flex items-center justify-center ${iconColor}`}
-          aria-label={iconLabel}
-          role="img"
-        >
-          {icon}
-        </div>
-        <span className={`text-xs font-semibold px-2 py-1 rounded-full flex items-center gap-1 ${badgeClasses[badgeVariant]}`}>
-          {badgeVariant === "success" && <FiTrendingUp className="text-[12px]" />}
-          {badgeText}
-        </span>
-      </div>
-      <div className="mt-4">
-        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{label}</p>
-        <p className="text-3xl font-black text-foreground mt-1">
-          {value}
-          {currency && <span className="text-lg font-semibold text-muted-foreground"> {currency}</span>}
-        </p>
-      </div>
-      {footer && <div className="mt-4">{footer}</div>}
-    </div>
-  );
-}
-
-export default function KPICards() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-10">
       {/* Total Spent Card */}
       <KPICard
         icon={<FiDollarSign className="text-xl" />}
-        iconLabel="Total Spent"
+        iconLabel={t.kpi.totalSpentLabel}
         iconBg="bg-orange-50"
         iconColor="text-orange-600"
-        badgeText="+12% vs last month"
+        badgeText={t.kpi.spentTrend}
         badgeVariant="success"
-        label="Total Spent"
+        label={t.kpi.totalSpentLabel}
         value="45,200"
-        currency="SAR"
+        currency={t.kpi.currency}
         footer={
           <div className="h-1 w-full bg-stone-100 rounded-full overflow-hidden">
             <div className="h-full bg-orange-500 w-3/4 rounded-full" />
@@ -82,16 +30,16 @@ export default function KPICards() {
       {/* Next Billing Card */}
       <KPICard
         icon={<FiCalendar className="text-xl" />}
-        iconLabel="Next Billing Date"
+        iconLabel={t.kpi.nextBillingLabel}
         iconBg="bg-amber-50"
         iconColor="text-amber-600"
-        badgeText="7 Days Left"
+        badgeText={t.kpi.daysLeft}
         badgeVariant="warning"
-        label="Next Billing Date"
+        label={t.kpi.nextBillingLabel}
         value="Nov 12, 2024"
         footer={
           <p className="text-xs text-muted-foreground mt-4">
-            Automatic payment from •••• 4242
+            {t.kpi.automaticPayment}
           </p>
         }
       />
@@ -99,14 +47,14 @@ export default function KPICards() {
       {/* Pending Amount Card */}
       <KPICard
         icon={<FiCheckCircle className="text-xl" />}
-        iconLabel="Pending Amount — All Settled"
+        iconLabel={t.kpi.pendingAllSettledAria}
         iconBg="bg-green-50"
         iconColor="text-green-600"
-        badgeText="All Settled"
+        badgeText={t.kpi.allSettled}
         badgeVariant="neutral"
-        label="Pending Amount"
+        label={t.kpi.pendingAmountLabel}
         value="0.00"
-        currency="SAR"
+        currency={t.kpi.currency}
       />
     </div>
   );

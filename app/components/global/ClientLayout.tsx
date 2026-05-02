@@ -4,12 +4,16 @@ import { ReactNode, useEffect } from "react";
 import { queryClient } from "./QueryClient";
 import useVariablesStore from "@/app/store/VariablesSlice";
 import { useLocale } from "@/app/hooks/useLocale";
+import { useNotificationStore } from "@/app/store/NotificationSlice";
 
 interface ClientLayoutProps {
   children: ReactNode;
 }
 
 export default function ClientLayout({ children }: ClientLayoutProps) {
+  const { isLoading, hasFetchedInitial, pagination, fetchNotifications } =
+    useNotificationStore();
+
   const locale = useLocale();
   const { setLocal, setWidth } = useVariablesStore();
 
@@ -30,6 +34,12 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
       window.removeEventListener("resize", handleResize);
     };
   }, [setWidth]);
+
+  useEffect(() => {
+    if (!hasFetchedInitial && !isLoading) {
+      fetchNotifications(1, pagination.limit);
+    }
+  }, [fetchNotifications, isLoading, hasFetchedInitial, pagination.limit]);
 
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

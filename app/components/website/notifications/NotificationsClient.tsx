@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { FiLoader, FiCheck, FiFilter } from "react-icons/fi";
 import { NotificationType } from "@/app/types/notification";
@@ -14,7 +14,6 @@ const NotificationsClient: React.FC = () => {
     unreadCount,
     markAllAsRead,
     isLoading,
-    hasFetchedInitial,
     pagination,
     fetchNotifications,
   } = useNotificationStore();
@@ -24,17 +23,6 @@ const NotificationsClient: React.FC = () => {
   const [filter, setFilter] = useState<"all" | "unread">("all");
   const [typeFilter, setTypeFilter] = useState<NotificationType | "all">("all");
   const [isMarkingAllRead, setIsMarkingAllRead] = useState(false);
-
-  useEffect(() => {
-    if (!hasFetchedInitial && !isLoading) {
-      fetchNotifications(1, pagination.limit);
-    }
-  }, [
-    fetchNotifications,
-    isLoading,
-    hasFetchedInitial,
-    pagination.limit,
-  ]);
 
   // Handle mark all as read
   const handleMarkAllAsRead = async () => {

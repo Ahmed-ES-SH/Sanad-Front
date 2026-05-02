@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { FiFileText, FiCheckCircle, FiClock, FiXCircle } from "react-icons/fi";
 import { TransactionRowProps, TransactionData } from "./TransactionRow.types";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 const ICONS = {
   paid: <FiCheckCircle className="text-[10px] mr-1" />,
@@ -21,6 +22,7 @@ const TransactionRow: React.FC<TransactionRowProps> = ({
   statusConfig,
   onRetryPayment,
 }) => {
+  const t = useTranslation("payments");
   const { status, description, subtitle, amount, date, time, id, errorReason } =
     transaction;
 
@@ -69,15 +71,15 @@ const TransactionRow: React.FC<TransactionRowProps> = ({
         {status === "failed" ? (
           <button
             className="px-3 py-1.5 text-xs font-semibold text-orange-600 border border-orange-600/20 rounded-lg hover:bg-orange-50 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-            aria-label={`Retry payment for ${description}`}
+            aria-label={t.actions.retryAria.replace("{{description}}", description)}
             onClick={() => onRetryPayment?.(id)}
           >
-            Retry
+            {t.actions.retry}
           </button>
         ) : (
           <button
             className="p-2 text-muted-foreground hover:text-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 rounded"
-            aria-label={`Download invoice for ${description}`}
+            aria-label={t.actions.downloadAria.replace("{{description}}", description)}
           >
             <FiFileText />
           </button>

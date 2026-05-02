@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { Project } from "@/app/types/project";
 import { Category } from "@/app/types/global";

@@ -37,9 +37,11 @@ export default function ProjectsCategoriesFilter({
         spaceBetween={12}
         freeMode={true}
         mousewheel={{ forceToAxis: true }}
+        grabCursor={true}
+        centerInsufficientSlides={true}
         modules={[FreeMode, Mousewheel]}
         className="w-full"
-        wrapperClass="md:justify-center! px-4 md:px-0"
+        wrapperClass="px-4 md:px-0"
       >
         {/* "All" Category button */}
         <SwiperSlide className="w-auto!">

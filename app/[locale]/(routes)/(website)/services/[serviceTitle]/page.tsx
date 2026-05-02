@@ -1,14 +1,11 @@
-import Loading from "./loading";
-import { Suspense } from "react";
 import { getSharedMetadata } from "@/app/helpers/getSharedMetadata";
-import { Service } from "@/app/types/service";
-import { notFound } from "next/navigation";
 import { getTranslations } from "@/app/helpers/getTranslations";
 import {
   getPublishedServices,
   getServiceBySlug,
 } from "@/app/actions/servicesActions";
 import ServiceLayout from "@/app/components/website/services/_servicePage/ServiceLayout";
+import ServiceNotFound from "@/app/components/website/services/_servicePage/ServiceNotFound";
 
 interface ServicePageProps {
   params: Promise<{ local: string; serviceTitle: string }>;
@@ -41,21 +38,17 @@ export async function generateMetadata({ params }: ServicePageProps) {
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { serviceTitle } = await params;
-  let service: Service | null = null;
+
+  const service = await getServiceBySlug(serviceTitle);
+
   const { data: relatedServices } = await getPublishedServices();
 
-  try {
-    service = await getServiceBySlug(serviceTitle);
-  } catch {
-    notFound();
-  }
+  if (!service) return <ServiceNotFound />;
 
   return (
-    <Suspense fallback={<Loading />}>
-      <ServiceLayout
-        service={service}
-        relatedServices={relatedServices?.slice(0, 8) ?? []}
-      />
-    </Suspense>
+    <ServiceLayout
+      service={service}
+      relatedServices={relatedServices?.slice(0, 8) ?? []}
+    />
   );
 }

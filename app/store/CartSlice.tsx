@@ -12,6 +12,7 @@ import {
   type FailedMergeItem,
   type MergeApiResponse,
 } from "../actions/cart.actions";
+import { globalRequest } from "../helpers/globalRequest";
 
 const MIN_QUANTITY = 1;
 const MAX_QUANTITY = 99;
@@ -255,7 +256,10 @@ export const useCartStore = create<CartState>((set, get) => ({
     if (result.success && result.data) {
       set({ ...hydrateFromResponse(result.data), isLoading: false });
     } else {
-      set({ isLoading: false, error: result.message ?? "Failed to add item to cart" });
+      set({
+        isLoading: false,
+        error: result.message ?? "Failed to add item to cart",
+      });
     }
   },
 
@@ -335,9 +339,18 @@ export const useCartStore = create<CartState>((set, get) => ({
     set({ isLoading: true, error: null });
     const result = await clearCartAction();
     if (result.success) {
-      set({ items: [], totalItems: 0, totalAmount: 0, isLoading: false, error: null });
+      set({
+        items: [],
+        totalItems: 0,
+        totalAmount: 0,
+        isLoading: false,
+        error: null,
+      });
     } else {
-      set({ isLoading: false, error: result.message ?? "Failed to clear cart" });
+      set({
+        isLoading: false,
+        error: result.message ?? "Failed to clear cart",
+      });
     }
   },
 

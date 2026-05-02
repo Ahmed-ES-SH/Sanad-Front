@@ -16,7 +16,7 @@ import TransactionTableHeader from "./TransactionTableHeader";
 import TransactionRow from "./TransactionRow";
 import TransactionPagination from "./TransactionPagination";
 import EmptyState from "./EmptyState";
-import { useTranslation } from "@/app/hooks/useTranslation";
+import { Messages } from "@/app/hooks/useTranslation";
 import { usePaymentHistory } from "@/app/hooks/usePaymentHistory";
 import {
   PaymentStatus,
@@ -25,35 +25,31 @@ import {
 } from "@/app/types/payments";
 import { transformPaymentToTransaction } from "@/app/helpers/_payments/transformPayment.helper";
 
-const STATUS_CONFIG: Record<
-  TransactionStatus,
-  { label: string; className: string; icon: React.ReactNode }
-> = {
-  paid: {
-    label: "Paid",
-    className: "bg-green-50 text-green-700",
-    icon: <FiCheckCircle className="text-[10px] mr-1" />,
-  },
-  pending: {
-    label: "Pending",
-    className: "bg-amber-50 text-amber-700",
-    icon: <FiClock className="text-[10px] mr-1" />,
-  },
-  failed: {
-    label: "Failed",
-    className: "bg-red-50 text-red-700",
-    icon: <FiXCircle className="text-[10px] mr-1" />,
-  },
-};
+interface TransactionTableProps {
+  t: Messages["payments"];
+}
 
-// Status to API status mapping
-const getApiStatus = (filter: FilterStatus): string | undefined => {
-  if (filter === "all") return undefined;
-  return filter === "paid" ? "succeeded" : filter;
-};
-
-const TransactionTable: React.FC = () => {
-  const t = useTranslation("payments");
+export default function TransactionTable({ t }: TransactionTableProps) {
+  const statusConfig: Record<
+    TransactionStatus,
+    { label: string; className: string; icon: React.ReactNode }
+  > = {
+    paid: {
+      label: t.status.paid,
+      className: "bg-green-50 text-green-700",
+      icon: <FiCheckCircle className="text-[10px] mr-1" />,
+    },
+    pending: {
+      label: t.status.pending,
+      className: "bg-amber-50 text-amber-700",
+      icon: <FiClock className="text-[10px] mr-1" />,
+    },
+    failed: {
+      label: t.status.failed,
+      className: "bg-red-50 text-red-700",
+      icon: <FiXCircle className="text-[10px] mr-1" />,
+    },
+  };
 
   // Filter state
   const [searchQuery, setSearchQuery] = useState("");
@@ -62,6 +58,12 @@ const TransactionTable: React.FC = () => {
   const [dateTo, setDateTo] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [refreshKey, setRefreshKey] = useState(0);
+
+  // Status to API status mapping
+  const getApiStatus = (filter: FilterStatus): string | undefined => {
+    if (filter === "all") return undefined;
+    return filter === "paid" ? "succeeded" : filter;
+  };
 
   // API status conversion
   const apiStatus = getApiStatus(statusFilter);
@@ -246,7 +248,7 @@ const TransactionTable: React.FC = () => {
                 <TransactionRow
                   key={transaction.id}
                   transaction={transaction}
-                  statusConfig={STATUS_CONFIG}
+                  statusConfig={statusConfig}
                 />
               ))
             )}
@@ -269,6 +271,4 @@ const TransactionTable: React.FC = () => {
       />
     </section>
   );
-};
-
-export default TransactionTable;
+}

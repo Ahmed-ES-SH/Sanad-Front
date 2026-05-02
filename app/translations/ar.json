@@ -420,7 +420,12 @@
     "exploreMore": "استكشف المزيد من خدماتنا",
     "backToServices": "العودة للخدمات",
     "whyChooseUs": "لماذا تختارنا",
-    "step": "الخطوة"
+    "step": "الخطوة",
+    "serviceNotFound": {
+      "backToServices": "العودة للخدمات",
+      "title": "الخدمة غير موجودة",
+      "message": "عذرًا، لم نتمكن من العثور على الخدمة التي تبحث عنها. قد تكون قد تمت إزالتها أو ربما الرابط غير صحيح."
+    }
   },
 
   "verifyCode": {
@@ -1688,6 +1693,58 @@
   },
 
   "payments": {
+    "header": {
+      "breadcrumbAccount": "الحساب",
+      "breadcrumbPayments": "المدفوعات والفوترة",
+      "title": "المدفوعات والفوترة",
+      "description": "إدارة اشتراكاتك وعرض الفواتير وتحديث طرق الدفع.",
+      "downloadAllLabel": "تحميل جميع الفواتير",
+      "downloadAllAria": "تحميل جميع الفواتير بصيغة PDF"
+    },
+    "kpi": {
+      "totalSpentLabel": "إجمالي المنفق",
+      "spentTrend": "+12% مقارنة بالشهر الماضي",
+      "currency": "ر.س",
+      "nextBillingLabel": "تاريخ الفوترة القادم",
+      "daysLeft": "متبقي 7 أيام",
+      "automaticPayment": "دفع تلقائي من •••• 4242",
+      "pendingAmountLabel": "المبلغ المعلق",
+      "allSettled": "تمت التسوية بالكامل",
+      "pendingAllSettledAria": "المبلغ المعلق — تمت التسوية بالكامل"
+    },
+    "methods": {
+      "title": "طرق الدفع المحفوظة",
+      "manageAll": "إدارة الكل",
+      "defaultBadge": "افتراضي",
+      "expiryLabel": "تاريخ الانتهاء",
+      "visa": "فيزا",
+      "mc": "ماستركارد",
+      "setAsDefault": "تعيين كافتراضي",
+      "setAsDefaultAria": "تعيين ماستركارد التي تنتهي بـ 8812 كطريقة دفع افتراضية",
+      "addNewMethod": "إضافة طريقة جديدة",
+      "addNewMethodAria": "إضافة طريقة دفع جديدة"
+    },
+    "billing": {
+      "title": "إعدادات الفوترة",
+      "emailLabel": "بريد الفوترة الإلكتروني",
+      "editEmailAria": "تعديل بريد الفوترة الإلكتروني",
+      "taxIdLabel": "الرقم الضريبي",
+      "editTaxIdAria": "تعديل الرقم الضريبي",
+      "addressLabel": "عنوان الفوترة",
+      "addressValue": "طريق فرع الملك فهد، الرحمانية، الرياض 12341، المملكة العربية السعودية",
+      "manageTaxBtn": "إدارة المعلومات الضريبية"
+    },
+    "status": {
+      "all": "جميع الحالات",
+      "paid": "مدفوع",
+      "pending": "قيد الانتظار",
+      "failed": "فاشل"
+    },
+    "actions": {
+      "retry": "إعادة المحاولة",
+      "retryAria": "إعادة محاولة الدفع لـ {{description}}",
+      "downloadAria": "تحميل الفاتورة لـ {{description}}"
+    },
     "tableTitle": "سجل المعاملات",
     "searchPlaceholder": "البحث بالوصف...",
     "filterLabel": "تصفية حسب الحالة",

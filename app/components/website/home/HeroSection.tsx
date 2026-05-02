@@ -4,21 +4,18 @@ import { useLocale } from "@/app/hooks/useLocale";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import { motion } from "framer-motion";
 import LocaleLink from "../../global/LocaleLink";
-import Img from "../../global/Img";
+import Image from "next/image";
+import { useAuthStore } from "@/app/store/AuthSlice";
 
 export default function Hero_section() {
   const locale = useLocale();
+  const { user } = useAuthStore();
   const t = useTranslation("hero");
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
+    visible: { opacity: 1 },
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
   };
 
   const itemVariants = {
@@ -34,32 +31,12 @@ export default function Hero_section() {
     <div
       id="main-content"
       dir={directionMap[locale]}
-      className="relative w-full min-h-[90vh] lg:min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-surface-50"
+      className="relative w-full min-h-[100dvh]  flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-surface-50"
     >
       {/* Premium Background Treatment */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,var(--primary-100),transparent_70%)] opacity-40" />
         <div className="absolute inset-0 bg-[url('/big-wave.png')] bg-repeat opacity-[0.03] mix-blend-overlay" />
-
-        {/* Animated Mesh Gradients */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            x: [0, -50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-accent-violet/10 rounded-full blur-[150px] pointer-events-none"
-        />
       </div>
 
       <motion.div
@@ -99,12 +76,14 @@ export default function Hero_section() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row items-center gap-6 pt-4"
         >
-          <LocaleLink
-            href={"/signup"}
-            className="surface-btn-primary min-h-[56px] px-10 text-lg shadow-button hover:shadow-button-hover"
-          >
-            {t.join}
-          </LocaleLink>
+          {!user && (
+            <LocaleLink
+              href={"/signup"}
+              className="surface-btn-primary min-h-[56px] px-10 text-lg shadow-button hover:shadow-button-hover"
+            >
+              {t.join}
+            </LocaleLink>
+          )}
 
           <div className="flex -space-x-3 rtl:space-x-reverse">
             {[1, 2, 3].map((i) => (
@@ -112,9 +91,13 @@ export default function Hero_section() {
                 key={i}
                 className="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-sm"
               >
-                <Img
+                <Image
                   src={`/avatar-${i}.jpg`}
                   className="w-full h-full object-cover"
+                  alt="User"
+                  width={100}
+                  height={100}
+                  priority
                 />
               </div>
             ))}

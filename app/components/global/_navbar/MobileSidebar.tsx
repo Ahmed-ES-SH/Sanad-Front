@@ -11,7 +11,7 @@ import useVariablesStore from "@/app/store/VariablesSlice";
 import Img from "../Img";
 
 export default function MobileSidebar() {
-  const { isAuthenticated } = useAuthStore();
+  const { user } = useAuthStore();
   const { width, locale } = useVariablesStore();
   const t_mobile = useTranslation("mobileSidebar");
   const t_hero = useTranslation("hero");
@@ -97,7 +97,7 @@ export default function MobileSidebar() {
           ))}
         </nav>
 
-        {!isAuthenticated && (
+        {!user && (
           <div className="p-6 border-t border-surface-100 bg-surface-50/50">
             <LocaleLink
               href="/signup"

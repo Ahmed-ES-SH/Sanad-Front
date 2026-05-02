@@ -3,7 +3,7 @@
 import { FiSearch } from "react-icons/fi";
 import type { OrderFiltersProps } from "./OrderFilters.types";
 
-const OrderFilters: React.FC<OrderFiltersProps> = ({
+export default function OrderFilters({
   searchPlaceholder,
   filterOptions,
   filter,
@@ -11,7 +11,8 @@ const OrderFilters: React.FC<OrderFiltersProps> = ({
   isRTL,
   onSearchChange,
   onFilterChange,
-}) => {
+  disabled,
+}: OrderFiltersProps) {
   return (
     <div className="bg-white rounded-2xl p-4 shadow-surface-sm border border-surface-200/50 flex flex-col gap-4 items-start">
       {/* Search */}
@@ -38,6 +39,8 @@ const OrderFilters: React.FC<OrderFiltersProps> = ({
         {Object.keys(filterOptions).map((key) => (
           <button
             key={key}
+            type="button"
+            disabled={disabled}
             onClick={() => onFilterChange(key)}
             className={`px-4 py-2.5 rounded-xl font-semibold text-sm transition-all active:scale-95 ${
               filter === key
@@ -52,6 +55,4 @@ const OrderFilters: React.FC<OrderFiltersProps> = ({
       </div>
     </div>
   );
-};
-
-export default OrderFilters;
+}

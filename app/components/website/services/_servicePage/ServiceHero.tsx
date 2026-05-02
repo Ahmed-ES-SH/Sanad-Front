@@ -52,7 +52,7 @@ export default function ServiceHero({
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="surface-card-elevated overflow-hidden"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[480px] md:min-h-[520px]">
+        <div className="grid grid-cols-1 xl:grid-cols-12 min-h-[480px] md:min-h-[520px]">
           {/* Content Side */}
           <div
             className={`lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col justify-center ${isArabic ? "lg:order-2" : ""}`}
@@ -183,10 +183,10 @@ export default function ServiceHero({
 
           {/* Image Side */}
           <div
-            className={`lg:col-span-5 relative overflow-hidden ${isArabic ? "lg:order-1" : ""}`}
+            className={`xl:col-span-5 relative overflow-hidden ${isArabic ? "xl:order-1" : ""}`}
           >
             <div className="absolute inset-0 bg-surface-100" />
-            <div className="relative w-full h-full min-h-[280px] md:min-h-[360px] lg:min-h-full">
+            <div className="relative w-full h-full min-h-[280px] md:min-h-[360px] xl:min-h-full">
               <Image
                 src={image}
                 alt={title[locale]}

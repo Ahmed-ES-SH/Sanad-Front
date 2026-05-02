@@ -6,4 +6,5 @@ export interface OrderFiltersProps {
   isRTL: boolean;
   onSearchChange: (value: string) => void;
   onFilterChange: (key: string) => void;
+  disabled: boolean;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { FiCheck, FiX, FiLoader, FiBell } from "react-icons/fi";
 import { useTranslation } from "@/app/hooks/useTranslation";
@@ -16,21 +16,14 @@ export default function NotificationPanel({ onClose }: NotificationPanelProps) {
 
   const {
     notifications,
+    fetchNotifications,
     unreadCount,
     isLoading,
-    hasFetchedInitial,
     pagination,
-    fetchNotifications,
     markAllAsRead,
   } = useNotificationStore();
 
   const [isMarkingAllRead, setIsMarkingAllRead] = useState(false);
-
-  useEffect(() => {
-    if (!hasFetchedInitial && !isLoading) {
-      fetchNotifications(1, pagination.limit);
-    }
-  }, [fetchNotifications, isLoading, hasFetchedInitial, pagination.limit]);
 
   // Handle mark all as read
   const handleMarkAllAsRead = async () => {

@@ -5,9 +5,9 @@ import { FiLogOut, FiLoader, FiChevronDown } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import { useAuthStore } from "@/app/store/AuthSlice";
-import Img from "../Img";
 import { useRouter } from "next/navigation";
 import AccountMenuLinks from "./AccountMenuLinks";
+import Image from "next/image";
 
 /**
  * UserButton component for the Sanad platform.
@@ -64,10 +64,12 @@ export default function UserButton() {
       >
         <div className="relative">
           {user.avatar ? (
-            <Img
+            <Image
               src={user.avatar}
               alt={displayName}
               className="w-8 h-8 rounded-full object-cover border border-surface-200"
+              width={100}
+              height={100}
             />
           ) : (
             <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold border border-primary/20">

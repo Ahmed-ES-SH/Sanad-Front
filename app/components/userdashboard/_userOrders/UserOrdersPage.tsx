@@ -158,6 +158,7 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
           isRTL={isRTL}
           onSearchChange={setSearch}
           onFilterChange={setFilter}
+          disabled={isLoading || currentMeta.total === 0}
         />
 
         {/* Results info */}
@@ -180,27 +181,29 @@ export default function UserOrdersPage({ data, meta }: UserOrdersPageProps) {
         )}
 
         {/* Orders Grid */}
-        <OrdersGrid isLoading={isLoading}>
-          {orders.map((order, index) => (
-            <OrderCard
-              key={order.id}
-              order={order}
-              t={t}
-              isRTL={isRTL}
-              index={index}
-              formatOrderId={formatOrderIdFn}
-              formatDate={formatDateFn}
-              formatAmount={formatAmountFn}
-            />
-          ))}
+        {orders.length > 0 && (
+          <OrdersGrid isLoading={isLoading}>
+            {orders.map((order, index) => (
+              <OrderCard
+                key={order.id}
+                order={order}
+                t={t}
+                isRTL={isRTL}
+                index={index}
+                formatOrderId={formatOrderIdFn}
+                formatDate={formatDateFn}
+                formatAmount={formatAmountFn}
+              />
+            ))}
 
-          {/* New Order CTA */}
-          <NewOrderCTA
-            title={t.newService.title}
-            description={t.newService.description}
-            href="/services"
-          />
-        </OrdersGrid>
+            {/* New Order CTA */}
+            <NewOrderCTA
+              title={t.newService.title}
+              description={t.newService.description}
+              href="/services"
+            />
+          </OrdersGrid>
+        )}
 
         {/* Pagination */}
         {currentMeta && currentMeta?.total > 1 && (
