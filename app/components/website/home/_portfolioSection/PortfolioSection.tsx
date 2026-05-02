@@ -131,7 +131,7 @@ export default function PortfolioSection({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-1 grid-cols-1 gap-6 w-full"
+              className="grid 2xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-6 w-full"
             >
               {displayedProjects.slice(0, 8).map((project) => (
                 <ProjectCard

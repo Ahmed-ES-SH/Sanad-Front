@@ -24,8 +24,11 @@ export async function setAuthCookie(token: string) {
   const cookieStore = await getServerCookieStore();
   cookieStore.set(AUTH_COOKIE_NAME, token, {
     httpOnly: true,
+    // "none" is required for cross-origin requests (frontend ↔ backend on different Vercel domains).
+    // "lax" blocks cookies on all cross-origin API calls — works in dev (localhost = same-site)
+    // but silently fails in production. "none" requires Secure: true, which IS_PRODUCTION guarantees.
+    sameSite: IS_PRODUCTION ? "none" : "lax",
     secure: IS_PRODUCTION,
-    sameSite: "lax",
     maxAge: COOKIE_MAX_AGE,
     path: "/",
   });

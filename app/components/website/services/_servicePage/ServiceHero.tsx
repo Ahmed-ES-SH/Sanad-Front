@@ -38,7 +38,8 @@ export default function ServiceHero({
 }: ServiceHeroProps) {
   const isArabic = locale === "ar";
   const localizedCategoryLabel: string | null = category
-    ? (translations.category && (translations.category as Record<string, string>)[category]) ||
+    ? (translations.category &&
+        (translations.category as Record<string, string>)[category]) ||
       (categoryLabels[category] ? categoryLabels[category][locale] : null) ||
       null
     : null;
@@ -77,8 +78,8 @@ export default function ServiceHero({
                     )}
                   </span>
                   <span className="body-sm text-surface-500">
-                      {localizedCategoryLabel}
-                    </span>
+                    {localizedCategoryLabel}
+                  </span>
                 </>
               )}
             </nav>
@@ -193,10 +194,6 @@ export default function ServiceHero({
                 className="object-cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
-              />
-              {/* Subtle gradient edge for seamless blend into content side */}
-              <div
-                className={`absolute inset-y-0 ${isArabic ? "left-0" : "right-0"} w-16 bg-gradient-to-${isArabic ? "l" : "r"} from-white to-transparent`}
               />
             </div>
           </div>

@@ -56,9 +56,9 @@ export default function ServiceOrderCTA({
     return null;
   }
 
-  const formattedPrice = new Intl.NumberFormat("ar-SA", {
+  const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "SAR",
+    currency: "USD",
   }).format(Number(service.basePrice));
 
   return (

@@ -57,23 +57,23 @@ export async function globalRequest<TBody = any, TResult = any>({
 
     requestHeaders.set("Content-Type", "application/json");
 
-    if (typeof window === "undefined") {
-      const authCookieHeader = await getServerAuthCookieHeader();
+    // This file runs exclusively on the server ("use server").
+    // Node.js fetch does NOT send cookies automatically — they must be forwarded manually.
+    // `credentials: "include"` has no effect in Node.js and is NOT used here.
+    const authCookieHeader = await getServerAuthCookieHeader();
 
-      if (authCookieHeader) {
-        const existingCookieHeader = requestHeaders.get("Cookie");
-        requestHeaders.set(
-          "Cookie",
-          existingCookieHeader
-            ? `${existingCookieHeader}; ${authCookieHeader}`
-            : authCookieHeader,
-        );
-      }
+    if (authCookieHeader) {
+      const existingCookieHeader = requestHeaders.get("Cookie");
+      requestHeaders.set(
+        "Cookie",
+        existingCookieHeader
+          ? `${existingCookieHeader}; ${authCookieHeader}`
+          : authCookieHeader,
+      );
     }
 
     const response = await fetch(url, {
       method,
-      credentials: "include",
       cache,
       next,
       headers: requestHeaders,
