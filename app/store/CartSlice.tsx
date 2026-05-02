@@ -1,8 +1,17 @@
 import { create } from "zustand";
 import { CartItemType } from "../types/cart";
-import { instance } from "../helpers/axios";
-import { CART_ENDPOINTS } from "../constants/endpoints";
 import { guestCartStorage, GuestCartItem } from "../helpers/_cart/guestCart";
+import {
+  fetchCartAction,
+  addItemAction,
+  updateItemAction,
+  removeItemAction,
+  clearCartAction,
+  mergeCartAction,
+  type CartApiResponse,
+  type FailedMergeItem,
+  type MergeApiResponse,
+} from "../actions/cart.actions";
 
 const MIN_QUANTITY = 1;
 const MAX_QUANTITY = 99;
@@ -11,34 +20,14 @@ const MAX_QUANTITY = 99;
 // Public types
 // ---------------------------------------------------------------------------
 
-export interface FailedMergeItem {
-  serviceId: string;
-  reason: string;
-}
+// FailedMergeItem, CartApiResponse, and MergeApiResponse are re-exported
+// from the server action file so they stay in sync with the server layer.
+export type { FailedMergeItem, CartApiResponse, MergeApiResponse };
 
 export interface MergeCartResult {
   failedItems: FailedMergeItem[];
   /** True when the merge request itself failed (network / server error). */
   networkError?: boolean;
-}
-
-/** Shape returned by every cart API endpoint (except DELETE /cart). */
-interface CartApiResponse {
-  id: string;
-  userId: number;
-  items: CartItemType[];
-  totalItems: number;
-  totalAmount: number;
-  createdAt: string;
-  updatedAt: string;
-}
-
-/** Shape returned by POST /cart/merge */
-interface MergeApiResponse {
-  success: boolean;
-  message: string;
-  cart: CartApiResponse;
-  failedItems: FailedMergeItem[];
 }
 
 // ---------------------------------------------------------------------------
@@ -233,13 +222,11 @@ export const useCartStore = create<CartState>((set, get) => ({
   fetchCart: async () => {
     if (!getIsAuthenticated()) return;
     set({ isLoading: true, error: null });
-    try {
-      const { data } = await instance.get<CartApiResponse>(
-        CART_ENDPOINTS.GET_CART,
-      );
-      set({ ...hydrateFromResponse(data), isLoading: false });
-    } catch {
-      set({ isLoading: false, error: "Failed to load cart" });
+    const result = await fetchCartAction();
+    if (result.success && result.data) {
+      set({ ...hydrateFromResponse(result.data), isLoading: false });
+    } else {
+      set({ isLoading: false, error: result.message ?? "Failed to load cart" });
     }
   },
 
@@ -261,17 +248,14 @@ export const useCartStore = create<CartState>((set, get) => ({
     }
 
     set({ isLoading: true, error: null });
-    try {
-      const { data } = await instance.post<CartApiResponse>(
-        CART_ENDPOINTS.ADD_ITEM,
-        {
-          serviceId: item.serviceId,
-          quantity: clampQuantity(item.quantity ?? MIN_QUANTITY),
-        },
-      );
-      set({ ...hydrateFromResponse(data), isLoading: false });
-    } catch {
-      set({ isLoading: false, error: "Failed to add item to cart" });
+    const result = await addItemAction(
+      item.serviceId,
+      clampQuantity(item.quantity ?? MIN_QUANTITY),
+    );
+    if (result.success && result.data) {
+      set({ ...hydrateFromResponse(result.data), isLoading: false });
+    } else {
+      set({ isLoading: false, error: result.message ?? "Failed to add item to cart" });
     }
   },
 
@@ -298,16 +282,17 @@ export const useCartStore = create<CartState>((set, get) => ({
     );
     set({ items: optimisticItems, ...recalcTotals(optimisticItems) });
 
-    try {
-      const { data } = await instance.put<CartApiResponse>(
-        CART_ENDPOINTS.UPDATE_ITEM(itemId),
-        { quantity: clamped },
-      );
+    const result = await updateItemAction(itemId, clamped);
+    if (result.success && result.data) {
       // Replace optimistic state with authoritative server response
-      set(hydrateFromResponse(data));
-    } catch {
+      set(hydrateFromResponse(result.data));
+    } else {
       // Rollback to snapshot on failure
-      set({ items: snapshot, ...recalcTotals(snapshot), error: "Failed to update quantity" });
+      set({
+        items: snapshot,
+        ...recalcTotals(snapshot),
+        error: result.message ?? "Failed to update quantity",
+      });
     }
   },
 
@@ -326,15 +311,17 @@ export const useCartStore = create<CartState>((set, get) => ({
     const optimisticItems = snapshot.filter((i) => i.id !== itemId);
     set({ items: optimisticItems, ...recalcTotals(optimisticItems) });
 
-    try {
-      const { data } = await instance.delete<CartApiResponse>(
-        CART_ENDPOINTS.REMOVE_ITEM(itemId),
-      );
+    const result = await removeItemAction(itemId);
+    if (result.success && result.data) {
       // Replace optimistic state with authoritative server response
-      set(hydrateFromResponse(data));
-    } catch {
+      set(hydrateFromResponse(result.data));
+    } else {
       // Rollback to snapshot on failure
-      set({ items: snapshot, ...recalcTotals(snapshot), error: "Failed to remove item" });
+      set({
+        items: snapshot,
+        ...recalcTotals(snapshot),
+        error: result.message ?? "Failed to remove item",
+      });
     }
   },
 
@@ -346,11 +333,11 @@ export const useCartStore = create<CartState>((set, get) => ({
     }
 
     set({ isLoading: true, error: null });
-    try {
-      await instance.delete(CART_ENDPOINTS.CLEAR_CART);
+    const result = await clearCartAction();
+    if (result.success) {
       set({ items: [], totalItems: 0, totalAmount: 0, isLoading: false, error: null });
-    } catch {
-      set({ isLoading: false, error: "Failed to clear cart" });
+    } else {
+      set({ isLoading: false, error: result.message ?? "Failed to clear cart" });
     }
   },
 
@@ -358,24 +345,19 @@ export const useCartStore = create<CartState>((set, get) => ({
     const guestItems = guestCartStorage.read();
     if (guestItems.length === 0) return { failedItems: [] };
 
-    try {
-      const { data } = await instance.post<MergeApiResponse>(
-        CART_ENDPOINTS.MERGE_CART,
-        {
-          items: guestItems.map(({ serviceId, quantity }) => ({
-            serviceId,
-            quantity,
-          })),
-        },
-      );
-      set(hydrateFromResponse(data.cart));
+    const result = await mergeCartAction(
+      guestItems.map(({ serviceId, quantity }) => ({ serviceId, quantity })),
+    );
+
+    if (result.success && result.data) {
+      set(hydrateFromResponse(result.data.cart));
       guestCartStorage.clear();
-      return { failedItems: data.failedItems };
-    } catch {
-      // Merge failed — keep localStorage intact so it can be retried.
-      // Return networkError flag so callers can show a retry option.
-      return { failedItems: [], networkError: true };
+      return { failedItems: result.data.failedItems };
     }
+
+    // Merge failed — keep localStorage intact so it can be retried.
+    // Return networkError flag so callers can show a retry option.
+    return { failedItems: [], networkError: true };
   },
 }));
 
