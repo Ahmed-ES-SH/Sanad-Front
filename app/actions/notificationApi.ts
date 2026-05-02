@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
+"use server";
 import { ENDPOINTS } from "@/app/constants/notifications";
 import {
   NotificationListResponse,
@@ -11,48 +11,7 @@ import {
   BroadcastNotificationFormData,
   UpdatePreferencesFormData,
 } from "@/app/types/notification";
-import { instance } from "../helpers/axios";
-
-/**
- * Error handling wrapper to provide retries and token expiration detection
- */
-async function withErrorHandling<T>(
-  apiCall: () => Promise<T>,
-  retries = 1,
-): Promise<T> {
-  try {
-    return await apiCall();
-  } catch (error: any) {
-    if (error.response) {
-      const statusCode = error.response.status;
-      // Handle token expiration
-      if (statusCode === 401) {
-        if (typeof window !== "undefined") {
-          // Could trigger a global event, context update, or direct redirect
-          // window.location.href = "/login";
-        }
-      }
-
-      // Retry logic for Server Errors or Network issues
-      if (statusCode >= 500 && retries > 0) {
-        console.warn(
-          `API request failed with status ${statusCode}. Retrying...`,
-        );
-        // Add a small delay before retrying
-        await new Promise((res) => setTimeout(res, 1000));
-        return withErrorHandling(apiCall, retries - 1);
-      }
-    } else if (error.request && retries > 0) {
-      // Network error (no response)
-      console.warn(`API request failed (network error). Retrying...`);
-      await new Promise((res) => setTimeout(res, 1000));
-      return withErrorHandling(apiCall, retries - 1);
-    }
-
-    // Throw the backend error message if available, otherwise the axios error
-    throw error.response?.data || error;
-  }
-}
+import { globalRequest } from "../helpers/globalRequest";
 
 // ----------------------------------------------------------------------------
 // USER ENDPOINTS
@@ -62,69 +21,109 @@ export async function fetchNotifications(
   page: number = 1,
   limit: number = 10,
 ): Promise<NotificationListResponse> {
-  return withErrorHandling(async () => {
-    const res = await instance.get<NotificationListResponse>(
-      ENDPOINTS.LIST(page, limit),
-    );
-    return res.data;
+  const result = await globalRequest<undefined, NotificationListResponse>({
+    endpoint: ENDPOINTS.LIST(page, limit),
+    method: "GET",
+    defaultErrorMessage: "Failed to fetch notifications",
   });
+
+  if (!result.success || !result.data) {
+    throw new Error(result.message);
+  }
+
+  return result.data;
 }
 
 export async function fetchUnreadCount(): Promise<UnreadCountResponse> {
-  return withErrorHandling(async () => {
-    const res = await instance.get<UnreadCountResponse>(ENDPOINTS.UNREAD_COUNT);
-    return res.data;
+  const result = await globalRequest<undefined, UnreadCountResponse>({
+    endpoint: ENDPOINTS.UNREAD_COUNT,
+    method: "GET",
+    defaultErrorMessage: "Failed to fetch unread count",
   });
+
+  if (!result.success || !result.data) {
+    throw new Error(result.message);
+  }
+
+  return result.data;
 }
 
 export async function markAsRead(id: string): Promise<{ success: boolean }> {
-  return withErrorHandling(async () => {
-    const res = await instance.patch<{ success: boolean }>(
-      ENDPOINTS.MARK_AS_READ(id),
-    );
-    return res.data;
+  const result = await globalRequest<undefined, { success: boolean }>({
+    endpoint: ENDPOINTS.MARK_AS_READ(id),
+    method: "PATCH",
+    defaultErrorMessage: "Failed to mark notification as read",
   });
+
+  if (!result.success) {
+    throw new Error(result.message);
+  }
+
+  return { success: result.success };
 }
 
 export async function markAllAsRead(): Promise<MarkAllReadResponse> {
-  return withErrorHandling(async () => {
-    const res = await instance.patch<MarkAllReadResponse>(
-      ENDPOINTS.MARK_ALL_AS_READ,
-    );
-    return res.data;
+  const result = await globalRequest<undefined, MarkAllReadResponse>({
+    endpoint: ENDPOINTS.MARK_ALL_AS_READ,
+    method: "PATCH",
+    defaultErrorMessage: "Failed to mark all notifications as read",
   });
+
+  if (!result.success || !result.data) {
+    throw new Error(result.message);
+  }
+
+  return result.data;
 }
 
 export async function deleteNotification(
   id: string,
 ): Promise<{ success: boolean }> {
-  return withErrorHandling(async () => {
-    const res = await instance.delete<{ success: boolean }>(
-      ENDPOINTS.DELETE(id),
-    );
-    return res.data;
+  const result = await globalRequest<undefined, { success: boolean }>({
+    endpoint: ENDPOINTS.DELETE(id),
+    method: "DELETE",
+    defaultErrorMessage: "Failed to delete notification",
   });
+
+  if (!result.success) {
+    throw new Error(result.message);
+  }
+
+  return { success: result.success };
 }
 
 export async function fetchPreferences(): Promise<NotificationPreferences> {
-  return withErrorHandling(async () => {
-    const res = await instance.get<NotificationPreferences>(
-      ENDPOINTS.PREFERENCES,
-    );
-    return res.data;
+  const result = await globalRequest<undefined, NotificationPreferences>({
+    endpoint: ENDPOINTS.PREFERENCES,
+    method: "GET",
+    defaultErrorMessage: "Failed to fetch preferences",
   });
+
+  if (!result.success || !result.data) {
+    throw new Error(result.message);
+  }
+
+  return result.data;
 }
 
 export async function updatePreferences(
   prefs: UpdatePreferencesFormData,
 ): Promise<NotificationPreferences> {
-  return withErrorHandling(async () => {
-    const res = await instance.patch<NotificationPreferences>(
-      ENDPOINTS.PREFERENCES,
-      prefs,
-    );
-    return res.data;
+  const result = await globalRequest<
+    UpdatePreferencesFormData,
+    NotificationPreferences
+  >({
+    endpoint: ENDPOINTS.PREFERENCES,
+    method: "PATCH",
+    body: prefs,
+    defaultErrorMessage: "Failed to update preferences",
   });
+
+  if (!result.success || !result.data) {
+    throw new Error(result.message);
+  }
+
+  return result.data;
 }
 
 // ----------------------------------------------------------------------------
@@ -135,45 +134,71 @@ export async function adminFetchNotifications(
   page: number = 1,
   limit: number = 10,
 ): Promise<NotificationListResponse> {
-  return withErrorHandling(async () => {
-    const res = await instance.get<NotificationListResponse>(
-      ENDPOINTS.ADMIN_LIST(page, limit),
-    );
-    return res.data;
+  const result = await globalRequest<undefined, NotificationListResponse>({
+    endpoint: ENDPOINTS.ADMIN_LIST(page, limit),
+    method: "GET",
+    defaultErrorMessage: "Failed to fetch admin notifications",
   });
+
+  if (!result.success || !result.data) {
+    throw new Error(result.message);
+  }
+
+  return result.data;
 }
 
 export async function sendNotification(
   data: SendNotificationFormData,
 ): Promise<{ success: boolean }> {
-  return withErrorHandling(async () => {
-    const res = await instance.post<{ success: boolean }>(
-      ENDPOINTS.ADMIN_SEND,
-      data,
-    );
-    return res.data;
+  const result = await globalRequest<
+    SendNotificationFormData,
+    { success: boolean }
+  >({
+    endpoint: ENDPOINTS.ADMIN_SEND,
+    method: "POST",
+    body: data,
+    defaultErrorMessage: "Failed to send notification",
   });
+
+  if (!result.success) {
+    throw new Error(result.message);
+  }
+
+  return { success: result.success };
 }
 
 export async function broadcastNotification(
   data: BroadcastNotificationFormData,
 ): Promise<BroadcastResponse> {
-  return withErrorHandling(async () => {
-    const res = await instance.post<BroadcastResponse>(
-      ENDPOINTS.ADMIN_BROADCAST,
-      data,
-    );
-    return res.data;
+  const result = await globalRequest<
+    BroadcastNotificationFormData,
+    BroadcastResponse
+  >({
+    endpoint: ENDPOINTS.ADMIN_BROADCAST,
+    method: "POST",
+    body: data,
+    defaultErrorMessage: "Failed to broadcast notification",
   });
+
+  if (!result.success || !result.data) {
+    throw new Error(result.message);
+  }
+
+  return result.data;
 }
 
 export async function adminDeleteNotification(
   id: string,
 ): Promise<{ success: boolean }> {
-  return withErrorHandling(async () => {
-    const res = await instance.delete<{ success: boolean }>(
-      ENDPOINTS.ADMIN_DELETE(id),
-    );
-    return res.data;
+  const result = await globalRequest<undefined, { success: boolean }>({
+    endpoint: ENDPOINTS.ADMIN_DELETE(id),
+    method: "DELETE",
+    defaultErrorMessage: "Failed to delete notification",
   });
+
+  if (!result.success) {
+    throw new Error(result.message);
+  }
+
+  return { success: result.success };
 }

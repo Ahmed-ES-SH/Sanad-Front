@@ -1,6 +1,7 @@
-import axios from "axios";
-import { instance } from "../axios";
+"use server";
+
 import { PAYMENTS_ENDPOINTS } from "@/app/constants/endpoints";
+import { globalRequest } from "@/app/helpers/globalRequest";
 import { CartItemType } from "@/app/types/cart";
 
 /**
@@ -9,6 +10,14 @@ import { CartItemType } from "@/app/types/cart";
 export interface PaymentIntentResponse {
   clientSecret: string;
   paymentId: string;
+}
+
+interface CreateIntentBody {
+  amount: number;
+  currency: string;
+  description: string;
+  userId: number;
+  serviceId: string;
 }
 
 /**
@@ -30,39 +39,43 @@ export const createPaymentIntent = async (
 
   const description = `Sanad Services: ${itemLabels.join(", ")}`;
 
-  let response;
-  try {
-    response = await instance.post(PAYMENTS_ENDPOINTS.CREATE_INTENT, {
+  const result = await globalRequest<CreateIntentBody, PaymentIntentResponse>({
+    endpoint: PAYMENTS_ENDPOINTS.CREATE_INTENT,
+    method: "POST",
+    body: {
       amount: total,
       currency: "usd",
       description: description.substring(0, 255),
       userId,
       serviceId,
-    });
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      const status = error.response?.status;
-      if (status === 400) {
-        throw new Error(
-          "Invalid payment data. Please review your cart and try again.",
-        );
-      }
-      if (status === 401) {
-        throw new Error(
-          "Your session has expired. Please sign in and try again.",
-        );
-      }
-      if (status === 502) {
-        throw new Error(
-          "Payment gateway is temporarily unavailable. Please retry.",
-        );
-      }
+    },
+    defaultErrorMessage: "Unable to start payment. Please try again.",
+  });
+
+  if (!result.success) {
+    const { statusCode, message } = result;
+
+    if (statusCode === 400) {
+      throw new Error(
+        "Invalid payment data. Please review your cart and try again.",
+      );
     }
-    throw new Error("Unable to start payment. Please try again.");
+    if (statusCode === 401) {
+      throw new Error(
+        "Your session has expired. Please sign in and try again.",
+      );
+    }
+    if (statusCode === 502) {
+      throw new Error(
+        "Payment gateway is temporarily unavailable. Please retry.",
+      );
+    }
+
+    throw new Error(message);
   }
 
   return {
-    clientSecret: response.data.clientSecret,
-    paymentId: response.data.paymentId,
+    clientSecret: result.data!.clientSecret,
+    paymentId: result.data!.paymentId,
   };
 };
