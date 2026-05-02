@@ -135,8 +135,18 @@ export function CartPage() {
   const onSuccess = useCallback(() => {
     toast.success(t.paymentSuccess);
     setIsPaymentModalOpen(false);
+    router.push(`/${locale}/userdashboard/payments/success`);
     void clear();
-  }, [clear, t.paymentSuccess]);
+  }, [clear, locale, router, t.paymentSuccess]);
+
+  const onError = useCallback(
+    (error: string) => {
+      toast.error(error || t.paymentFailed);
+      setIsPaymentModalOpen(false);
+      router.push(`/${locale}/userdashboard/payments/failed`);
+    },
+    [locale, router, t.paymentFailed],
+  );
 
   // Check if cart is empty
   const isEmpty = items.length === 0;
@@ -270,9 +280,7 @@ export function CartPage() {
         amount={totals.total}
         paymentId={paymentId}
         onSuccess={onSuccess}
-        onError={(error) => {
-          toast.error(error || t.paymentFailed);
-        }}
+        onError={onError}
       />
     </>
   );

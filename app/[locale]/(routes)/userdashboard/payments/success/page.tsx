@@ -1,12 +1,4 @@
-/**
- * Payment Success Page
- *
- * Displays the result of a successful payment with transaction details,
- * receipt download option, and navigation back to dashboard.
- *
- * Built with Sanad design tokens — Solid Depth principle.
- */
-
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";

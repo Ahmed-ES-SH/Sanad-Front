@@ -12,12 +12,17 @@ import {
   UpdatePreferencesFormData,
 } from "@/app/types/notification";
 import { globalRequest } from "../helpers/globalRequest";
+import { getAuthCookie } from "../helpers/session";
+
 
 // ----------------------------------------------------------------------------
-// USER ENDPOINTS
-// ----------------------------------------------------------------------------
+
+export async function getNotificationToken(): Promise<string | undefined> {
+  return await getAuthCookie();
+}
 
 export async function fetchNotifications(
+
   page: number = 1,
   limit: number = 10,
 ): Promise<NotificationListResponse> {

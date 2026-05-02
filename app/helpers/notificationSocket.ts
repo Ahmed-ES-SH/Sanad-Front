@@ -5,8 +5,15 @@ import { SOCKET_CONFIG } from "@/app/constants/notifications";
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || "https://sanad-backend.vercel.app";
 
-export function createNotificationSocket() {
+/**
+ * Creates a Socket.IO connection for notifications.
+ * @param token - Optional authentication token (sent manually via auth handshake)
+ */
+export function createNotificationSocket(token?: string) {
   return io(API_BASE_URL, {
+    auth: {
+      token,
+    },
     withCredentials: true,
     transports: [...SOCKET_CONFIG.TRANSPORTS],
     reconnection: SOCKET_CONFIG.RECONNECTION,

@@ -230,110 +230,118 @@ export const useNotificationStore = create<NotificationStore>((set, get) => ({
     }
   },
 
-  connectSocket: () => {
+  connectSocket: async () => {
     const { isAuthenticated } = get();
     if (!isAuthenticated) return;
     if (socketRef) return;
 
-    const socket = createNotificationSocket();
-    socketRef = socket;
+    try {
+      const token = await api.getNotificationToken();
+      const socket = createNotificationSocket(token);
+      socketRef = socket;
 
-    socket.on("connect", async () => {
-      set({ isSocketConnected: true, error: null });
+      socket.on("connect", async () => {
+        set({ isSocketConnected: true, error: null });
 
-      // مزامنة بعد الاتصال أو إعادة الاتصال
-      await get().fetchNotifications(1, get().pagination.limit);
-      await get().refreshUnreadCount();
-    });
+        // مزامنة بعد الاتصال أو إعادة الاتصال
+        await get().fetchNotifications(1, get().pagination.limit);
+        await get().refreshUnreadCount();
+      });
 
-    socket.on("disconnect", () => {
-      set({ isSocketConnected: false });
-    });
+      socket.on("disconnect", () => {
+        set({ isSocketConnected: false });
+      });
 
-    socket.on("connect_error", (error: Error) => {
+      socket.on("connect_error", (error: Error) => {
+        set({
+          isSocketConnected: false,
+          error: error.message || "Notification socket connection failed",
+        });
+      });
+
+      socket.on("notification:new", (notification: Notification) => {
+        set((state) => {
+          if (state.notifications.some((n) => n.id === notification.id)) {
+            return state;
+          }
+
+          return {
+            notifications: [notification, ...state.notifications],
+          };
+        });
+
+        set((state) => {
+          if (
+            state.popupNotifications.some((item) => item.id === notification.id)
+          ) {
+            return state;
+          }
+
+          return {
+            popupNotifications: [notification, ...state.popupNotifications].slice(
+              0,
+              10,
+            ),
+          };
+        });
+      });
+
+      socket.on("notification:read", (data: { notificationId: string }) => {
+        set((state) => ({
+          notifications: state.notifications.map((n) =>
+            n.id === data.notificationId ? { ...n, isRead: true } : n,
+          ),
+        }));
+
+        set((state) => {
+          const wasUnread =
+            state.notifications.find((n) => n.id === data.notificationId)
+              ?.isRead === false;
+
+          return {
+            unreadCount: wasUnread
+              ? Math.max(0, state.unreadCount - 1)
+              : state.unreadCount,
+          };
+        });
+      });
+
+      socket.on("notification:read_all", () => {
+        set((state) => ({
+          notifications: state.notifications.map((n) => ({ ...n, isRead: true })),
+          unreadCount: 0,
+        }));
+      });
+
+      socket.on("notification:count", (data: { unreadCount: number }) => {
+        set({ unreadCount: data.unreadCount });
+      });
+
+      socket.on("notification:delete", (data: { notificationId: string }) => {
+        set((state) => ({
+          notifications: state.notifications.filter(
+            (n) => n.id !== data.notificationId,
+          ),
+        }));
+
+        set((state) => {
+          const isUnread =
+            state.notifications.find((n) => n.id === data.notificationId)
+              ?.isRead === false;
+
+          return {
+            unreadCount: isUnread
+              ? Math.max(0, state.unreadCount - 1)
+              : state.unreadCount,
+          };
+        });
+      });
+    } catch (error: any) {
       set({
         isSocketConnected: false,
-        error: error.message || "Notification socket connection failed",
+        error: error.message || "Failed to initialize notification socket",
       });
-    });
-
-    socket.on("notification:new", (notification: Notification) => {
-      set((state) => {
-        if (state.notifications.some((n) => n.id === notification.id)) {
-          return state;
-        }
-
-        return {
-          notifications: [notification, ...state.notifications],
-        };
-      });
-
-      set((state) => {
-        if (
-          state.popupNotifications.some((item) => item.id === notification.id)
-        ) {
-          return state;
-        }
-
-        return {
-          popupNotifications: [notification, ...state.popupNotifications].slice(
-            0,
-            10,
-          ),
-        };
-      });
-    });
-
-    socket.on("notification:read", (data: { notificationId: string }) => {
-      set((state) => ({
-        notifications: state.notifications.map((n) =>
-          n.id === data.notificationId ? { ...n, isRead: true } : n,
-        ),
-      }));
-
-      set((state) => {
-        const wasUnread =
-          state.notifications.find((n) => n.id === data.notificationId)
-            ?.isRead === false;
-
-        return {
-          unreadCount: wasUnread
-            ? Math.max(0, state.unreadCount - 1)
-            : state.unreadCount,
-        };
-      });
-    });
-
-    socket.on("notification:read_all", () => {
-      set((state) => ({
-        notifications: state.notifications.map((n) => ({ ...n, isRead: true })),
-        unreadCount: 0,
-      }));
-    });
-
-    socket.on("notification:count", (data: { unreadCount: number }) => {
-      set({ unreadCount: data.unreadCount });
-    });
-
-    socket.on("notification:delete", (data: { notificationId: string }) => {
-      set((state) => ({
-        notifications: state.notifications.filter(
-          (n) => n.id !== data.notificationId,
-        ),
-      }));
-
-      set((state) => {
-        const isUnread =
-          state.notifications.find((n) => n.id === data.notificationId)
-            ?.isRead === false;
-
-        return {
-          unreadCount: isUnread
-            ? Math.max(0, state.unreadCount - 1)
-            : state.unreadCount,
-        };
-      });
-    });
+    }
   },
 
   disconnectSocket: () => {

@@ -17,19 +17,21 @@ import TransactionRow from "./TransactionRow";
 import TransactionPagination from "./TransactionPagination";
 import EmptyState from "./EmptyState";
 import { Messages } from "@/app/hooks/useTranslation";
-import { usePaymentHistory } from "@/app/hooks/usePaymentHistory";
-import {
-  PaymentStatus,
-  Transaction,
-  TransactionStatus,
-} from "@/app/types/payments";
+import { Transaction, TransactionStatus } from "@/app/types/payments";
 import { transformPaymentToTransaction } from "@/app/helpers/_payments/transformPayment.helper";
+import { useAppQuery } from "@/app/hooks/useAppQuery";
+import { PAYMENTS_ENDPOINTS } from "@/app/constants/endpoints";
+import { PaginatedPaymentsResponse } from "@/app/types/payments";
 
 interface TransactionTableProps {
   t: Messages["payments"];
+  initialData?: PaginatedPaymentsResponse;
 }
 
-export default function TransactionTable({ t }: TransactionTableProps) {
+export default function TransactionTable({
+  t,
+  initialData,
+}: TransactionTableProps) {
   const statusConfig: Record<
     TransactionStatus,
     { label: string; className: string; icon: React.ReactNode }
@@ -59,6 +61,13 @@ export default function TransactionTable({ t }: TransactionTableProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [refreshKey, setRefreshKey] = useState(0);
 
+  // Check if we are in the initial server-rendered state
+  const isInitialState =
+    currentPage === 1 &&
+    statusFilter === "all" &&
+    dateFrom === "" &&
+    dateTo === "";
+
   // Status to API status mapping
   const getApiStatus = (filter: FilterStatus): string | undefined => {
     if (filter === "all") return undefined;
@@ -68,25 +77,43 @@ export default function TransactionTable({ t }: TransactionTableProps) {
   // API status conversion
   const apiStatus = getApiStatus(statusFilter);
 
-  // Fetch payments from API
+  // Construct query params for useAppQuery
+  const queryParams = useMemo(() => {
+    const params = new URLSearchParams();
+    params.set("page", String(currentPage));
+    params.set("limit", "10");
+    if (apiStatus) params.set("status", apiStatus);
+    if (dateFrom) params.set("startDate", dateFrom);
+    if (dateTo) params.set("endDate", dateTo);
+    return params.toString();
+  }, [currentPage, apiStatus, dateFrom, dateTo]);
+
+  const endpoint = `${PAYMENTS_ENDPOINTS.USER_LIST}${queryParams ? `?${queryParams}` : ""}`;
+
+  // Fetch payments using useAppQuery
   const {
-    payments: apiPayments,
+    data: queryResponse,
     isLoading,
     isFetching,
     error,
-    totalPages,
-    total,
-    hasNextPage,
-    hasPrevPage,
     refetch,
-  } = usePaymentHistory({
-    page: currentPage,
-    limit: 10,
-    status: apiStatus as PaymentStatus,
-    startDate: dateFrom || undefined,
-    endDate: dateTo || undefined,
+  } = useAppQuery<PaginatedPaymentsResponse, Error>({
+    queryKey: ["payments", { currentPage, apiStatus, dateFrom, dateTo }],
+    endpoint,
     enabled: true,
+    options: {
+      ...(isInitialState && initialData ? { initialData } : {}),
+    },
   });
+
+  const effectiveData = queryResponse ?? initialData;
+
+  const apiPayments = effectiveData?.data ?? [];
+  const meta = effectiveData?.meta;
+  const totalPages = meta?.totalPages ?? 1;
+  const total = meta?.total ?? 0;
+  const hasNextPage = (meta?.page ?? 1) < totalPages;
+  const hasPrevPage = (meta?.page ?? 1) > 1;
 
   // Transform API payments to Transaction format
   const transactions: Transaction[] = useMemo(() => {

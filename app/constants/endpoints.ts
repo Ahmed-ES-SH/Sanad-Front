@@ -72,6 +72,7 @@ export const CONTACT_ENDPOINTS = {
 export const PAYMENTS_ENDPOINTS = {
   CREATE_INTENT: "/api/payments/create-intent",
   GET_BY_ID: (id: string) => `/api/payments/${id}`,
+  USER_LIST: "/api/payments",
   ADMIN_LIST: "/api/admin/payments",
   ADMIN_GET: (id: string) => `/api/admin/payments/${id}`,
   ADMIN_REFUND: (id: string) => `/api/admin/payments/${id}/refund`,

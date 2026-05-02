@@ -76,22 +76,10 @@ export function PaymentModal({
     stopPolling();
     setCheckoutState("pending");
 
-    console.log(`[Webhook Polling Request] Initiating polling for payment.`, {
-      paymentId,
-      endpointUrl: `/payments/my-payments/${paymentId}`,
-      timestamp: new Date().toISOString()
-    });
-
     pollCleanupRef.current = pollPaymentStatus({
       paymentId,
       onStatusChange: (status) => {
-        console.log(`[Webhook Polling Response] Received status update: ${status}`, {
-          paymentId,
-          timestamp: new Date().toISOString()
-        });
-
         if (status === "succeeded") {
-          console.log(`[Webhook Polling Success] Payment completed successfully for paymentId: ${paymentId}`);
           setCheckoutState("succeeded");
           stopPolling();
           onSuccess?.();
@@ -99,7 +87,6 @@ export function PaymentModal({
         }
 
         if (status === "failed") {
-          console.error(`[Webhook Polling Failure] Payment failed for paymentId: ${paymentId}`);
           setCheckoutState("failed");
           stopPolling();
           onError?.(t.errors.failed);
@@ -119,18 +106,8 @@ export function PaymentModal({
               response?: { status?: number };
             }
           ).response?.status;
-          
-        console.error(`[Webhook Polling Error] Request failed:`, {
-          paymentId,
-          endpointUrl: `/payments/my-payments/${paymentId}`,
-          error: error.message,
-          statusCode,
-          fullError: error,
-          timestamp: new Date().toISOString()
-        });
 
         if (statusCode === 401) {
-          console.warn(`[Webhook Polling Auth] Session expired during polling`);
           setCheckoutState("auth_required");
           stopPolling();
           onError?.(t.errors.sessionExpired);
@@ -139,7 +116,6 @@ export function PaymentModal({
         onError?.(t.errors.unableToVerify);
       },
       onTimeout: () => {
-        console.warn(`[Webhook Polling Timeout] Polling timed out for paymentId: ${paymentId}`);
         setCheckoutState("verification_delayed");
         onError?.(t.errors.verificationDelayed);
       },
@@ -269,10 +245,7 @@ export function PaymentModal({
                   </div>
                 </div>
               ) : (
-                <PaymentProcessing
-                  title={t.initializing}
-                  description={""}
-                />
+                <PaymentProcessing title={t.initializing} description={""} />
               )}
             </div>
           </motion.div>
