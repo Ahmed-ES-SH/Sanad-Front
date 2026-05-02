@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import { SOCKET_CONFIG } from "@/app/constants/notifications";
 
 const API_BASE_URL =
-  process.env.API_BASE_URL || "https://sanad-backend.vercel.app";
+  process.env.NEXT_PUBLIC_API_BASE_URL || "https://sanad-backend.vercel.app";
 
 export function createNotificationSocket() {
   return io(API_BASE_URL, {

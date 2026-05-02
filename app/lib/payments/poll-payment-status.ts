@@ -47,8 +47,16 @@ export function pollPaymentStatus({
     attempts++;
 
     try {
+      console.log(`[Poll Request Attempt ${attempts}] GET /payments/my-payments/${paymentId}`, {
+        timestamp: new Date().toISOString()
+      });
       const payment = await getMyPaymentById(paymentId);
       const { status } = payment;
+      console.log(`[Poll Response Attempt ${attempts}] Success:`, {
+        status,
+        payment,
+        timestamp: new Date().toISOString()
+      });
 
       onStatusChange(status);
 
@@ -58,6 +66,10 @@ export function pollPaymentStatus({
       }
     } catch (error) {
       // Log error but continue polling
+      console.error(`[Poll Error Attempt ${attempts}] Request failed:`, {
+        error: error instanceof Error ? error.message : String(error),
+        timestamp: new Date().toISOString()
+      });
       if (onError && error instanceof Error) {
         onError(error);
       }
